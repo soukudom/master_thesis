@@ -1,0 +1,21 @@
+\begin{thebibliography}{1}
+\providecommand{\biburl}[1]{\url{#1}}
+\providecommand{\urlprefix}{Dostupn{\' e} z: }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\Url}\fi
+\providecommand{\selectlanguage}[1]{\relax}
+\providecommand{\eprint}[2][]{\biburl{#2}}
+
+\bibitem{iotDevices}
+Statista: Internet of Things (IoT) connected devices installed base worldwide
+  from 2015 to 2025. Statista. [online], 2016 [cit. 2018-01-14].
+\urlprefix\biburl{https://www.statista.com/statistics/471264/iot-number-of-connected-devices-worldwide/}
+
+\bibitem{fog}
+Statista: Fog Computing and the Internet of Things: Extend the Cloud to Where
+  the Things Are. Cisco. [online], 2015 [cit. 2018-01-15].
+\urlprefix\biburl{https://www.cisco.com/c/dam/en_us/solutions/trends/iot/docs/computing-overview.pdf}
+
+\end{thebibliography}

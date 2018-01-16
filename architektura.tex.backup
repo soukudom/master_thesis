@@ -1,0 +1,24 @@
+\section{Architektura IoT sítí}
+  V blízké době se očekává stále větší nárůst zařízení, která jsou připojena k internetu.
+  Dle odhadů by jejich počet měl v roce 2020 překročit 30 miliard \cite{iotDevices}.
+  Pro takové množtví připojení už není možné, aby každé zařízení komunikovalo přímo
+  se vzdáleným datovým centrem, protože nároky na potřebnou šířku pásma by byly 
+  obrovské \cite{fog}.
+  Dalším problémem je často velmi omezený výkon připojených prvků, který je nezbytný pro 
+  použití bezpečnostních funkcí umožňujících kompletně zabezpezpečenou komunikaci. 
+  
+  Řešení těchto problémů je do probíhající komunikace přidat několik podvrstev, 
+  které umožní přesunout výpočetní výkon blíže ke koncovým zařízením, a tím celý
+  proces zpracování dat provést efektivněji.
+ \subsection{Fog computing} 
+ Fog computing je rozšíření Cloud computingu, které spočívá v pře
+ \subsection{IoT brána} 
+ \subsection{Komunikační model}
+ \subsection{Bezpečnostní hrozby komunikačního modelu}
+ \section{Analýza síťových protokolů}
+ \section{Analýza senzorových protokolů}
+ \section{BeeeOn brána}
+ \section{NEMEA framework}
+ \section{Existující řešení}
+ \section{Analýza požadavků}
+ \section{Zvolené řešení}
