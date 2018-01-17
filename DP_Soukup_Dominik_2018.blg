@@ -8,45 +8,45 @@ Warning--entry type for "iotDevices" isn't style-file defined
 Warning--entry type for "fog" isn't style-file defined
 --line 9 of file mybibliographyfile.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-You've used 2 entries,
+You've used 3 entries,
             3151 wiz_defined-function locations,
-            661 strings with 5887 characters,
-and the built_in function-call counts, 598 in all, are:
-= -- 38
-> -- 14
-< -- 0
-+ -- 6
-- -- 4
-* -- 26
-:= -- 81
-add.period$ -- 4
-call.type$ -- 2
-change.case$ -- 6
+            668 strings with 6054 characters,
+and the built_in function-call counts, 1201 in all, are:
+= -- 84
+> -- 28
+< -- 1
++ -- 14
+- -- 8
+* -- 55
+:= -- 145
+add.period$ -- 6
+call.type$ -- 3
+change.case$ -- 12
 chr.to.int$ -- 0
-cite$ -- 2
-duplicate$ -- 54
-empty$ -- 65
-format.name$ -- 4
-if$ -- 123
+cite$ -- 3
+duplicate$ -- 113
+empty$ -- 125
+format.name$ -- 9
+if$ -- 262
 int.to.chr$ -- 0
-int.to.str$ -- 2
-missing$ -- 12
-newline$ -- 18
-num.names$ -- 4
-pop$ -- 32
+int.to.str$ -- 3
+missing$ -- 24
+newline$ -- 21
+num.names$ -- 6
+pop$ -- 62
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 10
 quote$ -- 0
-skip$ -- 20
+skip$ -- 49
 stack$ -- 0
-substring$ -- 10
-swap$ -- 22
-text.length$ -- 0
+substring$ -- 44
+swap$ -- 52
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 8
+type$ -- 12
 warning$ -- 0
-while$ -- 4
-width$ -- 3
-write$ -- 27
+while$ -- 8
+width$ -- 4
+write$ -- 36
 (There were 2 warnings)

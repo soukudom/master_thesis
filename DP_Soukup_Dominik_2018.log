@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  16 JAN 2018 22:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  17 JAN 2018 16:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -980,7 +980,7 @@ e
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-<cvut-logo-bw.pdf, id=110, 554.07pt x 193.29715pt>
+<cvut-logo-bw.pdf, id=114, 554.07pt x 193.29715pt>
 File: cvut-logo-bw.pdf Graphic file (type pdf)
  <use cvut-logo-bw.pdf>
 Package pdftex.def Info: cvut-logo-bw.pdf used on input line 47.
@@ -1048,7 +1048,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 4.
-) [9] [10]
+ [9]) [10]
 (./DP_Soukup_Dominik_2018.lof) [11
 
 ] [12
@@ -1071,25 +1071,26 @@ l.76 \chapter
 ] [3] [4
 
 ] (./architektura.tex
-<pictures/fog.png, id=222, 933.4875pt x 678.535pt>
+<pictures/fog.png, id=227, 933.4875pt x 678.535pt>
 File: pictures/fog.png Graphic file (type png)
  <use pictures/fog.png>
 Package pdftex.def Info: pictures/fog.png used on input line 25.
 (pdftex.def)             Requested size: 354.72894pt x 257.84598pt.
 
-[5])
+[5] [6 <./pictures/fog.png>])
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6 <./pictures/fog.png>] [7] [8
+ [7]
+[8] (./navrh.tex) [9
 
-] (./navrh.tex) [9] [10
+] [10
 
 ] [11] [12
 
 ] [13] [14
 
-]
-(./DP_Soukup_Dominik_2018.bbl [15] [16
+] (./DP_Soukup_Dominik_2018.bbl
+[15] [16
 
 ]
 bibitemlist
@@ -1115,7 +1116,7 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 258.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 258.
 Package rerunfilecheck Info: File `DP_Soukup_Dominik_2018.out' has not changed.
 
-(rerunfilecheck)             Checksum: B93764AE80DC0B0593C2D43FF39B822E;3114.
+(rerunfilecheck)             Checksum: 03BA2442E4476B56D4A95CCFA0FDE68E;3245.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1123,13 +1124,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 258.
  ) 
 Here is how much of TeX's memory you used:
- 13403 strings out of 493029
- 184436 string characters out of 6136234
- 312530 words of memory out of 5000000
- 16738 multiletter control sequences out of 15000+600000
+ 13411 strings out of 493029
+ 184559 string characters out of 6136234
+ 312666 words of memory out of 5000000
+ 16742 multiletter control sequences out of 15000+600000
  65990 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,11n,29p,1106b,396s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,11n,29p,1106b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
 ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/s
 hare/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/publi
@@ -1140,10 +1141,10 @@ f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on DP_Soukup_Dominik_2018.pdf (35 pages, 332949 bytes).
+Output written on DP_Soukup_Dominik_2018.pdf (35 pages, 338162 bytes).
 PDF statistics:
- 370 PDF objects out of 1000 (max. 8388607)
- 314 compressed objects within 4 object streams
- 70 named destinations out of 1000 (max. 500000)
- 203 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 385 PDF objects out of 1000 (max. 8388607)
+ 329 compressed objects within 4 object streams
+ 74 named destinations out of 1000 (max. 500000)
+ 211 words of extra memory for PDF output out of 10000 (max. 10000000)
 

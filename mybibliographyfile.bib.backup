@@ -14,11 +14,3 @@
     url = "https://www.cisco.com/c/dam/en_us/solutions/trends/iot/docs/computing-overview.pdf"
 }
 
-@INPROCEEDINGS{iotSurvey,
-author={K. Zhao and L. Ge},
-booktitle={2013 Ninth International Conference on Computational Intelligence and Security},
-title={A Survey on the Internet of Things Security},
-year={2013},
-pages={663-667},
-}
-

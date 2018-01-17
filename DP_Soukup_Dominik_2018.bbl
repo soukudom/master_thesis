@@ -18,4 +18,9 @@ Statista: Fog Computing and the Internet of Things: Extend the Cloud to Where
   the Things Are. Cisco. [online], 2015 [cit. 2018-01-15].
 \urlprefix\biburl{https://www.cisco.com/c/dam/en_us/solutions/trends/iot/docs/computing-overview.pdf}
 
+\bibitem{iotSurvey}
+Zhao, K.; Ge, L.: A Survey on the Internet of Things Security. In \emph{2013
+  Ninth International Conference on Computational Intelligence and Security},
+  2013, s. 663--667.
+
 \end{thebibliography}
