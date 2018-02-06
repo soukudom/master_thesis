@@ -57,33 +57,48 @@ pokračovat i do budoucnosti, a dokonce v ještě větším měřítku. Odhadem 
 přes 30 miliard připojených zařízení do roku 2020 \cite{iotDevices}.
 Důvodem zrychleného
 růstu je expanze síťového připojení na veškeré elektronické zařízení a senzory, 
-která umožní vzdálené řízení a monitorování. Pro označení tohoto trendu se používá
+které umožní vzdálené ovládání a monitorování. Pro označení tohoto trendu se používá
 termín Internet věcí (Internet of Things, IoT).
 
 Cílem IoT je usnadnit, zlepšit a ušetřit lidskou činnost napříč všemi odvětvími. 
 Uplatnění se nachází zejména ve výrobních podnicích, dopravě nebo běžných domácnostech.
+Příklad konkrétního nasazení popisuje článek \cite{sleeping}, jehož cílem je měření 
+kvality spánku a odhalení případných poruch. Monitorovací systém lze dále 
+propojit například s ovládáním klimatizace, které bude reagovat na aktuální úroveň spánku.
+
 Dále je upraven model komunikace, který již nevyžaduje zasílání zpráv centrálnímu 
 serveru (north-south), ale podporuje přímou komunikaci mezi připojenými uzly (east-west).
 Oblast IoT nezahrnuje jen malá a nevýkonná zařízení, ale jeho součástí jsou i 
 výkonná datová centra a pokročilé algoritmy, které vyhodnocují získané informace.
 
-Hlavní hrozbou Internetu věcí je bezpečnost. Získaná data slouží k 
+Hlavní hrozbou Internetu věcí je bezpečnost. Dochází zde k přenosu citlivých dat,
+která slouží k 
 automatizovanému řízení dalších
-systémů, nebo dokonce k zabezpečovacím účelům. Důležité je tedy získávat validní
-data a mít možnost detekce útoků jako v běžných IP sítích. 	
+systémů, monitorování prostředí a zabezpečovacím účelům. Zároveň s masivním rozšířením nově
+připojených zařízení roste riziko vzniku nových útoků a možnosti způsobení větších
+škod. Příkladem bezpečnostního incidentu je útok na distribuční síť elektrického 
+produ na Ukrajině, který měl dopad na 225 000 zákazníků \cite{ukraine}. 
+Kritickou součástí IoT sítí musí být způsob, který zajistí důvěryhodé
+získávání validních dat, vzdálenou správu a možnost
+detekce útoků jako v běžných IP (Internet Protocol) sítích. 	
 \end{introduction}
 
 \chapter{Cíl práce}
-Cílem magisterské práce je navrhnout, implementovat a otestovat algoritmus pro
-detekci podezřelého anomálního provozu v IoT sítích. Detekce budou probíhat nad 
-daty získanými z provozu IoT brány. Vytvořený algoritmus umožní lokální nebo 
-vzdálené spuštění. V případě vzdáleného spuštění bude brána sloužit jako exportér dat.
+Cílem magisterské práce je analyzovat množinu aktuálně používaných protokolů
+pro komunikaci v IoT sítích a identifikovat jejich bezpečnostní zranitelnosti.
+Při analýze bude věnována pozornost zejména bezdrátovým senzorovým protokolům.
+Na základě získaných znalostí bude navžen, implementován a otestován algoritmus
+pro monitorování a automatickou detekci anomálního provozu v IoT sítích.
+Algoritmus bude možné spustit v 
+prostředí nově vznikající opensource brány BeeeOn, čímž dojde k rozšíření 
+dostupných bezpečnostních funkcí.
+
 
 \chapter{Analýza}
 Kapitola se zabývá analýzou celkové architektury IoT sítí a způsoby pro jejího
 zabezpečení. Postupně je prozkoumán komunikační model, možné bezpečnostní hrozby, 
 a existující řešení pro obranu. Na základě analýzy jsou uvedeny funkční a nefunkční
-požadavky, které jsou kladeny na výsledný program. V závěru josu vybrány konkrétní
+požadavky, které jsou kladeny na výsledný program. V závěru jsou vybrány konkrétní
 technologie pro realizaci.
 
  \input{architektura}
@@ -110,6 +125,9 @@ technologie pro realizaci.
  %\section{Multiplexor a demultiplexor}
 
 \chapter{Realizace}
+ % komunikační rozhranní
+ % algoritmus detektoru
+ 
 
 \chapter{Testování}
 

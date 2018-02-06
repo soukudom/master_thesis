@@ -1,14 +1,7 @@
   \section{Možnosti detekce}
-    \begin{itemize}
-      \item testbed, externí sonda, provozní data
-    \end{itemize}
   % testbed, externi sonda, provozni data
   % analyza sitoveho provozu
  \section{Možnosti nasazení}
-    \begin{itemize}
-      \item popis celkové architektury řešení
-      \item lokální a externí detekce
-    \end{itemize}
   % celkova architektura reseni, lokalni&externi detekce
   % microservice architektura, mozne rozsireni o IP exporter 
  \section{Scénáře útoků}

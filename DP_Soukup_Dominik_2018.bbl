@@ -13,14 +13,33 @@ Statista: Internet of Things (IoT) connected devices installed base worldwide
   from 2015 to 2025. Statista. [online], 2016 [cit. 2018-01-14].
 \urlprefix\biburl{https://www.statista.com/statistics/471264/iot-number-of-connected-devices-worldwide/}
 
+\bibitem{sleeping}
+Milici, S.; Lázaro, A.; Villarino, R.; aj.: Wireless Wearable
+  Magnetometer-Based Sensor for Sleep Quality Monitoring. \emph{IEEE Sensors
+  Journal}, 2018: s. 2145--2152.
+
+\bibitem{ukraine}
+Whitehead, D.~E.; Owens, K.; Gammel, D.; aj.: Ukraine cyber-induced power
+  outage: Analysis and practical mitigation strategies. In \emph{2017 70th
+  Annual Conference for Protective Relay Engineers (CPRE)}, 2017, s. 1--8.
+
 \bibitem{fog}
 Statista: Fog Computing and the Internet of Things: Extend the Cloud to Where
   the Things Are. Cisco. [online], 2015 [cit. 2018-01-15].
 \urlprefix\biburl{https://www.cisco.com/c/dam/en_us/solutions/trends/iot/docs/computing-overview.pdf}
 
+\bibitem{beeeon}
+BeeeOn: Main Page. beeeon.org. [online], 2017 [cit. 2018-02-06].
+\urlprefix\biburl{https://beeeon.org}
+
 \bibitem{iotSurvey}
 Zhao, K.; Ge, L.: A Survey on the Internet of Things Security. In \emph{2013
   Ninth International Conference on Computational Intelligence and Security},
   2013, s. 663--667.
+
+\bibitem{secFramework}
+Pacheco, J.; Hariri, S.: IoT Security Framework for Smart Cyber
+  Infrastructures. In \emph{2016 IEEE 1st International Workshops on
+  Foundations and Applications of Self* Systems (FAS*W)}, 2016, s. 242--247.
 
 \end{thebibliography}
