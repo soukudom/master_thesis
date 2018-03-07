@@ -65,12 +65,23 @@
  Příkladem protokolů pro senzorové sítě je například:
  Z-Wave, Bluetooth a Zigbee. Jejich detailní popis se nachází v kapitole \ref{protokoly}.
  Tato různorodost vyžaduje, aby brána obsahovala dodatečná rozhranní, které 
- umožní připojení nejrůznějších bezdrátových i drátových koncových prvků.
+ umožní připojení nejrůznějších bezdrátových i drátových koncových prvků. 
+ 
+ V součastné době existuje mnoho různých bran jejichž parametry se liší dle 
+ způsobu nasazení a provozních nároků. Velkým problémem v této oblasti je malý 
+ důraz na bezpečnostní funkce, které umožní vzdálené řízení brány, kontrolu provozu a 
+ aktualizace programového vybavení. Z těchto důvodů vznikl opensource projekt BeeeOn \cite{beeeon}
+ jehož cílem je vytvořit softwarou IoT bránu, kterou bude možné spustit na různých 
+ hardwarových platformách. BeeeOn brána je navržena modulárně tak, aby byla schopna 
+ zpracovávat více rozdílných senzorových protokolů, a tím je možné provozovat jedno
+ univerzální zařízení namísto několika proprietárních. Zároveň je kladen důraz na bezpečnost 
+ a veškeré údaje, které je možné získat o provozu, jsou poskytovány pro analýzu. Nad těmito údaji
+ je postaven detekční algoritmus, který je výsledkem této diplomové práce.
  
  %přidat popis BeeeOn
 
  \subsection{Komunikační model a jeho hrozby}
- Při použití principů popsaných v předchzích kapitolách lze model komunikace
+ Při použití principů popsaných v předchzích kapitolách lze model komunikace rozdělit
  do následujících vrstev \cite{iotSurvey}:
  \begin{itemize}
  \item Aplikační vrstva 
@@ -124,6 +135,77 @@
  
  \section{Používané komunikační protokoly} \label{protokoly}
   \subsection{MQTT}
+  MQTT je otevřený komunikační protokol typu pulish/subcribe, který byl navržen
+  v roce 1999. Již od návrhu byl zaměřen na nízkou náročnost komunikace a jednoduchost
+  implementace. Díky těmto vlastnostem je velmi vhodný pro IoT a M2M systémy.
+  \subsubsection{Způsob komunikace}
+  
+  Protokol MQTT je postaven nad transportní vrstvou TCP (Transmission Control Protocol)
+  a využívá model pulish/subcribe, který vychází z tradičního způsobu zasílání zpráv
+  typu klient-server. Roli serveru zde plní speciální uzel, který se nazývá broker.
+  Broker je známý všem ostatním klientům, kteří mohou zasílat zprávy pomocí operace
+  publish nebo se přihlásit o příjem zpráv díky operaci subscribe.
+  Na základě provedených operací broker přijímá zprávy a rozhoduje o jejich přeposlání.
+  Způsob odeslání zprávy závisí na obsažených metadatech. 
+  
+  Nejčastěji o směru odesláni rozhoduje předmět (topic) zprávy. Předmět je tvořen
+  jednoduchým UTF-8 řetězcem s hierarchickou strukturou, ve které jsou jednolivé
+  vrstvy odděleny dopředným lomítkem (např. /domov/přízemí/světloŠatna). V předmětu
+  zprávy mohou být některé vrstvy nahrazeny zástupnými symboly + a \#. Symbol + dokáže
+  nahradit pouze jednu úroveň předmětu libovolným řetězcem a symbol \# umožňuje
+  zastoupit více úrovní. Díky těmto symbolům mohou klienti odeslat nebo přijímat
+  zprávy z více témat.
+  
+  Další užitečnou položkou protokolu MQTT je QoS (Quality of Service),
+  která může nabývat hodnot 0, 1 nebo 2.
+  
+   \begin{itemize}
+    \item \textbf{QoS 0}
+    
+    Veškeré zprávy jsou odesílány bez potvrzení a žádným způsobem
+    není zvýšena úroveň spolehlivosti, která je shodná se spolehlivostí protokolu TCP.
+    
+    \item \textbf{QoS 1}
+    
+    Pomocí potvrzování zajišťuje, že každá zpráva bude příjemci doručena alespoň jednou.
+    
+    \item \textbf{QoS 2}
+    
+     Umožňuje, aby každá zpráva byla spolehlivě doručena právě jednou.
+   \end{itemize}
+  Hodnota QoS se nastavuje vždy mezi dvěma uzly při navazování spojení.
+  Z pohledu brokeru se může stát, že přijatá a odeslaná zpráva mají jiné QoS.
+  Úrovně 1 a 2 dále umožňují perzistetní ukládání zpráv v případě, že příjemce je
+  nedostupný. Zároveň platí, že s vyšší úrovní roste i režie komunikace.
+ \subsubsection{Bezpečnost}
+ Zabezpečení protokolu MQTT je možné rozdělit do následujících vrstev:
+ \begin{itemize}
+  \item \textbf{Síťová vrstva}
+    Veškerá komunikace postavena nad TCP/IP. Z tohoto důvodu je možné komunikaci
+    zapouzdřit pomocí VPN (Virtual Private Network) připojení
+    jako v běžných počítačových sítích. Z důvodu větších nároků na výkon je toto
+    řešení vhodnější pro výkonější zařízení jako jsou například IoT brány, které
+    mohou s brokerem navázat site-to-site spojení.
+    
+  \item \textbf{Transportní vrstva}
+  Na této úrovni se využívá šifrování provozu pomocí protokolu TLS (Transport
+  Layer Security). Omezením této metody jsou požadavky na výkon, které mohou být
+  poměrně vysoké pokud nastává časté navazování spojení. 
+  
+  \item \textbf{Aplikační vrstva}
+  Samotný protokol MQTT nedefinuje žádné šifrovací mechanismy na aplikační úrovni. 
+  Zabezpeční dat zde musí zajistit uživatel ještě před zapozdřením do MQTT zprávy. 
+  Ovšem tímto způsobem je možné šifrovat jen tělo zprávy a hlavička zůstává nezměněná.
+  
+  Pro autentizaci je možné využít ověření pomocí jména a hesla nebo x.509 certifikátu.
+  
+ \end{itemize}
+
+ 
+  
+  
+  
+  
   \subsection{COAP}
  % popis funkce fungování MQTT, COAP, (AMQP)
  %\section{Analýza senzorových protokolů} \label{senzory}
