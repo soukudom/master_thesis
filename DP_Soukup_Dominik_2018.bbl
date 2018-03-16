@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \providecommand{\biburl}[1]{\url{#1}}
 \providecommand{\urlprefix}{Dostupn{\' e} z: }
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -41,5 +41,24 @@ Zhao, K.; Ge, L.: A Survey on the Internet of Things Security. In \emph{2013
 Pacheco, J.; Hariri, S.: IoT Security Framework for Smart Cyber
   Infrastructures. In \emph{2016 IEEE 1st International Workshops on
   Foundations and Applications of Self* Systems (FAS*W)}, 2016, s. 242--247.
+
+\bibitem{mqtt}
+OASIS: MQTT Version 3.1.1 Plus Errata 01. OASIS. [online], 2015 [cit.
+  2018-03-08].
+\urlprefix\biburl{http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/errata01/os/mqtt-v3.1.1-errata01-os-complete.html}
+
+\bibitem{mqtt_intro}
+dc~square: MQTT Essentials Wrap-Up. HiveMQ. [online], 2018 [cit. 2018-03-08].
+\urlprefix\biburl{https://www.hivemq.com/blog/mqtt-essentials-wrap-up}
+
+\bibitem{mqtt_sec}
+dc~square: MQTT Security Fundamentals. HiveMQ. [online], 2018 [cit.
+  2018-03-08].
+\urlprefix\biburl{https://www.hivemq.com/mqtt-security-fundamentals/}
+
+\bibitem{coap}
+Shelby, Z.; Hartke, K.; Bormann, C.: The Constrained Application Protocol
+  (CoAP). RFC7252. [online], 2014 [cit. 2018-03-08].
+\urlprefix\biburl{https://tools.ietf.org/html/rfc7252}
 
 \end{thebibliography}

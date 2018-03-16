@@ -34,7 +34,7 @@
      Síťové prvky jsou trvale napájené a připojené k internetu. Podporují pokročilé
      bezpečnostní funkce, a proto je možné například vytvářet šifrované tunelové
      spojení pro bezpečný přenos dat.     
-\item \textbf{Nižší nároky na šířku pásma a latency} \cite{fog}
+\item \textbf{Nižší nároky na šířku pásma a latenci} \cite{fog}
 
     Odeslaná data z koncových zařízení jsou zpracovávána a filtrována na okraji 
     sítě. Tím je možné rychleji reagovat na přijaté zprávy a snížit nároky
@@ -73,9 +73,9 @@
  aktualizace programového vybavení. Z těchto důvodů vznikl opensource projekt BeeeOn \cite{beeeon}
  jehož cílem je vytvořit softwarou IoT bránu, kterou bude možné spustit na různých 
  hardwarových platformách. BeeeOn brána je navržena modulárně tak, aby byla schopna 
- zpracovávat více rozdílných senzorových protokolů, a tím je možné provozovat jedno
- univerzální zařízení namísto několika proprietárních. Zároveň je kladen důraz na bezpečnost 
- a veškeré údaje, které je možné získat o provozu, jsou poskytovány pro analýzu. Nad těmito údaji
+ zpracovávat více rozdílných senzorových protokolů, a tím bude možné provozovat jedno
+ univerzální zařízení namísto několika proprietárních. Zároveň je kladen důraz na bezpečnost, 
+ a proto veškeré údaje, které je možné získat o provozu, jsou poskytovány pro analýzu. Nad těmito údaji
  je postaven detekční algoritmus, který je výsledkem této diplomové práce.
  
  %přidat popis BeeeOn
@@ -135,9 +135,9 @@
  
  \section{Používané komunikační protokoly} \label{protokoly}
   \subsection{MQTT}
-  MQTT je otevřený komunikační protokol typu pulish/subcribe, který byl navržen
+  MQTT je otevřený síťový komunikační protokol typu pulish/subcribe, který byl navržen
   v roce 1999. Již od návrhu byl zaměřen na nízkou náročnost komunikace a jednoduchost
-  implementace. Díky těmto vlastnostem je velmi vhodný pro IoT a M2M systémy.
+  implementace. Díky těmto vlastnostem je velmi vhodný pro IoT a M2M systémy. \cite{mqtt}
   \subsubsection{Způsob komunikace}
   
   Protokol MQTT je postaven nad transportní vrstvou TCP (Transmission Control Protocol)
@@ -146,7 +146,15 @@
   Broker je známý všem ostatním klientům, kteří mohou zasílat zprávy pomocí operace
   publish nebo se přihlásit o příjem zpráv díky operaci subscribe.
   Na základě provedených operací broker přijímá zprávy a rozhoduje o jejich přeposlání.
-  Způsob odeslání zprávy závisí na obsažených metadatech. 
+  Způsob odeslání zprávy závisí na obsažených metadatech.
+  
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[scale=0.38]{pictures/mqtt}
+\caption{MQTT architektura}
+\label{obr.mqtt-arch}
+\end{center}
+\end{figure}
   
   Nejčastěji o směru odesláni rozhoduje předmět (topic) zprávy. Předmět je tvořen
   jednoduchým UTF-8 řetězcem s hierarchickou strukturou, ve které jsou jednolivé
@@ -176,7 +184,7 @@
   Hodnota QoS se nastavuje vždy mezi dvěma uzly při navazování spojení.
   Z pohledu brokeru se může stát, že přijatá a odeslaná zpráva mají jiné QoS.
   Úrovně 1 a 2 dále umožňují perzistetní ukládání zpráv v případě, že příjemce je
-  nedostupný. Zároveň platí, že s vyšší úrovní roste i režie komunikace.
+  nedostupný. Zároveň platí, že s vyšší úrovní roste i režie komunikace. \cite{mqtt_intro}
  \subsubsection{Bezpečnost}
  Zabezpečení protokolu MQTT je možné rozdělit do následujících vrstev:
  \begin{itemize}
@@ -186,13 +194,13 @@
     zapouzdřit pomocí VPN (Virtual Private Network) připojení
     jako v běžných počítačových sítích. Z důvodu větších nároků na výkon je toto
     řešení vhodnější pro výkonější zařízení jako jsou například IoT brány, které
-    mohou s brokerem navázat site-to-site spojení.
+    mohou s brokerem navázat site-to-site spojení. \cite{mqtt_sec}
     
   \item \textbf{Transportní vrstva}
   
   Na této úrovni se využívá šifrování provozu pomocí protokolu TLS (Transport
   Layer Security). Omezením této metody jsou požadavky na výkon, které mohou být
-  poměrně vysoké pokud nastává časté navazování spojení. 
+  poměrně vysoké pokud nastává časté navazování spojení. \cite{mqtt_sec}
   
   \item \textbf{Aplikační vrstva}
   
@@ -209,28 +217,143 @@
   
   Dále je na straně brokeru možné definovat pravidla pro autorizaci. Tyto pravidla 
   přiřazují klientů oprávnění pro provedení operací publish a subscribe
-  nad příslušnými tématy.
+  nad příslušnými tématy. \cite{mqtt_sec}
   
  \end{itemize}
 
- 
-  
-  
-  
-  
   \subsection{COAP}
- % popis funkce fungování MQTT, COAP, (AMQP)
- %\section{Analýza senzorových protokolů} \label{senzory}
+  CoAP (Constrained Application Protocol) je otevřený přenosový protokol určený pro
+  komunikaci síťových zařízení s velmi omezeným výkonem. Návrh vychází z RESTful
+  (Representational State Transfer) principů, tudíž jeho použití je velmi vhodné
+  v prostředích s již existujícím webových rozhraním, do kterého se snadno integruje. \cite{coap}
+  
+   \subsubsection{Způsob komunikace}
+   Komunikace je postavena nad protokolem UDP (User Datagram Protocol) a vychází
+   z modelu request/response, který se využívá u protokolu HTTP (Hypertext
+   Transfer Protocol). Oproti protokolu HTTP je zde omezen počet možných operací
+   a komunikace probíhá asynchronně. Dle důležitosti odesílané zprávy je možné určit,
+   zda se má zasílat potvrzení či nikoli. Protože veškerá komunikace probíhá nad
+   protokolem UDP, tak přenášené zprávy obsahují položku Message ID, která dokáže
+   ošetřit duplikaci přijatých dat.
+   %pokud to bude krátků můžu přidat option políčka pro udělání akce po splnění podmíky
+   
+   Pro zajištění integrace s běžnými webovými službami a zachování nízkých nároků
+   se v CoAP topologii velmi často vyskytují proxy servery. Tyto servery mohou plnit
+   funkci běžných reverzních a dopředných proxy, mapování mezi CoAP a HTTP protokolem
+   nebo vyvažování zátěže. 
+   
+   Ve specfikaci protokolu CoAP jsou definovány následující operace:
+   \begin{itemize}
+    \item \textbf{GET}
+    
+    Metoda \textit{GET} vrací aktuální stav požadovaného zdroje, který je identifikován pomocí
+    URI (Uniform resource identifier). Tato operace je vždy bezpečná a idempotentní.
+    
+    \item \textbf{POST}
+    
+    \textit{POST} požadavek obsahuje ve svém těle novou reprezentaci cílového zdroje a požaduje 
+    jeho zpracování. Funkce, která
+    novou reprezentaci přijímá je definovaná na cílovém uzlu s příslušným URI.
+    Výsledkem je vytvoření nového zdroje nebo aktualizace původního. Tato metoda
+    není z pohledu zpracování bezpečná ani idempotentní.
+    
+    \item \textbf{PUT}
+    
+    Tato metoda specifikuje nový stav cílového zdroje, který se buď vytvoří, nebo 
+    v případě jeho existence aktualizuje. Provedení operace není bezpečné, ale 
+    je idempotentní.
+    
+    \item \textbf{DELETE}
+    
+    Operace \textit{DELETE} požaduje smazání zdroje s příslušným URI. Tato metoda není bezpečná,
+    ale je idempotentní.
+    
+   \end{itemize}
+   
+   Vyhledání potřebného zdroje je v topologii protokolu CoAP možné provést pomocí
+   znalosti jeho URI nebo odesláním multicastového požadavku na definovanou
+   skupinu uzlů. Možnost vyhledávání cílových zdrojů je velmi důležitá zejména
+   v M2M prostředích. \cite{coap}
+   
+   \subsubsection{Bezpečnost}
+   Samotný protokol nijak nedefinuje možnost autentizace a autorizace. V případě
+   potřeby je nutné tyto mechanismy implementovat v aplikačním kódu. 
+   
+   Pro zajištění šifrování provozu nabízí CoAP následující režimy:
+   \begin{itemize}
+    \item \textbf{NoSec}
+    
+    Tento mód neobsahuje žádnou úroveň zabezpeční a veškeré zprávy jsou zasílány
+    v otevřené podobě. 
+    
+    \item \textbf{PreSharedKey}
+    
+    V tomto případě se náváže spojení pomocí protokolu DTLS (Datagram Transport
+    Layer Security), které využívá symetrické šifrování. Předsdílený klíč musí
+    být známý všem uzlům před zahájením komunikace. 
+    
+    \item \textbf{RawPublicKey}
+    
+    Tento režim také navuzuje zabezpečené spojení pomocí protokolu DTLS, ale místo
+    symetrické šifry se používá asymetrická.
+    
+    \item \textbf{Certificate}
+    
+    Mód \textit{Certificate} rozšiřuje \textit{RawPublicKey} o přidání certifikátu.
+   \end{itemize}
+
+   Podobně jako u protokolu MQTT je i zde možné ochránit provoz na síťové
+   vrstvě pomocí VPN. Při nasazení libovolného režimu zabezpeční je nutné počítat 
+   s většími nároky na výkon, které musí klient splňovat pro navazování a udržování 
+   spojení. \cite{coap}
+   
   \subsection{Z-Wave}
+  
+  Z-Wave je bezdrátový komunikační protokol určený pro senzorové sítě, který vysílá 
+  v subgigahercových pásmech ISM (Industrial, Scientific and Medical). Veškeré komunikační
+  prvky jsou certifikovány aliancí Z-Wave, která zároveň poskytuje technickou dokumentaci a
+  licence pro vývoj. Otevřená implementace celého protokolu se nazývá OpenZWave, která %http://www.openzwave.net/
+  je vyvíjena komunitou. %cesnet dokument
+ 
+ \subsubsection{Způsob komunikace}
+ V Z-Wave síti se může maximálně vyskytovat 232 uzlů, mezi kterými se vždy nachází jeden označený
+ jako kontroler. Pro přidání libovolného zařízení do sítě musí být nejprve provedo příme spárování
+ s kontrolerem. Během párovacího procesu nový prvek získá vlastní 8 bitový identifikátor (\textit{Node ID}) a 
+ unikátní 32 bitový identifikátor sítě (\textit{Home ID}), který má již od výroby kontroler uložen v nepřepisovatelné paměti.
+ Následné zasílání zpráv už nemusí probíhat přímo mezi senzorem a kontrolerem, ale zprávy mohou
+ být přeposílány sousední prvky, které jsou trvale napájené, čímž se velmi zvyšuje možná rozloha sítě. 
+ Pro odebrání libolného zařízení je opět nutné zajisiti přimé spojení s kontrolerem a spustit odstraňovací
+ proces. 
+ 
+ V rámci specifikace Z-Wave je definován mechanismus pro určení dostupných příkazů. Každý senzor obsahuje
+ svou definici tříd funkcionalit (\textit{Command Class}), které obsahují dostupné příkazy a formát odpovědi. Tyto definice
+ jsou předány kontroleru během procesu párování. Příkladem může být třída \textit{Binary Switch}, která obsahuje příkazy:
+ \begin{itemize}
+ \item \textit{SET} - odesílá kontroler pro nastavení hodnoty 
+ \item \textit{GET} - odesílá kontroler pro získání hodnoty  
+ \item \textit{REPORT} - odesílá senzor jako odpověď na dotaz \textit{GET} 
+ \end{itemize}
+ 
+ Při posílání zpráv je vždy vyžadováno potvrzení. V případě neobdržení potvrzení se vysílání opakuje. 
+ Po třetím neúspěšném pokusu je požadavek zahozen.
+ 
+ \subsubsection{Bezpečnost}
+ 
   \subsection{Bluetooth}
+  \subsubsection{Způsob komunikace}
+ 
+   \subsubsection{Bezpečnost}
  % popis a bezpečnostní analýza ZWave a Bluetooth
- \section{Bezpečnostní slabiny a možnosti detekce}
+  \section{Bezpečnostní slabiny}
+ \section{Možnosti detekce}
  \begin{itemize}
  \item Vnější vs vnitřní útoky
  \item Signature based vs Anomaly based
  \item paketová vs flow vs extended flow analýza
  \item Senzorová data - provozní data z driverů vs dedikované zařízení (SDR, ...)
 \end{itemize}
+
+
  % popis IDS principů
  %vnitrni a vnejsi utoky
  %ziskavani statistickych dat ze senzorů
@@ -248,3 +371,4 @@
  % teprve nedávno vznikly signatury pro SCADA
  \section{Analýza požadavků}
  \section{Zvolené řešení}
+ povídání o nutnosti učení se, ... další poznámky z telefonu
