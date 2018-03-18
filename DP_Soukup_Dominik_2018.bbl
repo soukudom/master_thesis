@@ -61,4 +61,31 @@ Shelby, Z.; Hartke, K.; Bormann, C.: The Constrained Application Protocol
   (CoAP). RFC7252. [online], 2014 [cit. 2018-03-08].
 \urlprefix\biburl{https://tools.ietf.org/html/rfc7252}
 
+\bibitem{z-plus}
+Alliance, Z.-W.: Z-Wave Plus Certification. Z-Wave Alliance. [online], 2018
+  [cit. 2018-03-17].
+\urlprefix\biburl{https://z-wavealliance.org/z-wave_plus_certification/}
+
+\bibitem{openzwave}
+OpenZWave: OpenZWave. OpenZWave. [online], 2018 [cit. 2018-03-17].
+\urlprefix\biburl{http://www.openzwave.net/}
+
+\bibitem{cesnet-survey}
+Krejčí, R.; Hujňák, O.; Švepeš, M.: Security survey of the IoT wireless
+  protocols. In \emph{2017 25th Telecommunication Forum (TELFOR)}, 2017.
+
+\bibitem{zwave-spec}
+Designs, S.: Introduction to Z-Wave Specifications. ZWave. [online], 2016 [cit.
+  2018-03-18].
+\urlprefix\biburl{http://zwavepublic.com/specifications}
+
+\bibitem{zwave-S0-attack}
+Fouladi, B.; Ghanoun, S.: Security Evaluation of the Z-Wave Wireless Protocol.
+  [online], 2013 [cit. 2018-03-18].
+\urlprefix\biburl{https://sensepost.com/cms/resources/}
+
+\bibitem{ezwave}
+Fouladi, B.; Ghanoun, S.: EZ-Wave. Github. [online], 2016 [cit. 2018-03-18].
+\urlprefix\biburl{https://github.com/cureHsu/EZ-Wave}
+
 \end{thebibliography}
