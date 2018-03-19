@@ -1,7 +1,7 @@
 \section{Architektura IoT sítí}
   V blízké době se očekává stále větší nárůst zařízení, která jsou připojena k internetu.
   Dle odhadů by jejich počet měl v roce 2020 překročit 30 miliard \cite{iotDevices}.
-  Pro takové množtví připojení už není možné, aby každé zařízení komunikovalo přímo
+  Pro takové množství připojení už není možné, aby každé zařízení komunikovalo přímo
   se vzdáleným datovým centrem, protože nároky na potřebnou šířku pásma by byly 
   obrovské \cite{fog}.
   Dalším problémem je často velmi omezený výkon připojených prvků, který je nezbytný pro 
@@ -61,13 +61,13 @@
  výkonnějším síťovým prvkem, tak v rámci brány může probíhat i základní zpracování
  dat. 
  
- Pro IoT sítě je typické, že obsahují velké množtví koncových prvků komunikujících
+ Pro IoT sítě je typické, že obsahují velké množství koncových prvků komunikujících
  různorodými způsoby. Zejména senzory použivají protokoly, které nepodporují
  IP spojení. Důvodem použití této komunikace je často velký
  důraz na nízkou spotřebu a specifické požadavky na způsob zasílání zpráv.
  Příkladem protokolů pro senzorové sítě je například:
  Z-Wave, Bluetooth a Zigbee. Jejich detailní popis se nachází v kapitole \ref{protokoly}.
- Tato různorodost vyžaduje, aby brána obsahovala dodatečná rozhranní, které 
+ Tato různorodost vyžaduje, aby brána obsahovala dodatečná rozhraní, které 
  umožní připojení nejrůznějších bezdrátových i drátových koncových prvků. 
  
  V součastné době existuje mnoho různých bran jejichž parametry se liší dle 
@@ -109,7 +109,7 @@
  Po zpracování senzorových dat na bráně je nutné získané informace odeslat dalším
  službám. K tomuto účelu slouží síťová vrstva. Cílem této vrstvy je také umožnění 
  vzdálené správy brány \cite{secFramework}. Pro výběr konkrétního protokolu je 
- nutné znát rozhranní aplikační vrstvy. Nicméně spojení je většinou vytvořeno
+ nutné znát rozhraní aplikační vrstvy. Nicméně spojení je většinou vytvořeno
  pomocí protokolu HTTPS (Hypertext Transfer Protocol Secure) nebo technologie
  VPN (Virtual Private Network). Nad tímto spojením je postaven další služba pro 
  výměnu zpráv. Příkladem může být: MQTT (Message Queuing Telemetry Transport),
@@ -122,7 +122,7 @@
  MITM (Man In The Middle) a podvržení informací. Zároveň je nutné
  nezapomenout, že se zde většinou vyskytuje M2M (Machine To Machine)
  komunikace a je důležité použít 
- vhodná komunikační rozhranní \cite{iotSurvey}.
+ vhodná komunikační rozhraní \cite{iotSurvey}.
  
  \subsubsection{Aplikační vrstva}
  Aplikační vrstva se stará o ukládání dlouhodobých dat a jejich finální zpracování. 
@@ -132,7 +132,7 @@
  
  Tato vrstva je umístěna vetšinou v datovém centru a umožňuje vzdálený přístup. 
  Její bezpečnostní problémy lze přirovnat k problémům cloud computingu. Dle
- množtví požadovaných funkcí může být různě složitá a s rostoucí složitostí
+ množství požadovaných funkcí může být různě složitá a s rostoucí složitostí
  se také liší nároky na úroveň zabezpečení. Příkladem možných útoků může být:
  Buffer Overflow, SQL Injection nebo DDoS.
  
@@ -207,21 +207,67 @@
  je ztráta celkového pohledu na síť. Při zavedení IDS/IPS systému je z těchto důvodů dobré 
  kombinovat způsoby nasazení a umožnit vzájemné sdílení detekovaných incidentů.
  
+ %\section{Metody zpracování}
+ Při zaměření na zpracovávání datových toků lze dekteční systémy rozdělit do dvou základních kategorií:
  \begin{itemize}
- \item Možnosti detekce: testbed, externí sonda, provozní data
- \item Vnější vs vnitřní útoky
- \item Signature based vs Anomaly based
- \item paketová vs flow vs extended flow analýza
- \item Senzorová data - provozní data z driverů vs dedikované zařízení (SDR, ...)
-\end{itemize}
+  \item \textbf{Detekce anomálií}
+  
+  Tato metoda je založena na statistickém modelování. Nejprve se vytvoří profil běžného chování sítě, 
+  který se následně porovnává s aktuálním provozem. Dle použité metody se může profil běžného provozu
+  průběžně aktualizovat. Pokud měřené hodnoty síťového provozu překročí hodnotu stanoveného profilu
+  nad definovaný limit, tak je detekován incident. Výhodou metody anomálií je její uplatnění i na 
+  dosud neznámé útoky. Tento princip zároveň způsobuje větší míru falešných poplachů, a proto 
+  je nutné jejich pečlivější ověření. Příkladem detekčních metod je: strojové učení, časové řady nebo
+  stavové automaty \cite{ids-ips}.
+  
+  \item \textbf{Detekce signatur}
+  
+  V případě použítí této metody je využíváno signatur (profilů) předem známých útoků. Výhodou je, že díky 
+  popsaným signaturám je tato metoda poměrně přesná a detekuje málo falešných incidentů. Naopak
+  nevýhodou je, že není možné detekovat nové druhy útoků, pro které není známý profil. Problémem
+  také je, že signatury musí být uloženy na nějakém perzistetním úložišti, které je dostupné 
+  lokálně nebo vzdáleně \cite{ids-ips}.
+ \end{itemize}
+ 
+ %\section{Možnosti detekce}
+ IoT sítě k běžnému IP provozu přidávají senzorové protokoly, jejichž chování je také dobré monitorovat, 
+ protože jsou připojeny do počítačové sítě a mohou být zneužity při útocích. Bohužel detekční metody 
+ nejsou pro tyto sítě moc rozšířené, a tím dochází ke zvýšení rizika a dopadu možných útoků. Pro určení 
+ incidentů lze využít stejných principů jako v IP sítích, ale liší se způsob získávání dat pro analýzu. 
+ Pro sběr informací lze využít následující přístupy:
+ \begin{itemize}
+  \item \textbf{Testbed}
+  
+    Tato metoda spočívá ve vytvoření specializovaného prostředí, ve kterém se nachází pouze testované 
+    a měřící zařízení. Cílem je ověřit, že nově připojovaný senzor splňuje veškeré bezpečnostní 
+    požadavky a neobsahuje žádné známe zranitelnosti. Měřící prvky reprezentují nástroje, které 
+    jsou schopné odposlouchávat komunikaci a využívájí se také například při automatizovaných
+    penetračních testech.   
+  \item \textbf{Externí sonda}
+  
+  Funkce sondy je stejná jako v IP sítích. Jedná se o samostatné zařízení umístěné v sítí, které
+  umožňuje sledovat probíhající komunikaci a odesílat získatné údaje ke zpracování. 
+  Výhodou je velké množství, které lze získat, ale zároveň komplikací je šifrovaný provoz
+  a často i cena kvalitní sondy.
+  Dalším využitím 
+  může být honeypot, kdy se sonda tváří jako zranitelný prvek a reportuje veškeré pokusy o útok.
+    
+  \item \textbf{Provozní statistiky}
+  
+  Posledním způsobem je sběr dat z příslušných rozhraní na IoT bráně. Tento postup nevyžaduje použití
+  žádného dalšího zařízení, ale potřebuje, aby brána umožňovala získávat tyto statistiky. 
+  Statistiky nejsou tak podrobné jako u externí sondy, ale výhodou je, 
+  že získávání aktuálních dat o provozu je poměrně nenáročné.
+ \end{itemize}
+ 
+ Každá z předchozích metod používá jiný styl sběru dat. Při reálném použití je dobré vyhodnotit 
+ bezpečnostní rizika a hrozby, podle kterých lze jednotlivé metody vhodně kombinovat.
 
-
- % popis IDS principů
- %vnitrni a vnejsi utoky
- %ziskavani statistickych dat ze senzorů
- %získávání statistickych dat z IP části
-
+ \newpage
  \section{Existující řešení}
+ 
+ 
+ 
   \begin{itemize}
  \item Existuje řešení pomocí Suricata, které používá Turris (centrální, signature
  based řešení)
@@ -232,5 +278,9 @@
  % aktuální řešení funguje na cetrálním monitorovacím prvku, které monitoruje IP
  % teprve nedávno vznikly signatury pro SCADA
  \section{Analýza požadavků}
+ 
+  \subsection{Funkční požadavky}
+  \subsection{Nefunkční požadavky}
+ 
  \section{Zvolené řešení}
  povídání o nutnosti učení se, ... další poznámky z telefonu

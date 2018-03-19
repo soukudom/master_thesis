@@ -28,9 +28,11 @@
 \contentsline {subsection}{\numberline {2.3.1}Z-Wave}{17}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}BLE}{17}{subsection.2.3.2}
 \contentsline {section}{\numberline {2.4}Mo\IeC {\v z}nosti detekce}{18}{section.2.4}
-\contentsline {section}{\numberline {2.5}Existuj\IeC {\'\i }c\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{18}{section.2.5}
-\contentsline {section}{\numberline {2.6}Anal\IeC {\'y}za po\IeC {\v z}adavk\IeC {\r u}}{19}{section.2.6}
-\contentsline {section}{\numberline {2.7}Zvolen\IeC {\'e} \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{19}{section.2.7}
+\contentsline {section}{\numberline {2.5}Existuj\IeC {\'\i }c\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{20}{section.2.5}
+\contentsline {section}{\numberline {2.6}Anal\IeC {\'y}za po\IeC {\v z}adavk\IeC {\r u}}{20}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Funk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{20}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Nefunk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{20}{subsection.2.6.2}
+\contentsline {section}{\numberline {2.7}Zvolen\IeC {\'e} \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{20}{section.2.7}
 \contentsline {chapter}{\chapternumberline {3}N\IeC {\'a}vrh}{21}{chapter.3}
 \contentsline {section}{\numberline {3.1}Mo\IeC {\v z}nosti nasazen\IeC {\'\i }}{21}{section.3.1}
 \contentsline {section}{\numberline {3.2}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{21}{section.3.2}

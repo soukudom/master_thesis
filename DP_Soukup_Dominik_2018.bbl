@@ -100,4 +100,9 @@ Jasek, S.: Gattacking Bluetooth Smart Devices. SecuRing. [online], 2016 [cit.
 Seri, B.; Vishnepolsky, G.: BlueBorne. Armis. [online], 2017 [cit. 2018-03-18].
 \urlprefix\biburl{http://go.armis.com/hubfs/BlueBorne\%20Technical\%20White\%20Paper-1.pdf}
 
+\bibitem{ids-ips}
+TechTarget: Do you need an IDS or IPS, or both? TechTarget. [online], 2009
+  [cit. 2018-03-19].
+\urlprefix\biburl{http://searchsecurity.techtarget.com/Do-you-need-an-IDS-or-IPS-or-both}
+
 \end{thebibliography}
