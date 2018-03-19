@@ -176,22 +176,22 @@
  Velkou hrozbou jsou zařízení s verzí 4.1 nebo nižší, protože nepodporují žádnou ochranu před 
  odposlouchávání a MITM útokům v době párování. Od verze 4.2 je již pro výměnu klíčů použit ECDH 
  algoritmus, který zabraňuje možnému odposlouchávání, ale v případě použítí párovací metody, které
- nepodporuje autentizaci není zajištěna ochrana před MITM útoky.  \cite{cesnet-survey}
+ nepodporuje autentizaci není zajištěna ochrana před MITM útoky. 
  
- Dalším problémem jsou samotní výrobci, kteří často nevyužívají bezpečnostní funkce protokolu  \cite{ble-locks} nebo
+ Dalším problémem jsou samotní výrobci, kteří často nevyužívají bezpečnostní funkce protokolu nebo
  implementují vlastní způsoby zabezpečení na aplikační úrovni. Tímto dochází k nezabepečení fáze 
- párování a často se vyskytují i implementační chyby, které přinášení další zranitelnosti \cite{ble-attack} a
- umožňují útočníkovi získat kontrolu nad celým provozem.  \cite{cesnet-survey}
+ párování a často se vyskytují i implementační chyby, které přinášení další zranitelnosti a
+ umožňují útočníkovi získat kontrolu nad celým provozem.
  
  Nevýhodou je velmi dlouhá a komplikovaná specifikace protokolu, která vede k implementačním 
- chybám samotného BLE \cite{blueborne}. Tím vzniká nebezpečí, že i u výrobce, který využívá
- všech bezpečnostní funcionalit,
- se mohou vyskytovat zranitelnosti díky chybné implementaci komunikačních vrstev protokolu. \cite{cesnet-survey}
+ chybám samotného BLE. Tím vzniká nebezpečí, že i u výrobce, který všechny bezpečnostní funcionality
+ se mohou vyskytovat zranitelnosti díky chybné implementaci komunikačních vrstev protokolu.
+ 
+ 
  
  \newpage
  \section{Možnosti detekce}
  \begin{itemize}
- \item Možnosti detekce: testbed, externí sonda, provozní data
  \item Vnější vs vnitřní útoky
  \item Signature based vs Anomaly based
  \item paketová vs flow vs extended flow analýza

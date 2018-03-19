@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  18 MAR 2018 17:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  19 MAR 2018 00:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1101,7 +1101,13 @@ Overfull \hbox (0.71346pt too wide) in paragraph at lines 226--229
 tmu ECDH (Elliptic-
  []
 
-[14]) [15] [16]) [17] [18
+[14]
+Overfull \hbox (2.87578pt too wide) in paragraph at lines 277--280
+\T1/lmr/m/n/10.95 ten-ti-zaci. Díky chy-b¥-jící au-ten-ti-zaci je tato me-toda 
+zra-ni-telná v·£i MITM
+ []
+
+) [15] [16]) [17] [18
 
 ] (./navrh.tex) [19] [20
 
@@ -1136,6 +1142,19 @@ Underfull \hbox (badness 3460) in paragraph at lines 78--81
 Wave. [on-
  []
 
+
+Underfull \hbox (badness 1867) in paragraph at lines 100--102
+[]\T1/lmr/m/n/10.95 Seri, B.; Vish-ne-pol-sky, G.: Blu-e-Borne. Ar-mis. [on-lin
+e], 2017 [cit.
+ []
+
+
+Underfull \hbox (badness 7777) in paragraph at lines 100--102
+\T1/lmr/m/n/10.95 2018-03-18]. Do-stupné z: []$\T1/lmtt/m/n/10.95 http : / / go
+\OML/lmm/m/it/10.95 :\T1/lmtt/m/n/10.95 armis\OML/lmm/m/it/10.95 :\T1/lmtt/m/n/
+10.95 com / hubfs / BlueBorne %
+ []
+
 ) [28] [29
 
 ] [30
@@ -1162,10 +1181,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 277.
  ) 
 Here is how much of TeX's memory you used:
- 13471 strings out of 493029
- 185368 string characters out of 6136234
- 314179 words of memory out of 5000000
- 16761 multiletter control sequences out of 15000+600000
+ 13477 strings out of 493029
+ 185445 string characters out of 6136234
+ 314276 words of memory out of 5000000
+ 16764 multiletter control sequences out of 15000+600000
  65990 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,29p,1106b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1179,10 +1198,10 @@ f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on DP_Soukup_Dominik_2018.pdf (45 pages, 444876 bytes).
+Output written on DP_Soukup_Dominik_2018.pdf (45 pages, 448350 bytes).
 PDF statistics:
- 502 PDF objects out of 1000 (max. 8388607)
- 434 compressed objects within 5 object streams
- 111 named destinations out of 1000 (max. 500000)
+ 512 PDF objects out of 1000 (max. 8388607)
+ 444 compressed objects within 5 object streams
+ 114 named destinations out of 1000 (max. 500000)
  200 words of extra memory for PDF output out of 10000 (max. 10000000)
 

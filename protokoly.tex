@@ -275,17 +275,22 @@
      \item \textbf{Just Works}
      
      Nejjednodušší třída, která provádí výměnu automaticky a zároveň má nejmenší nároky 
-     na připojované zařízení, které nemusí podporovat autentizaci. 
+     na připojované zařízení, které nemusí podporovat autentizaci. Díky chybějící autentizaci 
+     je tato metoda zranitelná vůči MITM (Man in the middle) útokům.
      \item \textbf{Out of Band}
      
-     Veškeré klíče jsou vyměňovány odlišným komunikačním kanálem např. přes NFC (Near Field Communication).
+     V této kategorii jsou veškeré klíče vyměňovány odlišným komunikačním kanálem např. přes NFC (Near Field Communication).
      Celková bezpečnost této metody závisí na důvěryhodnoti použitého kanálu.
      \item \textbf{Passkey}
      
-     Tato metoda vylepšuje \textbf{Just Works} o autentizaci, která spočívá v uživatelském zadání šesti 
-     místného kódu. Pro ochran před odposlouchávání musí být použit algoritmus ECDH, který je dostupný
+     Tato metoda vylepšuje \textit{Just Works} o autentizaci, která spočívá v uživatelském zadání šesti 
+     místného kódu. Pro ochranu před odposlouchávání musí být použit algoritmus ECDH, který je dostupný
      až od verze 4.2.
      
      \item \textbf{Numeric Comparison}
+     
+     Využití tohoto způsobu párování je možné pouze od verze 4.2. Dochází zde k rozšíření metody \textit{Just Works}
+     o jeden kontrolní krok, který slouží jako ochrana před MITM útokem. Po výměně klíčů každé zařízení
+     vygeneruje šestimístný číselný kód, který následně zobrazí uživateli a čeká na jeho potvrzení.   
      
     \end{itemize}

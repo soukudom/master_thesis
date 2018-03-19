@@ -117,18 +117,20 @@ pages={2145-2152},
     url = "http://zwavepublic.com/specifications"
 }
 
+@online{zwave-S0-attack,
+    author = {B. Fouladi and S. Ghanoun},
+    title = "Security Evaluation of the Z-Wave Wireless Protocol",
+    howpublished = "[online]",
+    year = {2013 [cit. 2018-03-18]},
+    url = "https://sensepost.com/cms/resources/"
+}
+
 @online{ezwave,
     author = {B. Fouladi and S. Ghanoun},
     title = "EZ-Wave",
     howpublished = "Github. [online]",
     year = {2016 [cit. 2018-03-18]},
     url = "https://github.com/cureHsu/EZ-Wave"
-}
-@INPROCEEDINGS{zwave-S0-attack,
-    author={B. Fouladi and S. Ghanoun},
-    booktitle={ BlackHat Conference, Las Vegas, NV, USA},
-    title={Security Evaluation of the Z-Wave Wireless Protocol},
-    year={2013 [cit. 2018-03-18]},
 }
 
 @INPROCEEDINGS{openzwave-attack,
@@ -141,7 +143,7 @@ pages={2145-2152},
     author={A. Rose and B. Ramsey},
     booktitle={DEF CON, Las Vegas, NV, USA},
     title={Picking Bluetooth Low Energy Locks from a Quarter Mile Away},
-    year={2016 [cit. 2018-03-18]},
+    year={2016},
 }
 
 @online{ble-attack,
@@ -151,14 +153,5 @@ pages={2145-2152},
     year = {2016 [cit. 2018-03-18]},
     url = "http://gattack.io/whitepaper.pdf"
 }
-
-@online{blueborne,
-    author = {B. Seri and G. Vishnepolsky},
-    title = "BlueBorne",
-    howpublished = "Armis. [online]",
-    year = {2017 [cit. 2018-03-18]},
-    url = "http://go.armis.com/hubfs/BlueBorne\%20Technical\%20White\%20Paper-1.pdf"
-}
-
 
 
