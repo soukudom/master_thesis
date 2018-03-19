@@ -190,6 +190,30 @@
  
  \newpage
  \section{Možnosti detekce}
+ V běžných IP sítích se pro detekci hrozeb nejčastěji používají IDS (Intrusion Detection System) a
+ IPS (Intrustion Prevention System) systémy. Tyto služby rozšiřují koncept klasického firewallu, který
+ blokuje nebo povoluje síťový provoz na základě statických pravidel, o podrobnější sledování 
+ datových toků, které jsou zablokovány na základě nestandartního chování.
+ 
+ IDS/IPS může být reprezentováno samostatným hardwarovým zařízením nebo softwarovým programem, který
+ může být dále rozšířen o monitorovací sondy, které se starají pouze o sběr dat a jejich odesílání
+ pro následnou analýzu. Zároveň
+ se může lišit i umístění v síti. Detekční systémy lze provozovat před hraničním směrovačem 
+ a detekovat tak kompletní příchozí a odchozí data nebo za hraničním směrovačem, což 
+ umožní vyhodnocovat jen vyfiltrovaný provoz. Případně je možné nasadit IDS/IPS přímo na koncové
+ stanice, kde kromě síťových dat lze získávat i informace o běhu systému. Poslední způsob poskytuje
+ nejvíce detailní možnost analýzy, protože se provádí na míste vzniku komunikace a případný útok
+ je možné zastavit již při jeho vzniku a zabránit případnému rozšíření. Nevýhodou takového nasazení
+ je ztráta celkového pohledu na síť. Při zavedení IDS/IPS systému je z těchto důvodů dobré 
+ kombinovat způsoby nasazení a umožnit vzájemné sdílení detekovaných incidentů.
+ 
+ Při zaměření na zpracovávání datových toků lze dekteční systémy rozdělit do dvou základních kategorií:
+ \begin{itemize}
+  \item \textbf{Detekce anomáliı́} 
+  \item \textbf{Detekce signatur}
+ \end{itemize}
+ 
+ 
  \begin{itemize}
  \item Možnosti detekce: testbed, externí sonda, provozní data
  \item Vnější vs vnitřní útoky

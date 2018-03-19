@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  19 MAR 2018 00:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  19 MAR 2018 12:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -980,7 +980,7 @@ e
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-<cvut-logo-bw.pdf, id=106, 554.07pt x 193.29715pt>
+<cvut-logo-bw.pdf, id=102, 554.07pt x 193.29715pt>
 File: cvut-logo-bw.pdf Graphic file (type pdf)
  <use cvut-logo-bw.pdf>
 Package pdftex.def Info: cvut-logo-bw.pdf used on input line 47.
@@ -1048,10 +1048,10 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <8> on input line 4.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 4.
-) [9] [10]
-(./DP_Soukup_Dominik_2018.lof) [11
+) [9] [10
 
-] [12
+]
+(./DP_Soukup_Dominik_2018.lof) [11] [12
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
  been already used, duplicate ignored
@@ -1071,14 +1071,14 @@ l.89 \chapter
 ] [3] [4
 
 ] (./architektura.tex
-<pictures/fog.png, id=223, 933.4875pt x 678.535pt>
+<pictures/fog.png, id=220, 933.4875pt x 678.535pt>
 File: pictures/fog.png Graphic file (type png)
  <use pictures/fog.png>
 Package pdftex.def Info: pictures/fog.png used on input line 28.
 (pdftex.def)             Requested size: 354.72894pt x 257.84598pt.
 
 [5] [6 <./pictures/fog.png>] [7] [8] (./protokoly.tex
-<pictures/mqtt.pdf, id=265, 624.3325pt x 306.14375pt>
+<pictures/mqtt.pdf, id=262, 624.3325pt x 306.14375pt>
 File: pictures/mqtt.pdf Graphic file (type pdf)
  <use pictures/mqtt.pdf>
 Package pdftex.def Info: pictures/mqtt.pdf used on input line 17.
@@ -1095,28 +1095,49 @@ Overfull \hbox (4.69833pt too wide) in paragraph at lines 65--68
 o-to-kolu TLS (Trans-
  []
 
-[10] [11] [12] [13]
-Overfull \hbox (0.71346pt too wide) in paragraph at lines 226--229
+[10] <pictures/coap-arch.pdf, id=285, 374.39874pt x 187.70125pt>
+File: pictures/coap-arch.pdf Graphic file (type pdf)
+
+<use pictures/coap-arch.pdf>
+Package pdftex.def Info: pictures/coap-arch.pdf used on input line 111.
+(pdftex.def)             Requested size: 142.273pt x 71.32721pt.
+ [11 <./pictures/coap-arch.pdf>] [12] [13]
+Overfull \hbox (0.71346pt too wide) in paragraph at lines 234--237
 \T1/lmr/m/n/10.95 (Quick Re-sponse) kÛdu. V˝-m•na klÌ£e je za-lo-∫ena na al-gor
 tmu ECDH (Elliptic-
  []
 
 [14]
-Overfull \hbox (2.87578pt too wide) in paragraph at lines 277--280
+Overfull \hbox (2.87578pt too wide) in paragraph at lines 285--288
 \T1/lmr/m/n/10.95 ten-ti-zaci. DÌky chy-b•-jÌcÌ au-ten-ti-zaci je tato me-toda 
 zra-ni-teln· v∑£i MITM
  []
 
-) [15] [16]) [17] [18
+[15]) [16] [17]
 
-] (./navrh.tex) [19] [20
+! Package inputenc Error: Unicode char ÃÅ (U+301)
+(inputenc)                not set up for use with LaTeX.
 
-] [21] [22
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.212   \item \textbf{Detekce anom√°liƒ±ÃÅ}
+                                           
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+) [18] [19] [20
+
+] (./navrh.tex) [21] [22
 
 ] [23] [24
 
+] [25] [26
+
 ]
-(./DP_Soukup_Dominik_2018.bbl [25] [26
+(./DP_Soukup_Dominik_2018.bbl [27] [28
 
 ]
 bibitemlist
@@ -1129,7 +1150,7 @@ Underfull \hbox (badness 1142) in paragraph at lines 27--30
 tend the
  []
 
-[27]
+[29]
 Underfull \hbox (badness 2790) in paragraph at lines 55--58
 \T1/lmr/m/n/10.95 2018-03-08]. Do-stupnÈ z: []$\T1/lmtt/m/n/10.95 https : / / w
 ww\OML/lmm/m/it/10.95 :\T1/lmtt/m/n/10.95 hivemq\OML/lmm/m/it/10.95 :\T1/lmtt/m
@@ -1155,11 +1176,11 @@ Underfull \hbox (badness 7777) in paragraph at lines 100--102
 10.95 com / hubfs / BlueBorne %
  []
 
-) [28] [29
+) [30] [31
 
-] [30
+] [32
 
-] [31]
+] [33]
 \tf@toc=\write5
 \openout5 = `DP_Soukup_Dominik_2018.toc'.
 
@@ -1173,7 +1194,7 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 277.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 277.
 Package rerunfilecheck Info: File `DP_Soukup_Dominik_2018.out' has not changed.
 
-(rerunfilecheck)             Checksum: 60C9CF5353453F0901501FB949A3D079;2975.
+(rerunfilecheck)             Checksum: 2DC36EBBD0F7862EEE3414CCF9832DBF;2834.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1181,10 +1202,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 277.
  ) 
 Here is how much of TeX's memory you used:
- 13477 strings out of 493029
- 185445 string characters out of 6136234
- 314276 words of memory out of 5000000
- 16764 multiletter control sequences out of 15000+600000
+ 13485 strings out of 493029
+ 185585 string characters out of 6136234
+ 314342 words of memory out of 5000000
+ 16769 multiletter control sequences out of 15000+600000
  65990 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,29p,1106b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1198,10 +1219,10 @@ f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on DP_Soukup_Dominik_2018.pdf (45 pages, 448350 bytes).
+Output written on DP_Soukup_Dominik_2018.pdf (47 pages, 466739 bytes).
 PDF statistics:
- 512 PDF objects out of 1000 (max. 8388607)
- 444 compressed objects within 5 object streams
- 114 named destinations out of 1000 (max. 500000)
- 200 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 522 PDF objects out of 1000 (max. 8388607)
+ 451 compressed objects within 5 object streams
+ 116 named destinations out of 1000 (max. 500000)
+ 197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

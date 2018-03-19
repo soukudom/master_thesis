@@ -176,22 +176,39 @@
  Velkou hrozbou jsou zařízení s verzí 4.1 nebo nižší, protože nepodporují žádnou ochranu před 
  odposlouchávání a MITM útokům v době párování. Od verze 4.2 je již pro výměnu klíčů použit ECDH 
  algoritmus, který zabraňuje možnému odposlouchávání, ale v případě použítí párovací metody, které
- nepodporuje autentizaci není zajištěna ochrana před MITM útoky. 
+ nepodporuje autentizaci není zajištěna ochrana před MITM útoky.  \cite{cesnet-survey}
  
- Dalším problémem jsou samotní výrobci, kteří často nevyužívají bezpečnostní funkce protokolu nebo
+ Dalším problémem jsou samotní výrobci, kteří často nevyužívají bezpečnostní funkce protokolu  \cite{ble-locks} nebo
  implementují vlastní způsoby zabezpečení na aplikační úrovni. Tímto dochází k nezabepečení fáze 
- párování a často se vyskytují i implementační chyby, které přinášení další zranitelnosti a
- umožňují útočníkovi získat kontrolu nad celým provozem.
+ párování a často se vyskytují i implementační chyby, které přinášení další zranitelnosti \cite{ble-attack} a
+ umožňují útočníkovi získat kontrolu nad celým provozem.  \cite{cesnet-survey}
  
  Nevýhodou je velmi dlouhá a komplikovaná specifikace protokolu, která vede k implementačním 
- chybám samotného BLE. Tím vzniká nebezpečí, že i u výrobce, který všechny bezpečnostní funcionality
- se mohou vyskytovat zranitelnosti díky chybné implementaci komunikačních vrstev protokolu.
- 
- 
+ chybám samotného BLE \cite{blueborne}. Tím vzniká nebezpečí, že i u výrobce, který využívá
+ všech bezpečnostní funcionalit,
+ se mohou vyskytovat zranitelnosti díky chybné implementaci komunikačních vrstev protokolu. \cite{cesnet-survey}
  
  \newpage
  \section{Možnosti detekce}
+ V běžných IP sítích se pro detekci hrozeb nejčastěji používají IDS (Intrusion Detection System) a
+ IPS (Intrustion Prevention System) systémy. Tyto služby rozšiřují koncept klasického firewallu, který
+ blokuje nebo povoluje síťový provoz na základě statických pravidel, o podrobnější sledování 
+ datových toků, které jsou zablokovány na základě nestandartního chování.
+ 
+ IDS/IPS může být reprezentováno samostatným hardwarovým zařízením nebo softwarovým programem, který
+ může být dále rozšířen o monitorovací sondy, které se starají pouze o sběr dat a jejich odesílání
+ pro následnou analýzu. Zároveň
+ se může lišit i umístění v síti. Detekční systémy lze provozovat před hraničním směrovačem 
+ a detekovat tak kompletní příchozí a odchozí data nebo za hraničním směrovačem, což 
+ umožní vyhodnocovat jen vyfiltrovaný provoz. Případně je možné nasadit IDS/IPS přímo na koncové
+ stanice, kde kromě síťových dat lze získávat i informace o běhu systému. Poslední způsob poskytuje
+ nejvíce detailní možnost analýzy, protože se provádí na míste vzniku komunikace a případný útok
+ je možné zastavit již při jeho vzniku a zabránit případnému rozšíření. Nevýhodou takového nasazení
+ je ztráta celkového pohledu na síť. Při zavedení IDS/IPS systému je z těchto důvodů dobré 
+ kombinovat způsoby nasazení a umožnit vzájemné sdílení detekovaných incidentů.
+ 
  \begin{itemize}
+ \item Možnosti detekce: testbed, externí sonda, provozní data
  \item Vnější vs vnitřní útoky
  \item Signature based vs Anomaly based
  \item paketová vs flow vs extended flow analýza
