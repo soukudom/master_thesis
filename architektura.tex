@@ -66,7 +66,8 @@
  IP spojení. Důvodem použití této komunikace je často velký
  důraz na nízkou spotřebu a specifické požadavky na způsob zasílání zpráv.
  Příkladem protokolů pro senzorové sítě je například:
- Z-Wave, Bluetooth a Zigbee. Jejich detailní popis se nachází v kapitole \ref{protokoly}.
+ Z-Wave, Bluetooth a Zigbee. Jejich detailní popis se nachází v kapitole 
+ \ref{protokoly} Používané komunikační protokoly.
  Tato různorodost vyžaduje, aby brána obsahovala dodatečná rozhraní, které 
  umožní připojení nejrůznějších bezdrátových i drátových koncových prvků. 
  
@@ -87,13 +88,9 @@
  Při použití principů popsaných v předchzích kapitolách lze model komunikace rozdělit
  do následujících vrstev \cite{iotSurvey}:
  \begin{itemize}
- \item Aplikační vrstva 
- \item Síťová vrstva
- \item Senzorová vrstva
-\end{itemize}
- Jednotlivé vrstvy budou popsány v následujích podkapitolách.
+
+ \item \textbf{Senzorová vrstva}
  
- \subsubsection{Senzorová vrstva}
  Senzorová vrstva obsahuje veškerá koncová zařízení, které získávají informace ze svého
  okolí nebo vykonávají potřebnou službu \cite{secFramework}. Tato zařízení jsou připojena
  kabelově nebo bezdrátově k IoT bráně. K jedné bráně může být připojeno několik
@@ -102,19 +99,22 @@
  Velkým nebezpečím této vrstvy jsou zejména bezdrátové protokoly, protože při nepoužití
  zabezpečení může snadno dojít k odposlouchávání nebo úprávám provozu \cite{iotSurvey}.
  Dále se zde mohou vyskytovat zařízení, které jsou označeny jako zabezpečené, 
- ale používají zastaralé bezpečnostní funkce nebo obsahují implementační chyby. 
- Tento případ je velmi nebezpeční, protože vyvolává falešný pocit bezpečí.
+ ale díky starší verzi komunikačního protokolu používají zastaralé bezpečnostní funkce
+ nebo obsahují implementační chyby. 
+ Tento případ je velmi nebezpečný, protože vyvolává falešný pocit bezpečí.
  
- \subsubsection{Síťová vrstva}
- Po zpracování senzorových dat na bráně je nutné získané informace odeslat dalším
- službám. K tomuto účelu slouží síťová vrstva. Cílem této vrstvy je také umožnění 
- vzdálené správy brány \cite{secFramework}. Pro výběr konkrétního protokolu je 
- nutné znát rozhraní aplikační vrstvy. Nicméně spojení je většinou vytvořeno
+ \item \textbf{Síťová vrstva}
+ 
+  Po zpracování senzorových dat na bráně je nutné získané informace odeslat dalším
+ službám. K tomuto účelu slouží síťová vrstva. Cílem této vrstvy je také umožnit 
+ vzdálenou správu brány \cite{secFramework}. Pro výběr konkrétního protokolu je 
+ nutné znát rozhraní aplikační vrstvy. Ve většině případů je  spojení vytvořeno
  pomocí protokolu HTTPS (Hypertext Transfer Protocol Secure) nebo technologie
- VPN (Virtual Private Network). Nad tímto spojením je postaven další služba pro 
+ VPN (Virtual Private Network). Nad tímto spojením je postavena další služba pro 
  výměnu zpráv. Příkladem může být: MQTT (Message Queuing Telemetry Transport),
  COAP (Constrained Application Protocol),
- AMQP (Advanced Message Queuing Protocol).
+ AMQP (Advanced Message Queuing Protocol). Tyto protokoly jsou podrobněji posány v 
+ kapitole \ref{protokoly} Používané komunikační protokoly.
  
  Bezpečnostní hrozby této vrstvy jsou stejné jako v klasických sítích. Je potřeba
  dodržet principy důvěry, integrity a dostupnosti. Tímto přístupem je možné
@@ -122,9 +122,12 @@
  MITM (Man In The Middle) a podvržení informací. Zároveň je nutné
  nezapomenout, že se zde většinou vyskytuje M2M (Machine To Machine)
  komunikace a je důležité použít 
- vhodná komunikační rozhraní \cite{iotSurvey}.
+ vhodná komunikační rozhraní \cite{iotSurvey}. Častým případem bývá zastaralá 
+ verze firmware, jehož napadení může vést k nestandartnímu chování nebo dokonce 
+ ke kompletnímu převzetí kontroly. 
  
- \subsubsection{Aplikační vrstva}
+ \item \textbf{Aplikační vrstva}
+ 
  Aplikační vrstva se stará o ukládání dlouhodobých dat a jejich finální zpracování. 
  Zároveň zobrazuje uživateli zpracované informace a umožňuje provádět konfiguraci
  celé sítě. Z důvodu možné rozsáhlosti celé sítě je kritické, aby správa
@@ -135,6 +138,8 @@
  množství požadovaných funkcí může být různě složitá a s rostoucí složitostí
  se také liší nároky na úroveň zabezpečení. Příkladem možných útoků může být:
  Buffer Overflow, SQL Injection nebo DDoS.
+ 
+\end{itemize}
  
  \newpage
  
@@ -266,24 +271,25 @@
  \newpage
  \section{Existující řešení}
  V součastnosti veškerá dostupná řešení se zaměřují na detekci útoků v IP protokolech. Mezi 
- současnými IDS/IPS systémy existují signatury pouze pro SCADA (Supervisory Control And Data Acquisition)
- protokoly. Pakon
+ současnými IDS/IPS existují signatury pouze pro SCADA (Supervisory Control And Data Acquisition)
+ protokoly. Router Turris Omnia umožňuje nasadit systém Suricata, pro který nabízí rozšíření 
+ PaKon \cite{pakon}. Toto rozšíření zpracovává data ze Suricaty, které následně ukládá v přehledné formě.
+ Díky tomu užívatel získá podrovný přehled o stavu provozu. Získaná data může dále využívat 
+ například k vylepšení stávajících bezpečnostních pravidel. Nevýhodou totoho řešení jsou 
+ vyšší hardwarové požadavky, a proto ho nelze provozovat na branách s omezenými 
+ prostředky. Další komplikací může být centralizovaná architektura a zameření pouze na 
+ IP provoz.
  
+ Na základě provedené analýzy nebylo nalezeno žadné řešení, které umožňuje vyhodnocovat 
+ provoz aktuálně používaných IoT protoklů s ohledem na možné omezení hardwarových
+ prostředků.
  
- 
-  \begin{itemize}
- \item Existuje řešení pomocí Suricata, které používá Turris (centrální, signature
- based řešení)
- \item Neexistuje řešení, které by provádělo detekce z senzorových dat
- \item Neexistuje řešení, které by umožňovalo senzorové nebo pokročilé síťové
- detekce na bráně nebo mimo ni
-\end{itemize}
- % aktuální řešení funguje na cetrálním monitorovacím prvku, které monitoruje IP
- % teprve nedávno vznikly signatury pro SCADA
+ \newpage
  \section{Analýza požadavků}
  
   \subsection{Funkční požadavky}
   \subsection{Nefunkční požadavky}
- 
+  
+ \newpage 
  \section{Zvolené řešení}
  povídání o nutnosti učení se, ... další poznámky z telefonu

@@ -8,9 +8,6 @@
 \contentsline {subsection}{\numberline {2.1.1}Fog computing}{5}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}IoT br\IeC {\'a}na}{7}{subsection.2.1.2}
 \contentsline {subsection}{\numberline {2.1.3}Komunika\IeC {\v c}n\IeC {\'\i } model a jeho hrozby}{7}{subsection.2.1.3}
-\contentsline {subsubsection}{\numberline {2.1.3.1}Senzorov\IeC {\'a} vrstva}{8}{subsubsection.2.1.3.1}
-\contentsline {subsubsection}{\numberline {2.1.3.2}S\IeC {\'\i }\IeC {\v t}ov\IeC {\'a} vrstva}{8}{subsubsection.2.1.3.2}
-\contentsline {subsubsection}{\numberline {2.1.3.3}Aplika\IeC {\v c}n\IeC {\'\i } vrstva}{8}{subsubsection.2.1.3.3}
 \contentsline {section}{\numberline {2.2}Pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} komunika\IeC {\v c}n\IeC {\'\i } protokoly}{9}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}MQTT}{9}{subsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.1.1}Zp\IeC {\r u}sob komunikace}{9}{subsubsection.2.2.1.1}
@@ -29,19 +26,19 @@
 \contentsline {subsection}{\numberline {2.3.2}BLE}{17}{subsection.2.3.2}
 \contentsline {section}{\numberline {2.4}Mo\IeC {\v z}nosti detekce}{18}{section.2.4}
 \contentsline {section}{\numberline {2.5}Existuj\IeC {\'\i }c\IeC {\'\i } \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{20}{section.2.5}
-\contentsline {section}{\numberline {2.6}Anal\IeC {\'y}za po\IeC {\v z}adavk\IeC {\r u}}{20}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}Funk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{20}{subsection.2.6.1}
-\contentsline {subsection}{\numberline {2.6.2}Nefunk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{20}{subsection.2.6.2}
-\contentsline {section}{\numberline {2.7}Zvolen\IeC {\'e} \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{20}{section.2.7}
-\contentsline {chapter}{\chapternumberline {3}N\IeC {\'a}vrh}{21}{chapter.3}
-\contentsline {section}{\numberline {3.1}Mo\IeC {\v z}nosti nasazen\IeC {\'\i }}{21}{section.3.1}
-\contentsline {section}{\numberline {3.2}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{21}{section.3.2}
-\contentsline {section}{\numberline {3.3}Kolektor}{21}{section.3.3}
-\contentsline {section}{\numberline {3.4}Detektor}{21}{section.3.4}
-\contentsline {section}{\numberline {3.5}Multiplexor a demultiplexor}{21}{section.3.5}
-\contentsline {chapter}{\chapternumberline {4}Realizace}{23}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{25}{chapter.5}
-\contentsline {chapter}{Z{\' a}v{\v e}r}{27}{chapter*.6}
-\contentsline {chapter}{Literatura}{29}{section*.8}
-\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{31}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{33}{appendix.B}
+\contentsline {section}{\numberline {2.6}Anal\IeC {\'y}za po\IeC {\v z}adavk\IeC {\r u}}{21}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Funk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{21}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Nefunk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{21}{subsection.2.6.2}
+\contentsline {section}{\numberline {2.7}Zvolen\IeC {\'e} \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{22}{section.2.7}
+\contentsline {chapter}{\chapternumberline {3}N\IeC {\'a}vrh}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Mo\IeC {\v z}nosti nasazen\IeC {\'\i }}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{23}{section.3.2}
+\contentsline {section}{\numberline {3.3}Kolektor}{23}{section.3.3}
+\contentsline {section}{\numberline {3.4}Detektor}{23}{section.3.4}
+\contentsline {section}{\numberline {3.5}Multiplexor a demultiplexor}{23}{section.3.5}
+\contentsline {chapter}{\chapternumberline {4}Realizace}{25}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{27}{chapter.5}
+\contentsline {chapter}{Z{\' a}v{\v e}r}{29}{chapter*.6}
+\contentsline {chapter}{Literatura}{31}{section*.8}
+\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{33}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{35}{appendix.B}
