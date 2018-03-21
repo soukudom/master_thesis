@@ -106,6 +106,13 @@ TechTarget: Do you need an IDS or IPS, or both? TechTarget. [online], 2009
 \urlprefix\biburl{http://searchsecurity.techtarget.com/Do-you-need-an-IDS-or-IPS-or-both}
 
 \bibitem{pakon}
-CZ.NIC: PaKon - sledování sítě (Parental Control).
+CZ.NIC: PaKon - sledování sítě (Parental Control). CZ.NIC. [online], 2018
+  [cit. 2018-03-20].
+\urlprefix\biburl{https://doc.turris.cz/doc/cs/howto/pakon}
+
+\bibitem{nemea}
+Cejka, T.; Bartos, V.; Svepes, M.; aj.: NEMEA: A framework for network traffic
+  analysis. In \emph{2016 12th International Conference on Network and Service
+  Management (CNSM)}, 2016, \doi{10.1109/CNSM.2016.7818417}.
 
 \end{thebibliography}

@@ -33,53 +33,50 @@ Warning--entry type for "ids-ips" isn't style-file defined
 --line 163 of file mybibliographyfile.bib
 Warning--entry type for "pakon" isn't style-file defined
 --line 171 of file mybibliographyfile.bib
-Unbalanced braces---line 174 of file mybibliographyfile.bib
- :     howpublished = "CZ.NIC
- :                           }. [online]",
-I'm skipping whatever remains of this entry
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--empty pages in cesnet-survey
 Warning--empty pages in zwave-S0-attack
 Warning--empty pages in ble-locks
-You've used 22 entries,
+Warning--empty pages in nemea
+You've used 23 entries,
             3151 wiz_defined-function locations,
-            768 strings with 8594 characters,
-and the built_in function-call counts, 8358 in all, are:
-= -- 576
-> -- 266
+            776 strings with 8888 characters,
+and the built_in function-call counts, 8925 in all, are:
+= -- 614
+> -- 294
 < -- 4
-+ -- 132
-- -- 76
-* -- 397
-:= -- 1006
-add.period$ -- 43
-call.type$ -- 22
-change.case$ -- 92
++ -- 147
+- -- 84
+* -- 434
+:= -- 1075
+add.period$ -- 46
+call.type$ -- 23
+change.case$ -- 99
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 792
-empty$ -- 853
-format.name$ -- 86
-if$ -- 1819
+cite$ -- 27
+duplicate$ -- 846
+empty$ -- 904
+format.name$ -- 95
+if$ -- 1939
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 179
-newline$ -- 90
-num.names$ -- 44
-pop$ -- 471
+int.to.str$ -- 23
+missing$ -- 192
+newline$ -- 94
+num.names$ -- 46
+pop$ -- 498
 preamble$ -- 1
-purify$ -- 80
+purify$ -- 85
 quote$ -- 0
-skip$ -- 342
+skip$ -- 364
 stack$ -- 0
-substring$ -- 216
-swap$ -- 353
+substring$ -- 221
+swap$ -- 379
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
-warning$ -- 3
-while$ -- 52
-width$ -- 24
-write$ -- 200
-(There was 1 error message)
+type$ -- 92
+warning$ -- 4
+while$ -- 54
+width$ -- 25
+write$ -- 212
+(There were 19 warnings)

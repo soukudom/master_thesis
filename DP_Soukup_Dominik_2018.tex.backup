@@ -109,9 +109,8 @@ technologie pro realizaci.
 
 \chapter{Návrh}
 Kapitola se zabývá návrhem způsobu detekce anomálií v IoT sítích, které s pomocí NEMEA
-systému rozšiřuje bránu BeeeOn. Nejprve je popsána celková architektura a
-možné způsoby nasazení. Dále jsou popsány jednotlivé komponenty detekčního systému.
-V závěru jsou identifikovány možné scénáře útoků.
+systému rozšiřuje bránu BeeeOn. Nejprve jsou posány možné způsoby nasazení a jsou identifikovány
+možné scénáře útoků. Následně jsou popsány jednotlivé komponenty detekčního systému.
 
  \input{navrh}
 

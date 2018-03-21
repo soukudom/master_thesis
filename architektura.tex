@@ -286,10 +286,66 @@
  
  \newpage
  \section{Analýza požadavků}
+ Podstatnou částí návrhu výsledného řešení je přesné určení požadavků, které se dělí na 
+ funkční a nefunkční. Funkční požadavky specifikují funkcionality kladené přímo na vznikající
+ program, zatímco nefunkční spíše určují omezení vlastností systému a architekturu návrhu. V 
+ následující kapitole budou popsány nároky na vznikají detekční nástroj, které vycházejí z obsahu
+ zadání této práce a provedené analýzy.
  
   \subsection{Funkční požadavky}
+  Kapitola popisuje funkční požadavky, které jsou od detekčního nástroje očekávány.
+  \begin{itemize}
+   \item \textbf{Sběr informací o provozu}
+   
+   Program bude umožňovat sběr dat na IoT bráně o aktuálním provozu z dostupných komunikačních
+   rozhraní. Získané informace bude možné pomocí NEMEA \cite{nemea} (Network Measurements Analysis)
+   frameworku předávat do dalších modulů.
+   
+   \item \textbf{Detekce anomálií}
+   
+   Vytvořený detekční algorimus bude schopen na základě získaných dat odhalit definované anomálie,
+   které reprezentují neočekávané změny v síti. 
+   
+   \item \textbf{Konfigurace způsobu detekce}
+   
+   Detekční modul bude umožňovat nastavení parametrů pro jednotlivé zpracovávané položky
+   pomocí konfiguračního souboru. Tyto 
+   parametry budou následně sloužit jako vstup pro vytvořený detektor.
+   
+   \item \textbf{Zpracování získaných informací}
+   
+   Kromě analýzy dat a hlášení nalezených incidentů bude také možné zpracovaná data pravidelně 
+   exportovat do dalších rozšiřujících modulů.
+  \end{itemize}
+
   \subsection{Nefunkční požadavky}
-  
+  Kapitola obsahuje nefunkční požadavky, které jsou kladené na výsledný nástroj.
+  \begin{itemize}
+   \item \textbf{Rozšiřitelnost}
+   
+   Architektura celého řešení bude navržena tak, aby bylo možné rozšíření o nové 
+   způsoby detekce anomálií a další typy provozních dat.
+   
+   \item \textbf{Flexibilita nasazení}
+   
+   Návrh způsobu detekce umožní fyzicky oddělit komponetu zajišťující sběr dat a komponetu vyhodnocující 
+   provoz. Díky tomu bude možné provádět analýzu i na IoT branách s velmi omezeným prostředky, protože 
+   tyto brány budou sloužit jako sondy, které budou posílat data do externího detektoru s dostatečnými 
+   výkonem k provedení analýzy. 
+   
+   \item \textbf{Operační systém}
+   
+   Výsledné řešení bude implementováno a otestováno na operačním systému Ubuntu 16.04, na kterém 
+   bude nasazena IoT brána BeeeOn a framework NEMEA. Zároveň
+   budou při návrhu a implementaci vybírány takové technologie, aby bylo možné vytvořený program
+   spustit pod distribuci OpenWrt, které je velmi rozšířena mezi síťovými prvky.   
+  \end{itemize}
+
  \newpage 
  \section{Zvolené řešení}
- povídání o nutnosti učení se, ... další poznámky z telefonu
+ prg jazy je C++ - efektivita, podpora
+ anomaly based detection
+ konfigurační soubor
+ Brána BeeeOn s NEMEA
+ výběr metody provozních statistik pro BLE a z-wave
+ povídání o nutnosti učení se a nestaci jen blokovani portu, ... 

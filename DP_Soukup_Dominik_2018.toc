@@ -29,16 +29,17 @@
 \contentsline {section}{\numberline {2.6}Anal\IeC {\'y}za po\IeC {\v z}adavk\IeC {\r u}}{21}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}Funk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{21}{subsection.2.6.1}
 \contentsline {subsection}{\numberline {2.6.2}Nefunk\IeC {\v c}n\IeC {\'\i } po\IeC {\v z}adavky}{21}{subsection.2.6.2}
-\contentsline {section}{\numberline {2.7}Zvolen\IeC {\'e} \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{22}{section.2.7}
-\contentsline {chapter}{\chapternumberline {3}N\IeC {\'a}vrh}{23}{chapter.3}
-\contentsline {section}{\numberline {3.1}Mo\IeC {\v z}nosti nasazen\IeC {\'\i }}{23}{section.3.1}
-\contentsline {section}{\numberline {3.2}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{23}{section.3.2}
-\contentsline {section}{\numberline {3.3}Kolektor}{23}{section.3.3}
-\contentsline {section}{\numberline {3.4}Detektor}{23}{section.3.4}
-\contentsline {section}{\numberline {3.5}Multiplexor a demultiplexor}{23}{section.3.5}
-\contentsline {chapter}{\chapternumberline {4}Realizace}{25}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{27}{chapter.5}
-\contentsline {chapter}{Z{\' a}v{\v e}r}{29}{chapter*.6}
-\contentsline {chapter}{Literatura}{31}{section*.8}
-\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{33}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{35}{appendix.B}
+\contentsline {section}{\numberline {2.7}Zvolen\IeC {\'e} \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{23}{section.2.7}
+\contentsline {chapter}{\chapternumberline {3}N\IeC {\'a}vrh}{25}{chapter.3}
+\contentsline {section}{\numberline {3.1}Architektura}{25}{section.3.1}
+\contentsline {section}{\numberline {3.2}Kolektor}{26}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Syntaxe konfigura\IeC {\v c}n\IeC {\'\i }ho souboru}{26}{subsection.3.2.1}
+\contentsline {section}{\numberline {3.3}Detektor}{26}{section.3.3}
+\contentsline {section}{\numberline {3.4}Multiplexor a demultiplexor}{26}{section.3.4}
+\contentsline {section}{\numberline {3.5}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{26}{section.3.5}
+\contentsline {chapter}{\chapternumberline {4}Realizace}{27}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{29}{chapter.5}
+\contentsline {chapter}{Z{\' a}v{\v e}r}{31}{chapter*.6}
+\contentsline {chapter}{Literatura}{33}{section*.8}
+\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{37}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{39}{appendix.B}

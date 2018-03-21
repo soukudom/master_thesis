@@ -1,0 +1,14 @@
+ \section{Architektura}
+ 
+    \begin{itemize}
+      \item popis celkové architektury řešení
+      \item lokální a externí detekce
+    \end{itemize}
+  % celkova architektura reseni, lokalni&externi detekce
+  % microservice architektura, mozne rozsireni o IP exporter 
+ \section{Scénáře útoků}
+ \section{Kolektor}
+ \subsection{Syntaxe konfiguračního souboru}
+    
+ \section{Detektor}
+ \section{Multiplexor a demultiplexor}
