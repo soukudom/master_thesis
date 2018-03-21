@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  21 MAR 2018 15:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  21 MAR 2018 19:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1115,11 +1115,8 @@ zra-ni-telná v·£i MITM
 
 [15]) [16] [17] [18] [19] [20] [21] [22]) [23] [24
 
-] (./navrh.tex)
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [25]
-[26] [27
+] (./navrh.tex [25]) [26]
+[27
 
 ] [28
 
@@ -1225,7 +1222,7 @@ f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on DP_Soukup_Dominik_2018.pdf (53 pages, 479412 bytes).
+Output written on DP_Soukup_Dominik_2018.pdf (53 pages, 481717 bytes).
 PDF statistics:
  561 PDF objects out of 1000 (max. 8388607)
  484 compressed objects within 5 object streams

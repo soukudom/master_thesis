@@ -1,4 +1,51 @@
  \section{Architektura}
+ Cílem této práce je vytvoření programu, který bude schopen detekovat anomální provoz v IoT sítích. 
+ Vzhledem k hardwarovým omezením, které můžou na IoT branách nastat, je architektura navržena tak, aby
+ měla co nejmenší nároky na dostupné prostředky. Schéma nasazení detekčního systému se nachází
+ na obrázku
+ 
+ 
+ Implementace BeeeOn brány obsahuje pro zpracování senzorových dat následující komponenty:
+ \begin{itemize}
+  \item \textbf{DeviceManager}:
+    komponenta definovaná pro každý senzorový protokol, která implementuje veškerou komunikaci
+    a zpracování dat
+    
+  \item \textbf{Distributor}:  
+  přijímá data od \textit{DeviceManageru}, která nasledně předává příslušnému \textit{Exporteru}
+  
+  \item \textbf{Exporter}:
+  implementuje protokol, kterým jsou data odesílány z brány
+  
+  \item \textbf{CommandDispatcher}:  
+  komponenta, která přijímá uživatelské příkazy a distribuuje je cílovým komponentám
+  
+ \end{itemize}
+ 
+ Každá z komponent v BeeeOn bráně navíc využívá návrhový vzor Observer, pomocí kterého jsou
+ definované události poskytující informace o každé komponentě. 
+ Tímto způsobem bude vytvořený kolektor zíkávat data o provozu, která
+ převede do fomátu UniRec (Unified Record) a pomocí systému NEMEA je odešle k analýze.
+ 
+ Exportované informace o provozu bude přijímat detektor, který následně provede jejich zpracování a 
+ vyhodnocení stavu. Všechny vytvořené komponety vytvořené pro detekci budou používat rozhraní 
+ NEMEA. Díky tomu bude možné komponenty flexibilně provozovat na jednom nebo více různých zařízeních.
+ Oddělené nasazení je důležité zejména pro brány s omezenými prostředky, které mohou provádět 
+ pouze export dat a o vyhodnocení se bude starat odlišné zařízení s dostatečným výkonem. V případě 
+ provozování více bran lze brány používat jako exportéry a veškerá získaná data zpracovávat 
+ centrálně. 
+ 
+ Kolektor pro každou událost vytvoří samostnatné výstupní rozhraní. Protože událostí může být 
+ velké množství, tak bude vytvořen modul Mux, který všechny výstupní rozhraní spojí do jednoho. 
+ Tímto ..
+ 
+ Popis device manageru a distributoru, 
+ oddělení síťovým interface
+ množství možných interfaců
+ podrobnější popis v dalších kapitolách
+ 
+ výhoda, že je vlastně jedná o minikompenety, které se mohou nacházet na různých místech
+ 
  
     \begin{itemize}
       \item popis celkové architektury řešení
@@ -6,9 +53,13 @@
     \end{itemize}
   % celkova architektura reseni, lokalni&externi detekce
   % microservice architektura, mozne rozsireni o IP exporter 
- \section{Scénáře útoků}
+
  \section{Kolektor}
  \subsection{Syntaxe konfiguračního souboru}
     
  \section{Detektor}
+  časové řady
+  univerzální návrh který umožňuje použití více nebo jen jednoho detektoru
  \section{Multiplexor a demultiplexor}
+ 
+  \section{Scénáře útoků}
