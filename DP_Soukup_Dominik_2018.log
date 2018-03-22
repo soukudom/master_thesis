@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  21 MAR 2018 19:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  22 MAR 2018 10:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1190,11 +1190,11 @@ n -[] IDS -[] or -[] IPS -[]
 \tf@lof=\write6
 \openout6 = `DP_Soukup_Dominik_2018.lof'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 265.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 265.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
  (./DP_Soukup_Dominik_2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 265.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 265.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 269.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 269.
 Package rerunfilecheck Info: File `DP_Soukup_Dominik_2018.out' has not changed.
 
 (rerunfilecheck)             Checksum: 89C04D6E1B6AB3689CE0ED98BAB489C4;2800.
@@ -1202,11 +1202,11 @@ Package rerunfilecheck Info: File `DP_Soukup_Dominik_2018.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 265.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 269.
  ) 
 Here is how much of TeX's memory you used:
- 13496 strings out of 493029
- 185662 string characters out of 6136234
+ 13495 strings out of 493029
+ 185646 string characters out of 6136234
  315428 words of memory out of 5000000
  16771 multiletter control sequences out of 15000+600000
  65990 words of font info for 44 fonts, out of 8000000 for 9000
@@ -1222,10 +1222,10 @@ f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on DP_Soukup_Dominik_2018.pdf (53 pages, 481717 bytes).
+Output written on DP_Soukup_Dominik_2018.pdf (53 pages, 482589 bytes).
 PDF statistics:
- 561 PDF objects out of 1000 (max. 8388607)
- 484 compressed objects within 5 object streams
- 125 named destinations out of 1000 (max. 500000)
+ 560 PDF objects out of 1000 (max. 8388607)
+ 483 compressed objects within 5 object streams
+ 124 named destinations out of 1000 (max. 500000)
  197 words of extra memory for PDF output out of 10000 (max. 10000000)
 

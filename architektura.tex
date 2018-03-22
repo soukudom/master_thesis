@@ -343,6 +343,24 @@
 
  \newpage 
  \section{Zvolené řešení}
+ Obsahem této kapitoli je popis zvoleného řešení, které bylo na základě provedé analýzy
+ určeno pro realizaci výsledného nástroje.
+ 
+ Vytvořený detekční algorimus bude zaměřen na senzorové IoT protkoly, protože v současné době 
+ neexistuje řešení, které by to umožňovalo. Algoritmus bude umístěň přímo na IoT bráně, která 
+ je velmi blízko koncovým zařízením a má dostatečný výkon k vyhodnocování provozu. 
+ Konkrétně bude použita brána BeeeOn, protože v současné době 
+ jako jediná umožňuje sběr provozních dat o senzorových protokolech. 
+ 
+ Pro účely detekce budou sbírány jen informace dostupné z lokálních rozhraní brány. Toto řešení
+ je z hlediska reálného nasazení nejpravděpodobnější. Zároveň bude umožňěno rozšíření i pro další
+ způsoby získávání dat. 
+ 
+ Vyhodnocování dat bude probíhat metodou detekce anomálií, která je vhodnější statistickou povahu dat
+ s velkým důrazem na úsporu dostupných prostředků.
+ že bude pokryt jen z-wave a ble, možná ještě někam strčit nemea
+ 
+ 
  prg jazy je C++ - efektivita, podpora
  anomaly based detection
  konfigurační soubor

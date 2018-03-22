@@ -343,5 +343,20 @@
 
  \newpage 
  \section{Zvolené řešení}
+ Obsahem této kapitoli je popis zvoleného řešení, které bylo na základě provedé analýzy
+ určeno pro realizaci výsledného nástroje.
  
- povídání o nutnosti učení se, ... další poznámky z telefonu
+ Vytvořený detekční algorimus bude zaměřen na senzorové IoT protkoly, protože v současné době 
+ neexistuje řešení, které by to umožňovalo. Algoritmus bude umístěň přímo na IoT bráně, která 
+ je velmi blízko koncovým zařízením a má dostatečný výkon k vyhodnocování provozu. 
+ Konkrétně bude použita brána BeeeOn, protože v současné době 
+ jako jediná umožňuje sběr provozních dat o senzorových protokolech. 
+ 
+ Pro účely detekce budou sbírány jen informace dostupné přímo na bráně. 
+ 
+ prg jazy je C++ - efektivita, podpora
+ anomaly based detection
+ konfigurační soubor
+ Brána BeeeOn s NEMEA
+ výběr metody provozních statistik pro BLE a z-wave
+ povídání o nutnosti učení se a nestaci jen blokovani portu, ... 

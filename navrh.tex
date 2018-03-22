@@ -42,27 +42,21 @@
  o provozu budou přenášeny přes počítačovou síť a bude vyžadováno zabezpeční všech odchozích
  rozhraní. S využítím Mux a Demux modulů bude stačit zabezpečit pouze jedno sjednocené rozhraní. 
  
- Popis device manageru a distributoru, 
- oddělení síťovým interface
- množství možných interfaců
- podrobnější popis v dalších kapitolách
+ Výhodou návrhu řešení je flexibilita a modularita. Každá komponenta vždy samostatně pokrývá pouze jednu
+ část detekčního systému a se díky NEMEA se každá z nich může nacházet na různých síťových prvcích. Zároveň
+ v případě potřeby lze vytvořit další moduly, které budou rozšiřovat stávající funcionalitu.
+ Podrobnější popis návrhu nově vytvořených komponent detekčního systému se nachází v následujících kapitolách.
  
- výhoda, že je vlastně jedná o minikompenety, které se mohou nacházet na různých místech
- 
- 
-    \begin{itemize}
-      \item popis celkové architektury řešení
-      \item lokální a externí detekce
-    \end{itemize}
-  % celkova architektura reseni, lokalni&externi detekce
-  % microservice architektura, mozne rozsireni o IP exporter 
-
  \section{Kolektor}
- \subsection{Syntaxe konfiguračního souboru}
+ obecné povídání o kolektoru - je vždy součástí brány
+ návrh method a tříd v bráně
     
  \section{Detektor}
   časové řady
   univerzální návrh který umožňuje použití více nebo jen jednoho detektoru
+  Sytaxe konfiguračního souboru - klíč hodnoty
+  návrh metod a tříd 
+  
  \section{Multiplexor a demultiplexor}
  
-  \section{Scénáře útoků}
+ \section{Scénáře útoků}
