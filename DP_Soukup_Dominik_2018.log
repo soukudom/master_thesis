@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  22 MAR 2018 10:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  23 MAR 2018 15:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1071,37 +1071,38 @@ l.89 \chapter
 ] [3] [4
 
 ] (./architektura.tex
-<pictures/fog.png, id=220, 933.4875pt x 678.535pt>
+<pictures/fog.png, id=222, 933.4875pt x 678.535pt>
 File: pictures/fog.png Graphic file (type png)
  <use pictures/fog.png>
 Package pdftex.def Info: pictures/fog.png used on input line 28.
 (pdftex.def)             Requested size: 354.72894pt x 257.84598pt.
 
 [5] [6 <./pictures/fog.png>] [7] [8] (./protokoly.tex
-<pictures/mqtt.pdf, id=260, 624.3325pt x 306.14375pt>
-File: pictures/mqtt.pdf Graphic file (type pdf)
- <use pictures/mqtt.pdf>
-Package pdftex.def Info: pictures/mqtt.pdf used on input line 17.
-(pdftex.def)             Requested size: 237.24881pt x 116.33583pt.
+<pictures/mqtt-arch.pdf, id=262, 723.70375pt x 374.39874pt>
+File: pictures/mqtt-arch.pdf Graphic file (type pdf)
+
+<use pictures/mqtt-arch.pdf>
+Package pdftex.def Info: pictures/mqtt-arch.pdf used on input line 17.
+(pdftex.def)             Requested size: 296.72046pt x 153.50447pt.
 
 Overfull \hbox (33.04732pt too wide) in paragraph at lines 23--30
 \T1/lmr/m/n/10.95 jed-no-livé vrstvy od-d¥-leny do-p°ed-ným lo-mít-kem (nap°. /
 do-mov/p°ízemí/sv¥tlo’atna).
  []
 
-[9 <./pictures/mqtt.pdf>]
+[9 <./pictures/mqtt-arch.pdf>]
 Overfull \hbox (4.69833pt too wide) in paragraph at lines 65--68
 []\T1/lmr/m/n/10.95 Na této úrovni se vy-u-ºívá ²if-ro-vání pro-vozu po-mocí pr
 o-to-kolu TLS (Trans-
  []
 
-[10] <pictures/coap-arch.pdf, id=283, 374.39874pt x 187.70125pt>
+[10] <pictures/coap-arch.pdf, id=285, 519.9425pt x 286.06876pt>
 File: pictures/coap-arch.pdf Graphic file (type pdf)
 
 <use pictures/coap-arch.pdf>
 Package pdftex.def Info: pictures/coap-arch.pdf used on input line 111.
-(pdftex.def)             Requested size: 142.273pt x 71.32721pt.
- [11 <./pictures/coap-arch.pdf>] [12] [13]
+(pdftex.def)             Requested size: 213.17781pt x 117.28894pt.
+ [11] [12 <./pictures/coap-arch.pdf>] [13]
 Overfull \hbox (0.71346pt too wide) in paragraph at lines 234--237
 \T1/lmr/m/n/10.95 (Quick Re-sponse) kódu. Vý-m¥na klí£e je za-lo-ºena na al-gor
 tmu ECDH (Elliptic-
@@ -1115,14 +1116,21 @@ zra-ni-telná v·£i MITM
 
 [15]) [16] [17] [18] [19] [20] [21] [22]) [23] [24
 
-] (./navrh.tex [25]) [26]
-[27
+] (./navrh.tex
+<pictures/deploy-arch.pdf, id=397, 883.3pt x 394.47375pt>
+File: pictures/deploy-arch.pdf Graphic file (type pdf)
 
-] [28
+<use pictures/deploy-arch.pdf>
+Package pdftex.def Info: pictures/deploy-arch.pdf used on input line 9.
+(pdftex.def)             Requested size: 362.15535pt x 161.73528pt.
+ [25 <./pictures/deploy-arch.pdf>] [26]) [27]
+[28
 
 ] [29] [30
 
-] (./DP_Soukup_Dominik_2018.bbl [31] [32
+] [31] [32
+
+] (./DP_Soukup_Dominik_2018.bbl [33] [34
 
 ]
 bibitemlist
@@ -1135,7 +1143,7 @@ Underfull \hbox (badness 1142) in paragraph at lines 27--30
 tend the
  []
 
-[33]
+[35]
 Underfull \hbox (badness 2790) in paragraph at lines 55--58
 \T1/lmr/m/n/10.95 2018-03-08]. Do-stupné z: []$\T1/lmtt/m/n/10.95 https : / / w
 ww\OML/lmm/m/it/10.95 :\T1/lmtt/m/n/10.95 hivemq\OML/lmm/m/it/10.95 :\T1/lmtt/m
@@ -1179,11 +1187,11 @@ chtarget\OML/lmm/m/it/10.95 :\T1/lmtt/m/n/10.95 com / Do -[] you -[] need -[] a
 n -[] IDS -[] or -[] IPS -[]
  []
 
-[34]) [35] [36
+[36]) [37] [38
 
-] [37] [38
+] [39] [40
 
-] [39]
+] [41]
 \tf@toc=\write5
 \openout5 = `DP_Soukup_Dominik_2018.toc'.
 
@@ -1205,10 +1213,10 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 269.
  ) 
 Here is how much of TeX's memory you used:
- 13495 strings out of 493029
- 185646 string characters out of 6136234
- 315428 words of memory out of 5000000
- 16771 multiletter control sequences out of 15000+600000
+ 13504 strings out of 493029
+ 185842 string characters out of 6136234
+ 315537 words of memory out of 5000000
+ 16776 multiletter control sequences out of 15000+600000
  65990 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,29p,1106b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1222,10 +1230,10 @@ f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on DP_Soukup_Dominik_2018.pdf (53 pages, 482589 bytes).
+Output written on DP_Soukup_Dominik_2018.pdf (55 pages, 537713 bytes).
 PDF statistics:
- 560 PDF objects out of 1000 (max. 8388607)
- 483 compressed objects within 5 object streams
- 124 named destinations out of 1000 (max. 500000)
- 197 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 577 PDF objects out of 1000 (max. 8388607)
+ 497 compressed objects within 5 object streams
+ 127 named destinations out of 1000 (max. 500000)
+ 202 words of extra memory for PDF output out of 10000 (max. 10000000)
 

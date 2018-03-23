@@ -19,7 +19,7 @@
 \contentsline {subsubsection}{\numberline {2.2.3.1}Zp\IeC {\r u}sob komunikace}{13}{subsubsection.2.2.3.1}
 \contentsline {subsubsection}{\numberline {2.2.3.2}Bezpe\IeC {\v c}nost}{14}{subsubsection.2.2.3.2}
 \contentsline {subsection}{\numberline {2.2.4}BLE (Bluetooth Low Energy)}{14}{subsection.2.2.4}
-\contentsline {subsubsection}{\numberline {2.2.4.1}Zp\IeC {\r u}sob komunikace}{14}{subsubsection.2.2.4.1}
+\contentsline {subsubsection}{\numberline {2.2.4.1}Zp\IeC {\r u}sob komunikace}{15}{subsubsection.2.2.4.1}
 \contentsline {subsubsection}{\numberline {2.2.4.2}Bezpe\IeC {\v c}nost}{15}{subsubsection.2.2.4.2}
 \contentsline {section}{\numberline {2.3}Bezpe\IeC {\v c}nostn\IeC {\'\i } slabiny}{17}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Z-Wave}{17}{subsection.2.3.1}
@@ -32,13 +32,13 @@
 \contentsline {section}{\numberline {2.7}Zvolen\IeC {\'e} \IeC {\v r}e\IeC {\v s}en\IeC {\'\i }}{23}{section.2.7}
 \contentsline {chapter}{\chapternumberline {3}N\IeC {\'a}vrh}{25}{chapter.3}
 \contentsline {section}{\numberline {3.1}Architektura}{25}{section.3.1}
-\contentsline {section}{\numberline {3.2}Kolektor}{26}{section.3.2}
-\contentsline {section}{\numberline {3.3}Detektor}{26}{section.3.3}
-\contentsline {section}{\numberline {3.4}Multiplexor a demultiplexor}{26}{section.3.4}
-\contentsline {section}{\numberline {3.5}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{26}{section.3.5}
-\contentsline {chapter}{\chapternumberline {4}Realizace}{27}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{29}{chapter.5}
-\contentsline {chapter}{Z{\' a}v{\v e}r}{31}{chapter*.6}
-\contentsline {chapter}{Literatura}{33}{section*.8}
-\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{37}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{39}{appendix.B}
+\contentsline {section}{\numberline {3.2}Kolektor}{27}{section.3.2}
+\contentsline {section}{\numberline {3.3}Detektor}{27}{section.3.3}
+\contentsline {section}{\numberline {3.4}Multiplexor a demultiplexor}{27}{section.3.4}
+\contentsline {section}{\numberline {3.5}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{27}{section.3.5}
+\contentsline {chapter}{\chapternumberline {4}Realizace}{29}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{31}{chapter.5}
+\contentsline {chapter}{Z{\' a}v{\v e}r}{33}{chapter*.6}
+\contentsline {chapter}{Literatura}{35}{section*.8}
+\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{39}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{41}{appendix.B}

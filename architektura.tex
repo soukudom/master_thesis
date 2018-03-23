@@ -347,8 +347,10 @@
  určeno pro realizaci výsledného nástroje.
  
  Vytvořený detekční algorimus bude zaměřen na senzorové IoT protkoly, protože v současné době 
- neexistuje řešení, které by to umožňovalo. Algoritmus bude umístěň přímo na IoT bráně, která 
- je velmi blízko koncovým zařízením a má dostatečný výkon k vyhodnocování provozu. 
+ neexistuje řešení, které by to umožňovalo. Pro analýzu budou použity protokoly Z-Wave a BLE, 
+ které jsou v dnešních sítích velmi rozšířené. Algoritmus bude umístěň přímo na IoT bráně, která 
+ je ideálním místem, protože
+ se náchází velmi blízko koncových zařízení a má dostatečný výkon k vyhodnocování provozu. 
  Konkrétně bude použita brána BeeeOn, protože v současné době 
  jako jediná umožňuje sběr provozních dat o senzorových protokolech. 
  
@@ -356,14 +358,13 @@
  je z hlediska reálného nasazení nejpravděpodobnější. Zároveň bude umožňěno rozšíření i pro další
  způsoby získávání dat. 
  
- Vyhodnocování dat bude probíhat metodou detekce anomálií, která je vhodnější statistickou povahu dat
- s velkým důrazem na úsporu dostupných prostředků.
- že bude pokryt jen z-wave a ble, možná ještě někam strčit nemea
+ Vyhodnocování dat bude probíhat metodou detekce anomálií, která je vhodná pro statistickou povahu dat
+ , má menší nároky na množství dostupných prostředků a umožňuje rozpoznat i neznámé útoky.
  
+ Jako programovací jazyk bude použit C++, protože podporuje objektový přístup a
+ úspornou implementaci na paměť i procesorový čas. Zároveň tento jazyk je použit i v bráně
+ BeeeOn, tudíž bude usnadněna integrace. Pro zajištění flexibility a možnosti dalšího rozšiřování 
+ bude využito systému NEMEA, který také podporuje jazyk C++. 
  
- prg jazy je C++ - efektivita, podpora
- anomaly based detection
- konfigurační soubor
- Brána BeeeOn s NEMEA
- výběr metody provozních statistik pro BLE a z-wave
- povídání o nutnosti učení se a nestaci jen blokovani portu, ... 
+
+% povídání o nutnosti učení se a nestaci jen blokovani portu, ... 

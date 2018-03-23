@@ -2,8 +2,15 @@
  Cílem této práce je vytvoření programu, který bude schopen detekovat anomální provoz v IoT sítích. 
  Vzhledem k hardwarovým omezením, které můžou na IoT branách nastat, je architektura navržena tak, aby
  měla co nejmenší nároky na dostupné prostředky. Schéma nasazení detekčního systému se nachází
- na obrázku
+ na obrázku \ref{obr.deploy-arch}
  
+ \begin{figure}[ht]
+   \begin{center}
+   \includegraphics[scale=0.41]{pictures/deploy-arch}
+   \caption{Architektura detekčního systému}
+   \label{obr.deploy-arch}
+   \end{center}
+   \end{figure}
  
  Implementace BeeeOn brány obsahuje pro zpracování senzorových dat následující komponenty:
  \begin{itemize}
@@ -23,7 +30,7 @@
  \end{itemize}
  
  Každá z komponent v BeeeOn bráně navíc využívá návrhový vzor Observer, pomocí kterého jsou
- definované události poskytující informace o každé komponentě. 
+ definovany události poskytující informace o každé komponentě. 
  Tímto způsobem bude vytvořený kolektor zíkávat data o provozu, která
  převede do fomátu UniRec (Unified Record) a pomocí systému NEMEA je odešle k analýze.
  
@@ -36,30 +43,27 @@
  centrálně. 
  
  Kolektor pro každou událost vytvoří samostnatné výstupní rozhraní. Protože událostí může být 
- velké množství, tak bude vytvořen modul Mux, který všechny výstupní rozhraní spojí do jednoho. 
- Tímto ..
+ velké množství, tak bude vytvořen modul \textit{Mux}, který všechny výstupní rozhraní spojí do jednoho. 
+ Pro zpětné rozdělení na jednotlivá rozhraní budou dloužit modul \textit{Demux}. Tyto moduly budou velmi užitečné
+ zejména v případě kdy kolektor a detektor budou na rozdílných síťových prvcích, protože údaje 
+ o provozu budou přenášeny přes počítačovou síť a bude vyžadováno zabezpeční všech odchozích
+ rozhraní. S využítím \textit{Mux} a \textit{Demux} modulů bude stačit zabezpečit pouze jedno sjednocené rozhraní. 
  
- Popis device manageru a distributoru, 
- oddělení síťovým interface
- množství možných interfaců
- podrobnější popis v dalších kapitolách
+ Výhodou návrhu řešení je flexibilita a modularita. Každá komponenta vždy samostatně pokrývá pouze jednu
+ část detekčního systému a se díky NEMEA se každá z nich může nacházet na různých síťových prvcích. Zároveň
+ v případě potřeby lze vytvořit další moduly, které budou rozšiřovat stávající funcionalitu.
+ Podrobnější popis návrhu nově vytvořených komponent detekčního systému se nachází v následujících kapitolách.
  
- výhoda, že je vlastně jedná o minikompenety, které se mohou nacházet na různých místech
- 
- 
-    \begin{itemize}
-      \item popis celkové architektury řešení
-      \item lokální a externí detekce
-    \end{itemize}
-  % celkova architektura reseni, lokalni&externi detekce
-  % microservice architektura, mozne rozsireni o IP exporter 
-
  \section{Kolektor}
- \subsection{Syntaxe konfiguračního souboru}
+ obecné povídání o kolektoru - je vždy součástí brány
+ návrh method a tříd v bráně
     
  \section{Detektor}
   časové řady
   univerzální návrh který umožňuje použití více nebo jen jednoho detektoru
+  Sytaxe konfiguračního souboru - klíč hodnoty
+  návrh metod a tříd 
+  
  \section{Multiplexor a demultiplexor}
  
-  \section{Scénáře útoků}
+ \section{Scénáře útoků}
