@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  24 MAR 2018 13:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  24 MAR 2018 18:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1205,11 +1205,11 @@ n -[] IDS -[] or -[] IPS -[]
 \tf@lof=\write6
 \openout6 = `DP_Soukup_Dominik_2018.lof'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 271.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 271.
  (./DP_Soukup_Dominik_2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 269.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 269.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 271.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 271.
 Package rerunfilecheck Info: File `DP_Soukup_Dominik_2018.out' has not changed.
 
 (rerunfilecheck)             Checksum: 89C04D6E1B6AB3689CE0ED98BAB489C4;2800.
@@ -1217,7 +1217,7 @@ Package rerunfilecheck Info: File `DP_Soukup_Dominik_2018.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 269.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 271.
  ) 
 Here is how much of TeX's memory you used:
  13511 strings out of 493029
@@ -1237,7 +1237,7 @@ f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
 pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/
 type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb
 ></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on DP_Soukup_Dominik_2018.pdf (55 pages, 678284 bytes).
+Output written on DP_Soukup_Dominik_2018.pdf (55 pages, 678308 bytes).
 PDF statistics:
  585 PDF objects out of 1000 (max. 8388607)
  503 compressed objects within 6 object streams
