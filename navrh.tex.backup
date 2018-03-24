@@ -30,7 +30,7 @@
  \end{itemize}
  
  Každá z komponent v BeeeOn bráně navíc využívá návrhový vzor Observer, pomocí kterého jsou
- definovany události poskytující informace o každé komponentě. 
+ definovány události poskytující informace o každé komponentě. 
  Tímto způsobem bude vytvořený kolektor zíkávat data o provozu, která
  převede do fomátu UniRec (Unified Record) a pomocí systému NEMEA je odešle k analýze.
  
@@ -55,6 +55,64 @@
  Podrobnější popis návrhu nově vytvořených komponent detekčního systému se nachází v následujících kapitolách.
  
  \section{Kolektor}
+ Úkolem kolektoru bude sběr dostupných dat a jejich odeslání k následné analýze. Informace o 
+ provozu budou sbírány z jednotlivých komponent BeeeOn brány, které jsou zpřístupňovány pomocí 
+ návrhového vzoru Observer. Z tohoto důvodu bude kolektor vždy přímou součástí BeeOn brány. 
+ Návrh struktury kolektoru je na obrázku \ref{obr.modelTrid}
+ 
+ \begin{figure}[ht]
+   \begin{center}
+   \includegraphics[scale=0.5]{pictures/modelTrid}
+   \caption{Návrh kolektoru provozních dat}
+   \label{obr.modelTrid}
+   \end{center}
+   \end{figure}
+ 
+ AbstractCollector, je třída vytvořená v projektu BeeeOn, které shromažďuje všechny dostupné události.
+ V současné době jsou k dispozici následující události:
+ \begin{itemize}
+  \item \textbf{onExport}:
+   reprezentuje hodnoty dat přicházejících ze senzorů, která jsou odeslána vždy po jejich příjmu
+   
+  \item \textbf{onDriverStats}:
+   v pravidelných intervalech generuje statistiky o Z-Wave sítí dostupné na komunikačních 
+   rozhraní
+   
+  \item \textbf{onNodeStats}:
+   periodicky získává informace o jednotlivých prvcích Z-Wava sítě, které jsou dostupné pomocí
+   OpenZWave knihovny
+   
+  \item \textbf{onHciStats}:
+   v definovaných intervalech získává z komunikačního rozhraní pro BLE statistiky o provozu
+   sítě
+  
+  \item \textbf{onDispatch}:
+  umožňuje získávat zadané uživatelské příkazy
+ \end{itemize}
+
+ Vytvořený kolektor bude reprezentován třídou NemeaCollector, která bude potomkem třídy
+ AbstractCollector a bude implementovat všechny její metody pro zachytávání událostí. Pro každou 
+ metodu bude vytvořen setter, který při spuštění brány provede počáteční nastavení parametrů pro obsluhu dané 
+ události. Vstupním parametrem bude řetězec určující výstupní rozhraní, který bude specifikovaný v 
+ konfiguračním souboru BeeeOn brány. Po nastavení počátečních parametrů jako je název výstupního
+ rozhraní a seznam UniRec polí se zavolá metoda initInterface, jejímž cílem bude inicializace
+ veškerých struktur vyžadovaných NEMEA frameworkem.
+ Jako vstupní parametr bude přijímán objekt EventMetaData udržující veškeré informace potřebné 
+ k odesílání získaných dat.
+ 
+ Instace objektu EventMetaData bude vytvořena jako členský atribut třídy NemeaCollector
+ pro každou metodu události. Díky tomu bude možné každou událost zpracovávat nezávisle dle
+ definovaných parametrů.
+ 
+ 
+ která jako vstupní parametr přijímá
+ objekt EventMetaData udržující veškeré informace pro odesílání získaných dat. Instace objektu
+ EventMetaData je vytvořena jako členský atribut pro každou metodu události. V rámci metody
+ initInterface se inicializují veškeré struktury vyžadované NEMEA frameworkem nutné pro odesílání
+ získaných dat.
+ 
+ 
+ 
  obecné povídání o kolektoru - je vždy součástí brány
  návrh method a tříd v bráně
     
