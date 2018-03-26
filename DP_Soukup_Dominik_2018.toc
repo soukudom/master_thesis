@@ -34,11 +34,11 @@
 \contentsline {section}{\numberline {3.1}Architektura}{25}{section.3.1}
 \contentsline {section}{\numberline {3.2}Kolektor}{27}{section.3.2}
 \contentsline {section}{\numberline {3.3}Detektor}{28}{section.3.3}
-\contentsline {section}{\numberline {3.4}Multiplexor a demultiplexor}{28}{section.3.4}
-\contentsline {section}{\numberline {3.5}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{28}{section.3.5}
-\contentsline {chapter}{\chapternumberline {4}Realizace}{29}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{31}{chapter.5}
-\contentsline {chapter}{Z{\' a}v{\v e}r}{33}{chapter*.6}
-\contentsline {chapter}{Literatura}{35}{section*.8}
-\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{39}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{41}{appendix.B}
+\contentsline {section}{\numberline {3.4}Multiplexor a demultiplexor}{29}{section.3.4}
+\contentsline {section}{\numberline {3.5}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{29}{section.3.5}
+\contentsline {chapter}{\chapternumberline {4}Realizace}{31}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{33}{chapter.5}
+\contentsline {chapter}{Z{\' a}v{\v e}r}{35}{chapter*.6}
+\contentsline {chapter}{Literatura}{37}{section*.8}
+\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{41}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{43}{appendix.B}

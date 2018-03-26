@@ -109,11 +109,68 @@
  Definované konstruktory a destuktory budou sloužit jen pro vytvoření a destrukci potřebných 
  struktur. Tímto bude zajištěň programovací idiom RAII (resource acquisition is initialization).
  
- Rozsireni dat o cas a id
+ Veškeré odesílané údaje budou rozšířeny o časovou značku a číselný identifikátor, aby mohl detektor
+ přesně určit původ případné anomálie.
     
  \section{Detektor}
+ Detektor bude hlavní komponentou celého řešení, protože bude vyhodnocovat získaná dat. Vzhledem
+ k zadaným požadavkům musí být návrh proveden tak, aby bylo umožněno budoucí rozšiřování. Návrh 
+ architektury se nachází na obrázku \ref{obr.detektor}
+ \begin{figure}[ht]
+   \begin{center}
+   \includegraphics[scale=0.5]{pictures/detektor-arch}
+   \caption{Architektura detektoru}
+   \label{obr.detektor}
+   \end{center}
+   \end{figure}
+
+ Komponenta DataDetector bude mít jedno vstupní rozhraní, kterým bude přijímat data z kolektoru.
+ V případě potřeby
+ zpracování více událostí z kolektoru lze využít již existující modul z NEMEA repozitáře, který
+ dokáže sloučit více vstupů do jednoho konzolidovaného výstupu. 
+ 
+ Dále se v rámci třídy DataDetector bude volat ConfigParser, který bude mít na starosti zpracování 
+ konfiguračního souboru. Konfigurační soubor bude obsahovat seznam parametrů pro každé UniRec pole,
+ na základě kterých bude vytvořena instance třídy Analyzer pro analýzu dat. 
+ 
+ Po provedení inicializace všech modulů bude DataDetector pouze přijímat data z kolektoru a 
+ předávat je ke zpracování komponentě Analyzer. Tato komponenta bude obsahovat
+ tři hlavní části:
+ \begin{itemize}
+  \item \textbf{Profile}
+  
+  Bude obsahovat členské funkce, které se budou starat o připravení výchozího profilu sítě. 
+  Vytvořený profil bude složen z: průměru, plovoucího průměru, rozptylu a mediánu.
+  Tyto hodnoty budou následně použity při porovnávání s aktuálním provozem v rámci detekčních
+  metod. V případě potřeby bude možné profil rozšířit o další hodnoty.
+  
+  \item \textbf{Detect}
+  
+  Bude sdružovat všechny členské funkce určené pro detekci anomálií v získaných datech. 
+  Každá členská funkce bude reprezentovat jedno kritérium a bude možné budoucí rozšíření o další
+  potřebné metody.
+  
+  \item \textbf{Operation}
+  
+  Cílém této části bude udržování veškerých použitých struktur. Bude se jednat o struktury 
+  pro konfiguraci, zpracovávaná data a odesílání získaných výsledků. Odesílat lze informaci o 
+  nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo lze pravidelně exportovat
+  definované části aktuálního profilu sítě pro účelý dalšího zpracování. 
+  
+ \end{itemize}
+
+ Díky konfiguraci organizované po jednotlivých UniRec polích je možné nastavit chování výše
+ popsaných částí nezávisle na sobě pro každé pole.
+ 
+ konfigurační souboru a vstupní příkazy
+ použité struktury
+  
+ popis analýzy
+  stavový diagram zpracování
+  soft hard limit, data change, .... 
+ 
   časové řady
-  univerzální návrh který umožňuje použití více nebo jen jednoho detektoru
+  univerzální návrh který umožňuje použití více nebo jen jednoho detektoru (spooji se to mergerem)
   Sytaxe konfiguračního souboru - klíč hodnoty
   návrh metod a tříd 
   
