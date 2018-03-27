@@ -14,13 +14,13 @@
   V následujících podkapitolách bude popsán nový model komunikace, který přináší 
   IoT sítě.
  \subsection{Fog computing} 
- Fog computing je rozšíření Cloud computingu, které spočívá v přesunutí výpočetního
+ Fog computing je rozšíření cloud computingu, které spočívá v přesunutí výpočetního
  výkonu blíže k okraji sítě. Rozšíření je umožněno pomocí přidání síťových zařízení,
  které kromě běžných funkcionalit poskytují i výpočetní výkon pro běh externích programů. Programy 
  je často možné nasadit pomocí kontejnerů nebo samostatných virtuálních strojů, což 
  velmi usnadňuje jejich distribuci \cite{fog}.
  
- Porovnání klasické a Fog architektury se nachází na obrázku \ref{obr.fog}. V reálném nasazení může
+ Porovnání klasické a fog architektury se nachází na obrázku \ref{obr.fog}. V reálném nasazení může
  být použito i více Fog vrstev, kde každá provádí určitý stupeň předzpracování a řízení
  dat.
 \begin{figure}[ht]
@@ -30,35 +30,35 @@
 \label{obr.fog}
 \end{center}
 \end{figure}
- Zavedením principů Fog computingu vznikají pro síť následující výhody:
+ Zavedením principů fog computingu vznikají pro síť následující výhody:
  \begin{itemize}
- \item \textbf{Zlepšení bezpečnosti} \cite{fog}
+ \item \textbf{Zlepšení bezpečnosti} 
  
      Síťové prvky jsou trvale napájené a připojené k internetu. Podporují pokročilé
      bezpečnostní funkce, a proto je možné například vytvářet šifrované tunelové
-     spojení pro bezpečný přenos dat.     
-\item \textbf{Nižší nároky na šířku pásma a latenci} \cite{fog}
+     spojení pro bezpečný přenos dat \cite{fog}.     
+\item \textbf{Nižší nároky na šířku pásma a latenci} 
 
     Odeslaná data z koncových zařízení jsou zpracovávána a filtrována na okraji 
     sítě. Tím je možné rychleji reagovat na přijaté zprávy a snížit nároky
     na latency a šířku pásma. Zároveň krátkodobá data mohou být uložené ve 
     Fog vrstvě a centrální datové cetrum může být využito pro dlouhodobé údaje, 
-    které se zpracovávají pokročilými algoritmy pro analýzu dat.
- \item \textbf{Jednotná správa} \cite{fog}
+    které se zpracovávají pokročilými algoritmy pro analýzu dat \cite{fog}.
+ \item \textbf{Jednotná správa} 
  
     Při správě sítě už se nemusí přistupovat přímo na koncové prvky, které 
     často komunikují různými protokoly, ale stačí pouze
     řídit síťová zařízení v jednotlivých Fog vrstvách, které odstiňují různorodost
     protokolů a nabízí standardizovaný přístup. Díky této abstrakci je 
     zároveň zjednodušeno zpracování získaných dat a je umožněno přímé zasílání zpráv
-    mezi koncovými prvky, které používají odlišné komunikační protokoly.
+    mezi koncovými prvky, které používají odlišné komunikační protokoly \cite{fog}.
  \end{itemize} 
  
  \subsection{IoT brána} 
  IoT brána je síťové zařízení, které je umístěno velmi blízko koncových zařízení
  a představuje vstup do Fog vrstvy. Jejím hlavním cílem je získávat data 
  z připojených zařízení a poskytovat je vyšším vrstvám. Pokud je brána reprezentována
- výkonnějším síťovým prvkem, tak v rámci brány může probíhat i základní zpracování
+ výkonnějším síťovým prvkem, tak v něm zároveň může probíhat i základní zpracování
  dat. 
  
  Pro IoT sítě je typické, že obsahují velké množství koncových prvků komunikujících
@@ -94,14 +94,17 @@
  Senzorová vrstva obsahuje veškerá koncová zařízení, které získávají informace ze svého
  okolí nebo vykonávají potřebnou službu \cite{secFramework}. Tato zařízení jsou připojena
  kabelově nebo bezdrátově k IoT bráně. K jedné bráně může být připojeno několik
- prvků, které komunikují odlišnými způsoby.
+ prvků, které komunikují odlišnými způsoby. Princip komunikace a možnosti topologie se odlišují
+ na základě použité technologie.
  
  Velkým nebezpečím této vrstvy jsou zejména bezdrátové protokoly, protože při nepoužití
- zabezpečení může snadno dojít k odposlouchávání nebo úprávám provozu \cite{iotSurvey}.
+ zabezpečení může snadno dojít k odposlouchávání nebo úpravám provozu \cite{iotSurvey}.
  Dále se zde mohou vyskytovat zařízení, které jsou označeny jako zabezpečené, 
  ale díky starší verzi komunikačního protokolu používají zastaralé bezpečnostní funkce
  nebo obsahují implementační chyby. 
- Tento případ je velmi nebezpečný, protože vyvolává falešný pocit bezpečí.
+ Tento případ je velmi nebezpečný, protože vyvolává falešný pocit bezpečí. Útoky se také mohou 
+ zaměřovat na prvky s bateriovými zdroji, které mohou být nadměrnou komunikací
+ účelově vybíjeny.
  
  \item \textbf{Síťová vrstva}
  
@@ -112,11 +115,11 @@
  pomocí protokolu HTTPS (Hypertext Transfer Protocol Secure) nebo technologie
  VPN (Virtual Private Network). Nad tímto spojením je postavena další služba pro 
  výměnu zpráv. Příkladem může být: MQTT (Message Queuing Telemetry Transport),
- COAP (Constrained Application Protocol),
+ COAP (Constrained Application Protocol) nebo
  AMQP (Advanced Message Queuing Protocol). Tyto protokoly jsou podrobněji posány v 
  kapitole \ref{protokoly} Používané komunikační protokoly.
  
- Bezpečnostní hrozby této vrstvy jsou stejné jako v klasických sítích. Je potřeba
+ Bezpečnostní hrozby síťové vrstvy jsou stejné jako v klasických sítích. Je potřeba
  dodržet principy důvěry, integrity a dostupnosti. Tímto přístupem je možné
  předejít útokům jako: DDoS (Distributed Denial Of Service),
  MITM (Man In The Middle) a podvržení informací. Zároveň je nutné
@@ -130,7 +133,7 @@
  
  Aplikační vrstva se stará o ukládání dlouhodobých dat a jejich finální zpracování. 
  Zároveň zobrazuje uživateli zpracované informace a umožňuje provádět konfiguraci
- celé sítě. Z důvodu možné rozsáhlosti celé sítě je kritické, aby správa
+ celé sítě. Z důvodu její možné rozsáhlosti je kritické, aby správa
  topologie podporovala automatizaci. \cite{secFramework}.
  
  Tato vrstva je umístěna vetšinou v datovém centru a umožňuje vzdálený přístup. 

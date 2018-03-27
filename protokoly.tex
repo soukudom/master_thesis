@@ -8,7 +8,7 @@
   a využívá model pulish/subcribe, který vychází z tradičního způsobu zasílání zpráv
   typu klient-server. Roli serveru zde plní speciální uzel, který se nazývá broker.
   Broker je známý všem ostatním klientům, kteří mohou zasílat zprávy pomocí operace
-  publish nebo se přihlásit o příjem zpráv díky operaci subscribe.
+  \textit{publish} nebo se přihlásit o příjem zpráv díky operaci \textit{subscribe}.
   Na základě provedených operací broker přijímá zprávy a rozhoduje o jejich přeposlání.
   Způsob odeslání zprávy závisí na obsažených metadatech.
   
@@ -20,7 +20,7 @@
 \end{center}
 \end{figure}
   
-  Nejčastěji o směru odesláni rozhoduje předmět (topic) zprávy. Předmět je tvořen
+  Nejčastěji o směru odeslání rozhoduje předmět (topic) zprávy. Předmět je tvořen
   jednoduchým UTF-8 řetězcem s hierarchickou strukturou, ve které jsou jednolivé
   vrstvy odděleny dopředným lomítkem (např. /domov/přízemí/světloŠatna). V předmětu
   zprávy mohou být některé vrstvy nahrazeny zástupnými symboly + a \#. Symbol + dokáže
@@ -54,9 +54,9 @@
  \begin{itemize}
   \item \textbf{Síťová vrstva}
   
-    Veškerá komunikace postavena nad TCP/IP. Z tohoto důvodu je možné komunikaci
-    zapouzdřit pomocí VPN (Virtual Private Network) připojení
-    jako v běžných počítačových sítích. Z důvodu větších nároků na výkon je toto
+    Veškerá komunikace je postavena nad TCP/IP, a proto lze probíhající komunikaci
+    zapouzdřit pomocí VPN připojení
+    jako v běžných počítačových sítích. Kvůli větším nárokům na výkon je toto
     řešení vhodnější pro výkonější zařízení jako jsou například IoT brány, které
     mohou s brokerem navázat site-to-site spojení. \cite{mqtt_sec}
     
@@ -69,13 +69,13 @@
   \item \textbf{Aplikační vrstva}
   
   Samotný protokol MQTT nedefinuje žádné šifrovací mechanismy na aplikační úrovni. 
-  Zabezpeční dat zde musí zajistit uživatel ještě před zapozdřením do MQTT zprávy. 
+  Zabezpeční dat zde musí zajistit uživatel ještě před jejich zapouzdřením do MQTT zprávy. 
   Ovšem tímto způsobem je možné šifrovat jen tělo zprávy a hlavička zůstává nezměněná.
   
   Pro autentizaci je možné využít ověření pomocí jména a hesla nebo x.509 certifikátu.
   Jméno a heslo je přenášeno nešifrovaně, a proto je vhodné tuto metodu doplnit se 
   zabezpečením síťové nebo transportní vrstvy. Autentizaci pomocí certifikátů 
-  je možné využít v případě použití TLS. Tato metoda je vhodnější pokud všechna
+  je možné využít jen v případě použití TLS. Tato metoda je vhodnější pokud všechna
   zařízení jsou po jednotnou správou a je možné automatizovat distribuci 
   klientských certifikátů.
   
