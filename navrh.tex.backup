@@ -133,7 +133,7 @@
  konfiguračního souboru. Konfigurační soubor bude obsahovat seznam parametrů pro každé UniRec pole,
  na základě kterých bude vytvořena instance třídy \textit{Analyzer} pro analýzu dat. 
  
- Po provedení inicializace všech modulů bude DataDetector pouze přijímat data z kolektoru a 
+ Po provedení inicializace všech modulů bude \textit{DataDetector} pouze přijímat data z kolektoru a 
  předávat je ke zpracování komponentě \textit{Analyzer}. Tato komponenta bude obsahovat
  %!!!!! Sem přidat zmínku o časových řadách.
  tři hlavní části:
@@ -244,7 +244,7 @@
  
    \begin{figure}[ht]
    \begin{center}
-   \includegraphics[scale=0.5]{pictures/config-file}
+   \includegraphics[scale=0.5]{pictures/config-file-frame}
    \caption{Popis konfiguračních parametrů pro jeden záznam}
    \label{obr.config}
    \end{center}
@@ -275,19 +275,88 @@
    
    \item \textbf{Senzorová data}
    
+   Cílem této struktury bude hierarchicky ukládat přicházející data z kolektoru do časových řad. 
+   V první úrovni se jako v předchozím případě budou nacházet názvy jednotlivých UniRec polí. 
+   Protože jedno UniRec pole může reprezentovat data z více různých senzorů nebo bran, tak se na 
+   další úrovni nachází identifikátor zdroje dat. Předpokládá se, že každá použitá brána a senzor 
+   má v rámci jedné instance detektoru unikatní identifikátory. Na třetí úrovni se již vyskytuje 
+   definovaná časová, která ukládá data podle zadané konfigurace.
    
    \item \textbf{Nastavení pro export} 
+   
+   Paremetry pro export budou uchovány ve struktuře s formátem , která bude vytvořena na základě 
+   hlavního konfiguračního souboru. Klíčem v první úrovni bude číselný identifikátor určující 
+   pořadí výstupního rozhraní 
+   
+   !!!!! Myslim, že ten pair je v exportu zbytečnej a stačí tam dát jen vector stringů s položkama
   \end{itemize}
 
  
- 
  \subsection{Způsob analýzy}
- popis analýzy
-  stavový diagram zpracování
-  soft hard limit, data change, .... 
-  časové řady
+ Veškerá analýza dat bude prováděna pomocí časových řad, které jsou vhodné pro statistický typ 
+ dat a metodu anomálií. Zároveň bude možné nastavit jejich parametry, aby bylo možné se přizpůsobit
+ pro danou datovou položku, ale i cílovou bránu, na které může být spuštěný detektor. Způsob 
+ zpracování dat lze rozdělit do následujících fází:
+  \begin{itemize}
+   \item \textbf{Inicializace}
+   
+   V rámci této sekce budou načteny všechny konfigurační položky a inicializovány veškeré struktury
+   nutné pro běh celého řešení. Následně bude program očekávat příchozí dat na jedniné vstupním
+   rozhraní.
+   
+   \item \textbf{Učení}
+   
+   Po prvotním přijetí hodnot z kolektoru bude probíhat stanovení vzorového profilu sítě. V rámci
+   této periody se do časové řady budou vkládat přicházející data a s každým novým prvkem 
+   bude prováděn výpočet všech částí profilu, které budou určeny konfiguračním souborem.
+   Pokud bude délka učící fáze delší než velikost 
+   časové řady, tak budou všechny prvky posunuty, a tím nejstarší z nich uvolní místo pro nový.
+   
+   \item \textbf{Detekce}
+   
+   Jakmile bude stanoven vzorový profil sítě, tak se zahájí analýza provozu pro určení anomálií.
+   S každým nový příchozím prvkem bude z příslušné časové řady vypočítáván aktuální profil sítě,
+   který budou používat detekční metody. 
+   
+   \item \textbf{Vyhodnocení}
+   
+   Výsledky detekčních metod budou sloužit k určení stavu provozu. Pokud budou data vyhodnocena jako
+   bezpečná, tak nebude provedena žádná akce a přejde se k obsluze další přijaté hodnoty z kolektoru.
+   V případě nalezení anomálie se vytvoří zpráva s informacemi popisující událost, která bude 
+   odeslána výstupním rozhraním určeném pro detekované hrozby.   
+  \end{itemize}
   
  \section{Multiplexor a demultiplexor}
+ Hlavním cílem těchto dvou modulů bude ulehčit nasazení analýzy dat v případě fyzicky odděleného
+ kolektoru a detektoru. Bez použití těchto modulů bude nutné na kolektoru zabezpečit přenos dat
+ z každého výstupního rozhraní, což zvýší nároky na výkon brány a zároveň bude vyžadováno
+ více konfigurace. Díky multiplexoru bude možné spojit několik různých \textit{trap} komunikačních 
+ rozhraní do jednoho, které lze demultiplexorem zase zpětně rozdělit na cílovém zařízení.
+ Tímto bude pro export dat z brány nutné zabezpečit pouze jedno rozhraní.
+
+ Multiplexor bude vícevláknový NEMEA modul, kde každé vlákno bude naslouchat na specifikovaném
+ vstupním rozhraní. Po přijetí nového formátu zprávy se nejprve odešle \textit{hello} zpráva, která
+ bude obsahovat popis nového formátu. V případě přijetí zprávy se stejným formátem bude tato 
+ zpráva rovnou přeposlána. Oba typy zpráv budou mít stejnou hlavičku s položkami: 
+ identifikátor zprávy, 
+ číslo vstupního rozhrání a typ formátu. Ostatní data nutná pro přenos budou zapouzdřena v 
+ záhlavý. Díky stejnému formátu zprávy bude možné veškerá data zasílat jedním společným rozhraním.
+ 
+ Demultiplexor bude jednovláknový modul, který bude přijímat na jednom vstupním rozhraní zprávy
+ od multiplexoru. Po přijetí dat provede jejich zpracování a na základě identifikátoru 
+ provede příslušnou akci. V případě typu \textit{hello} se upraví nový formát pro specifikované 
+ rozhraní. V druhém případě se jen přepošlou přijatá data příslušným výstupem.
  
  \section{Scénáře útoků}
-  Odvození na základě experimentů a analýzy
+ Na základě vypracované analýzy a provedených experimetů s protokoly Z-Wave a BLE byly navženy
+ následující případy nebezpečí, které mohou v reálném provozování IoT sítě nastat. 
+ 
+   \begin{enumerate}
+    \item UC1
+    \item UC2
+   \end{enumerate}
+
+  
+  
+  Tyto situace budou zároveň sloužit k otestování detekčního systému, který by je měl všechny 
+  odhalit.

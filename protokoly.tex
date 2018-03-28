@@ -12,21 +12,23 @@
   Na základě provedených operací broker přijímá zprávy a rozhoduje o jejich přeposlání.
   Způsob odeslání zprávy závisí na obsažených metadatech.
   
-\begin{figure}[ht]
+  Nejčastěji o směru odeslání rozhoduje předmět (topic) zprávy. Předmět je tvořen
+  jednoduchým UTF-8 řetězcem s hierarchickou strukturou, ve které jsou jednolivé
+  vrstvy odděleny dopředným lomítkem a každá z nich musí obsahovat minimálně jeden
+  znak (např. domov/přízemí/světloŠatna). V předmětu
+  zprávy mohou být některé vrstvy nahrazeny zástupnými symboly + a \#. Symbol + dokáže
+  nahradit pouze jednu úroveň předmětu libovolným řetězcem a symbol \# umožňuje
+  zastoupit více úrovní. Díky těmto symbolům mohou klienti odeslat nebo přijímat
+  zprávy z více témat. Schéma topologie a ukázka využití předmětů zpráv se nachází na 
+  obrázku \ref{obr.mqtt-arch}.
+  
+  \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.41]{pictures/mqtt-arch}
 \caption{MQTT architektura}
 \label{obr.mqtt-arch}
 \end{center}
 \end{figure}
-  
-  Nejčastěji o směru odeslání rozhoduje předmět (topic) zprávy. Předmět je tvořen
-  jednoduchým UTF-8 řetězcem s hierarchickou strukturou, ve které jsou jednolivé
-  vrstvy odděleny dopředným lomítkem (např. /domov/přízemí/světloŠatna). V předmětu
-  zprávy mohou být některé vrstvy nahrazeny zástupnými symboly + a \#. Symbol + dokáže
-  nahradit pouze jednu úroveň předmětu libovolným řetězcem a symbol \# umožňuje
-  zastoupit více úrovní. Díky těmto symbolům mohou klienti odeslat nebo přijímat
-  zprávy z více témat.
   
   Další užitečnou položkou protokolu MQTT je QoS (Quality of Service),
   která může nabývat hodnot 0, 1 nebo 2.
@@ -104,12 +106,13 @@
    Pro zajištění integrace s běžnými webovými službami a zachování nízkých nároků
    se v CoAP topologii velmi často vyskytují proxy servery. Tyto servery mohou plnit
    funkci běžných reverzních a dopředných proxy, mapování mezi CoAP a HTTP protokolem
-   nebo vyvažování zátěže. 
+   nebo vyvažování zátěže. Způsob komunikace a schéma možné způsoby propojeí jsou na
+   obrázku \ref{obr.coap-arch}. Senzor reprezentuje koncový prvek s omezeným výkonem.
    
    \begin{figure}[ht]
    \begin{center}
    \includegraphics[scale=0.41]{pictures/coap-arch}
-   \caption{COAP architektura}
+   \caption{CoAP architektura}
    \label{obr.coap-arch}
    \end{center}
    \end{figure}
@@ -131,7 +134,8 @@
     
     \item \textbf{PUT}
     
-    Tato metoda specifikuje nový stav cílového zdroje, který se buď vytvoří, nebo 
+    Tato metoda specifikuje nový stav cílového zdroje, který specifikován použitým URI. Zdroj
+    se buď vytvoří, nebo 
     v případě jeho existence aktualizuje. Provedení operace není bezpečné, ale 
     je idempotentní.
     
@@ -196,7 +200,7 @@
  s kontrolerem. Během párovacího procesu nový prvek získá vlastní 8 bitový identifikátor (\textit{Node ID}) a 
  unikátní 32 bitový identifikátor sítě (\textit{Home ID}), který má již od výroby kontroler uložen v nepřepisovatelné paměti.
  Následné zasílání zpráv už nemusí probíhat přímo mezi senzorem a kontrolerem, ale zprávy mohou
- být přeposílány sousední prvky, které jsou trvale napájené, čímž se velmi zvyšuje možná rozloha sítě. 
+ být přeposílány sousedními prvky, které jsou trvale napájené, čímž se velmi zvyšuje možná rozloha sítě. 
  Pro odebrání libolného zařízení je opět nutné zajisiti přimé spojení s kontrolerem a spustit odstraňovací
  proces. \cite{cesnet-survey}
  
@@ -236,7 +240,7 @@
  dostatečnou úroveň bezpečnosti během párovacího procesu. \cite{cesnet-survey}
 
  
-  \subsection{BLE (Bluetooth Low Energy)}
+  \subsection{BLE (Bluetooth Low Energy)} %!!! chybi citace
   BLE je bezdrátový prtokol určený pro senzorové sítě s důrazem na nízkou spotřebu. Byl představen 
   v roce 2010 jako součást specifikace Bluetooth 4.0 a je nekompatibilní s původními verzemi. 
   Za vývoj a údržbu protokolu je odpovědná skupina Bluetooth SIG (Special Interest Group).
@@ -245,9 +249,10 @@
   \subsubsection{Způsob komunikace}
   BLE vysílá v bezlicenčním ISM pásmu na frekvencích od 2.4 GHz do 2.4835 GHz. Specifikace
   protokolu vychází z Bluetooth, ale zejména díky změnám parametrů v rádiové vrstvě 
-  jsou navzájem nekompatibilní. Do verze 4 umožňuje navázat pro koncová zařízení pouze jedno spojení a 
-  vytváří tak hvězdicovou topologii s jedním centrálním prvkem. Od verze 5 je možné využívat více připojení
-  a vytvořit tak flexibilnější mesh topologii. 
+  jsou navzájem nekompatibilní. Do verze 4 umožňuje navázat pro koncová zařízení pouze jedno spojení,
+  a proto 
+  vytváří hvězdicovou topologii s jedním centrálním prvkem. Od verze 5 je možné využívat více připojení
+  a lze vytvořit flexibilnější mesh topologii. 
   
   Před zahájením komunikace mezi centrálním prvkem a senzory je nutné nejprve prvést párování, 
   které probíhá v následujících krocích:
