@@ -5,7 +5,7 @@
   se vzdáleným datovým centrem, protože nároky na potřebnou šířku pásma by byly 
   obrovské \cite{fog}.
   Dalším problémem je často velmi omezený výkon připojených prvků, který je nezbytný pro 
-  použití bezpečnostních funkcí umožňujících kompletně zabezpečenou komunikaci. 
+  použití bezpečnostních funkcí umožňujících kompletně zabezpezpečenou komunikaci. 
   
   Řešení těchto problémů je do probíhající komunikace přidat několik podvrstev, 
   které umožní přesunout výpočetní výkon blíže ke koncovým zařízením, a tím celý
@@ -84,6 +84,7 @@
  a proto veškeré údaje, které je možné získat o provozu, jsou poskytovány pro analýzu. Nad těmito údaji
  je postaven detekční algoritmus, který je výsledkem této diplomové práce.
  
+ %přidat popis BeeeOn
 
  \subsection{Komunikační model a jeho hrozby}
  Při použití principů popsaných v předchozích kapitolách lze model komunikace rozdělit
@@ -116,7 +117,7 @@
  pomocí protokolu HTTPS (Hypertext Transfer Protocol Secure) nebo technologie
  VPN (Virtual Private Network). Nad tímto spojením je postavena další služba pro 
  výměnu zpráv. Příkladem může být: MQTT (Message Queuing Telemetry Transport),
- CoAP (Constrained Application Protocol) nebo
+ COAP (Constrained Application Protocol) nebo
  AMQP (Advanced Message Queuing Protocol). Tyto protokoly jsou podrobněji popsány v 
  kapitole \ref{protokoly} Používané komunikační protokoly.
  
@@ -152,12 +153,13 @@
  které umožní automatizovanou výměnu zpráv mezi všemi dostupnými zařízeními. Tímto způsobem
  je následně možné zefektivňovat a usnadňovat lidskou práci.
  
- V následujících podkapitolách bude popsána množina aktuálně často používaných protokolů
+ V následujích podkapitolách bude popsána množina aktuálně často používaných protokolů
  včetně jejich bezpečnostních funkcí.
  
   \input{protokoly}
    
    \newpage
+ % popis a bezpečnostní analýza ZWave a Bluetooth
   \section{Bezpečnostní slabiny}
   Na základě provedené analýzy aktuálně používaných protokolů budou v této kapitole 
   popsány jejich bezpečnostní slabiny, které budou později využity při návrhu 
@@ -168,9 +170,9 @@
  \subsection{Z-Wave}
  Hlavním problém jsou zařízení certifikovaná před březnem 2017, jelikož nepodporují S2 framework.
  Tyto prvky nemusí při své komunikaci využívat žádnou formu šifrování a síť se tak stává 
- velmi zranitelnou. V minulosti již bylo provedeno několik útoků, které pomocí
+ velmi zranitelnou. V minulosti již bylo provedeno několik útoků, které pomocí projektu
  Scapy-Radio projektu \cite{ezwave} nebo knihovny OpenZWave  byly schopny ovládat jednotlivé senzory. 
- 
+ %\cite{openzwave-attack}
  Při využití šifrování je velmi zranitelná doba během párovacího procesu, jelikož je při výměně
  šifrovacích klíčů použit výchozí klíč uložený ve firmware zařízení. Zároveň se 
  u jednoho typu zámku podařilo objevit implementační chybu \cite{zwave-S0-attack}, které umožňovala vnutit 
@@ -215,6 +217,7 @@
  je ztráta celkového pohledu na síť. Při zavedení IDS/IPS systému je z těchto důvodů dobré 
  kombinovat způsoby nasazení a umožnit vzájemné sdílení detekovaných incidentů.
  
+ %\section{Metody zpracování}
  Při zaměření na zpracovávání datových toků lze detekční systémy rozdělit do dvou základních kategorií:
  \begin{itemize}
   \item \textbf{Detekce anomálií}
@@ -236,6 +239,7 @@
   lokálně nebo vzdáleně \cite{ids-ips}.
  \end{itemize}
  
+ %\section{Možnosti detekce}
  IoT sítě k běžnému IP provozu přidávají senzorové protokoly, jejichž chování je také dobré monitorovat, 
  protože jsou připojeny do počítačové sítě a mohou být zneužity při útocích. Bohužel detekční metody 
  nejsou pro tyto sítě moc rozšířené, a tím dochází ke zvýšení rizika a dopadu možných útoků. Pro určení 
@@ -276,7 +280,7 @@
  protokoly. Router Turris Omnia umožňuje nasadit systém Suricata, pro který nabízí rozšíření 
  PaKon \cite{pakon}. Toto rozšíření zpracovává data ze Suricaty, které následně ukládá v přehledné formě.
  Díky tomu uživatel získá podrobný přehled o stavu provozu. Získaná data může dále využívat 
- například k vylepšení stávajících bezpečnostních pravidel. Nevýhodou tohoto řešení jsou 
+ například k vylepšení stávajících bezpečnostních pravidel. Nevýhodou totoho řešení jsou 
  vyšší hardwarové požadavky, a proto ho nelze provozovat na branách s omezenými 
  prostředky. Další komplikací může být centralizovaná architektura a zaměření pouze na 
  IP provoz.
@@ -344,7 +348,7 @@
 
  \newpage 
  \section{Zvolené řešení}
- Obsahem této kapitoly je popis zvoleného řešení, které bylo na základě provedené analýzy
+ Obsahem této kapitoly je popis zvoleného řešení, které bylo na základě provedé analýzy
  určeno pro realizaci výsledného nástroje.
  
  Vytvořený detekční algoritmus bude zaměřen na senzorové IoT protokoly, protože v současné době 

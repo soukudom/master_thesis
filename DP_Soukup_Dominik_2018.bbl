@@ -83,6 +83,11 @@ Designs, S.: Introduction to Z-Wave Specifications. ZWave. [online], 2016 [cit.
 Fouladi, B.; Ghanoun, S.: Security Evaluation of the Z-Wave Wireless Protocol.
   In \emph{BlackHat Conference, Las Vegas, NV, USA}, 2013 [cit. 2018-03-18].
 
+\bibitem{ble-attack}
+Jasek, S.: Gattacking Bluetooth Smart Devices. SecuRing. [online], 2016 [cit.
+  2018-03-18].
+\urlprefix\biburl{http://gattack.io/whitepaper.pdf}
+
 \bibitem{ezwave}
 Fouladi, B.; Ghanoun, S.: EZ-Wave. Github. [online], 2016 [cit. 2018-03-18].
 \urlprefix\biburl{https://github.com/cureHsu/EZ-Wave}
@@ -90,11 +95,6 @@ Fouladi, B.; Ghanoun, S.: EZ-Wave. Github. [online], 2016 [cit. 2018-03-18].
 \bibitem{ble-locks}
 Rose, A.; Ramsey, B.: Picking Bluetooth Low Energy Locks from a Quarter Mile
   Away. In \emph{DEF CON, Las Vegas, NV, USA}, 2016 [cit. 2018-03-18].
-
-\bibitem{ble-attack}
-Jasek, S.: Gattacking Bluetooth Smart Devices. SecuRing. [online], 2016 [cit.
-  2018-03-18].
-\urlprefix\biburl{http://gattack.io/whitepaper.pdf}
 
 \bibitem{blueborne}
 Seri, B.; Vishnepolsky, G.: BlueBorne. Armis. [online], 2017 [cit. 2018-03-18].

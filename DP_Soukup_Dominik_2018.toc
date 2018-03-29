@@ -12,7 +12,7 @@
 \contentsline {subsection}{\numberline {2.2.1}MQTT}{10}{subsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.1.1}Zp\IeC {\r u}sob komunikace}{10}{subsubsection.2.2.1.1}
 \contentsline {subsubsection}{\numberline {2.2.1.2}Bezpe\IeC {\v c}nost}{11}{subsubsection.2.2.1.2}
-\contentsline {subsection}{\numberline {2.2.2}COAP}{12}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.2}CoAP}{12}{subsection.2.2.2}
 \contentsline {subsubsection}{\numberline {2.2.2.1}Zp\IeC {\r u}sob komunikace}{12}{subsubsection.2.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.2.2}Bezpe\IeC {\v c}nost}{13}{subsubsection.2.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Z-Wave}{14}{subsection.2.2.3}
@@ -39,9 +39,9 @@
 \contentsline {subsection}{\numberline {3.3.3}Zp\IeC {\r u}sob anal\IeC {\'y}zy}{32}{subsection.3.3.3}
 \contentsline {section}{\numberline {3.4}Multiplexor a demultiplexor}{33}{section.3.4}
 \contentsline {section}{\numberline {3.5}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{34}{section.3.5}
-\contentsline {chapter}{\chapternumberline {4}Realizace}{35}{chapter.4}
-\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{37}{chapter.5}
-\contentsline {chapter}{Z{\' a}v{\v e}r}{39}{chapter*.6}
-\contentsline {chapter}{Literatura}{41}{section*.8}
-\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{45}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{47}{appendix.B}
+\contentsline {chapter}{\chapternumberline {4}Realizace}{37}{chapter.4}
+\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{39}{chapter.5}
+\contentsline {chapter}{Z{\' a}v{\v e}r}{41}{chapter*.6}
+\contentsline {chapter}{Literatura}{43}{section*.8}
+\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{47}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{49}{appendix.B}

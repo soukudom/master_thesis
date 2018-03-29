@@ -78,9 +78,9 @@ automatizovanému řízení dalších
 systémů, monitorování prostředí a zabezpečovacím účelům. Zároveň s masivním rozšířením nově
 připojených zařízení roste riziko vzniku nových útoků a možnosti způsobení větších
 škod. Příkladem bezpečnostního incidentu je útok na distribuční síť elektrického 
-proudu na Ukrajině, který měl dopad na 225 000 zákazníků \cite{ukraine}. 
+produ na Ukrajině, který měl dopad na 225 000 zákazníků \cite{ukraine}. 
 
-Pro potlačení možného vzniku hrozeb musí být součástí každé dnešní IoT sítě sada procesů,
+Pro potlačení možného vzniku hrozeb musí být součástí každné dnešní IoT sítě sada procesů,
 které umožní důvěryhodné
 získávání validních dat, vzdálenou správu a možnost
 detekce anomálií jako v běžných IP (Internet Protocol) sítích. 	
@@ -126,7 +126,6 @@ V závěru jsou identifikovány možné scénáře útoků.
  % použité knihovny - téměř žádné protože se klade velký důraz na nízkou náročnost
  % popsat trochu jak probihala integrace kolektoru
  % popsat, ze periodicky veci jsou delany pomoci vlaken per polozku
-    % hlavní je že je to proto, že se nedozvi info o čase když nepřijdou data, tak to musim dělat sám
  
 
 \chapter{Testování}

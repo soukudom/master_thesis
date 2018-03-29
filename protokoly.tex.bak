@@ -1,5 +1,5 @@
 \subsection{MQTT}
-  MQTT je otevřený síťový komunikační protokol typu publish/subcribe, který byl navržen
+  MQTT je otevřený síťový komunikační protokol typu pulish/subcribe, který byl navržen
   v roce 1999. Již od návrhu byl zaměřen na nízkou náročnost komunikace a jednoduchost
   implementace. Díky těmto vlastnostem je velmi vhodný pro IoT a M2M systémy. \cite{mqtt}
   \subsubsection{Způsob komunikace}
@@ -13,7 +13,7 @@
   Způsob odeslání zprávy závisí na obsažených metadatech.
   
   Nejčastěji o směru odeslání rozhoduje předmět (topic) zprávy. Předmět je tvořen
-  jednoduchým UTF-8 řetězcem s hierarchickou strukturou, ve které jsou jednotlivé
+  jednoduchým UTF-8 řetězcem s hierarchickou strukturou, ve které jsou jednolivé
   vrstvy odděleny dopředným lomítkem a každá z nich musí obsahovat minimálně jeden
   znak (např. domov/přízemí/světloŠatna). V předmětu
   zprávy mohou být některé vrstvy nahrazeny zástupnými symboly + a \#. Symbol + dokáže
@@ -49,7 +49,7 @@
    \end{itemize}
   Hodnota QoS se nastavuje vždy mezi dvěma uzly při navazování spojení.
   Z pohledu brokeru se může stát, že přijatá a odeslaná zpráva mají jiné QoS.
-  Úrovně 1 a 2 dále umožňují perzistentní ukládání zpráv v případě, že příjemce je
+  Úrovně 1 a 2 dále umožňují perzistetní ukládání zpráv v případě, že příjemce je
   nedostupný. Zároveň platí, že s vyšší úrovní roste i režie komunikace. \cite{mqtt_intro}
  \subsubsection{Bezpečnost}
  Zabezpečení protokolu MQTT je možné rozdělit do následujících vrstev:
@@ -59,7 +59,7 @@
     Veškerá komunikace je postavena nad TCP/IP, a proto lze probíhající komunikaci
     zapouzdřit pomocí VPN připojení
     jako v běžných počítačových sítích. Kvůli větším nárokům na výkon je toto
-    řešení vhodnější pro výkonnější zařízení jako jsou například IoT brány, které
+    řešení vhodnější pro výkonější zařízení jako jsou například IoT brány, které
     mohou s brokerem navázat site-to-site spojení. \cite{mqtt_sec}
     
   \item \textbf{Transportní vrstva}
@@ -71,7 +71,7 @@
   \item \textbf{Aplikační vrstva}
   
   Samotný protokol MQTT nedefinuje žádné šifrovací mechanismy na aplikační úrovni. 
-  Zabezpečení dat zde musí zajistit uživatel ještě před jejich zapouzdřením do MQTT zprávy. 
+  Zabezpeční dat zde musí zajistit uživatel ještě před jejich zapouzdřením do MQTT zprávy. 
   Ovšem tímto způsobem je možné šifrovat jen tělo zprávy a hlavička zůstává nezměněná.
   
   Pro autentizaci je možné využít ověření pomocí jména a hesla nebo x.509 certifikátu.
@@ -106,7 +106,7 @@
    Pro zajištění integrace s běžnými webovými službami a zachování nízkých nároků
    se v CoAP topologii velmi často vyskytují proxy servery. Tyto servery mohou plnit
    funkci běžných reverzních a dopředných proxy, mapování mezi CoAP a HTTP protokolem
-   nebo vyvažování zátěže. Způsob komunikace a schéma možné způsoby propojení jsou na
+   nebo vyvažování zátěže. Způsob komunikace a schéma možné způsoby propojeí jsou na
    obrázku \ref{obr.coap-arch}. Senzor reprezentuje koncový prvek s omezeným výkonem.
    
    \begin{figure}[ht]
@@ -117,7 +117,7 @@
    \end{center}
    \end{figure}
    
-   Ve specifikaci protokolu CoAP jsou definovány následující operace:
+   Ve specfikaci protokolu CoAP jsou definovány následující operace:
    \begin{itemize}
     \item \textbf{GET}
     
@@ -159,18 +159,18 @@
    \begin{itemize}
     \item \textbf{NoSec}
     
-    Tento mód neobsahuje žádnou úroveň zabezpečení a veškeré zprávy jsou zasílány
+    Tento mód neobsahuje žádnou úroveň zabezpeční a veškeré zprávy jsou zasílány
     v otevřené podobě. 
     
     \item \textbf{PreSharedKey}
     
-    V tomto případě se naváže spojení pomocí protokolu DTLS (Datagram Transport
+    V tomto případě se náváže spojení pomocí protokolu DTLS (Datagram Transport
     Layer Security), které využívá symetrické šifrování. Předsdílený klíč musí
     být známý všem uzlům před zahájením komunikace. 
     
     \item \textbf{RawPublicKey}
     
-    Tento režim také navazuje zabezpečené spojení pomocí protokolu DTLS, ale místo
+    Tento režim také navuzuje zabezpečené spojení pomocí protokolu DTLS, ale místo
     symetrické šifry se používá asymetrická.
     
     \item \textbf{Certificate}
@@ -179,7 +179,7 @@
    \end{itemize}
 
    Podobně jako u protokolu MQTT je i zde možné ochránit provoz na síťové
-   vrstvě pomocí VPN. Při nasazení libovolného režimu zabezpečení je nutné počítat 
+   vrstvě pomocí VPN. Při nasazení libovolného režimu zabezpeční je nutné počítat 
    s většími nároky na výkon, které musí klient splňovat pro navazování a udržování 
    spojení. \cite{coap}
    
@@ -196,12 +196,12 @@
  
  \subsubsection{Způsob komunikace}
  V Z-Wave síti se může maximálně vyskytovat 232 uzlů, mezi kterými se vždy nachází jeden označený
- jako kontroler. Pro přidání libovolného zařízení do sítě musí být nejprve provedeno přímé spárování
+ jako kontroler. Pro přidání libovolného zařízení do sítě musí být nejprve provedo příme spárování
  s kontrolerem. Během párovacího procesu nový prvek získá vlastní 8 bitový identifikátor (\textit{Node ID}) a 
  unikátní 32 bitový identifikátor sítě (\textit{Home ID}), který má již od výroby kontroler uložen v nepřepisovatelné paměti.
  Následné zasílání zpráv už nemusí probíhat přímo mezi senzorem a kontrolerem, ale zprávy mohou
  být přeposílány sousedními prvky, které jsou trvale napájené, čímž se velmi zvyšuje možná rozloha sítě. 
- Pro odebrání libovolného zařízení je opět nutné zajistit přímé spojení s kontrolerem a spustit odstraňovací
+ Pro odebrání libolného zařízení je opět nutné zajisiti přimé spojení s kontrolerem a spustit odstraňovací
  proces. \cite{cesnet-survey}
  
  V rámci specifikace Z-Wave \cite{zwave-spec} je definován mechanismus pro určení dostupných příkazů. Každý senzor obsahuje
@@ -223,7 +223,7 @@
  místě, kde nemůže dojít k odposlechu. \cite{zwave-S0-attack}
  
  V roce 2016 Z-Wave aliance vydala nový S2 (Security 2) framework, který vylepšuje bezpečnostní funkcionality 
- a od roku 2017 je jeho použití povinné pro všechny nově certifikovaná zařízení. 
+ a od roku 2017 je jeho použití povinné pro všechny nově certifikovaná zarízení. 
  
  S2 framework umožňuje zařízení rozdělit do následujících skupin s rozdílnými šifrovacími klíči:
  \begin{itemize}
@@ -236,12 +236,12 @@
   třída pro ostatní prvky, které nepodporují autentizaci.
  \end{itemize}
  Autentizace probíhá pomocí PIN (Personal Identification Number) nebo QR (Quick Response) kódu.
- Výměna klíče je založena na algoritmu ECDH (Elliptic-curve Diffie–Hellman), který zajišťuje 
+ Výměna klíče je založena na algortmu ECDH (Elliptic-curve Diffie–Hellman), který zajišťuje 
  dostatečnou úroveň bezpečnosti během párovacího procesu. \cite{cesnet-survey}
 
  
-  \subsection{BLE (Bluetooth Low Energy)} 
-  BLE je bezdrátový protokol určený pro senzorové sítě s důrazem na nízkou spotřebu. Byl představen 
+  \subsection{BLE (Bluetooth Low Energy)} %!!! chybi citace
+  BLE je bezdrátový prtokol určený pro senzorové sítě s důrazem na nízkou spotřebu. Byl představen 
   v roce 2010 jako součást specifikace Bluetooth 4.0 a je nekompatibilní s původními verzemi. 
   Za vývoj a údržbu protokolu je odpovědná skupina Bluetooth SIG (Special Interest Group).
   V současné době je nejnovější verzí Bluetooth 5 \cite{cesnet-survey}.
@@ -254,12 +254,12 @@
   vytváří hvězdicovou topologii s jedním centrálním prvkem. Od verze 5 je možné využívat více připojení
   a lze vytvořit flexibilnější mesh topologii \cite{cesnet-survey}. 
   
-  Před zahájením komunikace mezi centrálním prvkem a senzory je nutné nejprve provést párování, 
+  Před zahájením komunikace mezi centrálním prvkem a senzory je nutné nejprve prvést párování, 
   které probíhá v následujících krocích:
   \begin{itemize}
    \item \textbf{Vysílání žádostí}
    
-   Při spuštění párování začne koncový prvek na kanálech určených pro propagaci všesměrově vysílat žádosti o připojení,
+   Při spuštění párování začně koncový prvek na kanálech určených pro propagaci všesměrově vysílat žádosti o připojení,
    které obsahují název zařízení, jméno výrobce a podporované služby.
    
    \item \textbf{Přijímání žádostí}
@@ -278,7 +278,7 @@
  
    \subsubsection{Bezpečnost}
    BLE umožňuje volitelně používat šifrování pomocí AES, jehož šifrovací klíč je 
-   vytvořen během párování v části inicializace připojení. Velmi důležité je zabezpečit 
+   vytvořen behěm párování v části inicializace připojení. Velmi důležité je zabezpečit 
    výměnu sdíleného klíče, která až do verze 4.1 není bezpečná, protože neumožňuje ochranu
    před odposloucháváním. Vylepšení přichází až od verze 4.2, ve které lze využít ECDH \cite{cesnet-survey}.
    
@@ -293,12 +293,12 @@
      \item \textbf{Out of Band}
      
      V této kategorii jsou veškeré klíče vyměňovány odlišným komunikačním kanálem např. přes NFC (Near Field Communication).
-     Celková bezpečnost této metody závisí na důvěryhodnosti použitého kanálu.
+     Celková bezpečnost této metody závisí na důvěryhodnoti použitého kanálu.
      \item \textbf{Passkey}
      
-     Tato metoda vylepšuje \textit{Just Works} o autentizaci, která spočívá v uživatelském zadání 
-     šestimístného kódu. Pro ochranu před odposlouchávání musí být použit algoritmus ECDH,
-     který je dostupný až od verze 4.2 \cite{cesnet-survey}.
+     Tato metoda vylepšuje \textit{Just Works} o autentizaci, která spočívá v uživatelském zadání šesti 
+     místného kódu. Pro ochranu před odposlouchávání musí být použit algoritmus ECDH, který je dostupný
+     až od verze 4.2 \cite{cesnet-survey}.
      
      \item \textbf{Numeric Comparison}
      
