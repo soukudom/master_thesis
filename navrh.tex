@@ -50,7 +50,7 @@
  rozhraní. S využitím \textit{Mux} a \textit{Demux} modulů bude stačit zabezpečit pouze jedno sjednocené rozhraní. 
  
  Výhodou návrhu řešení je flexibilita a modularita. Každá komponenta vždy samostatně pokrývá pouze jednu
- část detekčního systému a se díky NEMEA se každá z nich může nacházet na různých síťových prvcích. Zároveň
+ část detekčního systému a díky NEMEA se každá z nich může nacházet na různých síťových prvcích. Zároveň
  v případě potřeby lze vytvořit další moduly, které budou rozšiřovat stávající funkcionalitu.
  Podrobnější popis návrhu nově vytvořených komponent detekčního systému se nachází v následujících kapitolách.
  
@@ -75,7 +75,7 @@
    reprezentuje hodnoty dat přicházejících ze senzorů, která jsou odeslána vždy po jejich příjmu
    
   \item \textbf{onDriverStats}:
-   v pravidelných intervalech generuje statistiky o Z-Wave sítí dostupné na komunikačních 
+   v pravidelných intervalech generuje statistiky o Z-Wave sítí dostupné na komunikačním 
    rozhraní
    
   \item \textbf{onNodeStats}:
@@ -90,7 +90,7 @@
   umožňuje získávat zadané uživatelské příkazy
  \end{itemize}
 
- Vytvořený kolektor bude reprezentován třídou NemeaCollector, která bude potomkem třídy
+ Vytvořený kolektor bude reprezentován třídou \textit{NemeaCollector}, která bude potomkem třídy
  \textit{AbstractCollector} a bude implementovat všechny její členské funkce pro zachytávání událostí. Pro každou 
  členskou funkci  bude vytvořen setter, který při spuštění brány provede počáteční nastavení
  parametrů pro obsluhu dané 
@@ -113,7 +113,7 @@
  přesně určit původ případné anomálie.
     
  \section{Detektor}
- Detektor bude hlavní komponentou celého řešení, protože bude vyhodnocovat získaná dat. Vzhledem
+ Detektor bude hlavní komponentou celého řešení, protože bude vyhodnocovat získaná data. Vzhledem
  k zadaným požadavkům musí být návrh proveden tak, aby bylo umožněno budoucí rozšiřování. Návrh 
  architektury se nachází na obrázku \ref{obr.detektor}
  \begin{figure}[ht]
@@ -126,7 +126,7 @@
 
  Komponenta \textit{DataDetector} bude mít jedno vstupní rozhraní, kterým bude přijímat data z kolektoru.
  V případě potřeby
- zpracování více událostí z kolektoru lze využít již existující modul z NEMEA repozitáře, který
+ zpracování více událostí z kolektoru lze využít již existující modul \textit{Merger} z NEMEA repozitáře, který
  dokáže sloučit více vstupů do jednoho konsolidovaného výstupu. 
  
  Dále se v rámci třídy \textit{DataDetector} bude volat \textit{ConfigParser}, který bude mít na starosti zpracování 
@@ -135,7 +135,6 @@
  
  Po provedení inicializace všech modulů bude \textit{DataDetector} pouze přijímat data z kolektoru a 
  předávat je ke zpracování komponentě \textit{Analyzer}. Tato komponenta bude obsahovat
- %!!!!! Sem přidat zmínku o časových řadách.
  tři hlavní části:
  \begin{itemize}
   \item \textbf{Profile}
@@ -155,7 +154,7 @@
   
   Cílem této části bude udržování veškerých použitých struktur. Bude se jednat o struktury 
   pro konfiguraci, zpracovávaná data a odesílání získaných výsledků. Odesílat lze informaci o 
-  nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo lze pravidelně exportovat
+  nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo pravidelně exportovat
   definované části aktuálního profilu sítě pro účely dalšího zpracování. 
   
  \end{itemize}
@@ -166,14 +165,14 @@
  \subsection{Konfigurace modulu} \label{config_file}
  Jedním z funkčních požadavků je možnost konfigurace způsobu detekce, která se tak bude moci přizpůsobit 
  cílovým podmínkám. Každá instance detektoru bude mít jeden konfigurační souboru, který bude 
- popisovat jednotlivá UniRec pole, které se budou analyzovat. 
+ popisovat jednotlivá UniRec pole určená pro analýzu.
  
  Konfigurace bude v textové podobě ve formátu klíč a seznam hodnot. Textová podoba je velmi vhodná pro 
  fázi ladění a vývoje nástroje, protože jsou možné manuální úpravy. Cílem ovšem je generovat 
  konfiguraci pomocí externího nástroje, který by mohl být součástí řídící vrstvy IoT brány. Generátor
  nastavení bude velmi vhodný pro koncové uživatele, protože si budou moci přehledně vybrat své
- parametry bez znalosti všech závislostí, které textová konfigurace ani modul pro její zpracování 
- nebude hlídat. Externí nástroj pro definování nastavení analýzy nebude součástí vytvořeného řešení.
+ parametry bez znalosti všech závislostí, které textová konfigurace ani modul pro zpracování 
+ nebude hlídat. Externí nástroj pro definování nastavení nebude součástí vytvořeného řešení.
  
  Klíčem bude vždy název UniRec pole, které se bude nacházet v příchozích datech. Tento klíč bude 
  oddělen dvojtečkou, za kterou bude sekvence parametrů, které budou odděleny středníkem . Každý klíč
@@ -188,27 +187,30 @@
   Tato skupina bude obsahovat obecné volby pro definování časové řady. Pomocí číselných parametrů 
   bude možné určit velikost řady, délku učící fáze, během které je vytvořen profil sítě a její délka
   musí být stejná nebo delší než velikost časové řady, a rozsah ignorovací části, která je vhodná
-  k odfiltrování počáteční výměny zprav při navazování spojení. 
+  k odfiltrování počáteční výměny zpráv při navazování spojení. 
   
   Dalším parametrem bude způsob 
   ukládání dat do časové řady. K dispozici budou tři režimy. Prvním z nich bude \textit{simple},
   který přijatou
   hodnotu pouze uloží. Dalším bude \textit{delta}, který bude vkládat pouze rozdíly dvou po
   sobě jdoucích hodnot. 
-  Toto je vhodné zejména u časových značek nebo počtu odeslaných zpráv, protože bude vhodnější 
-  jednotlivé přírůstky než pouhé absolutní hodnoty. Poslední možností bude \textit{average}, kdy 
+  Toto bude vhodné zejména u časových značek nebo počtu odeslaných zpráv, protože bude vhodnější 
+  udržovat jednotlivé přírůstky než pouhé absolutní hodnoty. Posledním režimem bude
+  \textit{average}, kdy 
   nová příchozí hodnota bude odečtena od aktuálního průměru a výsledek bude uložen.
   
-  Poslední možností bude číselná hodnota určující rozmezí mezi pravidelnými kontrolami
+  Poslední volbou bude číselná hodnota určující rozmezí mezi pravidelnými kontrolami
   přijetí dat a 
-  číselný parametr definující periodu pro exportování vybraných parametrů.
+  číselný parametr definující periodu pro exportování vybraných parametrů. Nastavení těchto položek
+  bude volitelné. Jejich nepoužití bude označeno znakem \textit{-}.
   
   \item \textbf{Profile}
   
-  Zápis této skupiny je identifikovaný klíčovým slovem \textit{profile}, který má uvnitř kulatých závorek 
+  Zápis této skupiny bude identifikovaný klíčovým slovem \textit{profile}, který má uvnitř kulatých závorek 
   vyjmenované jednotlivé položky, které budou součástí vytvořeného profilu. Ve vytvořeném řešení 
   budou k dispozici následující volby: \textit{average} (průměr), \textit{variance} (rozptyl), 
-  \textit{median} (medián) a \textit{cum\_average} (klouzavý průměr).
+  \textit{median} (medián) a \textit{cum\_average} (klouzavý průměr). Součástí profilu bude vždy alespoň
+  jedna položka. Použité části a jejich počet bude vždy záviset na uživateli.
   
   \item \textbf{Profile Values}
   
@@ -223,7 +225,7 @@
   budou sloužit jako proměnné pro ukládání dočasných hodnot.
   
   Zadání veškerých hodnot nebude nutné a tudíž bude záležet na uživateli, které způsoby detekce 
-  bude chtít využít. V případě nedefinování parametru je zapsán znak \textit{-}.
+  bude chtít využít. V případě nedefinování některého parametru bude zapsán znak \textit{-}.
   
   \item \textbf{Export}
   
@@ -236,7 +238,10 @@
   
  \end{itemize}
 
- Příklad záznamu s konfigurací je na obrázku \ref{obr.config}. Nastavení formou
+ Příklad záznamu s konfigurací je na obrázku \ref{obr.config}. Jednotlivé barvy označují 
+ výše definované skupiny. 
+ 
+ Nastavení formou
  souboru bude jedninou volbou pro přizpůsobení detekce. Dále při 
  spuštění programu bude vyžadován jeden přepínač \textit{-i}, který je vyžadován knihovnou trap a 
  bude definovat název vstupního
@@ -260,7 +265,7 @@
    Tato struktura bude hierarchicky ukládat veškeré hodnoty z konfiguračního souboru
    a také údaje nutné k provedení analýzy. V první úrovni se budou nacházet názvy jednotlivých 
    UniRec polí, které budou fungovat jako klíče. V druhé vrstvě se bude nacházet vždy stejná 
-   sekvence podklíčů, které budou určovat typ uchovávaných dat. Budou zde uloženy jednotlivé 
+   sekvence podklíčů, které budou určovat typ uchovávaných dat. Bude se jednat o jednotlivé 
    skupiny z konfiguračního souboru \ref{config_file}, které budou označeny stejnojmennými
    identifikátory. Hodnotou těchto skupin budou specifikované parametry detekce dle zapsané
    konfigurace. Dále zde budou podklíče s názvem \textit{metaProfile} a \textit{metaData},
@@ -279,13 +284,13 @@
    V první úrovni se jako v předchozím případě budou nacházet názvy jednotlivých UniRec polí. 
    Protože jedno UniRec pole může reprezentovat data z více různých senzorů nebo bran, tak se na 
    další úrovni nachází identifikátor zdroje dat. Předpokládá se, že každá použitá brána a senzor 
-   má v rámci jedné instance detektoru unikátní identifikátory. Na třetí úrovni se již vyskytuje 
-   definovaná časová, která ukládá data podle zadané konfigurace.
+   bude mít v rámci jedné instance detektoru unikátní identifikátory. Na třetí úrovni se bude vyskytovat 
+   definovaná časová řada, která uloží data podle zadané konfigurace.
    
    \item \textbf{Nastavení pro export} 
    
    Parametry pro export budou uchovány ve struktuře s formátem klíč a hodnota. Klíčem bude 
-   pořadové číslo výstupního rozhraní, které bude určené konkrétnímu UniRec poli. Hodnotou 
+   pořadové číslo výstupního rozhraní, které bude odpovídat konkrétnímu UniRec poli. Hodnotou 
    bude sekvence názvů určující jednotlivé části profilu, které se budou exportovat. Tyto názvy
    budou definované v konfiguračním souboru. 
    
@@ -294,16 +299,17 @@
  
  \subsection{Způsob analýzy}
  Veškerá analýza dat bude prováděna pomocí časových řad, které jsou vhodné pro statistický typ 
- dat a metodu anomálií. Zároveň bude možné nastavit jejich parametry, aby bylo možné se přizpůsobit
+ dat a metodu anomálií. Zároveň parametry řad budou nastavitelné, aby bylo možné se přizpůsobit
  pro danou datovou položku, ale i cílovou bránu, na které může být spuštěný detektor. Způsob 
  zpracování dat lze rozdělit do následujících fází:
   \begin{itemize}
    \item \textbf{Inicializace}
    
    V rámci této sekce budou načteny všechny konfigurační položky a inicializovány veškeré struktury
-   nutné pro běh celého řešení. Následně bude program očekávat příchozí data na jedniném vstupním
+   nutné pro běh celého řešení. Následně bude program očekávat příchozí data na jediném vstupním
    rozhraní.
    
+   \newpage
    \item \textbf{Učení}
    
    Po prvotním přijetí hodnot z kolektoru bude probíhat stanovení vzorového profilu sítě. V rámci
@@ -330,7 +336,7 @@
  Hlavním cílem těchto dvou modulů bude ulehčit nasazení analýzy dat v případě fyzicky odděleného
  kolektoru a detektoru. Bez použití těchto modulů bude nutné na kolektoru zabezpečit přenos dat
  z každého výstupního rozhraní, což zvýší nároky na výkon brány a zároveň bude vyžadováno
- více konfigurace. Díky multiplexoru bude možné spojit několik různých \textit{trap} komunikačních 
+ více konfigurace. Díky multiplexoru bude možné spojit několik různých trap komunikačních 
  rozhraní do jednoho, které lze demultiplexorem zase zpětně rozdělit na cílovém zařízení.
  Tímto bude pro export dat z brány nutné zabezpečit pouze jedno rozhraní.
 
@@ -351,7 +357,7 @@
  Na základě vypracované analýzy a provedených experimentů s protokoly Z-Wave a BLE byly navrženy
  následující scénáře, které mohou v reálném provozování IoT sítě nastat a identifikovat zneužití
  zranitelnosti díky vzniku anomálního provozu. V popsaných scénářích se bude vyskytovat jen nezbytně
- nutná množina informací, kterout je nutné sledovat. Popis všech dostupných dat se nachází v příloze.
+ nutná množina informací, kterout bude nutné sledovat. Popis všech dostupných dat se nachází v příloze.
  
    \begin{enumerate}
     \item \textbf{Periodicita dat}

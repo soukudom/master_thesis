@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {2.1}Architektura IoT s\IeC {\'\i }t\IeC {\'\i }}{5}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}Fog computing}{5}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}IoT br\IeC {\'a}na}{7}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Komunika\IeC {\v c}n\IeC {\'\i } model a jeho hrozby}{7}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.3}Komunika\IeC {\v c}n\IeC {\'\i } model a jeho hrozby}{8}{subsection.2.1.3}
 \contentsline {section}{\numberline {2.2}Pou\IeC {\v z}\IeC {\'\i }van\IeC {\'e} komunika\IeC {\v c}n\IeC {\'\i } protokoly}{10}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}MQTT}{10}{subsection.2.2.1}
 \contentsline {subsubsection}{\numberline {2.2.1.1}Zp\IeC {\r u}sob komunikace}{10}{subsubsection.2.2.1.1}
@@ -40,6 +40,10 @@
 \contentsline {section}{\numberline {3.4}Multiplexor a demultiplexor}{33}{section.3.4}
 \contentsline {section}{\numberline {3.5}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{34}{section.3.5}
 \contentsline {chapter}{\chapternumberline {4}Realizace}{37}{chapter.4}
+\contentsline {section}{\numberline {4.1}Integrace kolektoru}{37}{section.4.1}
+\contentsline {section}{\numberline {4.2}Zpracov\IeC {\'a}n\IeC {\'\i } vstupn\IeC {\'\i }ch dat}{37}{section.4.2}
+\contentsline {section}{\numberline {4.3}V\IeC {\'y}po\IeC {\v c}et profilu}{37}{section.4.3}
+\contentsline {section}{\numberline {4.4}Detek\IeC {\v c}n\IeC {\'\i } funkce}{37}{section.4.4}
 \contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{39}{chapter.5}
 \contentsline {chapter}{Z{\' a}v{\v e}r}{41}{chapter*.6}
 \contentsline {chapter}{Literatura}{43}{section*.8}

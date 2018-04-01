@@ -1,7 +1,7 @@
 \subsection{MQTT}
   MQTT je otevřený síťový komunikační protokol typu publish/subcribe, který byl navržen
   v roce 1999. Již od návrhu byl zaměřen na nízkou náročnost komunikace a jednoduchost
-  implementace. Díky těmto vlastnostem je velmi vhodný pro IoT a M2M systémy. \cite{mqtt}
+  implementace. Díky těmto vlastnostem je velmi vhodný pro IoT a M2M systémy \cite{mqtt}.
   \subsubsection{Způsob komunikace}
   
   Protokol MQTT je postaven nad transportní vrstvou TCP (Transmission Control Protocol)
@@ -39,6 +39,7 @@
     Veškeré zprávy jsou odesílány bez potvrzení a žádným způsobem
     není zvýšena úroveň spolehlivosti, která je shodná se spolehlivostí protokolu TCP.
     
+    \newpage
     \item \textbf{QoS 1}
     
     Pomocí potvrzování zajišťuje, že každá zpráva bude příjemci doručena alespoň jednou.
@@ -50,7 +51,7 @@
   Hodnota QoS se nastavuje vždy mezi dvěma uzly při navazování spojení.
   Z pohledu brokeru se může stát, že přijatá a odeslaná zpráva mají jiné QoS.
   Úrovně 1 a 2 dále umožňují perzistentní ukládání zpráv v případě, že příjemce je
-  nedostupný. Zároveň platí, že s vyšší úrovní roste i režie komunikace. \cite{mqtt_intro}
+  nedostupný. Zároveň platí, že s vyšší úrovní roste i režie komunikace \cite{mqtt_intro}.
  \subsubsection{Bezpečnost}
  Zabezpečení protokolu MQTT je možné rozdělit do následujících vrstev:
  \begin{itemize}
@@ -60,13 +61,13 @@
     zapouzdřit pomocí VPN připojení
     jako v běžných počítačových sítích. Kvůli větším nárokům na výkon je toto
     řešení vhodnější pro výkonnější zařízení jako jsou například IoT brány, které
-    mohou s brokerem navázat site-to-site spojení. \cite{mqtt_sec}
+    mohou s brokerem navázat site-to-site spojení \cite{mqtt_sec}.
     
   \item \textbf{Transportní vrstva}
   
   Na této úrovni se využívá šifrování provozu pomocí protokolu TLS (Transport
   Layer Security). Omezením této metody jsou požadavky na výkon, které mohou být
-  poměrně vysoké pokud nastává časté navazování spojení. \cite{mqtt_sec}
+  poměrně vysoké pokud nastává časté navazování spojení \cite{mqtt_sec}.
   
   \item \textbf{Aplikační vrstva}
   
@@ -83,7 +84,7 @@
   
   Dále je na straně brokeru možné definovat pravidla pro autorizaci. Tyto pravidla 
   přiřazují klientů oprávnění pro provedení operací publish a subscribe
-  nad příslušnými tématy. \cite{mqtt_sec}
+  nad příslušnými tématy \cite{mqtt_sec}.
   
  \end{itemize}
 
@@ -149,7 +150,7 @@
    Vyhledání potřebného zdroje je v topologii protokolu CoAP možné provést pomocí
    znalosti jeho URI nebo odesláním multicastového požadavku na definovanou
    skupinu uzlů. Možnost vyhledávání cílových zdrojů je velmi důležitá zejména
-   v M2M prostředích. \cite{coap}
+   v M2M prostředích \cite{coap}.
    
    \subsubsection{Bezpečnost}
    Samotný protokol nijak nedefinuje možnost autentizace a autorizace. V případě
@@ -181,7 +182,7 @@
    Podobně jako u protokolu MQTT je i zde možné ochránit provoz na síťové
    vrstvě pomocí VPN. Při nasazení libovolného režimu zabezpečení je nutné počítat 
    s většími nároky na výkon, které musí klient splňovat pro navazování a udržování 
-   spojení. \cite{coap}
+   spojení \cite{coap}.
    
   \subsection{Z-Wave}
   
@@ -192,7 +193,7 @@
   Z-Wave Plus zařízení obsahují nový chipset, který vylepšuje komunikační parametry
   sítě a zároveň je zpětně kompatibilní se staršími modely. \cite{z-plus}
   Otevřená implementace celého protokolu se nazývá OpenZWave \cite{openzwave}, která
-  je vyvíjena komunitou. \cite{cesnet-survey} 
+  je vyvíjena komunitou \cite{cesnet-survey}.
  
  \subsubsection{Způsob komunikace}
  V Z-Wave síti se může maximálně vyskytovat 232 uzlů, mezi kterými se vždy nachází jeden označený
@@ -202,7 +203,7 @@
  Následné zasílání zpráv už nemusí probíhat přímo mezi senzorem a kontrolerem, ale zprávy mohou
  být přeposílány sousedními prvky, které jsou trvale napájené, čímž se velmi zvyšuje možná rozloha sítě. 
  Pro odebrání libovolného zařízení je opět nutné zajistit přímé spojení s kontrolerem a spustit odstraňovací
- proces. \cite{cesnet-survey}
+ proces \cite{cesnet-survey}.
  
  V rámci specifikace Z-Wave \cite{zwave-spec} je definován mechanismus pro určení dostupných příkazů. Každý senzor obsahuje
  svou definici tříd funkcionalit (\textit{Command Class}), které obsahují dostupné příkazy a formát odpovědi. Tyto definice
@@ -218,9 +219,10 @@
  
  \subsubsection{Bezpečnost}
  Původní verze protokolu Z-Wave umožňovala volitelně využívat šifrování pomocí 128 bitového AES (Advanced Encryption Standard).
- Výměna symetrického klíče probíhá během počátečního párování, kde je vygenerovaný klíč šifrován pomocí výchozího
+ Výměna symetrického klíče v této verzi probíhá během počátečního párování, kdy je šifrován pomocí
+ výchozího
  klíče, který je uložen ve firmwaru. Vzhledem k tomuto postupu je dobré provádět počáteční párování na bezpečném
- místě, kde nemůže dojít k odposlechu. \cite{zwave-S0-attack}
+ místě, kde nemůže dojít k odposlechu \cite{zwave-S0-attack}.
  
  V roce 2016 Z-Wave aliance vydala nový S2 (Security 2) framework, který vylepšuje bezpečnostní funkcionality 
  a od roku 2017 je jeho použití povinné pro všechny nově certifikovaná zařízení. 
@@ -237,7 +239,7 @@
  \end{itemize}
  Autentizace probíhá pomocí PIN (Personal Identification Number) nebo QR (Quick Response) kódu.
  Výměna klíče je založena na algoritmu ECDH (Elliptic-curve Diffie–Hellman), který zajišťuje 
- dostatečnou úroveň bezpečnosti během párovacího procesu. \cite{cesnet-survey}
+ dostatečnou úroveň bezpečnosti během párovacího procesu \cite{cesnet-survey}.
 
  
   \subsection{BLE (Bluetooth Low Energy)} 
@@ -260,19 +262,19 @@
    \item \textbf{Vysílání žádostí}
    
    Při spuštění párování začne koncový prvek na kanálech určených pro propagaci všesměrově vysílat žádosti o připojení,
-   které obsahují název zařízení, jméno výrobce a podporované služby.
+   které obsahují název zařízení, jméno výrobce a podporované služby \cite{ble-attack}.
    
    \item \textbf{Přijímání žádostí}
    
    Pokud je centrální prvek přepnutý do párovacího režimu, tak naslouchá příchozím požadavkům, které zobrazuje uživateli.
-   Po výběru správného zařízení se ukončí mód naslouchání a začne se navazovat spojení.
+   Po výběru správného zařízení se ukončí mód naslouchání a začne se navazovat spojení \cite{ble-attack}.
    
    \item \textbf{Inicializace připojení} 
    
-   Během této fáze se obě strany domlouvají na parametrech komunikace.
+   Během této fáze se obě strany domlouvají na parametrech komunikace \cite{ble-attack}.
    \item \textbf{Komunikace}
    
-   Po úspěšném navázání spojení je možná na základě dostupných služeb provádět zasílání zpráv \cite{ble-attack}.
+   Po úspěšném navázání spojení je možné na základě dostupných služeb provádět zasílání zpráv \cite{ble-attack}.
   \end{itemize}
 
  

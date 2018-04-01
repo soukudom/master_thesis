@@ -50,7 +50,7 @@
  rozhraní. S využitím \textit{Mux} a \textit{Demux} modulů bude stačit zabezpečit pouze jedno sjednocené rozhraní. 
  
  Výhodou návrhu řešení je flexibilita a modularita. Každá komponenta vždy samostatně pokrývá pouze jednu
- část detekčního systému a se díky NEMEA se každá z nich může nacházet na různých síťových prvcích. Zároveň
+ část detekčního systému a díky NEMEA se každá z nich může nacházet na různých síťových prvcích. Zároveň
  v případě potřeby lze vytvořit další moduly, které budou rozšiřovat stávající funkcionalitu.
  Podrobnější popis návrhu nově vytvořených komponent detekčního systému se nachází v následujících kapitolách.
  
@@ -75,7 +75,7 @@
    reprezentuje hodnoty dat přicházejících ze senzorů, která jsou odeslána vždy po jejich příjmu
    
   \item \textbf{onDriverStats}:
-   v pravidelných intervalech generuje statistiky o Z-Wave sítí dostupné na komunikačních 
+   v pravidelných intervalech generuje statistiky o Z-Wave sítí dostupné na komunikačním 
    rozhraní
    
   \item \textbf{onNodeStats}:
@@ -90,7 +90,7 @@
   umožňuje získávat zadané uživatelské příkazy
  \end{itemize}
 
- Vytvořený kolektor bude reprezentován třídou NemeaCollector, která bude potomkem třídy
+ Vytvořený kolektor bude reprezentován třídou \textit{NemeaCollector}, která bude potomkem třídy
  \textit{AbstractCollector} a bude implementovat všechny její členské funkce pro zachytávání událostí. Pro každou 
  členskou funkci  bude vytvořen setter, který při spuštění brány provede počáteční nastavení
  parametrů pro obsluhu dané 
@@ -113,7 +113,7 @@
  přesně určit původ případné anomálie.
     
  \section{Detektor}
- Detektor bude hlavní komponentou celého řešení, protože bude vyhodnocovat získaná dat. Vzhledem
+ Detektor bude hlavní komponentou celého řešení, protože bude vyhodnocovat získaná data. Vzhledem
  k zadaným požadavkům musí být návrh proveden tak, aby bylo umožněno budoucí rozšiřování. Návrh 
  architektury se nachází na obrázku \ref{obr.detektor}
  \begin{figure}[ht]
@@ -126,7 +126,7 @@
 
  Komponenta \textit{DataDetector} bude mít jedno vstupní rozhraní, kterým bude přijímat data z kolektoru.
  V případě potřeby
- zpracování více událostí z kolektoru lze využít již existující modul z NEMEA repozitáře, který
+ zpracování více událostí z kolektoru lze využít již existující modul \textit{Merger} z NEMEA repozitáře, který
  dokáže sloučit více vstupů do jednoho konsolidovaného výstupu. 
  
  Dále se v rámci třídy \textit{DataDetector} bude volat \textit{ConfigParser}, který bude mít na starosti zpracování 
@@ -135,7 +135,6 @@
  
  Po provedení inicializace všech modulů bude \textit{DataDetector} pouze přijímat data z kolektoru a 
  předávat je ke zpracování komponentě \textit{Analyzer}. Tato komponenta bude obsahovat
- %!!!!! Sem přidat zmínku o časových řadách.
  tři hlavní části:
  \begin{itemize}
   \item \textbf{Profile}
@@ -155,7 +154,7 @@
   
   Cílem této části bude udržování veškerých použitých struktur. Bude se jednat o struktury 
   pro konfiguraci, zpracovávaná data a odesílání získaných výsledků. Odesílat lze informaci o 
-  nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo lze pravidelně exportovat
+  nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo pravidelně exportovat
   definované části aktuálního profilu sítě pro účely dalšího zpracování. 
   
  \end{itemize}
@@ -166,14 +165,14 @@
  \subsection{Konfigurace modulu} \label{config_file}
  Jedním z funkčních požadavků je možnost konfigurace způsobu detekce, která se tak bude moci přizpůsobit 
  cílovým podmínkám. Každá instance detektoru bude mít jeden konfigurační souboru, který bude 
- popisovat jednotlivá UniRec pole, které se budou analyzovat. 
+ popisovat jednotlivá UniRec pole určená pro analýzu.
  
  Konfigurace bude v textové podobě ve formátu klíč a seznam hodnot. Textová podoba je velmi vhodná pro 
  fázi ladění a vývoje nástroje, protože jsou možné manuální úpravy. Cílem ovšem je generovat 
  konfiguraci pomocí externího nástroje, který by mohl být součástí řídící vrstvy IoT brány. Generátor
  nastavení bude velmi vhodný pro koncové uživatele, protože si budou moci přehledně vybrat své
- parametry bez znalosti všech závislostí, které textová konfigurace ani modul pro její zpracování 
- nebude hlídat. Externí nástroj pro definování nastavení analýzy nebude součástí vytvořeného řešení.
+ parametry bez znalosti všech závislostí, které textová konfigurace ani modul pro zpracování 
+ nebude hlídat. Externí nástroj pro definování nastavení nebude součástí vytvořeného řešení.
  
  Klíčem bude vždy název UniRec pole, které se bude nacházet v příchozích datech. Tento klíč bude 
  oddělen dvojtečkou, za kterou bude sekvence parametrů, které budou odděleny středníkem . Každý klíč
@@ -195,11 +194,12 @@
   který přijatou
   hodnotu pouze uloží. Dalším bude \textit{delta}, který bude vkládat pouze rozdíly dvou po
   sobě jdoucích hodnot. 
-  Toto je vhodné zejména u časových značek nebo počtu odeslaných zpráv, protože bude vhodnější 
-  jednotlivé přírůstky než pouhé absolutní hodnoty. Poslední možností bude \textit{average}, kdy 
+  Toto bude vhodné zejména u časových značek nebo počtu odeslaných zpráv, protože bude vhodnější 
+  udržovat jednotlivé přírůstky než pouhé absolutní hodnoty. Posledním režimem bude
+  \textit{average}, kdy 
   nová příchozí hodnota bude odečtena od aktuálního průměru a výsledek bude uložen.
   
-  Poslední možností bude číselná hodnota určující rozmezí mezi pravidelnými kontrolami
+  Poslední volbou bude číselná hodnota určující rozmezí mezi pravidelnými kontrolami
   přijetí dat a 
   číselný parametr definující periodu pro exportování vybraných parametrů.
   
@@ -369,7 +369,7 @@
     Určení času příchozích dat bude snadné, protože každý přijatý záznam bude obsahovat 
     datovou položku s časovou známkou.
     
-    \item \textbf{Množství přenášených zpráv}
+    \item \textbf{Množství přenášených zpráv} \label{dos}
     
     Velkou hrozbou, kterou představuje nástup IoT jsou nejrůznější varianty DoS útoků. Konkrétně
     nejobávanějším typem je pravděpodobně zahlcení cílové komunikační linky, protože v síti bude 
@@ -419,7 +419,7 @@
     Analýza může probíhat na základě parametrů specifikovaných v předchozím scénáři. Nebo lze 
     ztrátu konektivity se senzorem identifikovat tím, že se provozní statistiky nezměnily vůbec nebo
     menším způsobem než bylo obvyklé. Pro tento typ detekce mohou být využity stejné položky
-    jako ve druhém případu užití.
+    jako ve druhém případu užití \ref{dos}.
     
    \end{enumerate}
 

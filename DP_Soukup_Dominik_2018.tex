@@ -108,9 +108,9 @@ technologie pro realizaci.
 
 
 \chapter{Návrh}
-Kapitola se zabývá návrhem způsobu detekce anomálií v IoT sítích, které s pomocí NEMEA
+Kapitola se zabývá návrhem způsobu detekce anomálií v IoT sítích, který s pomocí NEMEA
 systému rozšiřuje bránu BeeeOn. Nejprve je popsána celková architektura a
-možné způsoby nasazení. Dále jsou popsány jednotlivé komponenty detekčního systému.
+možné způsoby nasazení. Dále následuje popis jednotlivých komponent detekčního systému.
 V závěru jsou identifikovány možné scénáře útoků.
 
  \input{navrh}
@@ -120,12 +120,18 @@ V závěru jsou identifikovány možné scénáře útoků.
  % komunikační rozhranní
    % vytvoření názvu exportovacích rozhraní
   % zminit se o unirec fomatech vstupu o id a datovych typech
- % algoritmus detektoru popsat jednotlivé detekční metody
-  % meta data a tak
-  %popis vypoctu profilu
  % použité knihovny - téměř žádné protože se klade velký důraz na nízkou náročnost
- % popsat trochu jak probihala integrace kolektoru
- % popsat, ze periodicky veci jsou delany pomoci vlaken per polozku
+
+
+\section{Integrace kolektoru}    
+     % popsat trochu jak probihala integrace kolektoru
+\section{Zpracování vstupních dat}
+    % parsování konfigurace a nastavení jednotlivých položek
+\section{Výpočet profilu}   
+   %popis vypoctu profilu
+\section{Detekční funkce} 
+ % algoritmus detektoru popsat jednotlivé detekční metody
+  % popsat, ze periodicky veci jsou delany pomoci vlaken per polozku
     % hlavní je že je to proto, že se nedozvi info o čase když nepřijdou data, tak to musim dělat sám
  
 

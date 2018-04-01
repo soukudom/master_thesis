@@ -20,13 +20,14 @@
  je často možné nasadit pomocí kontejnerů nebo samostatných virtuálních strojů, což 
  velmi usnadňuje jejich distribuci \cite{fog}.
  
- Porovnání klasické a fog architektury se nachází na obrázku \ref{obr.fog}. V reálném nasazení může
- být použito i více Fog vrstev, kde každá provádí určitý stupeň předzpracování a řízení
+ Porovnání klasické a fog architektury z hlediska zpracování dat se nachází
+ na obrázku \ref{obr.fog}. V reálném nasazení může
+ být použito i více fog vrstev, kde každá provádí určitý stupeň předzpracování a řízení
  dat.
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[scale=0.38]{pictures/fog}
-\caption{Porovnání klasické a Fog architektury}
+\includegraphics[scale=0.45]{pictures/fog-arch}
+\caption{Porovnání klasické a fog architektury}
 \label{obr.fog}
 \end{center}
 \end{figure}
@@ -42,23 +43,26 @@
     Odeslaná data z koncových zařízení jsou zpracovávána a filtrována na okraji 
     sítě. Tím je možné rychleji reagovat na přijaté zprávy a snížit nároky
     na latenci a šířku pásma. Zároveň krátkodobá data mohou být uložené ve 
-    Fog vrstvě a centrální datové centrum může být využito pro dlouhodobé údaje, 
+    fog vrstvě a centrální datové centrum může být využito pro dlouhodobé údaje, 
     které se zpracovávají pokročilými algoritmy pro analýzu dat \cite{fog}.
  \item \textbf{Jednotná správa} 
  
     Při správě sítě už se nemusí přistupovat přímo na koncové prvky, které 
     často komunikují různými protokoly, ale stačí pouze
-    řídit síťová zařízení v jednotlivých Fog vrstvách, které odstiňují různorodost
+    řídit síťová zařízení v jednotlivých fog vrstvách, které odstiňují různorodost
     protokolů a nabízí standardizovaný přístup. Díky této abstrakci je 
     zároveň zjednodušeno zpracování získaných dat a je umožněno přímé zasílání zpráv
     mezi koncovými prvky, které používají odlišné komunikační protokoly \cite{fog}.
+    
+    Další výhodou je, že výpočetní i síťové funkce jsou zajištěny jedním hardwarovým
+    zařízením, což značně usnaďnuje požadavky pro nasazení.
  \end{itemize} 
  
  Nevýhodou naopak může být distribuovaná topologie, která má větší nároky na údržbu.
  
  \subsection{IoT brána} 
  IoT brána je síťové zařízení, které je umístěno velmi blízko koncových zařízení
- a představuje vstup do Fog vrstvy. Jejím hlavním cílem je získávat data 
+ a představuje vstup do fog vrstvy. Jejím hlavním cílem je získávat data 
  z připojených zařízení a poskytovat je vyšším vrstvám. Pokud je brána reprezentována
  výkonnějším síťovým prvkem, tak v něm zároveň může probíhat i základní zpracování
  dat. 
@@ -130,6 +134,7 @@
  verze firmware, jehož napadení může vést k nestandardnímu chování nebo dokonce 
  ke kompletnímu převzetí kontroly. 
  
+ \newpage
  \item \textbf{Aplikační vrstva}
  
  Aplikační vrstva se stará o ukládání dlouhodobých dat a jejich finální zpracování. 
@@ -144,6 +149,14 @@
  Buffer Overflow, SQL Injection nebo DDoS.
  
 \end{itemize}
+
+Mezi obecné problémy patří způsob nasazení. Koncové IoT prvky mají odlišné parametry než 
+běžná uživatelské zařízení. Zároveň se liší i průběh komunikace, která je v IoT méně heterogenní
+a často založena na M2M. V případě umístění všech koncových prvků do jednoho společného segmentu
+se komplikuje nastavení bezpečnostních pravidel a také roste možný dopad provedeného útoku. 
+Při úspěšném napadení jednoho prvku útočník získá možnost rozšíření na další uzly ve stejném
+segmentu.
+
  
  \newpage
  
@@ -159,10 +172,10 @@
    
    \newpage
   \section{Bezpečnostní slabiny}
-  Na základě provedené analýzy aktuálně používaných protokolů budou v této kapitole 
+  Na základě provedené analýzy aktuálně používaných protokolů \ref{protokoly} budou v této kapitole 
   popsány jejich bezpečnostní slabiny, které budou později využity při návrhu 
   detekčních algoritmů. Jelikož je tato práce zaměřena na senzorové protokoly 
-  nekomunikující přes IP, budou v této kapitole popsány slabiny protokolů 
+  nekomunikující přes IP, budou v podkapitolách popsány slabiny protokolů 
   Z-Wave a BLE.
   
  \subsection{Z-Wave}
@@ -173,16 +186,16 @@
  
  Při využití šifrování je velmi zranitelná doba během párovacího procesu, jelikož je při výměně
  šifrovacích klíčů použit výchozí klíč uložený ve firmware zařízení. Zároveň se 
- u jednoho typu zámku podařilo objevit implementační chybu \cite{zwave-S0-attack}, které umožňovala vnutit 
+ u jednoho typu zámku podařilo objevit implementační chybu \cite{zwave-S0-attack}, která umožňovala vnutit 
  nový šifrovací klíč a převzít tak kontrolu nad senzorem. 
  
  Při využití S2 frameworku dosud nebyly objeveny žádné zranitelnosti, ovšem tento
- framework je poměrně nový a většina používaných zařízení byla certifikována 
+ framework je poměrně nový a většina aktuálně používaných i nabízených zařízení byla certifikována 
  ještě před jeho zavedením.
  
  \subsection{BLE}
  Velkou hrozbou jsou zařízení s verzí 4.1 nebo nižší, protože nepodporují žádnou ochranu před 
- odposlouchávání a MITM útokům v době párování. Od verze 4.2 je již pro výměnu klíčů použit ECDH 
+ odposloucháváním a MITM útokům v době párování. Od verze 4.2 je již pro výměnu klíčů použit ECDH 
  algoritmus, který zabraňuje možnému odposlouchávání, ale v případě použití párovací metody, které
  nepodporuje autentizaci není zajištěna ochrana před MITM útoky.  \cite{cesnet-survey}
  
@@ -193,7 +206,7 @@
  
  Nevýhodou je velmi dlouhá a komplikovaná specifikace protokolu, která vede k implementačním 
  chybám samotného BLE \cite{blueborne}. Tím vzniká nebezpečí, že i u výrobce, který využívá
- všech bezpečnostní funkcionalit,
+ všech bezpečnostní funkcionalit
  se mohou vyskytovat zranitelnosti díky chybné implementaci komunikačních vrstev protokolu. \cite{cesnet-survey}
  
  \newpage
@@ -211,7 +224,7 @@
  umožní vyhodnocovat jen vyfiltrovaný provoz. Případně je možné nasadit IDS/IPS přímo na koncové
  stanice, kde kromě síťových dat lze získávat i informace o běhu systému. Poslední způsob poskytuje
  nejvíce detailní možnost analýzy, protože se provádí na místě vzniku komunikace a případný útok
- je možné zastavit již při jeho vzniku a zabránit případnému rozšíření. Nevýhodou takového nasazení
+ je možné zastavit již při jeho začátku a zabránit tak případnému rozšíření. Nevýhodou takového nasazení
  je ztráta celkového pohledu na síť. Při zavedení IDS/IPS systému je z těchto důvodů dobré 
  kombinovat způsoby nasazení a umožnit vzájemné sdílení detekovaných incidentů.
  
@@ -221,7 +234,7 @@
   
   Tato metoda je založena na statistickém modelování. Nejprve se vytvoří profil běžného chování sítě, 
   který se následně porovnává s aktuálním provozem. Dle použité metody se může profil běžného provozu
-  průběžně aktualizovat. Pokud měřené hodnoty síťového provozu překročí hodnotu stanoveného profilu
+  průběžně aktualizovat. Pokud měřené údaje síťového provozu překročí hodnotu stanoveného profilu
   nad definovaný limit, tak je detekován incident. Výhodou metody anomálií je její uplatnění i na 
   dosud neznámé útoky. Tento princip zároveň způsobuje větší míru falešných poplachů, a proto 
   je nutné jejich pečlivější ověření. Příkladem detekčních metod je: strojové učení, časové řady nebo
@@ -253,7 +266,7 @@
   
   Funkce sondy je stejná jako v IP sítích. Jedná se o samostatné zařízení umístěné v sítí, které
   umožňuje sledovat probíhající komunikaci a odesílat získané údaje ke zpracování. 
-  Výhodou je velké množství, které lze získat, ale zároveň komplikací je šifrovaný provoz
+  Výhodou je velké množství různých  dat, které lze získat, ale zároveň komplikací je šifrovaný provoz
   a často i cena kvalitní sondy.
   Dalším využitím 
   může být honeypot, kdy se sonda tváří jako zranitelný prvek a reportuje veškeré pokusy o útok.
@@ -271,7 +284,7 @@
 
  \newpage
  \section{Existující řešení}
- V současnosti veškerá dostupná řešení se zaměřují na detekci útoků v IP protokolech. Mezi 
+ V současnosti se veškerá dostupná řešení zaměřují na detekci útoků v IP protokolech. Mezi 
  současnými IDS/IPS existují signatury pouze pro SCADA (Supervisory Control And Data Acquisition)
  protokoly. Router Turris Omnia umožňuje nasadit systém Suricata, pro který nabízí rozšíření 
  PaKon \cite{pakon}. Toto rozšíření zpracovává data ze Suricaty, které následně ukládá v přehledné formě.
@@ -355,17 +368,17 @@
  Konkrétně bude použita brána BeeeOn, protože v současné době 
  jako jediná umožňuje sběr provozních dat o senzorových protokolech. 
  
- Pro účely detekce budou sbírány jen informace dostupné z lokálních rozhraní brány. Toto řešení
- je z hlediska reálného nasazení nejpravděpodobnější. Zároveň bude umožněno rozšíření i pro další
+ Pro účely detekce budou sbírány jen informace dostupné z lokálních rozhraní brány.
+ Je velice pravděpodobné, že z hlediska reálného nasazení bude tato varianta nejčastější, 
+ protože nevyžaduje žádná dodatečná monitorovací zařízení.
+ Zároveň bude umožněno rozšíření i pro další
  způsoby získávání dat. 
  
- Vyhodnocování dat bude probíhat metodou detekce anomálií, která je vhodná pro statistickou povahu dat
- , má menší nároky na množství dostupných prostředků a umožňuje rozpoznat i neznámé útoky.
+ Vyhodnocování dat bude probíhat metodou detekce anomálií, která je vhodná pro statistickou povahu dat,
+ má menší nároky na množství dostupných prostředků a umožňuje rozpoznat i neznámé útoky. Metoda 
+ bude realizovaná pomocí časových řad jejichž parametry bude možné upravit dle potřeby.
  
  Jako programovací jazyk bude použit C++, protože podporuje objektový přístup a
  úspornou implementaci na paměť i procesorový čas. Zároveň tento jazyk je použit i v bráně
  BeeeOn, tudíž bude usnadněna integrace. Pro zajištění flexibility a možnosti dalšího rozšiřování 
  bude využito systému NEMEA, který také podporuje jazyk C++. 
- 
-
-% povídání o nutnosti učení se a nestaci jen blokovani portu, ... 
