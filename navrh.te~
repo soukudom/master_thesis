@@ -107,7 +107,7 @@
  definovaných parametrů.
  
  Definované konstruktory a destruktory budou sloužit jen pro vytvoření a destrukci potřebných 
- struktur. Tímto bude zajištěn programovací idiom RAII (resource acquisition is initialization).
+ struktur. Tímto bude zajištěn programovací idiom RAII (Resource Acquisition Is Initialization).
  
  Veškeré odesílané údaje budou rozšířeny o časovou značku a číselný identifikátor, aby mohl detektor
  přesně určit původ případné anomálie.
@@ -405,24 +405,26 @@
     shodovat s očekáváním, může to znamenat poruchu čidla nebo neočekávanou událost, jejíž příčinou 
     může být i útok.
     
-    Možnost této detekce bude závise na události \textit{onExport}, která exportuje všechna
+    Možnost této detekce bude záviset na události \textit{onExport}, která exportuje všechna
     získaná data nezávisle na použitém protokolu.
     
-    \item \textbf{Kvalita přenosového kanálu}
+    \item \textbf{Kvalita přenosového kanálu} \label{kvalita}
     
     Zejména u bezdrátových komunikačních protokolů je velmi důležitá kvalita přenosového kanálu,
     který může být případným útočníkem zarušen. V situaci, že tento typ útoku nastane, budou 
     detekční metody očekávat zhoršení statistik komunikace. 
     
     Knihovna OpenZWave nabízí pro každé čidlo informace o hodnotě RTT (Round-Trip Time). Z pohledu 
-    celé sítě bude možné zjisti počet zahozených zpráv (dropped), počet opakovaných odeslání zpráv 
-    (retries) nebo počet zpráv z poškozeným kontrolním součtem (badChecksum).
+    celé sítě bude možné zjisti počet zahozených zpráv (položka \textit{dropped}), počet
+    opakovaných odeslání zpráv (položka \textit{retries}) nebo počet zpráv z poškozeným kontrolním
+    součtem (položka \textit{badChecksum}).
     
-    U BLE je tato situace slabší !!!
+    V případě BLE lze využít položky \textit{rxErrors} a \textit{txErrors}, které reprezentují
+    počet přijatých a odeslaných chyb.
     
     \item \textbf{Konektivita}
     
-    Tento případ navazuje na předchozí. Kvalita připojení může být zhoršena natolik, že dojde 
+    Tento případ navazuje na předchozí \ref{kvalita}. Kvalita připojení může být zhoršena natolik, že dojde 
     ke ztrátě konektivity. Případně spojení může být ztraceno pokud je senzor odcizen. 
     
     Analýza může probíhat na základě parametrů specifikovaných v předchozím scénáři. Nebo lze 

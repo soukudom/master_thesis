@@ -41,11 +41,16 @@
 \contentsline {section}{\numberline {3.5}Sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}e \IeC {\'u}tok\IeC {\r u}}{34}{section.3.5}
 \contentsline {chapter}{\chapternumberline {4}Realizace}{37}{chapter.4}
 \contentsline {section}{\numberline {4.1}Integrace kolektoru}{37}{section.4.1}
-\contentsline {section}{\numberline {4.2}Zpracov\IeC {\'a}n\IeC {\'\i } vstupn\IeC {\'\i }ch dat}{37}{section.4.2}
-\contentsline {section}{\numberline {4.3}V\IeC {\'y}po\IeC {\v c}et profilu}{37}{section.4.3}
-\contentsline {section}{\numberline {4.4}Detek\IeC {\v c}n\IeC {\'\i } funkce}{37}{section.4.4}
+\contentsline {section}{\numberline {4.2}Mux a Demux}{37}{section.4.2}
+\contentsline {section}{\numberline {4.3}Zpracov\IeC {\'a}n\IeC {\'\i } vstupn\IeC {\'\i }ch dat}{37}{section.4.3}
+\contentsline {section}{\numberline {4.4}V\IeC {\'y}po\IeC {\v c}et profilu}{37}{section.4.4}
+\contentsline {section}{\numberline {4.5}Detek\IeC {\v c}n\IeC {\'\i } funkce}{37}{section.4.5}
 \contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{39}{chapter.5}
-\contentsline {chapter}{Z{\' a}v{\v e}r}{41}{chapter*.6}
-\contentsline {chapter}{Literatura}{43}{section*.8}
-\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{47}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{49}{appendix.B}
+\contentsline {section}{\numberline {5.1}Testovac\IeC {\'\i } prost\IeC {\v r}ed\IeC {\'\i }}{39}{section.5.1}
+\contentsline {section}{\numberline {5.2}Zp\IeC {\r u}soby nasazen\IeC {\'\i }}{39}{section.5.2}
+\contentsline {section}{\numberline {5.3}Detekce sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}\IeC {\r u} \IeC {\'u}tok\IeC {\r u}}{41}{section.5.3}
+\contentsline {section}{\numberline {5.4}Test ostatn\IeC {\'\i }ch funkcionalit}{41}{section.5.4}
+\contentsline {chapter}{Z{\' a}v{\v e}r}{43}{chapter*.6}
+\contentsline {chapter}{Literatura}{45}{section*.8}
+\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{49}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{51}{appendix.B}

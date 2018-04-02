@@ -29,7 +29,7 @@
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
 
 \department{Katedra počítačových systémů}
-\title{Detekce anomálií v~provozu IoT sítí}
+\title{Detekce anomálií v provozu IoT sítí}
 \authorGN{Dominik} %(křestní) jméno (jména) autora
 \authorFN{Soukup} %příjmení autora
 \authorWithDegrees{Bc. Dominik Soukup} %jméno autora včetně současných akademických titulů
@@ -40,8 +40,8 @@
 \abstractEN{Sem doplňte ekvivalent abstraktu Vaší práce v~angličtině.}
 \placeForDeclarationOfAuthenticity{V~Praze}
 \declarationOfAuthenticityOption{4} %volba Prohlášení (číslo 1-6)
-\keywordsCS{Nahraďte seznamem klíčových slov v~češtině oddělených čárkou.}
-\keywordsEN{Nahraďte seznamem klíčových slov v~angličtině oddělených čárkou.}
+\keywordsCS{Nahraďte seznamem klíčových slov v češtině oddělených čárkou.}
+\keywordsEN{Nahraďte seznamem klíčových slov v angličtině oddělených čárkou.}
 % \website{http://site.example/thesis} %volitelná URL práce, objeví se v tiráži - úplně odstraňte, nemáte-li URL práce
 
 \begin{document}
@@ -51,9 +51,9 @@
 
 \begin{introduction}
 Koncept internetu existuje již několik desítek let a pro spoustu lidí se stal 
-nedílnou součástí pracovního i osobního života. V~poslední době je možné sledovat
+nedílnou součástí pracovního i osobního života. V poslední době je možné sledovat
 stále rostoucí počet zařízení, která jsou do něj zapojena. Tento trend by měl
-pokračovat i do budoucnosti, a dokonce v~ještě větším měřítku. Odhadem je 
+pokračovat i do budoucnosti, a dokonce v ještě větším měřítku. Odhadem je 
 přes 30 miliard připojených zařízení do roku 2020 \cite{iotDevices}.
 Důvodem zrychleného
 růstu je expanze síťového připojení na veškeré elektronické zařízení a senzory, 
@@ -64,7 +64,7 @@ Cílem IoT je usnadnit, zlepšit a ušetřit lidskou činnost napříč všemi o
 Uplatnění se nachází zejména ve výrobních podnicích, dopravě nebo běžných domácnostech.
 Příklad konkrétního nasazení popisuje článek \cite{sleeping}, jehož cílem je měření 
 kvality spánku a odhalení případných poruch. Monitorovací systém lze dále 
-propojit například s~ovládáním místnosti, které bude reagovat na aktuální úroveň spánku
+propojit například s ovládáním místnosti, které bude reagovat na aktuální úroveň spánku
 úpravou světel, oken nebo vzduchu.
 
 Dále je upraven model komunikace, který již nevyžaduje zasílání zpráv centrálnímu 
@@ -72,10 +72,10 @@ serveru (north-south), ale podporuje přímou komunikaci mezi připojenými uzly
 Oblast IoT nezahrnuje jen malá a nevýkonná zařízení, ale jeho součástí jsou i 
 výkonná datová centra a pokročilé algoritmy, které vyhodnocují získané informace.
 
-Hlavní hrozbou Internetu věcí je bezpečnost. Dochází zde k~přenosu citlivých dat,
-která slouží
-k~automatizovanému řízení dalších
-systémů, monitorování prostředí a zabezpečovacím účelům. Zároveň s~masivním rozšířením nově
+Hlavní hrozbou Internetu věcí je bezpečnost. Dochází zde k přenosu citlivých dat,
+která slouží k 
+automatizovanému řízení dalších
+systémů, monitorování prostředí a zabezpečovacím účelům. Zároveň s masivním rozšířením nově
 připojených zařízení roste riziko vzniku nových útoků a možnosti způsobení větších
 škod. Příkladem bezpečnostního incidentu je útok na distribuční síť elektrického 
 proudu na Ukrajině, který měl dopad na 225 000 zákazníků \cite{ukraine}. 
@@ -83,17 +83,17 @@ proudu na Ukrajině, který měl dopad na 225 000 zákazníků \cite{ukraine}.
 Pro potlačení možného vzniku hrozeb musí být součástí každé dnešní IoT sítě sada procesů,
 které umožní důvěryhodné
 získávání validních dat, vzdálenou správu a možnost
-detekce anomálií jako v~běžných IP (Internet Protocol) sítích. 	
+detekce anomálií jako v běžných IP (Internet Protocol) sítích. 	
 \end{introduction}
 
 \chapter{Cíl práce}
 Cílem magisterské práce je analyzovat množinu aktuálně používaných protokolů
-pro komunikaci v~IoT sítích a identifikovat jejich bezpečnostní zranitelnosti.
+pro komunikaci v IoT sítích a identifikovat jejich bezpečnostní zranitelnosti.
 Při analýze bude věnována pozornost zejména bezdrátovým senzorovým protokolům.
 Na základě získaných znalostí bude navržen, implementován a otestován algoritmus
-pro monitorování a automatickou detekci anomálního provozu v~IoT sítích.
-Algoritmus bude možné spustit
-v~prostředí nově vznikající opensource brány BeeeOn, čímž dojde k~rozšíření 
+pro monitorování a automatickou detekci anomálního provozu v IoT sítích.
+Algoritmus bude možné spustit v 
+prostředí nově vznikající opensource brány BeeeOn, čímž dojde k rozšíření 
 dostupných bezpečnostních funkcí.
 
 
@@ -101,17 +101,17 @@ dostupných bezpečnostních funkcí.
 Kapitola se zabývá analýzou celkové architektury IoT sítí a způsoby pro její
 zabezpečení. Postupně je prozkoumán komunikační model, možné bezpečnostní hrozby 
 a existující řešení pro obranu. Na základě analýzy jsou uvedeny funkční a nefunkční
-požadavky, které jsou kladeny na výsledný program. V~závěru jsou vybrány konkrétní
+požadavky, které jsou kladeny na výsledný program. V závěru jsou vybrány konkrétní
 technologie pro realizaci.
 
  \input{architektura}
 
 
 \chapter{Návrh}
-Kapitola se zabývá návrhem způsobu detekce anomálií v~IoT sítích, který s~pomocí NEMEA
+Kapitola se zabývá návrhem způsobu detekce anomálií v IoT sítích, který s pomocí NEMEA
 systému rozšiřuje bránu BeeeOn. Nejprve je popsána celková architektura a
 možné způsoby nasazení. Dále následuje popis jednotlivých komponent detekčního systému.
-V~závěru jsou identifikovány možné scénáře útoků.
+V závěru jsou identifikovány možné scénáře útoků.
 
  \input{navrh}
 
@@ -125,8 +125,6 @@ V~závěru jsou identifikovány možné scénáře útoků.
 
 \section{Integrace kolektoru}    
      % popsat trochu jak probihala integrace kolektoru
-\section{Mux a Demux}    
-     % posat nastavení vstupních argumentů     
 \section{Zpracování vstupních dat}
     % parsování konfigurace a nastavení jednotlivých položek
 \section{Výpočet profilu}   
@@ -138,22 +136,15 @@ V~závěru jsou identifikovány možné scénáře útoků.
  
 
 \chapter{Testování}
-V této kapitole je posán postup testování vytvořeného detekčního řešení. Nejprve je popsáno
-testovací prostředí. Dále prověřeny obě možné metody nasazení. V závěru jsou ověreny jednotlivé 
-případy hrozeb z kapitoly \ref{utoky} Scénáře útoků a také jsou otestovány ostatní funkcionality
-detektoru.
 
- \input{testy}
+\section{Testovací prostředí}
 
-%\section{Testovací prostředí}
-
-%\section{Způsoby nasazení}
+\section{Způsoby nasazení}
 % je že se dají nasadit oba moduly, a že se úspěšně prochází data
-%\section{Detekce scénářů útoků}
+\section{Detekce scénářů útoků}
 %popis otestování scénářů
-%\section{Test ostatních funkcionalit}
+\section{Test ostatních funcionalit}
 %test ostatních funcionalit, které jsem doplnil, export, ....
-
 \begin{conclusion}
 	%sem napište závěr Vaší práce
 \end{conclusion}
