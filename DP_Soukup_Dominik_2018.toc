@@ -49,8 +49,9 @@
 \contentsline {section}{\numberline {5.1}Testovac\IeC {\'\i } prost\IeC {\v r}ed\IeC {\'\i }}{39}{section.5.1}
 \contentsline {section}{\numberline {5.2}Zp\IeC {\r u}soby nasazen\IeC {\'\i }}{39}{section.5.2}
 \contentsline {section}{\numberline {5.3}Detekce sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}\IeC {\r u} \IeC {\'u}tok\IeC {\r u}}{41}{section.5.3}
-\contentsline {section}{\numberline {5.4}Test ostatn\IeC {\'\i }ch funkcionalit}{41}{section.5.4}
+\contentsline {section}{\numberline {5.4}Test ostatn\IeC {\'\i }ch funkcionalit}{42}{section.5.4}
 \contentsline {chapter}{Z{\' a}v{\v e}r}{43}{chapter*.6}
 \contentsline {chapter}{Literatura}{45}{section*.8}
 \contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{49}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{51}{appendix.B}
+\contentsline {appendix}{\chapternumberline {B}Instala\IeC {\v c}n\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }ru\IeC {\v c}ka}{51}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{53}{appendix.C}

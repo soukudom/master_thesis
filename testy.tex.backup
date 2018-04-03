@@ -6,7 +6,9 @@ prostřekdy dostupné pro testovaní byly: 4 jádra CPU, 8 GB RAM, 17 GB SSD dis
 
 Na počítači byl nasazen systém NEMEA a IoT brána BeeeOn, která byla rozšířena o vytvořený detekční 
 nástroj. Pro generování senzorových dat byly použity následující zařízení: BLE teplotní senzor (BeeWi), 
-Z-Wave zásuvka (POPP) a virtuální senzory, které jsou dostupné pro testování na BeeeOn bráně.
+Z-Wave zásuvky (POPP a Fibaro) a virtuální senzory, které jsou dostupné pro testování na BeeeOn bráně.
+Senzorová data přijímat testovací počítač, který měl připojený USB Z-Wave dongl (Aeotec) a integrované
+BLE rozhraní.
 
 \section{Způsoby nasazení}
 Jako první byly testovány možnosti nasazení vytvořeného nástroje, který je možné používat v 
@@ -59,11 +61,43 @@ Velmi důležitou částí bylo otestování definovaných anomálií, které mo
   \begin{enumerate}
     \item \textbf{Periodicita dat}
     \item \textbf{Množství přenášených zpráv}
+    
+    V případě protokolu Z-Wave byly pro nasimulování anomálií použity dvě vzdáleně ovladatelné
+    zásuvky. Obě mají k dispozici ovládací tlačítko pro vypnutí a zapnutí zásuvky. Tímto způsobem
+    byly generovány nové zprávy. Cílem tohoto scénáře bylo odhalit neočekávaný nárůst dat, proto
+    byla zvolena detekční metoda, která hlídá tyto změny. V rámci testu byly do profilu 
+    vloženy všechny dostupné položky. Limitem pro ohlášení incidentu byl pětinásobný nárůst
+    provozu. Délka časové řady byla nastavena na deset prvků a prvních jedenáct přijatých 
+    zpráv bylo ignorováno, protože během nich bylo navazováno spojení.
+    
+    První detekce byla zaměřena na položku \textit{SOAFCount}, která určuje celkový počet 
+    detekovaných zpráv.  
+    Druhý scénář sledoval hodnotu \textit{receivedCount}, která reprezentuje počet přijatých zpráv od
+    konkrétního čidla. 
+    
+    Pro BLE byla časová řada zkrácena na pět prvků a žádné zprávy nebyly ignorovány.
+    Testy byly provedeny pro položku ....
+    
+    Výsledky testů byly úspěšně a každá změna provozu byla odhalena. Průběh všech testovaných
+    případů byl velmi podobný a lišil se jen typ události a způsob generování dat. Chování 
+    jednotlivých položek profilu velmi ovlivňovala délka časové řady, které zvětšovala 
+    paměťové okno. Nejcitlivější položkou na změnu byl rozptyl, který výrazně zvyšoval
+    svou hodnotu při vložení vyššího čísla. K častým výchylkám docházelo i v případě průměru. 
+    Méně frekventované změny nastávaly u mediánu, který nejvíce využíval délky časové řady. 
+    Nejmenších odlišností dosahoval klouzavý průměr, protože ve své hodnotě obsahuje i data
+    mimo aktuální časové okno.
+
     \item \textbf{Limity senzorových hodnot}
     \item \textbf{Kvalita přenosového kanálu}
     \item \textbf{Konektivita}
   \end{enumerate}
+  
+ % kde jsou dostupné záznamy jednotlivých testů
 
 %popis otestování scénářů
 \section{Test ostatních funkcionalit}
+Vytvořený detekční systém obsahuje i další funcionality, které nebyly použity v definovaných scénářích,
+ale mohou být užitečné pro budoucí používání. Tato sekce obsahuje testy pro zbylé možnosti
+detekce.
+
 %test ostatních funcionalit, které jsem doplnil, export, ....
