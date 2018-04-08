@@ -44,15 +44,16 @@
 \contentsline {section}{\numberline {4.2}Mux a Demux}{38}{section.4.2}
 \contentsline {section}{\numberline {4.3}Zpracov\IeC {\'a}n\IeC {\'\i } zadan\IeC {\'y}ch parametr\IeC {\r u}}{38}{section.4.3}
 \contentsline {section}{\numberline {4.4}V\IeC {\'y}po\IeC {\v c}et profilu}{39}{section.4.4}
-\contentsline {section}{\numberline {4.5}Detek\IeC {\v c}n\IeC {\'\i } funkce}{39}{section.4.5}
-\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{41}{chapter.5}
-\contentsline {section}{\numberline {5.1}Testovac\IeC {\'\i } prost\IeC {\v r}ed\IeC {\'\i }}{41}{section.5.1}
-\contentsline {section}{\numberline {5.2}Zp\IeC {\r u}soby nasazen\IeC {\'\i }}{41}{section.5.2}
-\contentsline {section}{\numberline {5.3}Detekce sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}\IeC {\r u} \IeC {\'u}tok\IeC {\r u}}{43}{section.5.3}
-\contentsline {section}{\numberline {5.4}Test exportu dat}{45}{section.5.4}
-\contentsline {section}{\numberline {5.5}M\IeC {\v e}\IeC {\v r}en\IeC {\'\i } polo\IeC {\v z}ek profilu}{45}{section.5.5}
-\contentsline {chapter}{Z{\' a}v{\v e}r}{47}{chapter*.6}
-\contentsline {chapter}{Literatura}{49}{section*.8}
-\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{53}{appendix.A}
-\contentsline {appendix}{\chapternumberline {B}Instala\IeC {\v c}n\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }ru\IeC {\v c}ka}{55}{appendix.B}
-\contentsline {appendix}{\chapternumberline {C}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{57}{appendix.C}
+\contentsline {section}{\numberline {4.5}Detek\IeC {\v c}n\IeC {\'\i } metody}{40}{section.4.5}
+\contentsline {chapter}{\chapternumberline {5}Testov\IeC {\'a}n\IeC {\'\i }}{43}{chapter.5}
+\contentsline {section}{\numberline {5.1}Testovac\IeC {\'\i } prost\IeC {\v r}ed\IeC {\'\i }}{43}{section.5.1}
+\contentsline {section}{\numberline {5.2}Zp\IeC {\r u}soby nasazen\IeC {\'\i }}{43}{section.5.2}
+\contentsline {section}{\numberline {5.3}Detekce sc\IeC {\'e}n\IeC {\'a}\IeC {\v r}\IeC {\r u} \IeC {\'u}tok\IeC {\r u}}{45}{section.5.3}
+\contentsline {section}{\numberline {5.4}Test exportu dat}{47}{section.5.4}
+\contentsline {section}{\numberline {5.5}M\IeC {\v e}\IeC {\v r}en\IeC {\'\i } polo\IeC {\v z}ek profilu}{47}{section.5.5}
+\contentsline {chapter}{Z{\' a}v{\v e}r}{49}{chapter*.6}
+\contentsline {chapter}{Literatura}{51}{section*.8}
+\contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{55}{appendix.A}
+\contentsline {appendix}{\chapternumberline {B}Instala\IeC {\v c}n\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }ru\IeC {\v c}ka}{57}{appendix.B}
+\contentsline {appendix}{\chapternumberline {C}Popis mno\IeC {\v z}iny senzorov\IeC {\'y}ch informac\IeC {\'\i }}{59}{appendix.C}
+\contentsline {appendix}{\chapternumberline {D}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{61}{appendix.D}

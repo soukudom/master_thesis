@@ -64,14 +64,103 @@ generována odlišným programem, který zajistí správnost parametrů. Jediný
  pole pro uchovávání vypočtených profilů. Jejich délka je specifikována preprocesorovou direktivou
  \textit{\#define DYNAMIC}.
  
-Pokud byly zadány parametry pro pravidelný export dat, tak při inicializaci potřebných struktur
+Pokud byly zadány parametry pro pravidelný export dat, tak se při inicializaci potřebných struktur
 zavolá funkce s názvem \textit{initExportInterfaces}, která vytvoří příslušná výstupní 
 rozhraní. Jejich název je vždy vygenerován v následujícím formátu: 
 \textit{u:export-<názevKlíče><idKlíče>}.
    
 \section{Výpočet profilu}   
-   %popis vypoctu profilu
-\section{Detekční funkce} 
+Veškeré přijaté údaje z kolektoru jsou v rámci detektoru ukládány do časových řad. Nad těmito 
+daty jsou prováděny výpočty profilů, které využívají detekční funkce. Jelikož jsou profily
+přepočítávány s každým nový prvkem v časové řadě, tak je důležité provádět výpočty efektivně, 
+aby nemusela být vždy procházena celá řady při změně jednohé hodnoty. Během implementace byly
+vytvořeny členské funkce pro výpočet následujících částí profilu: průměr, klouzavý průměr, rozptyl a
+medián. Tyto členské funkce jsou popsány v níže uvedených sekcích.
+
+\begin{itemize}
+ \item \textbf{getMedian(\textit{sensor\_it, meta\_it, ur\_field, ur\_id})}
+ 
+ Pro výpočet mediánu je potřeba udržovat položky aktálního časového okna v seřazeném pořadí.
+ Při vkládání nového prvku je potřeba najít nejstarší prvek v poli a nahradit ho nově přijatým. 
+ Po provedeném nahrazení se pole udržující jednotlivé hodnoty nachází v neseřazeném stavu a je nutné
+ ho znovu seřadit. Tato operace není náročná, protože se změní vždy jen jeden prvek, který je nutný
+ přesunou na správné místo. Celková složitost začlenění nového prvku je $O(n)$, protože operace 
+ nalezení a seřazení lze provést v lineárním čase. Paměťové nároky vyžadují alokování dodatečného
+ místa, které bude obsahovat kopii časové řady.
+ 
+ Dále je potřeba zjisit, zda je časová řada sudé nebo liché délky. Pokud je lichá, tak se jako 
+ medián vrátí její prvek umístění ve středu. V opačném případě je výsledkem průměr dvou prostředních
+ hodnot.
+ 
+ Aby mohly být provedy veškeré popsané operace, tak členská funkce pro výpočet mediánu
+ potřebuje tyto parametry:
+ \begin{itemize}
+   \item \textbf{sensor\_it}: iterátor na časovou řadu daného UniRec pole
+   \item \textbf{meta\_it}: iterátor na meta informace o daném UniRec poli
+   \item \textbf{ur\_field}: název zpracovávaného UniRec pole
+   \item \textbf{ur\_id}: identifikátor přijatého UniRec pole
+ \end{itemize}
+ 
+ \item \textbf{getAverageAndVariance(\textit{ur\_field, ur\_id, meta\_it, sensor\_it, meta\_id})}
+ 
+ Tato členská funkce je zaměřená zejména na získání rozptylu, ale v rámci jeho výpočtu je možné
+ získat i hodnotu průměru, a proto jsou v návratové hodnotě vraceny oba výsledky. Průběh
+ zpracování údajů probíhá s ohledem na vstupní data, která 
+ jsou reprezentována stále se posouvajícím časovým oknem. 
+ 
+ Pro umožnějí efektivního výpočtu se používá několik pomocným paměťových struktur. První z nich 
+ jsou dvě pole \textit{x} a \textit{x2} se shodnou velikostí jako má hlavní časová řada. Do pole
+ \textit{x} jsou ukládána
+ nově příchozí data a \textit{x2} udržuje jejich druhé mocniny. Dále je nutné ukládat součty
+ hodnot v těchto polích, které jsou uchovávány v proměných \textit{SX} a \textit{SX2}.
+ 
+ V rámci učící fáze detektoru jsou i zde příchozí prvky postupně vkládány do připravených struktur.
+ Pokud jsou již pomocná pole naplněná, tak při příchodu nové položky se používá funkce
+ \textit{rotate()}, která provede levou rotaci prvků a umístí nejstarší prvek na konec. Tento
+ prvek je poté nahrazen nejnovější hodnotou. Součty jednotlivých polí jsou upraveny podle 
+ následujícího předpisu:  
+ \[
+  součetŘady + novýPrvek - nejstaršíPrvek
+\]
+ 
+ Po upravení pomocných struktu je možné provést finální výpočet. Průměr je snadno získán vydělením
+ udržované součtu počtem prvků v časové řadě (\textit{N}). Pro určení hodnoty rozptylu se provádí
+ následující operace:
+\[
+   \frac{N * SX2 - SX * SX}{N * (N - 1)}
+\]
+Pro získání veškerých hodnot pro popsané výpočty přijímá členská funkce stejné vstupní parametry
+jako \textit{getMedian()} a navíc je ještě očekávána hodnota \textit{meta\_id}, která určuje, 
+zda bude v rámci metadat použita skupina \textit{metaData} nebo \textit{metaProfile} \ref{configParam}. 
+
+ \item \textbf{getCumulativeAverage(\textit{sensor\_it, meta\_it, meta\_id, ur\_id})}
+ 
+ Poslední možnou částí vypočítavaného profilu sítě je klouzavý průměr, který je získán v rámci 
+ této členské funkce. Na rozdíl od ostatních metod jsou v tomto případě zahrnuty i položky 
+ mimo časové okno. Hodnota klouzavého průměru reprezentuje průměr všech dosud přijatých dat pro 
+ daný UniRec klíč. Výpočetní operace využívá znalosti aktuálního průměru, které při přijetí 
+ nové položky upravuje dle následujícího předpisu:
+ \[
+   \frac{novýPrvek + (N - 1) * aktuálníPrůměr}{N}
+\]
+ 
+ 
+ Velkou výhodnou je, že nejsou potřeba žádné dodatečné pomocné paměťové struktury a vše je 
+ efektivně uloženo do jedné proměnné, která se aktualizuje s přicházejícími prvky.
+\end{itemize}
+
+\section{Detekční metody} 
+ Na základě vypočtených údajů z přicházejících dat a podle zapsané konfigurace jsou spouštěny
+ členské funkce určené pro detekci incidentů. Popis realizace jednotlivých možností je uveden
+ v následujících sekcích.
+ 
+\begin{itemize}
+ \item \textbf{Kontrola limitů}
+ \item \textbf{Kontrola změny}
+ \item \textbf{Periodické kontroly}
+\end{itemize}
+
+
  % algoritmus detektoru popsat jednotlivé detekční metody
   % popsat, ze periodicky veci jsou delany pomoci vlaken per polozku
     % hlavní je že je to proto, že se nedozvi info o čase když nepřijdou data, tak to musim dělat sám

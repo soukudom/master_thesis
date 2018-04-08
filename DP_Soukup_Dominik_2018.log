@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  8 APR 2018 14:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  8 APR 2018 23:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -980,7 +980,7 @@ e
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-<cvut-logo-bw.pdf, id=146, 554.07pt x 193.29715pt>
+<cvut-logo-bw.pdf, id=150, 554.07pt x 193.29715pt>
 File: cvut-logo-bw.pdf Graphic file (type pdf)
  <use cvut-logo-bw.pdf>
 Package pdftex.def Info: cvut-logo-bw.pdf used on input line 47.
@@ -1071,14 +1071,14 @@ l.89 \chapter
 ] [3] [4
 
 ] (./architektura.tex
-<pictures/fog-arch.pdf, id=287, 724.7075pt x 667.49374pt>
+<pictures/fog-arch.pdf, id=292, 724.7075pt x 667.49374pt>
 File: pictures/fog-arch.pdf Graphic file (type pdf)
 
 <use pictures/fog-arch.pdf>
 Package pdftex.def Info: pictures/fog-arch.pdf used on input line 29.
 (pdftex.def)             Requested size: 326.11536pt x 300.36942pt.
  [5] [6 <./pictures/fog-arch.pdf>] [7] [8] [9]
-(./protokoly.tex <pictures/mqtt-arch.pdf, id=334, 723.70375pt x 374.39874pt>
+(./protokoly.tex <pictures/mqtt-arch.pdf, id=339, 723.70375pt x 374.39874pt>
 File: pictures/mqtt-arch.pdf Graphic file (type pdf)
 
 <use pictures/mqtt-arch.pdf>
@@ -1091,7 +1091,7 @@ o-to-kolu TLS (Trans-
  []
 
 [11 <./pictures/mqtt-arch.pdf>]
-<pictures/coap-arch.pdf, id=359, 519.9425pt x 286.06876pt>
+<pictures/coap-arch.pdf, id=364, 519.9425pt x 286.06876pt>
 File: pictures/coap-arch.pdf Graphic file (type pdf)
 
 <use pictures/coap-arch.pdf>
@@ -1116,7 +1116,7 @@ o-£e-ká-vané zm¥ny v síti.
  []
 
 [22] [23]) [24] (./navrh.tex
-<pictures/deploy-arch.pdf, id=477, 883.3pt x 394.47375pt>
+<pictures/deploy-arch.pdf, id=482, 883.3pt x 394.47375pt>
 File: pictures/deploy-arch.pdf Graphic file (type pdf)
 
 <use pictures/deploy-arch.pdf>
@@ -1125,21 +1125,21 @@ Package pdftex.def Info: pictures/deploy-arch.pdf used on input line 9.
  [25
 
  <./pictures/deploy-arch.pdf>] [26]
-<pictures/modelTrid.pdf, id=490, 623.32875pt x 466.74374pt>
+<pictures/modelTrid.pdf, id=495, 623.32875pt x 466.74374pt>
 File: pictures/modelTrid.pdf Graphic file (type pdf)
 
 <use pictures/modelTrid.pdf>
 Package pdftex.def Info: pictures/modelTrid.pdf used on input line 65.
 (pdftex.def)             Requested size: 311.6636pt x 233.37129pt.
  [27 <./pictures/modelTrid.pdf>]
-<pictures/detektor-arch.pdf, id=499, 714.67pt x 279.0425pt>
+<pictures/detektor-arch.pdf, id=504, 714.67pt x 279.0425pt>
 File: pictures/detektor-arch.pdf Graphic file (type pdf)
 
 <use pictures/detektor-arch.pdf>
 Package pdftex.def Info: pictures/detektor-arch.pdf used on input line 121.
 (pdftex.def)             Requested size: 357.33412pt x 139.5209pt.
  [28 <./pictures/detektor-arch.pdf>] [29]
-[30] <pictures/config-file-frame.pdf, id=518, 665.48625pt x 64.24pt>
+[30] <pictures/config-file-frame.pdf, id=523, 665.48625pt x 64.24pt>
 File: pictures/config-file-frame.pdf Graphic file (type pdf)
 
 <use pictures/config-file-frame.pdf>
@@ -1149,27 +1149,64 @@ Package pdftex.def Info: pictures/config-file-frame.pdf used on input line 257.
  [31 <./pictures/config-file-frame.pdf>]
 [32] [33] [34] [35]) [36] (./realizace.tex [37
 
-]) [38] [39] [40
+] [38] [39]
+
+LaTeX Warning: Command \v invalid in math mode on input line 123.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 123.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 123.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 123.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 123.
+
+
+Overfull \hbox (1.99329pt too wide) in paragraph at lines 131--135
+\T1/lmr/m/n/10.95 Pro zís-kání ve²-ke-rých hod-not pro po-psané vý-po-£ty p°i-j
+ímá £len-ská funkce
+ []
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 144.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 144.
+
+
+LaTeX Warning: Command \' invalid in math mode on input line 144.
+
+
+LaTeX Warning: Command \r invalid in math mode on input line 144.
+
+
+LaTeX Warning: Command \v invalid in math mode on input line 144.
+
+) [40] [41] [42
 
 ] (./testy.tex
-<pictures/deploy-option1.pdf, id=576, 521.95pt x 262.9825pt>
+<pictures/deploy-option1.pdf, id=593, 521.95pt x 262.9825pt>
 File: pictures/deploy-option1.pdf Graphic file (type pdf)
 
 <use pictures/deploy-option1.pdf>
 Package pdftex.def Info: pictures/deploy-option1.pdf used on input line 27.
 (pdftex.def)             Requested size: 260.97435pt x 131.49092pt.
- [41]
-<pictures/deploy-option2.pdf, id=583, 662.475pt x 251.94125pt>
+ [43]
+<pictures/deploy-option2.pdf, id=599, 662.475pt x 251.94125pt>
 File: pictures/deploy-option2.pdf Graphic file (type pdf)
 
 <use pictures/deploy-option2.pdf>
 Package pdftex.def Info: pictures/deploy-option2.pdf used on input line 43.
 (pdftex.def)             Requested size: 331.2367pt x 125.9703pt.
- [42 <./pictures/deploy-option1.pdf> <./pictures/deploy-option2.pdf>] [43] [44]
-) [45] [46
+ [44 <./pictures/deploy-option1.pdf> <./pictures/deploy-option2.pdf>] [45] [46]
+) [47] [48
 
 ] (./DP_Soukup_Dominik_2018.bbl
-[47] [48
+[49] [50
 
 ]
 bibitemlist
@@ -1182,7 +1219,7 @@ Underfull \hbox (badness 1142) in paragraph at lines 27--30
 tend the
  []
 
-[49]
+[51]
 Underfull \hbox (badness 2790) in paragraph at lines 55--58
 \T1/lmr/m/n/10.95 2018-03-08]. Do-stupné z: []$\T1/lmtt/m/n/10.95 https : / / w
 ww\OML/lmm/m/it/10.95 :\T1/lmtt/m/n/10.95 hivemq\OML/lmm/m/it/10.95 :\T1/lmtt/m
@@ -1226,55 +1263,59 @@ chtarget\OML/lmm/m/it/10.95 :\T1/lmtt/m/n/10.95 com / Do -[] you -[] need -[] a
 n -[] IDS -[] or -[] IPS -[]
  []
 
-[50]) [51] [52
+[52]) [53] [54
 
-] [53] [54] [55
+] [55] [56] [57
 
-] [56
+] [58
 
-] [57]
+] [59] [60
+
+] [61]
 \tf@toc=\write5
 \openout5 = `DP_Soukup_Dominik_2018.toc'.
 
 \tf@lof=\write6
 \openout6 = `DP_Soukup_Dominik_2018.lof'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 324.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 324.
- (./DP_Soukup_Dominik_2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 324.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 324.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 317.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 317.
+
+(./DP_Soukup_Dominik_2018.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 317.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 317.
 Package rerunfilecheck Info: File `DP_Soukup_Dominik_2018.out' has not changed.
 
-(rerunfilecheck)             Checksum: 0A70AED71BF74AF3BA0A4BF20A1CA38E;4537.
+(rerunfilecheck)             Checksum: E1ED929D7599A2931B88B90A8C8DF2F2;4775.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 324.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 317.
  ) 
 Here is how much of TeX's memory you used:
- 13604 strings out of 493029
- 187325 string characters out of 6136234
- 316343 words of memory out of 5000000
- 16820 multiletter control sequences out of 15000+600000
- 65990 words of font info for 44 fonts, out of 8000000 for 9000
+ 13612 strings out of 493029
+ 187406 string characters out of 6136234
+ 316427 words of memory out of 5000000
+ 16823 multiletter control sequences out of 15000+600000
+ 70261 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,11n,29p,1106b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/s
-hare/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf/fonts/type1/publi
-c/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmcsc10.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmmi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.
-pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/
-type1/public/lm/lmssbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmtt10.pfb>
-Output written on DP_Soukup_Dominik_2018.pdf (71 pages, 811494 bytes).
+ips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf/fonts/type1/public/lm
+/lmbx10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texm
+f/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmc
+sc10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pf
+b></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></u
+sr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/p
+ublic/lm/lmtt10.pfb>
+Output written on DP_Soukup_Dominik_2018.pdf (75 pages, 826212 bytes).
 PDF statistics:
- 774 PDF objects out of 1000 (max. 8388607)
- 672 compressed objects within 7 object streams
- 172 named destinations out of 1000 (max. 500000)
- 315 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 802 PDF objects out of 1000 (max. 8388607)
+ 696 compressed objects within 7 object streams
+ 177 named destinations out of 1000 (max. 500000)
+ 323 words of extra memory for PDF output out of 10000 (max. 10000000)
 
