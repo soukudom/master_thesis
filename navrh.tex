@@ -174,8 +174,13 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
  parametry bez znalosti všech závislostí, které textová konfigurace ani modul pro zpracování 
  nebude hlídat. Externí nástroj pro definování nastavení nebude součástí vytvořeného řešení.
  
- Klíčem bude vždy název UniRec pole, které se bude nacházet v~příchozích datech. Tento klíč bude 
- oddělen dvojtečkou, za kterou bude sekvence parametrů, které budou odděleny středníkem . Každý klíč
+ Klíčem bude vždy název UniRec pole, který se bude nacházet v~příchozích datech. Za tímto klíčem
+ se může nacházet volitelně číselný identifikátor senzoru, který se musí shodovat s 
+ identifikátorem odesílaným z kolektoru. Důsledkem toho bude možnost detekční parametry
+ definovat i pro jednotlivá zařízení pokud se jich pod jedním UniRec názvem bude nacházet 
+ více. V případě neuvedení identifikátoru se jako výchozí hodnota použije číslo nula.
+ Takto definovaná hlavička bude oddělena dvojtečkou, za kterou bude sekvence parametrů
+ oddělených středníkem . Každý nový záznam s popisem přicházajících dat
  se bude nacházet na samostatném řádku. Řádky prázdné a začínající znakem \textit{\#} budou
  považovány za komentář. 
  
@@ -185,22 +190,20 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
   \item \textbf{General} 
   
   Tato skupina bude obsahovat obecné volby pro definování časové řady. Pomocí číselných parametrů 
-  bude možné určit velikost řady, délku učící fáze, během které je vytvořen profil sítě a její délka
-  musí být stejná nebo delší než velikost časové řady, a rozsah ignorovací části, která je vhodná
+  bude možné určit velikost řady, délku učící fáze, během které bude vytvořen profil sítě a její délka
+  musí být stejná nebo delší než velikost časové řady, a rozsah ignorovací části, která bude vhodná
   k~odfiltrování počáteční výměny zpráv při navazování spojení. 
   
   Dalším parametrem bude způsob 
-  ukládání dat do časové řady. K~dispozici budou tři režimy. Prvním z~nich bude \textit{simple},
+  ukládání dat do časové řady. K~dispozici budou dva režimy. Prvním z~nich bude \textit{simple},
   který přijatou
-  hodnotu pouze uloží. Dalším bude \textit{delta}, který bude vkládat pouze rozdíly dvou po
+  hodnotu pouze uloží. Druhý bude \textit{delta}, který bude vkládat rozdíly dvou po
   sobě jdoucích hodnot. 
   Toto bude vhodné zejména u~časových značek nebo počtu odeslaných zpráv, protože bude vhodnější 
-  udržovat jednotlivé přírůstky než pouhé absolutní hodnoty. Posledním režimem bude
-  \textit{average}, kdy 
-  nová příchozí hodnota bude odečtena od aktuálního průměru a výsledek bude uložen.
+  udržovat jednotlivé přírůstky než pouhé absolutní hodnoty. 
   
-  Poslední volbou bude číselná hodnota určující rozmezí mezi pravidelnými kontrolami
-  přijetí dat a 
+  Poslední volbou budou číselné hodnoty určující rozmezí mezi pravidelnými kontrolami
+  přijetí a změny dat a 
   číselný parametr definující periodu pro exportování vybraných parametrů. Nastavení těchto položek
   bude volitelné. Jejich nepoužití bude označeno znakem \textit{-}.
   
@@ -233,7 +236,7 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
   klíčového slova \textit{export}, který v~kulatých závorkách bude mít seznam položek z~profilu. Zároveň 
   v~případě využití této možnosti bude nutné ve skupině \textit{general} určit časovou periodu
   odesílání.
-  Názvy výstupních trap rozhraní
+  Názvy výstupních \textit{libtrap} rozhraní
   budou odvozené od klíčů, které se nacházejí před dvojtečkou v~konfiguraci.
   
  \end{itemize}
@@ -243,8 +246,8 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
  
  Nastavení formou
  souboru bude jedninou volbou pro přizpůsobení detekce. Dále při 
- spuštění programu bude očekáván povinný přepínač \textit{-i}, který je vyžadován knihovnou trap a 
- bude definovat název vstupního
+ spuštění programu bude očekáván povinný přepínač \textit{-i}, který je vyžadován knihovnou 
+ \textit{libtrap} a bude definovat název vstupního
  rozhraní pro příchozí data a název výstupního rozhraní pro detekované incidenty. Jako nepovinný přepínač
  bude možná zadat \textit{-v}, jehož výsledkem bude zapnutí ladících výpisů. Tato volba bude umožňovat 
  až tři úrovně podrobnosti výpisů. Tyto úrovně budou určeny počtem znaků \textit{v}.
@@ -266,8 +269,10 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
    
    Tato struktura bude hierarchicky ukládat veškeré hodnoty z~konfiguračního souboru
    a také údaje nutné k~provedení analýzy. V~první úrovni se budou nacházet názvy jednotlivých 
-   UniRec polí, které budou fungovat jako klíče. V~druhé vrstvě se bude nacházet vždy stejná 
-   sekvence podklíčů, které budou určovat typ uchovávaných dat. Bude se jednat o~jednotlivé 
+   UniRec polí, které budou fungovat jako klíče. V druhé vrstvě bude seznam identifikátorů 
+   odlišující senzory skryté pod stejným klíčem.
+   Třetí úroveň bude vždy obsahovat stejnou 
+   sekvenci podklíčů, které budou určovat typ uchovávaných dat. Bude se jednat o~jednotlivé 
    skupiny z~konfiguračního souboru \ref{config_file}, které budou označeny stejnojmennými
    identifikátory. Hodnotou těchto skupin budou specifikované parametry detekce dle zapsané
    konfigurace. Dále zde budou podklíče s~názvem \textit{metaProfile} a \textit{metaData},
@@ -314,7 +319,8 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
    \newpage
    \item \textbf{Učení}
    
-   Po prvotním přijetí hodnot z~kolektoru bude probíhat stanovení vzorového profilu sítě. V~rámci
+   Po prvotním přijetí hodnot z~kolektoru bude probíhat stanovení vzorového profilu sítě pro položky,
+   které budou popsány v konfiguračním souboru. V~rámci
    této periody se do časové řady budou vkládat přicházející data a s~každým novým prvkem 
    bude prováděn výpočet všech částí profilu, které budou určeny konfiguračním souborem.
    Pokud bude délka učící fáze delší než velikost 
@@ -339,7 +345,7 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
  Hlavním cílem těchto dvou modulů bude ulehčit nasazení analýzy dat v~případě fyzicky odděleného
  kolektoru a detektoru. Bez použití těchto modulů bude nutné na kolektoru zabezpečit přenos dat
  z~každého výstupního rozhraní, což zvýší nároky na výkon brány a zároveň bude vyžadováno
- více konfigurace. Díky multiplexoru bude možné spojit několik různých trap komunikačních 
+ více konfigurace. Díky multiplexoru bude možné spojit několik různých \textit{libtrap} komunikačních 
  rozhraní do jednoho, které lze demultiplexorem zase zpětně rozdělit na cílovém zařízení.
  Tímto bude pro export dat z~brány nutné zabezpečit pouze jedno rozhraní.
 

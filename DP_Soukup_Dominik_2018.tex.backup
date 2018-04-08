@@ -123,28 +123,25 @@ V~závěru jsou identifikovány možné scénáře útoků.
  % použité knihovny - téměř žádné protože se klade velký důraz na nízkou náročnost
 
 
-\section{Integrace kolektoru}    
-     % popsat trochu jak probihala integrace kolektoru
-\section{Zpracování vstupních dat}
-    % parsování konfigurace a nastavení jednotlivých položek
-\section{Výpočet profilu}   
-   %popis vypoctu profilu
-\section{Detekční funkce} 
- % algoritmus detektoru popsat jednotlivé detekční metody
-  % popsat, ze periodicky veci jsou delany pomoci vlaken per polozku
-    % hlavní je že je to proto, že se nedozvi info o čase když nepřijdou data, tak to musim dělat sám
  
 
 \chapter{Testování}
+V této kapitole je posán postup testování vytvořeného detekčního řešení. Nejprve je popsáno
+testovací prostředí. Dále jsou otestovány obě možné metody nasazení. V závěru jsou ověreny jednotlivé 
+případy hrozeb z kapitoly \ref{utoky} Scénáře útoků a také jsou prověřeny ostatní funkcionality
+detektoru.
 
-\section{Testovací prostředí}
+ \input{testy}
 
-\section{Způsoby nasazení}
+%\section{Testovací prostředí}
+
+%\section{Způsoby nasazení}
 % je že se dají nasadit oba moduly, a že se úspěšně prochází data
-\section{Detekce scénářů útoků}
+%\section{Detekce scénářů útoků}
 %popis otestování scénářů
-\section{Test ostatních funkcionalit}
+%\section{Test ostatních funkcionalit}
 %test ostatních funcionalit, které jsem doplnil, export, ....
+
 \begin{conclusion}
 	%sem napište závěr Vaší práce
 \end{conclusion}
@@ -191,6 +188,8 @@ V~závěru jsou identifikovány možné scénáře útoků.
 	\item[RAII] Resource Acquisition Is Initialization
 	\item[RTT] Round-Trip Time
 \end{description}
+
+\chapter{Instalační příručka}
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % 

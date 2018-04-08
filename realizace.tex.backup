@@ -1,0 +1,73 @@
+
+\section{Integrace kolektoru}    
+     % popsat trochu jak probihala integrace kolektoru
+     Vytvořený kolektor provozních dat je přímou součástí projektu BeeeOn, a proto jej bylo nutné 
+     integrovat do spouštěcího procesu brány. Pro zajištění společné kompilace byly do souborů 
+     \textit{CMakeLists.txt} přidány cesty ke zdrojovým souborům kolektoru a závislosti na knihovny
+     z NEMEA frameworku. K určení způsobu spouštění jednotlivých komponent používá BeeeOn
+     soubor \textit{factory.xml}. V tomto souboru byla vytvořena nová komponenta s názvem 
+     \textit{collector}, 
+     která byla následně přidána pod označením \textit{listener} do ostatních komponent. Toto nastavení 
+     umožňuje přijímání definovaných událostí v rámci návrhového vzoru \textit{Observer}.
+     Samotná komponenta
+     obsahuje ve svém popisu seznam jmen událostí, kterým přiřazuje pojmenování výstupního \textit{libtrap}
+     rozhraní. Formát výstupu je vždy \textit{event-<názevUdálosti>}. 
+     
+     Vytvořené názvy událostí jsou při spouštění programu pomocí C++ reflexe předány třídě kolektoru
+     \textit{NemeaCollector}. Tato třída používá již vytvořené makro \textit{BEEEON\_OBJECT\_TEXT},
+     které pro definovaný seznam 
+     událostí volá příslušné členské funkce. Každá událost má členskou funkci s názvem ve formátu 
+     \textit{set<názevUdálosti>} přijímající jeden vstupní parametr typu string s názvem výstupního 
+     rozhraní. V rámci volání se do instance třídy \textit{EventMetaData}
+     nastaví specifické hodnoty členských
+     atributů dané události. Následuje volání členské funkce \textit{initInterface(EventMetaData)},
+     která přijímá vytvořenou instanci třídy  \textit{EventMetaData} a
+     jednotně inicializuje všechny potřebné struktury pro odesílání dat.
+     
+     Po úspěšném nastavení všech částí se už jen v rámci návrhového vzoru \textit{Observer} volají
+     členské funkce událostí, které jsou definované ve třídě \textit{AbstractCollector} a implementované
+     ve třídě \textit{NemeaCollector}. Získané informace jsou vkládány do UniRec zprávy a odeslány
+     výstupním rozhraním.
+     
+\section{Mux a Demux}    
+
+ Modul \textit{Mux} očekává na vstupu přepínač \textit{-i}, který ve formě řetězce určuje dostupná 
+ rozhraní 
+ zajištěné knihovnou \textit{libtrap}. Poslední identifikátor v řetězci označuje jméno 
+ výstupu. Druhým parametrem je \textit{-n}, který odpovídá počtu vstupních rozhraní. Při spuštění 
+ se pro každý vstup pomocí knihovny OpenMP vytvoří samostatné vlákno. Jelikož je veškerý provoz 
+ odesílaný jedním společným rozhraním, bylo nutné funkci \textit{trap\_ctx\_send} vložit do
+ kritické sekce, 
+ protože pracuje se sdílenými strukturami pro všechny vlákna.
+ 
+ Společné spojení mezi moduly vytvořenými \textit{Mux} a \textit{Demux} používá nastavený typ
+ \textit{TRAP\_FMT\_RAW},
+ který umožňuje posílat zprávy ve vlastně definovaném formátu. Hlavička vytvořeného formátu
+ obsahuje: identifikátor druhu zprávy, číslo rozhraní a typ formátu. Obsah přijatých zpráv
+ je zapouzdřen do záhlaví. \textit{Mux} při každém přijetí dat kontroluje návratový
+ kód funkce \textit{trap\_ctx\_recv}, který identifikuje nový formát přijatých zpráv. Pokud
+ dojde k detekování změny, tak se pošle \textit{hello} zpráva s upraveným popisem rozhraní.
+ V ostatních případech se jen přeposílají zapouzdřená data.
+ 
+ Modul \textit{Demux} vyžaduje stejné přepínače jako \textit{Mux}. Jediným rozdílem je, že 
+ název společného rozhraní, které má \textit{Mux} na posledním místě, musí být zde uveden 
+ jako první. Důvodem je, že knihovna \textit{libtrap} zpracovává nejprve vstupní a pak
+ výstupní rozhraní. 
+ 
+\section{Zpracování zadaných parametrů}
+
+Načtení konfiguračního souboru má na starosi třída \textit{ConfigParser}, která neprovádí 
+žádnou kontrolu vstupních dat, protože se již od návrhu předpokládá, že konfigurace bude 
+generována odlišným programem, který zajistí správnost parametrů. Jediný konstruktor třídy
+ \textit{ConfigParser} očekává jako parametr řetězec s cestu k cílovému souboru. Během vytváření
+ objektu jsou postupně zpracovány jednotlivé řádky zadaného souboru. Zároveň budou incializovány
+ pole pro uchovávání vypočtených profilů. Jejich délka je specifikována preprocesorovou direktivou
+ \textit{\#define DYNAMIC}.
+
+    % parsování konfigurace a nastavení jednotlivých položek
+\section{Výpočet profilu}   
+   %popis vypoctu profilu
+\section{Detekční funkce} 
+ % algoritmus detektoru popsat jednotlivé detekční metody
+  % popsat, ze periodicky veci jsou delany pomoci vlaken per polozku
+    % hlavní je že je to proto, že se nedozvi info o čase když nepřijdou data, tak to musim dělat sám

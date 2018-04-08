@@ -116,6 +116,12 @@ V~závěru jsou identifikovány možné scénáře útoků.
  \input{navrh}
 
 \chapter{Realizace}
+Obasahem kapitoly je popis realizace nejzajímavějších částí vytvořeného programu. Pro zajištění
+efektivity a snadné přenositelnosti byla veškeré implementace provedena v jazyce C++, ve kterém
+je napsána BeeeOn brána. Detekční systém přináší pouze jednu novou závislost a tou je NEMEA framework.
+Ostatní použité knihovny se shodují s již použitými v BeeeOn bráně.
+
+ \input{realizace}
  % množina dat potřebných pro detekce
  % komunikační rozhranní
    % vytvoření názvu exportovacích rozhraní
@@ -123,24 +129,12 @@ V~závěru jsou identifikovány možné scénáře útoků.
  % použité knihovny - téměř žádné protože se klade velký důraz na nízkou náročnost
 
 
-\section{Integrace kolektoru}    
-     % popsat trochu jak probihala integrace kolektoru
-\section{Mux a Demux}    
-     % posat nastavení vstupních argumentů     
-\section{Zpracování vstupních dat}
-    % parsování konfigurace a nastavení jednotlivých položek
-\section{Výpočet profilu}   
-   %popis vypoctu profilu
-\section{Detekční funkce} 
- % algoritmus detektoru popsat jednotlivé detekční metody
-  % popsat, ze periodicky veci jsou delany pomoci vlaken per polozku
-    % hlavní je že je to proto, že se nedozvi info o čase když nepřijdou data, tak to musim dělat sám
  
 
 \chapter{Testování}
 V této kapitole je posán postup testování vytvořeného detekčního řešení. Nejprve je popsáno
-testovací prostředí. Dále prověřeny obě možné metody nasazení. V závěru jsou ověreny jednotlivé 
-případy hrozeb z kapitoly \ref{utoky} Scénáře útoků a také jsou otestovány ostatní funkcionality
+testovací prostředí. Dále jsou otestovány obě možné metody nasazení. V závěru jsou ověreny jednotlivé 
+případy hrozeb z kapitoly \ref{utoky} Scénáře útoků a také jsou prověřeny ostatní funkcionality
 detektoru.
 
  \input{testy}
