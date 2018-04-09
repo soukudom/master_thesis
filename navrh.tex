@@ -111,7 +111,8 @@ v~konfiguračním souboru BeeeOn brány. Po nastavení počátečních parametr�
  
  Veškeré odesílané údaje budou rozšířeny o~časovou značku a číselný identifikátor, aby mohl detektor
  přesně určit původ případné anomálie.
-    
+ 
+ \newpage
  \section{Detektor}
  Detektor bude hlavní komponentou celého řešení, protože bude vyhodnocovat získaná data. Vzhledem
  k~zadaným požadavkům musí být návrh proveden tak, aby bylo umožněno budoucí rozšiřování. Návrh 
@@ -316,7 +317,6 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
    nutné pro běh celého řešení. Následně bude program očekávat příchozí data na jediném vstupním
    rozhraní.
    
-   \newpage
    \item \textbf{Učení}
    
    Po prvotním přijetí hodnot z~kolektoru bude probíhat stanovení vzorového profilu sítě pro položky,
@@ -332,7 +332,7 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
    S~každým nový příchozím prvkem bude z~příslušné časové řady vypočítáván aktuální profil sítě,
    který budou používat detekční metody.
    %!!!!Popsat ještě jaké máme detekční metody
-   
+   \newpage
    \item \textbf{Vyhodnocení}
    
    Výsledky detekčních metod budou sloužit k~určení stavu provozu. Pokud budou data vyhodnocena jako
@@ -341,6 +341,7 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
    odeslána výstupním rozhraním určeném pro detekované hrozby.   
   \end{itemize}
   
+  \newpage
  \section{Multiplexor a demultiplexor}
  Hlavním cílem těchto dvou modulů bude ulehčit nasazení analýzy dat v~případě fyzicky odděleného
  kolektoru a detektoru. Bez použití těchto modulů bude nutné na kolektoru zabezpečit přenos dat
@@ -362,6 +363,7 @@ v~záhlaví. Díky stejnému formátu zprávy bude možné veškerá data zasíl
  provede příslušnou akci. V~případě typu \textit{hello} se upraví nový formát pro specifikované 
  rozhraní. V~druhém případě se jen přepošlou přijatá data příslušným výstupem.
  
+ \newpage
  \section{Scénáře útoků} \label{utoky}
  Na základě vypracované analýzy a provedených experimentů s~protokoly Z-Wave a BLE byly navrženy
  následující scénáře, které mohou v~reálném provozování IoT sítě nastat a identifikovat zneužití

@@ -15,6 +15,11 @@
 % \usepackage{amssymb} %additional math symbols
 
 \usepackage{dirtree} %directory tree visualisation
+\usepackage{makecell}
+
+\renewcommand\theadalign{cb}
+\renewcommand\theadfont{\bfseries}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 
 % % list of acronyms
 % \usepackage[acronym,nonumberlist,toc,numberedsection=autolabel]{glossaries}
@@ -132,10 +137,10 @@ Ostatní použité knihovny se shodují s již použitými v BeeeOn bráně.
  
 
 \chapter{Testování}
-V této kapitole je posán postup testování vytvořeného detekčního řešení. Nejprve je popsáno
-testovací prostředí. Dále jsou otestovány obě možné metody nasazení. V závěru jsou ověreny jednotlivé 
+V této kapitole je popsán postup testování vytvořeného detekčního řešení. Nejprve je představeno
+testovací prostředí a jsou otestovány obě možné metody nasazení. Dále jsou ověreny jednotlivé 
 případy hrozeb z kapitoly \ref{utoky} Scénáře útoků a také jsou prověřeny ostatní funkcionality
-detektoru.
+detektoru. V záměru je provedeno měření jednotlivých položek z profilu.
 
  \input{testy}
 

@@ -54,7 +54,7 @@ Cílem testů bylo, aby detektor obdržel všechny odeslané zprávy z kolektoru
 spuštěním detektoru s přepínačem \textit{-vv}, který zapne ladící výpisy druhé úrovně pro zobrazení 
 přijatých UniRec polí. Výsledky obou případů byly úspěšné a všechna data byla přijata.
 
-\section{Detekce scénářů útoků}
+\section{Detekce scénářů útoků} \label{testAttack}
 Velmi důležitou částí bylo otestování definovaných anomálií, které mohou reprezentovat skutečný
 útok na sít. Tato sekce popisuje testy pro jednotlivé scénáře.
 
@@ -175,3 +175,85 @@ Sada tesů ověřila, že vypočítané části profilu lze spolehlivě exportov
 pozitivní.
 
 \section{Měření položek profilu}
+Již v kapitole \ref{testAttack} Detekce scénářů útoků bylo možné sledovat odlišné chování 
+jednotlivých částí profilu. V této sekci je provedeno vyhodnocení každé z nich. Veškeré 
+měření probíhalo nad stejným provozem, ve kterém byly incidenty reprezentovány nárůstem provozu.
+
+Tabulka \ref{tab.tab1} zobrazuje pro každou položku profilu počet detekovaných anomálií 
+s rostoucí velikostí časové řady. Její vyšší rozměry nejvíce stabilizovaly medián, protože jeho počty
+incidentů klesly se zvyšující se délkou. Zároveň z jeho grafu \ref{obr.progressMedian} lze vidět,
+že začátek anomálií odhalil vždy jako poslední a jejich doba trvání byla nejkratší. 
+
+S větší časovou řadou bylo možné uchovat i více hodnot, a 
+tím se detekovalo více událostí v rámci průměru a rozptylu. Začátky i konce rozpoznání incidentů
+byly u obou položek velmi podobné. Jediným rozdílem u rozptylu bylo, že při stabilním 
+nárůstu sledované položky může jeho hodnota po uplynutí časového okna opět klesnout do bezpečného pásma. 
+Graf průběhu \ref{obr.progressStandardDeviation} pro větší přehlednost nezobrazuje rozptyl, ale 
+směrodatnou odchylku. 
+
+Klouzavý průměr jako jediný nebyl závislý na časovém okně. Ovšem s rostoucí délkou řady 
+byla delší i doba učení, při které byla vždy stanovena odlišná hodnota vzorového
+profilu a mezních limitů. Při provedém měření se vždy s delším paměťovým oknem vzorové hodnoty mírně 
+zvýšily.
+Na základě těchto předpokladů lze v jeho grafu \ref{obr.progressCumAverage}
+vidět pomalé klesání, díky kterým byly incidenty detekovány nejdelší dobu. 
+
+
+
+\begin{table}[ht]
+  \begin{center}
+  % \begin{tabular}{|c|c|c|c|c|}
+  \begin{tabular}{|C{1.7cm}|C{1.7cm}|C{1.7cm}|C{1.7cm}|C{1.7cm}|}
+    \hline 
+   \thead{velikost\\ časového\\ okna} & \thead{medián \\} & \thead{rozptyl\\  } & \thead{průměr} & \thead{klouzavý\\ průměr}\\
+   \hline 
+   \hline 
+    1 & 26 & 0 & 26 & 26\\
+    \hline
+    3 & 26 & 30 & 30 & 90\\
+    \hline
+    5 & 26 & 34 & 32 & 89\\
+    \hline
+    10 &  26 & 44 & 40 & 89\\
+    \hline
+    15 & 19 & 54 & 48 & 89\\
+    \hline
+    20 & 19 & 62 & 56 & 89\\
+    \hline
+   \end{tabular}
+   \caption{Tabulka obsahuje počty detekovaných anomálií s rostoucí délkou časového okna} 
+   \label{tab.tab1}
+  \end{center}   
+    \end{table}
+
+    \begin{figure}[ht]
+   \begin{center}
+   \includegraphics[scale=0.7]{pictures/median_progress}
+   \caption{Graf vývoje průměru s časovou řadou délky 10}
+   \label{obr.progressMedian}
+   \end{center}
+   \end{figure}
+   
+   \begin{figure}[ht]
+   \begin{center}
+   \includegraphics[scale=0.7]{pictures/standard_deviation_progress}
+   \caption{Graf vývoje směrodatné odchylky s časovou řadou délky 10}
+   \label{obr.progressStandardDeviation}
+   \end{center}
+   \end{figure}
+    
+  \begin{figure}[ht]
+   \begin{center}
+   \includegraphics[scale=0.7]{pictures/average_progress}
+   \caption{Graf vývoje průměru s časovou řadou délky 10}
+   \label{obr.progressAverage}
+   \end{center}
+   \end{figure}
+   
+   \begin{figure}[ht]
+   \begin{center}
+   \includegraphics[scale=0.7]{pictures/cum_average_progress}
+   \caption{Graf vývoje klouzavého průměru s časovou řadou délky 10}
+   \label{obr.progressCumAverage}
+   \end{center}
+   \end{figure}

@@ -138,10 +138,11 @@ zda bude v rámci metadat použita skupina \textit{metaData} nebo \textit{metaPr
  Poslední možnou částí vypočítavaného profilu sítě je klouzavý průměr, který je získán v rámci 
  této členské funkce. Na rozdíl od ostatních metod jsou v tomto případě zahrnuty i položky 
  mimo časové okno. Hodnota klouzavého průměru reprezentuje průměr všech dosud přijatých dat pro 
- daný UniRec klíč. Výpočetní operace využívá znalosti aktuálního průměru, které při přijetí 
- nové položky upravuje dle následujícího předpisu:
+ daný UniRec klíč. Výpočetní operace využívá znalosti aktuálního průměru a počtu prvků (\textit{M}).
+ Při přijetí 
+ nové položky se nová hodnota vytvoří dle následujícího předpisu:
  \[
-   \frac{novýPrvek + (N - 1) * aktuálníPrůměr}{N}
+   \frac{novýPrvek + (M - 1) * aktuálníPrůměr}{M}
 \]
  
  
