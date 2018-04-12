@@ -23,14 +23,14 @@ Whitehead, D.~E.; Owens, K.; Gammel, D.; aj.: Ukraine cyber-induced power
   outage: Analysis and practical mitigation strategies. In \emph{2017 70th
   Annual Conference for Protective Relay Engineers (CPRE)}, 2017, s. 1--8.
 
+\bibitem{beeeon}
+BeeeOn: Main Page. beeeon.org. [online], 2017 [cit. 2018-02-06].
+\urlprefix\biburl{https://beeeon.org}
+
 \bibitem{fog}
 Statista: Fog Computing and the Internet of Things: Extend the Cloud to Where
   the Things Are. Cisco. [online], 2015 [cit. 2018-01-15].
 \urlprefix\biburl{https://www.cisco.com/c/dam/en_us/solutions/trends/iot/docs/computing-overview.pdf}
-
-\bibitem{beeeon}
-BeeeOn: Main Page. beeeon.org. [online], 2017 [cit. 2018-02-06].
-\urlprefix\biburl{https://beeeon.org}
 
 \bibitem{iotSurvey}
 Zhao, K.; Ge, L.: A Survey on the Internet of Things Security. In \emph{2013

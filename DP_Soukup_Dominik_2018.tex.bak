@@ -15,6 +15,11 @@
 % \usepackage{amssymb} %additional math symbols
 
 \usepackage{dirtree} %directory tree visualisation
+\usepackage{makecell}
+
+\renewcommand\theadalign{cb}
+\renewcommand\theadfont{\bfseries}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}m{#1}}
 
 % % list of acronyms
 % \usepackage[acronym,nonumberlist,toc,numberedsection=autolabel]{glossaries}
@@ -72,8 +77,8 @@ serveru (north-south), ale podporuje přímou komunikaci mezi připojenými uzly
 Oblast IoT nezahrnuje jen malá a nevýkonná zařízení, ale jeho součástí jsou i 
 výkonná datová centra a pokročilé algoritmy, které vyhodnocují získané informace.
 
-Hlavní hrozbou Internetu věcí je bezpečnost. Dochází zde k~přenosu citlivých dat,
-která slouží
+Hlavní hrozbou Internetu věcí je zejména bezpečnost a ochrana soukromí. Dochází zde k~přenosu
+citlivých dat, která slouží
 k~automatizovanému řízení dalších
 systémů, monitorování prostředí a zabezpečovacím účelům. Zároveň s~masivním rozšířením nově
 připojených zařízení roste riziko vzniku nových útoků a možnosti způsobení větších
@@ -87,13 +92,13 @@ detekce anomálií jako v~běžných IP (Internet Protocol) sítích.
 \end{introduction}
 
 \chapter{Cíl práce}
-Cílem magisterské práce je analyzovat množinu aktuálně používaných protokolů
+Cílem diplomové práce je analyzovat množinu aktuálně používaných protokolů
 pro komunikaci v~IoT sítích a identifikovat jejich bezpečnostní zranitelnosti.
 Při analýze bude věnována pozornost zejména bezdrátovým senzorovým protokolům.
 Na základě získaných znalostí bude navržen, implementován a otestován algoritmus
 pro monitorování a automatickou detekci anomálního provozu v~IoT sítích.
 Algoritmus bude možné spustit
-v~prostředí nově vznikající opensource brány BeeeOn, čímž dojde k~rozšíření 
+v~prostředí nově vznikající opensource brány BeeeOn \cite{beeeon}, čímž dojde k~rozšíření 
 dostupných bezpečnostních funkcí.
 
 
@@ -116,35 +121,21 @@ V~závěru jsou identifikovány možné scénáře útoků.
  \input{navrh}
 
 \chapter{Realizace}
- % množina dat potřebných pro detekce
- % komunikační rozhranní
-   % vytvoření názvu exportovacích rozhraní
-  % zminit se o unirec fomatech vstupu o id a datovych typech
- % použité knihovny - téměř žádné protože se klade velký důraz na nízkou náročnost
+Obsahem kapitoly je popis realizace nejzajímavějších částí vytvořeného programu. Pro zajištění
+efektivity a snadné přenositelnosti byla veškeré implementace provedena v~jazyce C++, ve kterém
+je zároveň napsána BeeeOn brána. Detekční systém přináší pouze jednu novou závislost a tou je NEMEA framework.
+Ostatní použité knihovny se shodují s~již použitými v~BeeeOn bráně.
 
-
-\section{Integrace kolektoru}    
-     % popsat trochu jak probihala integrace kolektoru
-\section{Zpracování vstupních dat}
-    % parsování konfigurace a nastavení jednotlivých položek
-\section{Výpočet profilu}   
-   %popis vypoctu profilu
-\section{Detekční funkce} 
- % algoritmus detektoru popsat jednotlivé detekční metody
-  % popsat, ze periodicky veci jsou delany pomoci vlaken per polozku
-    % hlavní je že je to proto, že se nedozvi info o čase když nepřijdou data, tak to musim dělat sám
- 
+ \input{realizace}
 
 \chapter{Testování}
+V~této kapitole je popsán postup testování vytvořeného detekčního řešení. Nejprve je představeno
+testovací prostředí a jsou otestovány obě možné metody nasazení. Dále jsou ověreny jednotlivé 
+případy hrozeb z~kapitoly \ref{utoky} a také jsou prověřeny ostatní funkcionality
+detektoru. V~záměru je provedeno měření chování jednotlivých položek z~profilu.
 
-\section{Testovací prostředí}
+ \input{testy}
 
-\section{Způsoby nasazení}
-% je že se dají nasadit oba moduly, a že se úspěšně prochází data
-\section{Detekce scénářů útoků}
-%popis otestování scénářů
-\section{Test ostatních funcionalit}
-%test ostatních funcionalit, které jsem doplnil, export, ....
 \begin{conclusion}
 	%sem napište závěr Vaší práce
 \end{conclusion}
@@ -191,6 +182,10 @@ V~závěru jsou identifikovány možné scénáře útoků.
 	\item[RAII] Resource Acquisition Is Initialization
 	\item[RTT] Round-Trip Time
 \end{description}
+
+\chapter{Instalační příručka}
+
+\chapter{Popis množiny senzorových informací} \label{sensorData}
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % 

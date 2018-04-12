@@ -1,11 +1,11 @@
 \subsection{MQTT}
-  MQTT je otevřený síťový komunikační protokol typu publish/subcribe, který byl navržen
+  MQTT je otevřený síťový komunikační protokol typu publish/subscribe, který byl navržen
   v~roce 1999. Již od návrhu byl zaměřen na nízkou náročnost komunikace a jednoduchost
   implementace. Díky těmto vlastnostem je velmi vhodný pro IoT a M2M systémy \cite{mqtt}.
   \subsubsection{Způsob komunikace}
   
   Protokol MQTT je postaven nad transportní vrstvou TCP (Transmission Control Protocol)
-  a využívá model pulish/subcribe, který vychází z~tradičního způsobu zasílání zpráv
+  a využívá model publish/subcribe, který vychází z~tradičního způsobu zasílání zpráv
   typu klient-server. Roli serveru zde plní speciální uzel, který se nazývá broker.
   Broker je známý všem ostatním klientům, kteří mohou zasílat zprávy pomocí operace
   \textit{publish} nebo se přihlásit o~příjem zpráv díky operaci \textit{subscribe}.
@@ -14,13 +14,13 @@
   
   Nejčastěji o~směru odeslání rozhoduje předmět (topic) zprávy. Předmět je tvořen
   jednoduchým UTF-8 řetězcem s~hierarchickou strukturou, ve které jsou jednotlivé
-  vrstvy odděleny dopředným lomítkem a každá z~nich musí obsahovat minimálně jeden
+  vrstvy odděleny lomítkem a každá z~nich musí obsahovat minimálně jeden
   znak (např. domov/přízemí/světloŠatna). V~předmětu
   zprávy mohou být některé vrstvy nahrazeny zástupnými symboly + a \#. Symbol + dokáže
   nahradit pouze jednu úroveň předmětu libovolným řetězcem a symbol \# umožňuje
   zastoupit více úrovní. Díky těmto symbolům mohou klienti odeslat nebo přijímat
   zprávy z~více témat. Schéma topologie a ukázka využití předmětů zpráv se nachází na 
-  obrázku \ref{obr.mqtt-arch}.
+  Obrázku \ref{obr.mqtt-arch}.
   
   \begin{figure}[ht]
 \begin{center}
@@ -108,7 +108,7 @@
    se v~CoAP topologii velmi často vyskytují proxy servery. Tyto servery mohou plnit
    funkci běžných reverzních a dopředných proxy, mapování mezi CoAP a HTTP protokolem
    nebo vyvažování zátěže. Způsob komunikace a schéma možné způsoby propojení jsou na
-   obrázku \ref{obr.coap-arch}. Senzor reprezentuje koncový prvek s~omezeným výkonem.
+   Obrázku \ref{obr.coap-arch}. Senzor reprezentuje koncový prvek s~omezeným výkonem.
    
    \begin{figure}[ht]
    \begin{center}

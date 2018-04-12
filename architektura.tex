@@ -21,7 +21,7 @@
  velmi usnadňuje jejich distribuci \cite{fog}.
  
  Porovnání klasické a fog architektury z~hlediska zpracování dat se nachází
- na obrázku \ref{obr.fog}. V~reálném nasazení může
+ na Obrázku \ref{obr.fog}. V~reálném nasazení může
  být použito i více fog vrstev, kde každá provádí určitý stupeň předzpracování a řízení
  dat.
 \begin{figure}[ht]
@@ -72,9 +72,9 @@
  IP spojení. Důvodem použití této komunikace je často velký
  důraz na nízkou spotřebu a specifické požadavky na způsob zasílání zpráv.
  Příkladem protokolů pro senzorové sítě je například:
- Z-Wave, Bluetooth a Zigbee. Jejich detailní popis se nachází v~kapitole 
- \ref{protokoly} Používané komunikační protokoly.
- Tato různorodost vyžaduje, aby brána obsahovala dodatečná rozhraní, které 
+ Z-Wave, Bluetooth a Zigbee. Jejich detailní popis se nachází v~sekci 
+ \ref{protokoly}.
+ Tato různorodost vyžaduje, aby brána obsahovala dodatečná komunikační rozhraní, které 
  umožní připojení nejrůznějších bezdrátových i drátových koncových prvků. 
  
  V~současné době existuje mnoho různých bran jejichž parametry se liší dle 
@@ -122,7 +122,7 @@
  výměnu zpráv. Příkladem může být: MQTT (Message Queuing Telemetry Transport),
  CoAP (Constrained Application Protocol) nebo
  AMQP (Advanced Message Queuing Protocol). Tyto protokoly jsou podrobněji popsány
-v~kapitole \ref{protokoly} Používané komunikační protokoly.
+v~kapitole \ref{protokoly}.
  
  Bezpečnostní hrozby síťové vrstvy jsou stejné jako v~klasických sítích. Je potřeba
  dodržet principy důvěry, integrity a dostupnosti. Tímto přístupem je možné
@@ -235,7 +235,7 @@ segmentu.
   Tato metoda je založena na statistickém modelování. Nejprve se vytvoří profil běžného chování sítě, 
   který se následně porovnává s~aktuálním provozem. Dle použité metody se může profil běžného provozu
   průběžně aktualizovat. Pokud měřené údaje síťového provozu překročí hodnotu stanoveného profilu
-  nad definovaný limit, tak je detekován incident. Výhodou metody anomálií je její uplatnění i na 
+  nad definovaný limit, tak je detekován incident. Výhodou metody detekce anomálií je její uplatnění i na 
   dosud neznámé útoky. Tento princip zároveň způsobuje větší míru falešných poplachů, a proto 
   je nutné jejich pečlivější ověření. Příkladem detekčních metod je: strojové učení, časové řady nebo
   stavové automaty \cite{ids-ips}.
@@ -243,7 +243,7 @@ segmentu.
   \item \textbf{Detekce signatur}
   
   V~případě použití této metody je využíváno signatur (profilů) předem známých útoků. Výhodou je, že díky 
-  popsaným signaturám je tato metoda poměrně přesná a detekuje málo falešných incidentů. Naopak
+  popsaným signaturám je tato metoda poměrně přesná a detekuje málo falešných poplachů. Naopak
   nevýhodou je, že není možné detekovat nové druhy útoků, pro které není známý profil. Problémem
   také je, že signatury musí být uloženy na nějakém perzistentním úložišti, které je dostupné 
   lokálně nebo vzdáleně \cite{ids-ips}.
@@ -294,7 +294,7 @@ segmentu.
  prostředky. Další komplikací může být centralizovaná architektura a zaměření pouze na 
  IP provoz.
  
- Na základě provedené analýzy nebylo nalezeno žádné řešení, které umožňuje vyhodnocovat 
+ Na základě provedené rešerše nebylo nalezeno žádné řešení, které umožňuje vyhodnocovat 
  provoz aktuálně používaných IoT protokolů s~ohledem na možné omezení hardwarových
  prostředků.
  
@@ -312,8 +312,7 @@ V~následující kapitole budou popsány nároky na vznikají detekční nástro
    \item \textbf{Sběr informací o~provozu}
    
    Program bude umožňovat sběr dat na IoT bráně o~aktuálním provozu z~dostupných komunikačních
-   rozhraní. Získané informace bude možné pomocí NEMEA \cite{nemea} (Network Measurements Analysis)
-   frameworku předávat do dalších modulů.
+   rozhraní. Zároveň bude možné získané informace přeposílat k další analýze.
    
    \item \textbf{Detekce anomálií}
    
@@ -347,12 +346,19 @@ V~následující kapitole budou popsány nároky na vznikají detekční nástro
    tyto brány budou sloužit jako sondy, které budou posílat data do externího detektoru s~dostatečnými 
    výkonem k~provedení analýzy. 
    
+   \item \textbf{Kompatibilita a vývoj}
+   
+   Pro zachování kompatibility a snadného vývoje bude použit framework NEMEA
+    \cite{nemea} (Network Measurements Analysis), který umožní snadné propojení 
+    jednotlivých detekčních modulů.
+   
    \item \textbf{Operační systém}
    
    Výsledné řešení bude implementováno a otestováno na operačním systému Ubuntu 16.04, na kterém 
    bude nasazena IoT brána BeeeOn a framework NEMEA. Zároveň
    budou při návrhu a implementaci vybírány takové technologie, aby bylo možné vytvořený program
    spustit pod distribuci OpenWrt, které je velmi rozšířena mezi síťovými prvky.   
+   
   \end{itemize}
 
  \newpage 

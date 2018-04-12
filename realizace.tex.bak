@@ -51,7 +51,7 @@
  V~ostatních případech se jen přeposílají zapouzdřená data.
  
  Modul \textit{Demux} vyžaduje stejné přepínače jako \textit{Mux}. Jediným rozdílem je, že 
- název společného komunikačního rozhraní, které má \textit{Mux} na posledním místě, musí být zde uveden 
+ název společného komunkačního rozhraní, které má \textit{Mux} na posledním místě, musí být zde uveden 
  jako první. Důvodem je, že knihovna \textit{libtrap} zpracovává nejprve vstupní a pak
  výstupní rozhraní. 
  
@@ -61,7 +61,7 @@ Načtení konfiguračního souboru má na starosti třída \textit{ConfigParser}
 žádnou kontrolu vstupních dat, protože se již od návrhu předpokládá, že konfigurace bude 
 generována odlišným programem, který zajistí správnost zadaných údajů. Jediný konstruktor třídy
  \textit{ConfigParser} očekává jako vstupní parametr řetězec s~cestou k~cílovému souboru. Během vytváření
- objektu jsou postupně zpracovány jednotlivé řádky zadaného souboru. Zároveň jsou inicializovány
+ objektu jsou postupně zpracovány jednotlivé řádky zadaného souboru. Zároveň jsou incializovány
  pole pro uchovávání vypočtených profilů. Jejich délka je specifikována preprocesorovou direktivou
  \textit{\#define DYNAMIC}.
  
@@ -74,7 +74,7 @@ rozhraní. Jejich název je vždy vygenerován v~následujícím formátu:
 Veškeré přijaté údaje z~kolektoru jsou v~rámci detektoru ukládány do časových řad. Nad těmito 
 daty jsou prováděny výpočty profilů, které využívají detekční funkce. Jelikož jsou profily
 přepočítávány s~každým nový prvkem v~časové řadě, tak je důležité provádět výpočty efektivně, 
-aby nemusela být vždy procházena celá řady při změně jedné hodnoty. Během implementace byly
+aby nemusela být vždy procházena celá řady při změně jednohé hodnoty. Během implementace byly
 vytvořeny členské funkce pro výpočet následujících částí profilu: průměr, klouzavý průměr, klouzavý rozptyl a
 klouzavý medián. Tyto členské funkce jsou popsány v~níže uvedených sekcích.
 
@@ -83,7 +83,7 @@ klouzavý medián. Tyto členské funkce jsou popsány v~níže uvedených sekc�
  
  
  Klouzavý medián značí hodnotu běžného mediánu odpovídající prvkům umístěných v~časové řadě. 
- Pro jeho výpočet je nutné udržovat položky aktuálního časového okna v~seřazeném pořadí.
+ Pro jeho výpočet je nutné udržovat položky aktálního časového okna v~seřazeném pořadí.
  Při vkládání nového prvku je potřeba najít nejstarší prvek v~poli a nahradit ho nově přijatým. 
  Po provedeném nahrazení se pole může nacházet v~neseřazeném stavu a je 
  vyžadováno jeho opětovné seřazení.
@@ -92,7 +92,7 @@ klouzavý medián. Tyto členské funkce jsou popsány v~níže uvedených sekc�
  nalezení a seřazení lze provést v~lineárním čase. Paměťové nároky vyžadují alokování dodatečného
  místa, které obsahuje kopii časové řady.
  
- Dále je potřeba zjistit, zda je časová řada sudé nebo liché délky. Pokud je lichá, tak se jako 
+ Dále je potřeba zjisit, zda je časová řada sudé nebo liché délky. Pokud je lichá, tak se jako 
  medián vrátí její prvek umístění ve středu. V~opačném případě je výsledkem průměr dvou prostředních
  hodnot.
  
@@ -107,19 +107,19 @@ klouzavý medián. Tyto členské funkce jsou popsány v~níže uvedených sekc�
  
  \item \textbf{getMovingAverageAndVariance()}%(\textit{ur\_field, ur\_id, meta\_it, sensor\_it, meta\_id})}
  
- Tato členská funkce je zaměřená zejména na získání klouzavého rozptylu, ale v~rámci jeho výpočtu je možné
+ Tato členská funkce je zaměřená zejména na získání kouzavého rozptylu, ale v~rámci jeho výpočtu je možné
  získat i hodnotu klouzavého průměru, a proto jsou v~návratové hodnotě vraceny oba výsledky.
  Stejně jako v~předchozí sekci klouzavý rozptyl i průměr jsou odvozeny z~aktuálního časového
- okna celé řady.
+ okna celké řady.
  Průběh
  zpracování údajů probíhá s~ohledem na vstupní data, která 
  jsou reprezentována stále se posouvajícím časovým oknem. 
  
- Pro umožnění efektivního výpočtu se používá několik pomocným paměťových struktur. První z~nich 
+ Pro umožnějí efektivního výpočtu se používá několik pomocným paměťových struktur. První z~nich 
  jsou dvě pole \textit{x} a \textit{x2} se shodnou velikostí jako má hlavní časová řada. Do pole
  \textit{x} jsou ukládána
  nově příchozí data a \textit{x2} udržuje jejich druhé mocniny. Dále je nutné ukládat součty
- hodnot v~těchto polích, které jsou uchovávány v~proměnných \textit{SX} a \textit{SX2}.
+ hodnot v~těchto polích, které jsou uchovávány v~proměných \textit{SX} a \textit{SX2}.
  
  V~rámci učící fáze detektoru jsou i zde příchozí prvky postupně vkládány do připravených struktur.
  Pokud jsou již pomocná pole naplněná, tak při příchodu nové položky se používá funkce
@@ -130,7 +130,7 @@ klouzavý medián. Tyto členské funkce jsou popsány v~níže uvedených sekc�
   součetŘady + novýPrvek - nejstaršíPrvek
 \]
  
- Po upravení pomocných struktur je možné provést finální výpočet. Průměr je snadno získán vydělením
+ Po upravení pomocných struktu je možné provést finální výpočet. Průměr je snadno získán vydělením
  udržovaného součtu počtem prvků v~časovém okně (\textit{N}). Pro určení hodnoty rozptylu se provádí
  následující operace:
 \[
@@ -142,7 +142,7 @@ zda bude v~rámci metadat použita skupina \textit{metaData} nebo \textit{metaPr
 
  \item \textbf{getOverallAverage()}%(\textit{sensor\_it, meta\_it, meta\_id, ur\_id})}
  
- Poslední možnou částí vypočítávaného profilu sítě je průměr, který je získán v~rámci 
+ Poslední možnou částí vypočítavaného profilu sítě je průměr, který je získán v~rámci 
  této členské funkce. Na rozdíl od ostatních metod jsou v~tomto případě zahrnuty i položky 
  mimo časové okno. Výsledná hodnota reprezentuje celkový průměr všech dosud přijatých dat pro 
  daný UniRec klíč. Výpočetní operace využívá znalosti aktuálního průměru a celkového počtu prvků
@@ -172,16 +172,16 @@ zda bude v~rámci metadat použita skupina \textit{metaData} nebo \textit{metaPr
  
  V~případě soft limitu se s~každou nově příchozí hodnotou provádí
  porovnání aktuálního profilu sítě s~definovanými hranicemi v~konfiguračním souboru. Pokud dojde
- k~jejich překročení, tak se zvýší hodnota odpovídajícího čítače o~jedna. Jakmile čítač překročí nastavenou 
+ k~jejich překročení, tak se zvýší hodota odpovídajícího čítače o~jedna. Jakmile čítač překročí nastavenou 
  hranici pro grace period, tak se odešle zpráva o~detekovaném incidentu. V~případě, že 
  během porovnání hodnota aktuálního profilu nepřekračuje nastavené limity, tak se do čítače uloží 
  číslo 0.
  
- Hard limit provádí stejný způsob porovnání částí aktuálního profilu s~nastavenými hodnotami. Jediným
+ Hard limit provádí stejný způsob porovnání částí aktualního profilu s~nastavenými hodnotami. Jediným
  rozdílem je, že odeslání incidentu se provede ihned po překročení nakonfigurovaných hranic.
  
  Mezi soft a hard limitem není žádná závislost a lze je používat nezávisle. Při konfiguraci 
- libovolného z~nich se vždy povinně vyžaduje určení minimální a maximální meze současně.
+ libovolného z~nich se vždy povině vyžaduje určení minimální a maximální meze současně.
  
  \item \textbf{Kontrola změny}
  

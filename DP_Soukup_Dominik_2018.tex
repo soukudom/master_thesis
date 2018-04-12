@@ -77,8 +77,8 @@ serveru (north-south), ale podporuje přímou komunikaci mezi připojenými uzly
 Oblast IoT nezahrnuje jen malá a nevýkonná zařízení, ale jeho součástí jsou i 
 výkonná datová centra a pokročilé algoritmy, které vyhodnocují získané informace.
 
-Hlavní hrozbou Internetu věcí je bezpečnost. Dochází zde k~přenosu citlivých dat,
-která slouží
+Hlavní hrozbou Internetu věcí je zejména bezpečnost a ochrana soukromí. Dochází zde k~přenosu
+citlivých dat, která slouží
 k~automatizovanému řízení dalších
 systémů, monitorování prostředí a zabezpečovacím účelům. Zároveň s~masivním rozšířením nově
 připojených zařízení roste riziko vzniku nových útoků a možnosti způsobení větších
@@ -92,13 +92,13 @@ detekce anomálií jako v~běžných IP (Internet Protocol) sítích.
 \end{introduction}
 
 \chapter{Cíl práce}
-Cílem magisterské práce je analyzovat množinu aktuálně používaných protokolů
+Cílem diplomové práce je analyzovat množinu aktuálně používaných protokolů
 pro komunikaci v~IoT sítích a identifikovat jejich bezpečnostní zranitelnosti.
 Při analýze bude věnována pozornost zejména bezdrátovým senzorovým protokolům.
 Na základě získaných znalostí bude navržen, implementován a otestován algoritmus
 pro monitorování a automatickou detekci anomálního provozu v~IoT sítích.
 Algoritmus bude možné spustit
-v~prostředí nově vznikající opensource brány BeeeOn, čímž dojde k~rozšíření 
+v~prostředí nově vznikající opensource brány BeeeOn \cite{beeeon}, čímž dojde k~rozšíření 
 dostupných bezpečnostních funkcí.
 
 
@@ -121,26 +121,18 @@ V~závěru jsou identifikovány možné scénáře útoků.
  \input{navrh}
 
 \chapter{Realizace}
-Obasahem kapitoly je popis realizace nejzajímavějších částí vytvořeného programu. Pro zajištění
-efektivity a snadné přenositelnosti byla veškeré implementace provedena v jazyce C++, ve kterém
-je napsána BeeeOn brána. Detekční systém přináší pouze jednu novou závislost a tou je NEMEA framework.
-Ostatní použité knihovny se shodují s již použitými v BeeeOn bráně.
+Obsahem kapitoly je popis realizace nejzajímavějších částí vytvořeného programu. Pro zajištění
+efektivity a snadné přenositelnosti byla veškeré implementace provedena v~jazyce C++, ve kterém
+je zároveň napsána BeeeOn brána. Detekční systém přináší pouze jednu novou závislost a tou je NEMEA framework.
+Ostatní použité knihovny se shodují s~již použitými v~BeeeOn bráně.
 
  \input{realizace}
- % množina dat potřebných pro detekce
- % komunikační rozhranní
-   % vytvoření názvu exportovacích rozhraní
-  % zminit se o unirec fomatech vstupu o id a datovych typech
- % použité knihovny - téměř žádné protože se klade velký důraz na nízkou náročnost
-
-
- 
 
 \chapter{Testování}
-V této kapitole je popsán postup testování vytvořeného detekčního řešení. Nejprve je představeno
-testovací prostředí a jsou otestovány obě možné metody nasazení. Dále jsou ověreny jednotlivé 
-případy hrozeb z kapitoly \ref{utoky} Scénáře útoků a také jsou prověřeny ostatní funkcionality
-detektoru. V záměru je provedeno měření jednotlivých položek z profilu.
+V~této kapitole je popsán postup testování vytvořeného detekčního řešení. Nejprve je představeno
+testovací prostředí a jsou otestovány obě možné metody nasazení. Dále jsou ověřeny jednotlivé 
+případy hrozeb z~kapitoly \ref{utoky} a také jsou prověřeny ostatní funkcionality
+detektoru. V~záměru je provedeno měření chování jednotlivých položek z~profilu.
 
  \input{testy}
 
@@ -193,7 +185,77 @@ detektoru. V záměru je provedeno měření jednotlivých položek z profilu.
 
 \chapter{Instalační příručka}
 
-\chapter{Popis množiny senzorových informací}
+\chapter{Způsob testování}
+
+\chapter{Popis množiny senzorových informací} \label{sensorData}
+Tato část přílohy obsahuje kompletní popis množiny informací, kterou lze v současné době získat o 
+provozu senzorových protokolů v rámci BeeeOn brány. Při popisu byla množina infomací rozdělena
+do příslušných událostí, které
+jsou reprezentovány samostatnou sekcí.
+
+\section{onDriverStats}
+\begin{itemize}
+ \item \textbf{SOAFCount}: počet přijatých Start Of Frame bytů
+ \item \textbf{ACKWaiting}: počet nevyžádaných zpráv při čekání na potvrzení
+ \item \textbf{readAborts}: počet nedokončených operacích čtení z důvodu překročení časového limitu
+ \item \textbf{badChecksum}: počet zpráv se špatných kontrolním součtem
+ \item \textbf{readCount}
+ \item \textbf{writeCount}:
+ \item \textbf{CANCount}:
+ \item \textbf{NAKCount}:
+ \item \textbf{ACKCount}:
+ \item \textbf{OOFCount}:
+ \item \textbf{dropped}:
+ \item \textbf{retries}:
+ \item \textbf{callbacks}:
+ \item \textbf{badroutes}
+ \item \textbf{noACK}:
+ \item \textbf{netBusy}:
+ \item \textbf{notIdle}:
+ \item \textbf{nonDelivery}:
+ \item \textbf{routedBusy}:
+ \item \textbf{broadcastReadCount}:
+ \item \textbf{broadcastWriteCount}:
+\end{itemize}
+
+\section{onNodeStats}
+\begin{itemize}
+ \item \textbf{sentCount}:
+ \item \textbf{sentFailed}:
+ \item \textbf{receivedCount}:
+ \item \textbf{receivedDuplications}:
+ \item \textbf{receivedUnsoliced}:
+ \item \textbf{lastRequestRTT}:
+ \item \textbf{lastResponseRTT}:
+ \item \textbf{averageRequestRTT}:
+ \item \textbf{averageResponseRTT}:
+ \item \textbf{quality}:
+ \item \textbf{nodeID}:
+\end{itemize}
+
+\section{onHCIStats}
+\begin{itemize}
+ \item \textbf{address}:
+ \item \textbf{aclPackets}:
+ \item \textbf{scoMtu}:
+ \item \textbf{scoPackets}:
+ \item \textbf{rxErrors}:
+ \item \textbf{txErrors}:
+ \item \textbf{rxEvents}:
+ \item \textbf{txCmds}:
+ \item \textbf{rxAcls}:
+ \item \textbf{txAcls}:
+ \item \textbf{rxScos}:
+ \item \textbf{txScos}:
+ \item \textbf{rxBytes}:
+ \item \textbf{txBytes}:
+\end{itemize}
+
+\section{onExport}
+\begin{itemize}
+ \item \textbf{value}:
+ \item  \textbf{deviceID}:
+\end{itemize}
 
 
 % % % % % % % % % % % % % % % % % % % % % % % % % % % % 

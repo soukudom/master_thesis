@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  9 APR 2018 14:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  12 APR 2018 23:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -986,7 +986,7 @@ e
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
 
 ]
-<cvut-logo-bw.pdf, id=150, 554.07pt x 193.29715pt>
+<cvut-logo-bw.pdf, id=170, 554.07pt x 193.29715pt>
 File: cvut-logo-bw.pdf Graphic file (type pdf)
  <use cvut-logo-bw.pdf>
 Package pdftex.def Info: cvut-logo-bw.pdf used on input line 52.
@@ -1079,14 +1079,14 @@ l.94 \chapter
 ] [3] [4
 
 ] (./architektura.tex
-<pictures/fog-arch.pdf, id=312, 724.7075pt x 667.49374pt>
+<pictures/fog-arch.pdf, id=340, 724.7075pt x 667.49374pt>
 File: pictures/fog-arch.pdf Graphic file (type pdf)
 
 <use pictures/fog-arch.pdf>
 Package pdftex.def Info: pictures/fog-arch.pdf used on input line 29.
 (pdftex.def)             Requested size: 326.11536pt x 300.36942pt.
  [5] [6 <./pictures/fog-arch.pdf>] [7] [8] [9]
-(./protokoly.tex <pictures/mqtt-arch.pdf, id=359, 723.70375pt x 374.39874pt>
+(./protokoly.tex <pictures/mqtt-arch.pdf, id=385, 723.70375pt x 374.39874pt>
 File: pictures/mqtt-arch.pdf Graphic file (type pdf)
 
 <use pictures/mqtt-arch.pdf>
@@ -1099,7 +1099,7 @@ o-to-kolu TLS (Trans-
  []
 
 [11 <./pictures/mqtt-arch.pdf>]
-<pictures/coap-arch.pdf, id=383, 519.9425pt x 286.06876pt>
+<pictures/coap-arch.pdf, id=409, 519.9425pt x 286.06876pt>
 File: pictures/coap-arch.pdf Graphic file (type pdf)
 
 <use pictures/coap-arch.pdf>
@@ -1118,40 +1118,51 @@ zra-ni-telná v·£i MITM
  []
 
 [16]) [17] [18] [19] [20] [21]
-Overfull \hbox (0.71524pt too wide) in paragraph at lines 320--322
+Overfull \hbox (0.71524pt too wide) in paragraph at lines 319--321
 \T1/lmr/m/n/10.95 od-ha-lit de-fi-no-vané ano-má-lie, které re-pre-zen-tují ne-
 o-£e-ká-vané zm¥ny v síti. 
  []
 
 [22] [23]) [24] (./navrh.tex
-<pictures/deploy-arch.pdf, id=501, 883.3pt x 394.47375pt>
+<pictures/deploy-arch.pdf, id=527, 669.50125pt x 295.1025pt>
 File: pictures/deploy-arch.pdf Graphic file (type pdf)
 
 <use pictures/deploy-arch.pdf>
 Package pdftex.def Info: pictures/deploy-arch.pdf used on input line 9.
-(pdftex.def)             Requested size: 362.15535pt x 161.73528pt.
+(pdftex.def)             Requested size: 348.14265pt x 153.45416pt.
+
+Underfull \vbox (badness 1817) has occurred while \output is active []
+
  [25
 
- <./pictures/deploy-arch.pdf>] [26]
-<pictures/modelTrid.pdf, id=514, 623.32875pt x 466.74374pt>
+ <./pictures/deploy-arch.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./pictures/deploy-arch.pdf): PDF inclus
+ion: invalid other resource which is no dict (key 'ProcSets', type <array>); ig
+nored.
+>] [26] <pictures/modelTrid.pdf, id=551, 623.32875pt x 466.74374pt>
 File: pictures/modelTrid.pdf Graphic file (type pdf)
 
 <use pictures/modelTrid.pdf>
-Package pdftex.def Info: pictures/modelTrid.pdf used on input line 65.
+Package pdftex.def Info: pictures/modelTrid.pdf used on input line 66.
 (pdftex.def)             Requested size: 311.6636pt x 233.37129pt.
  [27 <./pictures/modelTrid.pdf>] [28]
-<pictures/detektor-arch.pdf, id=528, 714.67pt x 279.0425pt>
+<pictures/detektor-arch.pdf, id=565, 539.01375pt x 208.78pt>
 File: pictures/detektor-arch.pdf Graphic file (type pdf)
 
 <use pictures/detektor-arch.pdf>
-Package pdftex.def Info: pictures/detektor-arch.pdf used on input line 122.
-(pdftex.def)             Requested size: 357.33412pt x 139.5209pt.
- [29 <./pictures/detektor-arch.pdf>] [30]
-[31] <pictures/config-file-frame.pdf, id=546, 665.48625pt x 64.24pt>
+Package pdftex.def Info: pictures/detektor-arch.pdf used on input line 124.
+(pdftex.def)             Requested size: 323.41074pt x 125.26895pt.
+ [29 <./pictures/detektor-arch.pdf
+
+pdfTeX warning: /usr/bin/pdflatex (file ./pictures/detektor-arch.pdf): PDF incl
+usion: invalid other resource which is no dict (key 'ProcSets', type <array>); 
+ignored.
+>] [30] [31] <pictures/config-file-frame.pdf, id=602, 665.48625pt x 64.24pt>
 File: pictures/config-file-frame.pdf Graphic file (type pdf)
 
 <use pictures/config-file-frame.pdf>
-Package pdftex.def Info: pictures/config-file-frame.pdf used on input line 258.
+Package pdftex.def Info: pictures/config-file-frame.pdf used on input line 269.
 
 (pdftex.def)             Requested size: 332.74231pt x 32.11992pt.
  [32 <./pictures/config-file-frame.pdf>]
@@ -1159,97 +1170,94 @@ Package pdftex.def Info: pictures/config-file-frame.pdf used on input line 258.
 
 ] (./realizace.tex [39] [40] [41]
 
-LaTeX Warning: Command \v invalid in math mode on input line 123.
+LaTeX Warning: Command \v invalid in math mode on input line 130.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 123.
+LaTeX Warning: Command \v invalid in math mode on input line 130.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 123.
+LaTeX Warning: Command \' invalid in math mode on input line 130.
 
 
-LaTeX Warning: Command \v invalid in math mode on input line 123.
+LaTeX Warning: Command \v invalid in math mode on input line 130.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 123.
+LaTeX Warning: Command \' invalid in math mode on input line 130.
 
 
-Overfull \hbox (1.99329pt too wide) in paragraph at lines 131--135
-\T1/lmr/m/n/10.95 Pro zís-kání ve²-ke-rých hod-not pro po-psané vý-po-£ty p°i-j
-ímá £len-ská funkce
- []
+LaTeX Warning: Command \' invalid in math mode on input line 152.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 145.
+LaTeX Warning: Command \' invalid in math mode on input line 152.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 145.
+LaTeX Warning: Command \' invalid in math mode on input line 152.
 
 
-LaTeX Warning: Command \' invalid in math mode on input line 145.
+LaTeX Warning: Command \r invalid in math mode on input line 152.
 
 
-LaTeX Warning: Command \r invalid in math mode on input line 145.
+LaTeX Warning: Command \v invalid in math mode on input line 152.
 
-
-LaTeX Warning: Command \v invalid in math mode on input line 145.
-
-[42]) [43] [44
-
-] (./testy.tex
-<pictures/deploy-option1.pdf, id=620, 521.95pt x 262.9825pt>
+[42] [43]) [44] (./testy.tex
+<pictures/deploy-option1.pdf, id=677, 521.95pt x 262.9825pt>
 File: pictures/deploy-option1.pdf Graphic file (type pdf)
 
 <use pictures/deploy-option1.pdf>
-Package pdftex.def Info: pictures/deploy-option1.pdf used on input line 27.
+Package pdftex.def Info: pictures/deploy-option1.pdf used on input line 29.
 (pdftex.def)             Requested size: 260.97435pt x 131.49092pt.
- [45]
-<pictures/deploy-option2.pdf, id=627, 662.475pt x 251.94125pt>
+ [45
+
+]
+<pictures/deploy-option2.pdf, id=684, 662.475pt x 251.94125pt>
 File: pictures/deploy-option2.pdf Graphic file (type pdf)
 
 <use pictures/deploy-option2.pdf>
-Package pdftex.def Info: pictures/deploy-option2.pdf used on input line 43.
+Package pdftex.def Info: pictures/deploy-option2.pdf used on input line 46.
 (pdftex.def)             Requested size: 331.2367pt x 125.9703pt.
  [46 <./pictures/deploy-option1.pdf> <./pictures/deploy-option2.pdf>] [47] [48]
  [49]
-<pictures/median_progress.pdf, id=660, 505.89pt x 289.08pt>
-File: pictures/median_progress.pdf Graphic file (type pdf)
+<pictures/moving_median_progress.pdf, id=718, 505.89pt x 289.08pt>
+File: pictures/moving_median_progress.pdf Graphic file (type pdf)
 
-<use pictures/median_progress.pdf>
-Package pdftex.def Info: pictures/median_progress.pdf used on input line 231.
+<use pictures/moving_median_progress.pdf>
+Package pdftex.def Info: pictures/moving_median_progress.pdf used on input line
+ 237.
 (pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
 
-<pictures/standard_deviation_progress.pdf, id=661, 505.89pt x 289.08pt>
-File: pictures/standard_deviation_progress.pdf Graphic file (type pdf)
+<pictures/moving_standard_deviation_progress.pdf, id=719, 505.89pt x 289.08pt>
+File: pictures/moving_standard_deviation_progress.pdf Graphic file (type pdf)
 
-<use pictures/standard_deviation_progress.pdf>
-Package pdftex.def Info: pictures/standard_deviation_progress.pdf used on input
- line 239.
+<use pictures/moving_standard_deviation_progress.pdf>
+Package pdftex.def Info: pictures/moving_standard_deviation_progress.pdf used o
+n input line 245.
 (pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
 
-<pictures/average_progress.pdf, id=662, 505.89pt x 289.08pt>
+<pictures/moving_average_progress.pdf, id=720, 505.89pt x 289.08pt>
+File: pictures/moving_average_progress.pdf Graphic file (type pdf)
+
+<use pictures/moving_average_progress.pdf>
+Package pdftex.def Info: pictures/moving_average_progress.pdf used on input lin
+e 253.
+(pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
+
+<pictures/average_progress.pdf, id=721, 505.89pt x 289.08pt>
 File: pictures/average_progress.pdf Graphic file (type pdf)
 
 <use pictures/average_progress.pdf>
-Package pdftex.def Info: pictures/average_progress.pdf used on input line 247.
+Package pdftex.def Info: pictures/average_progress.pdf used on input line 261.
 (pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
+) [50] [51 <./pictures/moving_median_progress.pdf> <./pictures/moving_standard_
+deviation_progress.pdf
 
-<pictures/cum_average_progress.pdf, id=663, 505.89pt x 289.08pt>
-File: pictures/cum_average_progress.pdf Graphic file (type pdf)
+pdfTeX warning: /usr/bin/pdflatex (file ./pictures/moving_standard_deviation_pr
+ogress.pdf): PDF inclusion: multiple pdfs with page group included in a single 
+page
+>] [52 <./pictures/moving_average_progress.pdf> <./pictures/average_progress.pd
+f
 
-<use pictures/cum_average_progress.pdf>
-Package pdftex.def Info: pictures/cum_average_progress.pdf used on input line 2
-55.
-(pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
-) [50] [51 <./pictures/median_progress.pdf> <./pictures/standard_deviation_prog
-ress.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/standard_deviation_progress.
-pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [52 <./pictures/average_progress.pdf> <./pictures/cum_average_progress.pdf
-
-pdfTeX warning: /usr/bin/pdflatex (file ./pictures/cum_average_progress.pdf): P
-DF inclusion: multiple pdfs with page group included in a single page
+pdfTeX warning: /usr/bin/pdflatex (file ./pictures/average_progress.pdf): PDF i
+nclusion: multiple pdfs with page group included in a single page
 >] (./DP_Soukup_Dominik_2018.bbl [53
 
 ] [54
@@ -1260,7 +1268,7 @@ LaTeX Font Info:    Try loading font information for T1+lmtt on input line 14.
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Underfull \hbox (badness 1142) in paragraph at lines 27--30
+Underfull \hbox (badness 1142) in paragraph at lines 31--34
 []\T1/lmr/m/n/10.95 Statista: Fog Com-pu-ting and the In-ter-net of Things: Ex-
 tend the
  []
@@ -1317,7 +1325,9 @@ n -[] IDS -[] or -[] IPS -[]
 
 ] [63] [64
 
-] [65]
+] [65] [66] [67] [68
+
+] [69]
 \tf@toc=\write5
 \openout5 = `DP_Soukup_Dominik_2018.toc'.
 
@@ -1327,27 +1337,27 @@ n -[] IDS -[] or -[] IPS -[]
 \tf@lot=\write7
 \openout7 = `DP_Soukup_Dominik_2018.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 322.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 322.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 384.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 384.
 
 (./DP_Soukup_Dominik_2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 322.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 322.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 384.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 384.
 Package rerunfilecheck Info: File `DP_Soukup_Dominik_2018.out' has not changed.
 
-(rerunfilecheck)             Checksum: E1ED929D7599A2931B88B90A8C8DF2F2;4775.
+(rerunfilecheck)             Checksum: 5DE69C51BDAC8C08926EE40434EA3E0C;5346.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 322.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 384.
  ) 
 Here is how much of TeX's memory you used:
- 13811 strings out of 493029
- 190080 string characters out of 6136234
- 322330 words of memory out of 5000000
- 17000 multiletter control sequences out of 15000+600000
- 70261 words of font info for 45 fonts, out of 8000000 for 9000
+ 13827 strings out of 493029
+ 190332 string characters out of 6136234
+ 324639 words of memory out of 5000000
+ 17007 multiletter control sequences out of 15000+600000
+ 65990 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,18n,29p,1106b,489s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
@@ -1361,10 +1371,10 @@ b></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></u
 sr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmtt10.pfb>
-Output written on DP_Soukup_Dominik_2018.pdf (81 pages, 889501 bytes).
+Output written on DP_Soukup_Dominik_2018.pdf (85 pages, 898518 bytes).
 PDF statistics:
- 909 PDF objects out of 1000 (max. 8388607)
- 776 compressed objects within 8 object streams
- 188 named destinations out of 1000 (max. 500000)
- 343 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 985 PDF objects out of 1000 (max. 8388607)
+ 837 compressed objects within 9 object streams
+ 197 named destinations out of 1000 (max. 500000)
+ 383 words of extra memory for PDF output out of 10000 (max. 10000000)
 

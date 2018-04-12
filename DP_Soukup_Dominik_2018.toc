@@ -55,5 +55,10 @@
 \contentsline {chapter}{Literatura}{55}{section*.8}
 \contentsline {appendix}{\chapternumberline {A}Seznam pou\IeC {\v z}it\IeC {\'y}ch zkratek}{59}{appendix.A}
 \contentsline {appendix}{\chapternumberline {B}Instala\IeC {\v c}n\IeC {\'\i } p\IeC {\v r}\IeC {\'\i }ru\IeC {\v c}ka}{61}{appendix.B}
-\contentsline {appendix}{\chapternumberline {C}Popis mno\IeC {\v z}iny senzorov\IeC {\'y}ch informac\IeC {\'\i }}{63}{appendix.C}
-\contentsline {appendix}{\chapternumberline {D}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{65}{appendix.D}
+\contentsline {appendix}{\chapternumberline {C}Zp\IeC {\r u}sob testov\IeC {\'a}n\IeC {\'\i }}{63}{appendix.C}
+\contentsline {appendix}{\chapternumberline {D}Popis mno\IeC {\v z}iny senzorov\IeC {\'y}ch informac\IeC {\'\i }}{65}{appendix.D}
+\contentsline {section}{\numberline {D.1}onDriverStats}{65}{section.D.1}
+\contentsline {section}{\numberline {D.2}onNodeStats}{66}{section.D.2}
+\contentsline {section}{\numberline {D.3}onHCIStats}{67}{section.D.3}
+\contentsline {section}{\numberline {D.4}onExport}{67}{section.D.4}
+\contentsline {appendix}{\chapternumberline {E}Obsah p\IeC {\v r}ilo\IeC {\v z}en\IeC {\'e}ho CD}{69}{appendix.E}
