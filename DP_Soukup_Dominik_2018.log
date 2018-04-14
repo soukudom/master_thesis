@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  14 APR 2018 19:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  14 APR 2018 19:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1097,16 +1097,16 @@ Package pdftex.def Info: pictures/mqtt-arch.pdf used on input line 27.
 File: pictures/coap-arch.pdf Graphic file (type pdf)
 
 <use pictures/coap-arch.pdf>
-Package pdftex.def Info: pictures/coap-arch.pdf used on input line 115.
+Package pdftex.def Info: pictures/coap-arch.pdf used on input line 114.
 (pdftex.def)             Requested size: 213.17781pt x 117.28894pt.
  [12] [13 <./pictures/coap-arch.pdf>] [14]
-Overfull \hbox (3.7551pt too wide) in paragraph at lines 240--243
+Overfull \hbox (3.7551pt too wide) in paragraph at lines 239--242
 \T1/lmr/m/n/10.95 (Quick Re-sponse) kódu. Vý-m¥na klí£e je za-lo-ºena na al-go-
 ritmu ECDH (Elliptic-
  []
 
 [15]
-Overfull \hbox (2.87578pt too wide) in paragraph at lines 292--295
+Overfull \hbox (2.87578pt too wide) in paragraph at lines 291--294
 \T1/lmr/m/n/10.95 ten-ti-zaci. Díky chy-b¥-jící au-ten-ti-zaci je tato me-toda 
 zra-ni-telná v·£i MITM
  []
@@ -1228,7 +1228,7 @@ File: pictures/moving_median_progress.pdf Graphic file (type pdf)
 
 <use pictures/moving_median_progress.pdf>
 Package pdftex.def Info: pictures/moving_median_progress.pdf used on input line
- 237.
+ 236.
 (pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
 
 <pictures/moving_standard_deviation_progress.pdf, id=727, 505.89pt x 289.08pt>
@@ -1236,7 +1236,7 @@ File: pictures/moving_standard_deviation_progress.pdf Graphic file (type pdf)
 
 <use pictures/moving_standard_deviation_progress.pdf>
 Package pdftex.def Info: pictures/moving_standard_deviation_progress.pdf used o
-n input line 245.
+n input line 244.
 (pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
 
 <pictures/moving_average_progress.pdf, id=728, 505.89pt x 289.08pt>
@@ -1244,14 +1244,14 @@ File: pictures/moving_average_progress.pdf Graphic file (type pdf)
 
 <use pictures/moving_average_progress.pdf>
 Package pdftex.def Info: pictures/moving_average_progress.pdf used on input lin
-e 253.
+e 252.
 (pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
 
 <pictures/average_progress.pdf, id=729, 505.89pt x 289.08pt>
 File: pictures/average_progress.pdf Graphic file (type pdf)
 
 <use pictures/average_progress.pdf>
-Package pdftex.def Info: pictures/average_progress.pdf used on input line 261.
+Package pdftex.def Info: pictures/average_progress.pdf used on input line 260.
 (pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
 ) [50] [51 <./pictures/moving_median_progress.pdf> <./pictures/moving_standard_
 deviation_progress.pdf
@@ -1377,7 +1377,7 @@ b></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></u
 sr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmtt10.pfb>
-Output written on DP_Soukup_Dominik_2018.pdf (87 pages, 916904 bytes).
+Output written on DP_Soukup_Dominik_2018.pdf (87 pages, 916878 bytes).
 PDF statistics:
  1012 PDF objects out of 1200 (max. 8388607)
  862 compressed objects within 9 object streams

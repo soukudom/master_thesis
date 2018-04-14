@@ -268,7 +268,7 @@ make -C build
 \end{verbatim}
  \item \textbf{Instalace NEMEA frameworku}
  
-Kompletní zdrojové kódy systému NEMEA jsou také udržovany v~repozitářích služby Github. Pro
+Kompletní zdrojové kódy systému NEMEA jsou také udržovány v~repozitářích služby Github. Pro
 vytvořený nástroj je potřeba nasadit část \textit{NEMEA-Framework}.
 \begin{verbatim}
 git clone https://github.com/CESNET/Nemea-Framework.git
@@ -319,7 +319,7 @@ Do příslušných částí v~souboru je potřeba vložit tyto položky:
    ${UNIREC}
    ${LIBTRAP}
 \end{verbatim}
-Podobné změny je nutné provést v adresářit \textit{test}
+Podobné změny je nutné provést v adresáři \textit{test}
 \begin{verbatim}
   vim <adresářBeeeOn>/test/CMakeLists.txt
     find_library (LIBTRAP trap)
@@ -385,7 +385,7 @@ Analyzer.cpp -o prg -ltrap -lpcap -lunirec --std=c++11 \
 Posledním krokem je spuštění celého detekčního systému. Pro účely demonstrace je
 v~ukázce použit oddělený model nasazení \ref{externalMode}, který zahrnuje více komponent. Při reálném 
 použití stačí spustit pouze kolektor a jednu instanci detektoru pro každý typ události. V~uvedené
-ukázce každá z~kompent používá standartní výstup, proto je nutné každý přípaz spustit v~samostatném
+ukázce každá z~komponent používá standardní výstup, proto je nutné každý příkaz spustit v~samostatném
 terminálovém okně.
 \begin{verbatim}
 <adresářBeeeOn>/build/src/beeeon-gateway \
@@ -431,8 +431,8 @@ v~rámci testování.
  
  \item \textbf{Merger}
  
- Poslední uvedený NEMEA modul se používá pro slučování několika různcýh vstupních UniRec
- záznamů do jednoho společného, který je odesílán výstupním rozhraním. Očekávánými parametry jsou
+ Poslední uvedený NEMEA modul se používá pro slučování několika různých vstupních UniRec
+ záznamů do jednoho společného, který je odesílán výstupním rozhraním. Očekávanými parametry jsou
  \textit{-i} s~popisem komunikačního rozhraní a \textit{-n} určující počet vstupních rozhraní,
  který odpovídá
  zadanému popisu. Název výstupu je vždy uveden jako poslední položka v~rámci přepínače \textit{-i}.
@@ -465,7 +465,7 @@ jsou reprezentovány samostatnou sekcí.
  \item \textbf{retries}: počet znovu odeslaných zpráv
  \item \textbf{callbacks}: počet neočekávaných callbacků
  \item \textbf{badroutes} počet neodeslaných zpráv kvůli směrování
- \item \textbf{noACK}: počet neobržených potvrzení
+ \item \textbf{noACK}: počet neobdržených potvrzení
  \item \textbf{netBusy}: počet zpráv s~chybovým stavem
  \item \textbf{notIdle}: počet zpráv se stavem not idle
  \item \textbf{nonDelivery}:počet nedoručených zpráv
@@ -511,7 +511,7 @@ jsou reprezentovány samostatnou sekcí.
 \section{onExport}
 \begin{description}
  \item \textbf{value}: senzorová hodnota
- \item  \textbf{deviceID}: intentifikátor senzoru
+ \item  \textbf{deviceID}: identifikátor senzoru
 \end{description}
 
 \chapter{Obsah přiloženého CD}
@@ -523,9 +523,9 @@ jsou reprezentovány samostatnou sekcí.
 		.2 impl\DTcomment{zdrojové kódy implementace}.
 		.3 collector\DTcomment{zdrojové kódy kolektoru}.
 		.3 detector\DTcomment{zdrojové kódy detektoru}.
-		.3 mux\DTcomment{zdrojové kódy multiplexotu}.
+		.3 mux\DTcomment{zdrojové kódy multiplexoru}.
 		.3 demux\DTcomment{zdrojové kódy demultiplexoru}.
-		.3 test\DTcomment{Sobory pro testování}.
+		.3 test\DTcomment{soubory pro testování}.
 		.2 thesis\DTcomment{zdrojová forma práce ve formátu \LaTeX{}}.
 		.1 text\DTcomment{text práce}.
 		.2 DP\_Soukup\_Dominik.pdf\DTcomment{text práce ve formátu PDF}.
