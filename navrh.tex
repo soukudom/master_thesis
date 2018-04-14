@@ -44,7 +44,7 @@
  
  Kolektor pro každý typ události vytvoří samostatné výstupní komunikační rozhraní, kterých 
  při reálném provozu může být velké množství. Z~tohoto důvodu  
- bude vytvořen modul \textit{Mux}, který všechny výstupní rozhraní spojí do jednoho. 
+ bude vytvořen modul \textit{Mux}, který všechna výstupní rozhraní spojí do jednoho společného. 
  Pro zpětné rozdělení na jednotlivé typy událostí bude sloužit modul \textit{Demux}. Tyto moduly budou velmi užitečné
  zejména v~případě, kdy kolektor a detektor budou na rozdílných síťových prvcích, protože údaje 
  o~provozu budou přenášeny přes počítačovou síť a bude vyžadováno zabezpečení všech odchozích komunikačních
@@ -81,8 +81,8 @@ o~provozu budou sbírány z~jednotlivých komponent BeeeOn brány, které jsou z
    rozhraní
    
   \item \textbf{onNodeStats}:
-   periodicky získává informace o~jednotlivých prvcích Z-Wave sítě, které jsou dostupné pomocí
-   OpenZWave knihovny
+   periodicky získává informace o~jednotlivých prvcích umístěných uvnitř jedné Z-Wave sítě, které jsou dostupné pomocí
+   knihovny OpenZWave
    
   \item \textbf{onHciStats}:
    v~definovaných intervalech získává z~komunikačního rozhraní pro BLE statistiky o~provozu
@@ -108,7 +108,7 @@ v~konfiguračním souboru BeeeOn brány. Po nastavení počátečních parametr�
  pro každou členskou funkci události. Díky tomu bude možné každou událost zpracovávat nezávisle dle
  definovaných parametrů.
  
- Definované konstruktory a destruktory budou sloužit jen pro vytvoření a destrukci potřebných 
+ Definované konstruktory a destruktory budou sloužit jen pro vytvoření a~destrukci potřebných 
  struktur. Tímto bude zajištěn programovací idiom RAII (Resource Acquisition Is Initialization).
  
  Veškeré odesílané údaje budou rozšířeny o~časovou značku a číselný identifikátor, aby mohl detektor
@@ -162,7 +162,8 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
   
   Bude sdružovat všechny členské funkce určené pro detekci anomálií v~získaných datech. 
   Každá členská funkce bude reprezentovat jedno kritérium a bude možné budoucí rozšíření o~další
-  potřebné metody.
+  potřebné metody. V rámci vytvořeného řešení budou dostupná kritéria pro detekci: neočekávaného
+  růstu, překročení vymezených hodnot a porušení periodicity \ref{detectMethods}.
   
  \end{itemize}
 
@@ -177,11 +178,6 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
  Konfigurace bude v~textové podobě ve formátu klíč a seznam hodnot. Textová podoba je velmi vhodná pro 
  fázi ladění a vývoje nástroje, protože jsou možné manuální úpravy. Cílem ovšem je generovat 
  konfiguraci pomocí externího nástroje, který by mohl být součástí řídící vrstvy IoT brány. 
- %!!!future work
- %Generátor
- %nastavení bude velmi vhodný pro koncové uživatele, protože si budou moci přehledně vybrat své
- %parametry bez znalosti všech závislostí, které textová konfigurace ani modul pro zpracování 
- %nebude hlídat. Externí nástroj pro definování nastavení nebude součástí vytvořeného řešení.
  
  Klíčem bude vždy název UniRec pole, který se bude nacházet v~příchozích datech. Za tímto klíčem
  se může nacházet volitelně číselný identifikátor senzoru, který se musí shodovat
@@ -229,7 +225,7 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
   
   Pro každou položku definovanou v~rámci profilu musí být uveden seznam jejich detekčních parametrů.
   Zápis bude probíhat pomocí klíčového slova z~profilu, které bude mít jednotlivé hodnoty 
-  specifikované uvnitř kulatých závorek. Zde bude možné určit minimální nebo maximální soft a hard
+  specifikované uvnitř kulatých závorek. Zde bude možné určit minimální nebo maximální soft a~hard
   limity, kterých daná položka aktuálního profilu může dosahovat. Pro soft limit bude dále možné 
   určit povolenou délku, po kterou může být nastavená hranice překročena (grace period). 
   
@@ -296,7 +292,7 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
    který bude vytvořen během učící fáze a bude sloužit pro určení anomálie. Zatímco 
    hodnoty v~\textit{metaData} budou vztaženy k~aktuálnímu profilu sítě, který se mění s~každým
    nový prvkem v~časové řadě.
-   
+
    \item \textbf{Senzorová data}
    
    Cílem této struktury bude hierarchicky ukládat přicházející data z~kolektoru do časových řad. 
@@ -308,7 +304,7 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
    
    \item \textbf{Nastavení pro export} 
    
-   Parametry pro export budou uchovány ve struktuře s~formátem klíč a hodnota. Klíčem bude 
+   Parametry pro export budou uchovány ve struktuře s~formátem klíč a~hodnota. Klíčem bude 
    pořadové číslo výstupního komunikačního rozhraní, které bude odpovídat konkrétnímu UniRec poli. Hodnotou 
    bude sekvence názvů určující jednotlivé části profilu, které se budou exportovat. Tyto názvy
    budou definované v~konfiguračním souboru. 
@@ -336,14 +332,14 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
    bude prováděn výpočet všech částí profilu, které budou určeny konfiguračním souborem.
    Pokud bude délka učící fáze delší než velikost 
    časové řady, tak budou všechny prvky posunuty, a tím nejstarší z~nich uvolní místo pro nový.
-   
+    \newpage
    \item \textbf{Detekce}
    
    Jakmile bude stanoven vzorový profil sítě, tak se zahájí analýza provozu pro určení anomálií.
    S~každým nový příchozím prvkem bude z~příslušné časové řady vypočítáván aktuální profil sítě,
    který budou používat detekční metody. Dostupné metody jsou popsány v~\ref{detectMethods}.
    
-   \newpage
+  
    \item \textbf{Vyhodnocení}
    
    Výsledky detekčních metod budou sloužit k~určení stavu provozu. Pokud budou data vyhodnocena jako

@@ -8,6 +8,10 @@
 \providecommand{\selectlanguage}[1]{\relax}
 \providecommand{\eprint}[2][]{\biburl{#2}}
 
+\bibitem{beeeon}
+BeeeOn: Main Page. beeeon.org. [online], 2017 [cit. 2018-02-06].
+\urlprefix\biburl{https://beeeon.org}
+
 \bibitem{iotDevices}
 Statista: Internet of Things (IoT) connected devices installed base worldwide
   from 2015 to 2025. Statista. [online], 2016 [cit. 2018-01-14].
@@ -22,10 +26,6 @@ Milici, S.; Lázaro, A.; Villarino, R.; aj.: Wireless Wearable
 Whitehead, D.~E.; Owens, K.; Gammel, D.; aj.: Ukraine cyber-induced power
   outage: Analysis and practical mitigation strategies. In \emph{2017 70th
   Annual Conference for Protective Relay Engineers (CPRE)}, 2017, s. 1--8.
-
-\bibitem{beeeon}
-BeeeOn: Main Page. beeeon.org. [online], 2017 [cit. 2018-02-06].
-\urlprefix\biburl{https://beeeon.org}
 
 \bibitem{fog}
 Statista: Fog Computing and the Internet of Things: Extend the Cloud to Where
@@ -114,5 +114,9 @@ CZ.NIC: PaKon - sledování sítě (Parental Control). CZ.NIC. [online], 2018
 Cejka, T.; Bartos, V.; Svepes, M.; aj.: NEMEA: A framework for network traffic
   analysis. In \emph{2016 12th International Conference on Network and Service
   Management (CNSM)}, 2016, \doi{10.1109/CNSM.2016.7818417}.
+
+\bibitem{joy}
+Systems, C.: Joy. Github. [online], 2016 [cit. 2018-04-14].
+\urlprefix\biburl{https://github.com/cisco/joy}
 
 \end{thebibliography}

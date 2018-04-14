@@ -1,6 +1,6 @@
 
 \section{Integrace kolektoru}    
-     Vytvořený kolektor provozních dat je přímou součástí projektu BeeeOn, a proto jej bylo nutné 
+     Vytvořený kolektor provozních dat je přímou součástí projektu BeeeOn, a~proto jej bylo nutné 
      integrovat do spouštěcího procesu brány. Pro zajištění společné kompilace byly do souborů 
      \textit{CMakeLists.txt} přidány cesty ke zdrojovým souborům kolektoru a závislosti na knihovny
      z~NEMEA frameworku. K~určení způsobu spouštění jednotlivých komponent používá BeeeOn
@@ -85,7 +85,7 @@ klouzavý medián. Tyto členské funkce jsou popsány v~níže uvedených sekc�
  Klouzavý medián značí hodnotu běžného mediánu odpovídající prvkům umístěných v~časové řadě. 
  Pro jeho výpočet je nutné udržovat položky aktuálního časového okna v~seřazeném pořadí.
  Při vkládání nového prvku je potřeba najít nejstarší prvek v~poli a nahradit ho nově přijatým. 
- Po provedeném nahrazení se pole může nacházet v~neseřazeném stavu a je 
+ Po provedeném nahrazení se pole může nacházet v~neseřazeném stavu a~je 
  vyžadováno jeho opětovné seřazení.
   Tato operace není náročná, protože se změní vždy jen jeden prvek, který je nutné
  přesunou na správné místo. Celková složitost začlenění nového prvku je $O(n)$, protože operace 
@@ -145,7 +145,7 @@ zda bude v~rámci metadat použita skupina \textit{metaData} nebo \textit{metaPr
  Poslední možnou částí vypočítávaného profilu sítě je průměr, který je získán v~rámci 
  této členské funkce. Na rozdíl od ostatních metod jsou v~tomto případě zahrnuty i položky 
  mimo časové okno. Výsledná hodnota reprezentuje celkový průměr všech dosud přijatých dat pro 
- daný UniRec klíč. Výpočetní operace využívá znalosti aktuálního průměru a celkového počtu prvků
+ daný UniRec klíč. Výpočetní operace využívá znalosti aktuálního průměru a~celkového počtu prvků
  (\textit{M}). Při přijetí 
  nové položky se nová hodnota vytvoří dle následujícího předpisu:
  \[
@@ -196,7 +196,7 @@ zda bude v~rámci metadat použita skupina \textit{metaData} nebo \textit{metaPr
  V~rámci vytvořeného detektoru jsou implementovány dvě členské funkce s~názvy
  \textit{periodicCheck()} a \textit{periodicExport()}, které provádí požadovanou akci jednou
  za periodu, jejíž délka je určená konfiguračním souborem. Toto chování je realizované pomocí 
- vláken, které je možné uspávat a probouzet. Vytváření vláken má na starosti členská funkce
+ vláken, které je možné uspávat a~probouzet. Vytváření vláken má na starosti členská funkce
  \textit{runThreads()}, která dle nastavených parametrů spouští vlákna pro dostupné UniRec položky.
  
  V~členské funkci \textit{periodicCheck()} jsou prováděny dvě kontroly. První porovnává

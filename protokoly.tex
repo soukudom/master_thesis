@@ -16,7 +16,7 @@
   jednoduchým UTF-8 řetězcem s~hierarchickou strukturou, ve které jsou jednotlivé
   vrstvy odděleny lomítkem a každá z~nich musí obsahovat minimálně jeden
   znak (např. domov/přízemí/světloŠatna). V~předmětu
-  zprávy mohou být některé vrstvy nahrazeny zástupnými symboly + a \#. Symbol + dokáže
+  zprávy mohou být některé vrstvy nahrazeny zástupnými symboly + a \#. Symbol +~dokáže
   nahradit pouze jednu úroveň předmětu libovolným řetězcem a symbol \# umožňuje
   zastoupit více úrovní. Díky těmto symbolům mohou klienti odeslat nebo přijímat
   zprávy z~více témat. Schéma topologie a ukázka využití předmětů zpráv se nachází na 
@@ -65,7 +65,7 @@
     
   \item \textbf{Transportní vrstva}
   
-  Na této úrovni se využívá šifrování provozu pomocí protokolu TLS (Transport
+  Na této úrovni se využívá šifrování provozu pomocí protokolu TLS (Tra\-nsport
   Layer Security). Omezením této metody jsou požadavky na výkon, které mohou být
   poměrně vysoké pokud nastává časté navazování spojení \cite{mqtt_sec}.
   
@@ -92,7 +92,7 @@
   CoAP je otevřený přenosový protokol určený pro
   komunikaci síťových zařízení s~velmi omezeným výkonem. Návrh vychází z~RESTful
   (Representational State Transfer) principů, tudíž jeho použití je velmi vhodné
-  v~prostředích s~již existujícím webových rozhraním, do kterého se snadno integruje. \cite{coap}
+  v~prostředích s~již existujícím webovým rozhraním, do kterého se snadno integruje. \cite{coap}
   
    \subsubsection{Způsob komunikace}
    Komunikace je postavena nad protokolem UDP (User Datagram Protocol) a vychází
@@ -300,7 +300,7 @@
      
      Tato metoda vylepšuje \textit{Just Works} o~autentizaci, která spočívá v~uživatelském zadání 
      šestimístného kódu. Pro ochranu před odposlouchávání musí být použit algoritmus ECDH,
-     který je dostupný až od verze 4.2 \cite{cesnet-survey}.
+     který je dostupný až od verze 4.2~\cite{cesnet-survey}.
      
      \item \textbf{Numeric Comparison}
      

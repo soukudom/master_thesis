@@ -76,7 +76,7 @@ Velmi důležitou částí bylo otestování definovaných anomálií, které mo
     Výsledek testu byl úspěšný. Pokud nebyla obdržena žádná data déle než 8 sekund, tak byly
     odeslány informace o~incidentu.
     
-    Několik událostí poskytovaných branou BeeeOn jsou čistě periodické a po uplynutí definovaného
+    Několik událostí poskytovaných branou BeeeOn jsou čistě periodické a~po uplynutí definovaného
     času vždy odešlou dostupné statistiky. Druhý test byl zaměřen na odhalení případu, kdy se 
     přijímané datové položky nemění, což může reprezentovat odpojení nebo ztrátu čidla. Pro 
     otestování byla zvolena událost \textit{onHciStats}, která získává informace o~provozu BLE sítě. 
@@ -90,7 +90,7 @@ Velmi důležitou částí bylo otestování definovaných anomálií, které mo
     
     V~případě protokolu Z-Wave byly pro nasimulování anomálií použity dvě vzdáleně ovladatelné
     zásuvky. Obě mají k~dispozici ovládací tlačítko pro vypnutí a zapnutí zásuvky. Tímto způsobem
-    byly generovány nové zprávy. Cílem tohoto scénáře bylo odhalit neočekávaný nárůst dat, a proto
+    byly generovány nové zprávy. Cílem tohoto scénáře bylo odhalit neočekávaný nárůst dat, a~proto
     byla zvolena detekční metoda, která hlídá tyto změny. V~rámci testu byly do profilu 
     vloženy všechny dostupné položky. Limitem pro ohlášení incidentu byl pětinásobný nárůst
     provozu. Délka časové řady byla nastavena na deset prvků a prvních jedenáct přijatých 
@@ -181,7 +181,7 @@ pozitivní.
 \section{Měření položek profilu}
 Již v~kapitole \ref{testAttack} bylo možné sledovat odlišné chování 
 jednotlivých částí profilu. V~této sekci je provedeno vyhodnocení každé z~nich. Veškeré 
-měření probíhalo nad stejným provozem, kde byly zprávy generovány každé tři sekundy a pravidelné
+měření probíhalo nad stejným provozem, kde byly zprávy generovány každé tři sekundy a~pravidelné
 události chodily každých pět sekund. Incidenty byly reprezentovány nárůstem sledovaného provozu.
 
 Tabulka \ref{tab.tab1} zobrazuje pro každou položku profilu počet detekovaných anomálií 
@@ -243,7 +243,7 @@ vidět pomalé klesání, díky kterým byly incidenty detekovány nejdelší do
    \begin{figure}[ht]
    \begin{center}
    \includegraphics[scale=0.7]{pictures/moving_standard_deviation_progress}
-   \caption{Graf vývoje klouzavé směrodatné odchylky s~časovou řadou délky 10}
+   \caption{Graf vývoje klouzavé směrodatné odchylky s~časovou řadou o délce 10}
    \label{obr.progressStandardDeviation}
    \end{center}
    \end{figure}

@@ -33,50 +33,52 @@ Warning--entry type for "ids-ips" isn't style-file defined
 --line 163 of file mybibliographyfile.bib
 Warning--entry type for "pakon" isn't style-file defined
 --line 171 of file mybibliographyfile.bib
+Warning--entry type for "joy" isn't style-file defined
+--line 187 of file mybibliographyfile.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Warning--empty pages in cesnet-survey
 Warning--empty pages in zwave-S0-attack
 Warning--empty pages in ble-locks
 Warning--empty pages in nemea
-You've used 23 entries,
+You've used 24 entries,
             3151 wiz_defined-function locations,
-            776 strings with 8888 characters,
-and the built_in function-call counts, 8925 in all, are:
-= -- 614
-> -- 294
+            781 strings with 8957 characters,
+and the built_in function-call counts, 9207 in all, are:
+= -- 633
+> -- 301
 < -- 4
-+ -- 147
-- -- 84
-* -- 434
-:= -- 1075
-add.period$ -- 46
-call.type$ -- 23
-change.case$ -- 99
++ -- 150
+- -- 86
+* -- 446
+:= -- 1111
+add.period$ -- 48
+call.type$ -- 24
+change.case$ -- 102
 chr.to.int$ -- 0
-cite$ -- 27
-duplicate$ -- 846
-empty$ -- 904
-format.name$ -- 95
-if$ -- 1939
+cite$ -- 28
+duplicate$ -- 873
+empty$ -- 936
+format.name$ -- 97
+if$ -- 2000
 int.to.chr$ -- 0
-int.to.str$ -- 23
-missing$ -- 192
-newline$ -- 94
-num.names$ -- 46
-pop$ -- 498
+int.to.str$ -- 24
+missing$ -- 198
+newline$ -- 98
+num.names$ -- 48
+pop$ -- 514
 preamble$ -- 1
-purify$ -- 85
+purify$ -- 88
 quote$ -- 0
-skip$ -- 364
+skip$ -- 374
 stack$ -- 0
-substring$ -- 221
-swap$ -- 379
+substring$ -- 226
+swap$ -- 390
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 92
+type$ -- 96
 warning$ -- 4
-while$ -- 54
-width$ -- 25
-write$ -- 212
-(There were 19 warnings)
+while$ -- 56
+width$ -- 26
+write$ -- 221
+(There were 20 warnings)

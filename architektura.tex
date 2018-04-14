@@ -18,12 +18,12 @@
  výkonu blíže k~okraji sítě. Rozšíření je umožněno pomocí přidání síťových zařízení,
  které kromě běžných funkcionalit poskytují i výpočetní výkon pro běh externích programů. Programy 
  je často možné nasadit pomocí kontejnerů nebo samostatných virtuálních strojů, což 
- velmi usnadňuje jejich distribuci \cite{fog}.
+ velmi usnadňuje jejich vývoj a distribuci \cite{fog}.
  
  Porovnání klasické a fog architektury z~hlediska zpracování dat se nachází
  na Obrázku \ref{obr.fog}. V~reálném nasazení může
  být použito i více fog vrstev, kde každá provádí určitý stupeň předzpracování a řízení
- dat.
+ dat. Naopak u klasického modelu tato možnost není a vše zajišťuje až datové centrum.
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.45]{pictures/fog-arch}
@@ -31,7 +31,7 @@
 \label{obr.fog}
 \end{center}
 \end{figure}
- Zavedením principů fog computingu vznikají pro síť následující výhody:
+ Zavedením principů fog computingu vznikají pro síť a zejména zpracování dat následující výhody:
  \begin{itemize}
  \item \textbf{Zlepšení bezpečnosti} 
  
@@ -64,7 +64,7 @@
  IoT brána je síťové zařízení, které je umístěno velmi blízko koncových zařízení
  a představuje vstup do fog vrstvy. Jejím hlavním cílem je získávat data 
  z~připojených zařízení a poskytovat je vyšším vrstvám. Pokud je brána reprezentována
- výkonnějším síťovým prvkem, tak v~něm zároveň může probíhat i základní zpracování
+ výkonnějším síťovým prvkem, tak v~něm zároveň může probíhat i~základní zpracování
  dat. 
  
  Pro IoT sítě je typické, že obsahují velké množství koncových prvků komunikujících
@@ -74,7 +74,7 @@
  Příkladem protokolů pro senzorové sítě je například:
  Z-Wave, Bluetooth a Zigbee. Jejich detailní popis se nachází v~sekci 
  \ref{protokoly}.
- Tato různorodost vyžaduje, aby brána obsahovala dodatečná komunikační rozhraní, které 
+ Tato různorodost vyžaduje, aby brána obsahovala dodatečná komunikační rozhraní, která 
  umožní připojení nejrůznějších bezdrátových i drátových koncových prvků. 
  
  V~současné době existuje mnoho různých bran jejichž parametry se liší dle 
@@ -122,7 +122,7 @@
  výměnu zpráv. Příkladem může být: MQTT (Message Queuing Telemetry Transport),
  CoAP (Constrained Application Protocol) nebo
  AMQP (Advanced Message Queuing Protocol). Tyto protokoly jsou podrobněji popsány
-v~kapitole \ref{protokoly}.
+v~sekci \ref{protokoly}.
  
  Bezpečnostní hrozby síťové vrstvy jsou stejné jako v~klasických sítích. Je potřeba
  dodržet principy důvěry, integrity a dostupnosti. Tímto přístupem je možné
@@ -144,7 +144,7 @@ v~kapitole \ref{protokoly}.
  
  Tato vrstva je umístěna vetšinou v~datovém centru a umožňuje vzdálený přístup. 
  Její bezpečnostní problémy lze přirovnat k~problémům cloud computingu. Dle
- množství požadovaných funkcí může být různě složitá a s~rostoucí složitostí
+ množství požadovaných funkcí může být různě složitá a~s~rostoucí složitostí
  se také liší nároky na úroveň zabezpečení. Příkladem možných útoků může být:
  Buffer Overflow, SQL Injection nebo DDoS.
  
@@ -163,7 +163,7 @@ segmentu.
  \section{Používané komunikační protokoly} \label{protokoly}
  Jedním z~hlavních cílů IoT je možnost vzájemného propojení různých komunikačních protokolů, 
  které umožní automatizovanou výměnu zpráv mezi všemi dostupnými zařízeními. Tímto způsobem
- je následně možné zefektivňovat a usnadňovat lidskou práci.
+ je následně možné zefektivňovat a~usnadňovat lidskou práci.
  
  V~následujících podkapitolách bude popsána množina aktuálně často používaných protokolů
  včetně jejich bezpečnostních funkcí.
@@ -190,7 +190,7 @@ segmentu.
  nový šifrovací klíč a převzít tak kontrolu nad senzorem. 
  
  Při využití S2 frameworku dosud nebyly objeveny žádné zranitelnosti, ovšem tento
- framework je poměrně nový a většina aktuálně používaných i nabízených zařízení byla certifikována 
+ framework je poměrně nový a většina aktuálně používaných i~nabízených zařízení byla certifikována 
  ještě před jeho zavedením.
  
  \subsection{BLE}
@@ -201,13 +201,13 @@ segmentu.
  
  Dalším problémem jsou samotní výrobci, kteří často nevyužívají bezpečnostní funkce protokolu  \cite{ble-locks} nebo
  implementují vlastní způsoby zabezpečení na aplikační úrovni. Tímto dochází k~nezabezpečení fáze 
- párování a často se vyskytují i implementační chyby, které přinášení další zranitelnosti \cite{ble-attack} a
- umožňují útočníkovi získat kontrolu nad celým provozem.  \cite{cesnet-survey}
+ párování a často se vyskytují i implementační chyby, které přinášení další zranitelnosti \cite{ble-attack} 
+ a~umožňují útočníkovi získat kontrolu nad celým provozem.  \cite{cesnet-survey}
  
  Nevýhodou je velmi dlouhá a komplikovaná specifikace protokolu, která vede k~implementačním 
  chybám samotného BLE \cite{blueborne}. Tím vzniká nebezpečí, že i u~výrobce, který využívá
  všech bezpečnostní funkcionalit
- se mohou vyskytovat zranitelnosti díky chybné implementaci komunikačních vrstev protokolu. \cite{cesnet-survey}
+ se mohou vyskytovat zranitelnosti díky chybné implementaci komunikačních vrstev protokolu~\cite{cesnet-survey}.
  
  \newpage
  \section{Možnosti detekce}
@@ -236,7 +236,7 @@ segmentu.
   který se následně porovnává s~aktuálním provozem. Dle použité metody se může profil běžného provozu
   průběžně aktualizovat. Pokud měřené údaje síťového provozu překročí hodnotu stanoveného profilu
   nad definovaný limit, tak je detekován incident. Výhodou metody detekce anomálií je její uplatnění i na 
-  dosud neznámé útoky. Tento princip zároveň způsobuje větší míru falešných poplachů, a proto 
+  dosud neznámé útoky. Tento princip zároveň způsobuje větší míru falešných poplachů, a~proto 
   je nutné jejich pečlivější ověření. Příkladem detekčních metod je: strojové učení, časové řady nebo
   stavové automaty \cite{ids-ips}.
   
@@ -246,11 +246,11 @@ segmentu.
   popsaným signaturám je tato metoda poměrně přesná a detekuje málo falešných poplachů. Naopak
   nevýhodou je, že není možné detekovat nové druhy útoků, pro které není známý profil. Problémem
   také je, že signatury musí být uloženy na nějakém perzistentním úložišti, které je dostupné 
-  lokálně nebo vzdáleně \cite{ids-ips}.
+  lokálně nebo vzdáleně~\cite{ids-ips}.
  \end{itemize}
  
  IoT sítě k~běžnému IP provozu přidávají senzorové protokoly, jejichž chování je také dobré monitorovat, 
- protože jsou připojeny do počítačové sítě a mohou být zneužity při útocích. Bohužel detekční metody 
+ protože jsou připojeny do počítačové sítě a~mohou být zneužity při útocích. Bohužel detekční metody 
  nejsou pro tyto sítě moc rozšířené, a tím dochází ke zvýšení rizika a dopadu možných útoků. Pro určení 
  incidentů lze využít stejných principů jako v~IP sítích, ale liší se způsob získávání dat pro analýzu. 
  Pro sběr informací lze využít následující přístupy:
@@ -267,7 +267,7 @@ segmentu.
   Funkce sondy je stejná jako v~IP sítích. Jedná se o~samostatné zařízení umístěné v~sítí, které
   umožňuje sledovat probíhající komunikaci a odesílat získané údaje ke zpracování. 
   Výhodou je velké množství různých  dat, které lze získat, ale zároveň komplikací je šifrovaný provoz
-  a často i cena kvalitní sondy.
+  a často i~cena kvalitní sondy.
   Dalším využitím 
   může být honeypot, kdy se sonda tváří jako zranitelný prvek a reportuje veškeré pokusy o~útok.
     
