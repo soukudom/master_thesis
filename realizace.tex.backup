@@ -1,14 +1,14 @@
 
 \section{Integrace kolektoru}    
-     Vytvořený kolektor provozních dat je přímou součástí projektu BeeeOn, a proto jej bylo nutné 
+     Vytvořený kolektor provozních dat je přímou součástí projektu BeeeOn, a~proto jej bylo nutné 
      integrovat do spouštěcího procesu brány. Pro zajištění společné kompilace byly do souborů 
      \textit{CMakeLists.txt} přidány cesty ke zdrojovým souborům kolektoru a závislosti na knihovny
-     z NEMEA frameworku. K určení způsobu spouštění jednotlivých komponent používá BeeeOn
-     soubor \textit{factory.xml}. V tomto souboru byla vytvořena nová komponenta s názvem 
+     z~NEMEA frameworku. K~určení způsobu spouštění jednotlivých komponent používá BeeeOn
+     soubor \textit{factory.xml}. V~tomto souboru byla vytvořena nová komponenta s~názvem 
      \textit{collector}, 
      která byla následně přidána pod označením \textit{listener} do specifikace ostatních komponent.
      Toto nastavení 
-     umožňuje přijímání definovaných událostí v rámci návrhového vzoru \textit{Observer}.
+     umožňuje přijímání definovaných událostí v~rámci návrhového vzoru \textit{Observer}.
      Samotná komponenta \textit{collector}
      obsahuje ve svém popisu seznam jmen událostí, kterým přiřazuje pojmenování výstupního \textit{libtrap}
      rozhraní. Formát výstupu je vždy \textit{event-<názevUdálosti>}. 
@@ -16,24 +16,24 @@
      Vytvořené názvy událostí jsou při spouštění programu pomocí C++ reflexe předány třídě kolektoru
      \textit{NemeaCollector}. Tato třída používá již vytvořené makro \textit{BEEEON\_OBJECT\_TEXT},
      které pro definované 
-     typy událostí volá přiřazené členské funkce. Každá událost má členskou funkci s názvem ve formátu 
-     \textit{set<názevUdálosti>} přijímající jeden vstupní parametr typu string s názvem výstupního 
-     rozhraní. V rámci volání se do instance třídy \textit{EventMetaData}
+     typy událostí volá přiřazené členské funkce. Každá událost má členskou funkci s~názvem ve formátu 
+     \textit{set<názevUdálosti>} přijímající jeden vstupní parametr typu string s~názvem výstupního 
+     rozhraní. V~rámci volání se do instance třídy \textit{EventMetaData}
      nastaví specifické hodnoty členských
-     atributů o daném typu události. Následuje volání členské funkce \textit{initInterface()},
+     atributů o~daném typu události. Následuje volání členské funkce \textit{initInterface()},
      která přijímá vytvořenou instanci třídy  \textit{EventMetaData} a
      jednotně inicializuje všechny potřebné struktury pro odesílání dat.
      
-     Po úspěšném nastavení všech částí se už jen v rámci návrhového vzoru \textit{Observer} volají
+     Po úspěšném nastavení všech částí se už jen v~rámci návrhového vzoru \textit{Observer} volají
      členské funkce událostí, které jsou definované ve třídě \textit{AbstractCollector} a implementované
-     ve třídě \textit{NemeaCollector}. Získané informace z brány jsou vkládány do UniRec zprávy a odeslány
+     ve třídě \textit{NemeaCollector}. Získané informace z~brány jsou vkládány do UniRec zprávy a odeslány
      výstupním rozhraním.
      
 \section{Mux a Demux}    
 
  Modul \textit{Mux} očekává na vstupu přepínač \textit{-i}, který ve formě řetězce určuje dostupná 
  komunikační rozhraní 
- zajištěné knihovnou \textit{libtrap}. Poslední identifikátor v zadaném řetězci označuje jméno 
+ zajištěné knihovnou \textit{libtrap}. Poslední identifikátor v~zadaném řetězci označuje jméno 
  výstupu. Druhým parametrem je \textit{-n}, který odpovídá počtu vstupních komunikačních
  rozhraní. Při spuštění 
  se pro každý vstup vytvoří samostatné vlákno pomocí knihovny OpenMP. Jelikož je veškerý provoz 
@@ -47,11 +47,11 @@
  obsahuje: identifikátor druhu zprávy, číslo komunikačního rozhraní a typ formátu. Obsah přijatých zpráv
  je zapouzdřen do záhlaví. \textit{Mux} při každém přijetí dat kontroluje návratový
  kód funkce \textit{trap\_ctx\_recv()}, který identifikuje nový formát přijatých zpráv. Pokud
- dojde k detekování změny, tak se pošle \textit{hello} zpráva s upraveným popisem rozhraní.
- V ostatních případech se jen přeposílají zapouzdřená data.
+ dojde k~detekování změny, tak se pošle \textit{hello} zpráva s~upraveným popisem rozhraní.
+ V~ostatních případech se jen přeposílají zapouzdřená data.
  
  Modul \textit{Demux} vyžaduje stejné přepínače jako \textit{Mux}. Jediným rozdílem je, že 
- název společného komunkačního rozhraní, které má \textit{Mux} na posledním místě, musí být zde uveden 
+ název společného komunikačního rozhraní, které má \textit{Mux} na posledním místě, musí být zde uveden 
  jako první. Důvodem je, že knihovna \textit{libtrap} zpracovává nejprve vstupní a pak
  výstupní rozhraní. 
  
@@ -60,68 +60,68 @@
 Načtení konfiguračního souboru má na starosti třída \textit{ConfigParser}, která neprovádí 
 žádnou kontrolu vstupních dat, protože se již od návrhu předpokládá, že konfigurace bude 
 generována odlišným programem, který zajistí správnost zadaných údajů. Jediný konstruktor třídy
- \textit{ConfigParser} očekává jako vstupní parametr řetězec s cestou k cílovému souboru. Během vytváření
- objektu jsou postupně zpracovány jednotlivé řádky zadaného souboru. Zároveň jsou incializovány
+ \textit{ConfigParser} očekává jako vstupní parametr řetězec s~cestou k~cílovému souboru. Během vytváření
+ objektu jsou postupně zpracovány jednotlivé řádky zadaného souboru. Zároveň jsou inicializovány
  pole pro uchovávání vypočtených profilů. Jejich délka je specifikována preprocesorovou direktivou
  \textit{\#define DYNAMIC}.
  
 Pokud byly zadány parametry pro pravidelný export dat, tak se při inicializaci potřebných struktur
-zavolá funkce s názvem \textit{initExportInterfaces()}, která vytvoří příslušná výstupní komunikační 
-rozhraní. Jejich název je vždy vygenerován v následujícím formátu: 
+zavolá funkce s~názvem \textit{initExportInterfaces()}, která vytvoří příslušná výstupní komunikační 
+rozhraní. Jejich název je vždy vygenerován v~následujícím formátu: 
 \textit{u:export-<názevKlíče><idKlíče>}.
    
 \section{Výpočet profilu} \label{profileDef}
-Veškeré přijaté údaje z kolektoru jsou v rámci detektoru ukládány do časových řad. Nad těmito 
+Veškeré přijaté údaje z~kolektoru jsou v~rámci detektoru ukládány do časových řad. Nad těmito 
 daty jsou prováděny výpočty profilů, které využívají detekční funkce. Jelikož jsou profily
-přepočítávány s každým nový prvkem v časové řadě, tak je důležité provádět výpočty efektivně, 
-aby nemusela být vždy procházena celá řady při změně jednohé hodnoty. Během implementace byly
+přepočítávány s~každým nový prvkem v~časové řadě, tak je důležité provádět výpočty efektivně, 
+aby nemusela být vždy procházena celá řady při změně jedné hodnoty. Během implementace byly
 vytvořeny členské funkce pro výpočet následujících částí profilu: průměr, klouzavý průměr, klouzavý rozptyl a
-klouzavý medián. Tyto členské funkce jsou popsány v níže uvedených sekcích.
+klouzavý medián. Tyto členské funkce jsou popsány v~níže uvedených sekcích.
 
 \begin{itemize}
  \item \textbf{getMovingMedian()}%(\textit{sensor\_it, meta\_it, ur\_field, ur\_id})}
  
  
- Klouzavý medián značí hodnotu běžného mediánu odpovídající prvkům umístěných v časové řadě. 
- Pro jeho výpočet je nutné udržovat položky aktálního časového okna v seřazeném pořadí.
- Při vkládání nového prvku je potřeba najít nejstarší prvek v poli a nahradit ho nově přijatým. 
- Po provedeném nahrazení se pole může nacházet v neseřazeném stavu a je 
+ Klouzavý medián značí hodnotu běžného mediánu odpovídající prvkům umístěných v~časové řadě. 
+ Pro jeho výpočet je nutné udržovat položky aktuálního časového okna v~seřazeném pořadí.
+ Při vkládání nového prvku je potřeba najít nejstarší prvek v~poli a nahradit ho nově přijatým. 
+ Po provedeném nahrazení se pole může nacházet v~neseřazeném stavu a~je 
  vyžadováno jeho opětovné seřazení.
   Tato operace není náročná, protože se změní vždy jen jeden prvek, který je nutné
  přesunou na správné místo. Celková složitost začlenění nového prvku je $O(n)$, protože operace 
- nalezení a seřazení lze provést v lineárním čase. Paměťové nároky vyžadují alokování dodatečného
+ nalezení a seřazení lze provést v~lineárním čase. Paměťové nároky vyžadují alokování dodatečného
  místa, které obsahuje kopii časové řady.
  
- Dále je potřeba zjisit, zda je časová řada sudé nebo liché délky. Pokud je lichá, tak se jako 
- medián vrátí její prvek umístění ve středu. V opačném případě je výsledkem průměr dvou prostředních
+ Dále je potřeba zjistit, zda je časová řada sudé nebo liché délky. Pokud je lichá, tak se jako 
+ medián vrátí její prvek umístění ve středu. V~opačném případě je výsledkem průměr dvou prostředních
  hodnot.
  
  Aby mohly být provedeny veškeré popsané operace, tak členská funkce pro výpočet mediánu
  potřebuje tyto vstupní parametry:
  \begin{itemize}
    \item \textbf{sensor\_it}: iterátor na časovou řadu daného UniRec pole
-   \item \textbf{meta\_it}: iterátor na meta informace o daném UniRec poli
-   \item \textbf{ur\_field}: řetězec s názvem zpracovávaného UniRec pole
+   \item \textbf{meta\_it}: iterátor na meta informace o~daném UniRec poli
+   \item \textbf{ur\_field}: řetězec s~názvem zpracovávaného UniRec pole
    \item \textbf{ur\_id}: číselný identifikátor přijatého UniRec pole
  \end{itemize}
  
  \item \textbf{getMovingAverageAndVariance()}%(\textit{ur\_field, ur\_id, meta\_it, sensor\_it, meta\_id})}
  
- Tato členská funkce je zaměřená zejména na získání kouzavého rozptylu, ale v rámci jeho výpočtu je možné
- získat i hodnotu klouzavého průměru, a proto jsou v návratové hodnotě vraceny oba výsledky.
- Stejně jako v předchozí sekci klouzavý rozptyl i průměr jsou odvozeny z aktuálního časového
- okna celké řady.
+ Tato členská funkce je zaměřená zejména na získání klouzavého rozptylu, ale v~rámci jeho výpočtu je možné
+ získat i hodnotu klouzavého průměru, a proto jsou v~návratové hodnotě vraceny oba výsledky.
+ Stejně jako v~předchozí sekci klouzavý rozptyl i průměr jsou odvozeny z~aktuálního časového
+ okna celé řady.
  Průběh
- zpracování údajů probíhá s ohledem na vstupní data, která 
+ zpracování údajů probíhá s~ohledem na vstupní data, která 
  jsou reprezentována stále se posouvajícím časovým oknem. 
  
- Pro umožnějí efektivního výpočtu se používá několik pomocným paměťových struktur. První z nich 
+ Pro umožnění efektivního výpočtu se používá několik pomocným paměťových struktur. První z~nich 
  jsou dvě pole \textit{x} a \textit{x2} se shodnou velikostí jako má hlavní časová řada. Do pole
  \textit{x} jsou ukládána
  nově příchozí data a \textit{x2} udržuje jejich druhé mocniny. Dále je nutné ukládat součty
- hodnot v těchto polích, které jsou uchovávány v proměných \textit{SX} a \textit{SX2}.
+ hodnot v~těchto polích, které jsou uchovávány v~proměnných \textit{SX} a \textit{SX2}.
  
- V rámci učící fáze detektoru jsou i zde příchozí prvky postupně vkládány do připravených struktur.
+ V~rámci učící fáze detektoru jsou i zde příchozí prvky postupně vkládány do připravených struktur.
  Pokud jsou již pomocná pole naplněná, tak při příchodu nové položky se používá funkce
  \textit{rotate()}, která provede levou rotaci prvků a umístí nejstarší prvek na konec. Tento
  prvek je poté nahrazen nejnovější hodnotou. Součty jednotlivých polí jsou upraveny podle 
@@ -130,22 +130,22 @@ klouzavý medián. Tyto členské funkce jsou popsány v níže uvedených sekc�
   součetŘady + novýPrvek - nejstaršíPrvek
 \]
  
- Po upravení pomocných struktu je možné provést finální výpočet. Průměr je snadno získán vydělením
- udržovaného součtu počtem prvků v časovém okně (\textit{N}). Pro určení hodnoty rozptylu se provádí
+ Po upravení pomocných struktur je možné provést finální výpočet. Průměr je snadno získán vydělením
+ udržovaného součtu počtem prvků v~časovém okně (\textit{N}). Pro určení hodnoty rozptylu se provádí
  následující operace:
 \[
    \frac{N * SX2 - SX * SX}{N * (N - 1)}
 \]
 Pro získání veškerých údajů pro popsané výpočty přijímá členská funkce stejné vstupní parametry
 jako \textit{getMedian()} a navíc je ještě očekávána hodnota \textit{meta\_id}, která určuje, 
-zda bude v rámci metadat použita skupina \textit{metaData} nebo \textit{metaProfile} \ref{configParam}. 
+zda bude v~rámci metadat použita skupina \textit{metaData} nebo \textit{metaProfile} \ref{configParam}. 
 
  \item \textbf{getOverallAverage()}%(\textit{sensor\_it, meta\_it, meta\_id, ur\_id})}
  
- Poslední možnou částí vypočítavaného profilu sítě je průměr, který je získán v rámci 
- této členské funkce. Na rozdíl od ostatních metod jsou v tomto případě zahrnuty i položky 
+ Poslední možnou částí vypočítávaného profilu sítě je průměr, který je získán v~rámci 
+ této členské funkce. Na rozdíl od ostatních metod jsou v~tomto případě zahrnuty i položky 
  mimo časové okno. Výsledná hodnota reprezentuje celkový průměr všech dosud přijatých dat pro 
- daný UniRec klíč. Výpočetní operace využívá znalosti aktuálního průměru a celkového počtu prvků
+ daný UniRec klíč. Výpočetní operace využívá znalosti aktuálního průměru a~celkového počtu prvků
  (\textit{M}). Při přijetí 
  nové položky se nová hodnota vytvoří dle následujícího předpisu:
  \[
@@ -154,15 +154,15 @@ zda bude v rámci metadat použita skupina \textit{metaData} nebo \textit{metaPr
  
  
  Velkou výhodnou je, že nejsou potřeba žádné dodatečné pomocné paměťové struktury a vše je 
- efektivně uloženo do jedné proměnné, která se aktualizuje s přicházejícími prvky. Vstupní
- parametry jsou totožné s členskou funkcí \textit{getMovingAverageAndVariance()} až na položku
+ efektivně uloženo do jedné proměnné, která se aktualizuje s~přicházejícími prvky. Vstupní
+ parametry jsou totožné s~členskou funkcí \textit{getMovingAverageAndVariance()} až na položku
  {ur\_field}, které zde není potřeba.
 \end{itemize}
 
 \section{Detekční metody} \label{detectMethods}
- Na základě vypočtených údajů z přicházejících dat a podle zapsané konfigurace jsou spouštěny
+ Na základě vypočtených údajů z~přicházejících dat a podle zapsané konfigurace jsou spouštěny
  členské funkce určené pro detekci incidentů. Popis realizace jednotlivých možností je uveden
- v následujících sekcích.
+ v~následujících sekcích.
  
 \begin{itemize}
  \item \textbf{Kontrola limitů}
@@ -170,48 +170,44 @@ zda bude v rámci metadat použita skupina \textit{metaData} nebo \textit{metaPr
  Tato detekce je reprezentována členskou funkcí \textit{dataLimitCheck()}, která vyhodnocuje
  soft a hard limity. 
  
- V případě soft limitu se s každou nově příchozí hodnotou provádí
- porovnání aktuálního profilu sítě s definovanými hranicemi v konfiguračním souboru. Pokud dojde
- k jejich překročení, tak se zvýší hodota odpovídajícího čítače o jedna. Jakmile čítač překročí nastavenou 
- hranici pro grace period, tak se odešle zpráva o detekovaném incidentu. V případě, že 
+ V~případě soft limitu se s~každou nově příchozí hodnotou provádí
+ porovnání aktuálního profilu sítě s~definovanými hranicemi v~konfiguračním souboru. Pokud dojde
+ k~jejich překročení, tak se zvýší hodnota odpovídajícího čítače o~jedna. Jakmile čítač překročí nastavenou 
+ hranici pro grace period, tak se odešle zpráva o~detekovaném incidentu. V~případě, že 
  během porovnání hodnota aktuálního profilu nepřekračuje nastavené limity, tak se do čítače uloží 
  číslo 0.
  
- Hard limit provádí stejný způsob porovnání částí aktualního profilu s nastavenými hodnotami. Jediným
+ Hard limit provádí stejný způsob porovnání částí aktuálního profilu s~nastavenými hodnotami. Jediným
  rozdílem je, že odeslání incidentu se provede ihned po překročení nakonfigurovaných hranic.
  
  Mezi soft a hard limitem není žádná závislost a lze je používat nezávisle. Při konfiguraci 
- libovolného z nich se vždy povině vyžaduje určení minimální a maximální meze současně.
+ libovolného z~nich se vždy povinně vyžaduje určení minimální a maximální meze současně.
  
  \item \textbf{Kontrola změny}
  
  Neočekávaný nárůst dat je možné detekovat pomocí členské funkce \textit{dataChangeCheck()}.
  Při každém přijetí nové zprávy se provede kontrola poměru mezi hodnotami vzorového a aktuálního
- profilu sítě. V případě, že vypočítaný poměr překročí nastavené meze, je odeslána informace 
- o detekované anomálii.
+ profilu sítě. V~případě, že vypočítaný poměr překročí nastavené meze, je odeslána informace 
+ o~detekované anomálii. Implementace předpokládá, že je vždy nastavena spodní i hodní hranice
+ zároveň.
  
  \item \textbf{Periodické kontroly}
  
- V rámci vytvořeného detektoru jsou implementovány dvě členské funkce s názvy
+ V~rámci vytvořeného detektoru jsou implementovány dvě členské funkce s~názvy
  \textit{periodicCheck()} a \textit{periodicExport()}, které provádí požadovanou akci jednou
  za periodu, jejíž délka je určená konfiguračním souborem. Toto chování je realizované pomocí 
- vláken, které je možné uspávat a probouzet. Vytváření vláken má na starosti členská funkce
+ vláken, které je možné uspávat a~probouzet. Vytváření vláken má na starosti členská funkce
  \textit{runThreads()}, která dle nastavených parametrů spouští vlákna pro dostupné UniRec položky.
  
- V členské funkci \textit{periodicCheck()} jsou prováděny dvě kontroly. První porovnává
- časovou značku posledního přijatého prvku do časové řady s aktuálním časem. Pokud výsledný rozdíl je větší
- než definovaný limit, tak je odeslána zpráva s popisem incidentu. Druhá kontrola sleduje hodnoty
- v časové řadě a pokud s příchodem nové zprávy nedojde k její změně, tak je zvýšen čítač o jedna. 
- Jakmile čítač překročí nastavený limit, tak se odešle zpráva o nalezené anomálii. V případě,
+ V~členské funkci \textit{periodicCheck()} jsou prováděny dvě kontroly. První porovnává
+ časovou značku posledního přijatého prvku do časové řady s~aktuálním časem. Pokud výsledný rozdíl je větší
+ než definovaný limit, tak je odeslána zpráva s~popisem incidentu. Druhá kontrola sleduje hodnoty
+ v~časové řadě a pokud s~příchodem nové zprávy nedojde k~její změně, tak je zvýšen čítač o~jedna. 
+ Jakmile čítač překročí nastavený limit, tak se odešle zpráva o~nalezené anomálii. V~případě,
  že jsou sousední položky odlišné, tak se čítač nastaví zpět na hodnotu 0.
  
- Druhá členská funkce s názvem \textit{periodicExport()} zajišťuje pravidelný export položek profilu.
+ Druhá členská funkce s~názvem \textit{periodicExport()} zajišťuje pravidelný export položek profilu.
  Vlákno po probuzení pouze naplní připravenou zprávu pro export a pošle ji připraveným výstupním
  rozhraním.
  
 \end{itemize}
-
-
- % algoritmus detektoru popsat jednotlivé detekční metody
-  % popsat, ze periodicky veci jsou delany pomoci vlaken per polozku
-    % hlavní je že je to proto, že se nedozvi info o čase když nepřijdou data, tak to musim dělat sám

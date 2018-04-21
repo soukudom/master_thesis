@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  14 APR 2018 19:16
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.1.11)  21 APR 2018 13:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -911,28 +911,28 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 (./DP_Soukup_Dominik_2018.aux)
 \openout1 = `DP_Soukup_Dominik_2018.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 81.
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 60.
+Package hyperref Info: Link coloring OFF on input line 81.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -944,10 +944,10 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 Redoing nameref's sectioning
 Redoing nameref's label
-LaTeX Info: Redefining \nameref on input line 60.
-LaTeX Info: Redefining \ref on input line 60.
-LaTeX Info: Redefining \pageref on input line 60.
-LaTeX Info: Redefining \nameref on input line 60.
+LaTeX Info: Redefining \nameref on input line 81.
+LaTeX Info: Redefining \ref on input line 81.
+LaTeX Info: Redefining \pageref on input line 81.
+LaTeX Info: Redefining \nameref on input line 81.
 (./DP_Soukup_Dominik_2018.out) (./DP_Soukup_Dominik_2018.out)
 \@outlinefile=\write4
 \openout4 = `DP_Soukup_Dominik_2018.out'.
@@ -989,7 +989,7 @@ e
 <cvut-logo-bw.pdf, id=174, 554.07pt x 193.29715pt>
 File: cvut-logo-bw.pdf Graphic file (type pdf)
  <use cvut-logo-bw.pdf>
-Package pdftex.def Info: cvut-logo-bw.pdf used on input line 60.
+Package pdftex.def Info: cvut-logo-bw.pdf used on input line 81.
 (pdftex.def)             Requested size: 184.5pt x 64.36635pt.
 
 [1
@@ -999,33 +999,33 @@ Package pdftex.def Info: cvut-logo-bw.pdf used on input line 60.
 ]
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 60.
+(Font)              using `T1/lmr/bx/n' instead on input line 81.
 
-LaTeX Font Info:    Try loading font information for T1+lmss on input line 60.
+LaTeX Font Info:    Try loading font information for T1+lmss on input line 81.
 (/usr/share/texmf/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 
 LaTeX Font Warning: Font shape `T1/lmss/bx/sc' undefined
-(Font)              using `T1/lmss/bx/n' instead on input line 60.
+(Font)              using `T1/lmss/bx/n' instead on input line 81.
 
 [3
 
 ] [4
 
 ] [5]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 60.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 81.
  (/usr/share/texmf/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 60.
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 81.
 
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 60.
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 81.
  [6
 
 ] [7
@@ -1066,34 +1066,34 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.100 \chapter
+l.121 \chapter
               {CÃ­l prÃ¡ce} [1
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.100 \chapter
+l.121 \chapter
               {CÃ­l prÃ¡ce} [2
 
 ] [3] [4
 
 ] (./architektura.tex
-<pictures/fog-arch.pdf, id=347, 724.7075pt x 667.49374pt>
+<pictures/fog-arch.pdf, id=346, 724.7075pt x 667.49374pt>
 File: pictures/fog-arch.pdf Graphic file (type pdf)
 
 <use pictures/fog-arch.pdf>
 Package pdftex.def Info: pictures/fog-arch.pdf used on input line 29.
 (pdftex.def)             Requested size: 326.11536pt x 300.36942pt.
  [5] [6 <./pictures/fog-arch.pdf>] [7] [8] [9]
-(./protokoly.tex <pictures/mqtt-arch.pdf, id=392, 723.70375pt x 374.39874pt>
+(./protokoly.tex <pictures/mqtt-arch.pdf, id=391, 723.70375pt x 374.39874pt>
 File: pictures/mqtt-arch.pdf Graphic file (type pdf)
 
 <use pictures/mqtt-arch.pdf>
 Package pdftex.def Info: pictures/mqtt-arch.pdf used on input line 27.
 (pdftex.def)             Requested size: 296.72046pt x 153.50447pt.
  [10] [11 <./pictures/mqtt-arch.pdf>]
-<pictures/coap-arch.pdf, id=416, 519.9425pt x 286.06876pt>
+<pictures/coap-arch.pdf, id=415, 519.9425pt x 286.06876pt>
 File: pictures/coap-arch.pdf Graphic file (type pdf)
 
 <use pictures/coap-arch.pdf>
@@ -1118,7 +1118,7 @@ o-£e-ká-vané zm¥ny v síti.
  []
 
 [22] [23]) [24] (./navrh.tex
-<pictures/deploy-arch.pdf, id=534, 669.50125pt x 295.1025pt>
+<pictures/deploy-arch.pdf, id=533, 669.50125pt x 295.1025pt>
 File: pictures/deploy-arch.pdf Graphic file (type pdf)
 
 <use pictures/deploy-arch.pdf>
@@ -1134,7 +1134,7 @@ Underfull \vbox (badness 1817) has occurred while \output is active []
 pdfTeX warning: /usr/bin/pdflatex (file ./pictures/deploy-arch.pdf): PDF inclus
 ion: invalid other resource which is no dict (key 'ProcSets', type <array>); ig
 nored.
->] [26] <pictures/modelTrid.pdf, id=558, 623.32875pt x 466.74374pt>
+>] [26] <pictures/modelTrid.pdf, id=557, 623.32875pt x 466.74374pt>
 File: pictures/modelTrid.pdf Graphic file (type pdf)
 
 <use pictures/modelTrid.pdf>
@@ -1147,7 +1147,7 @@ or-mace o jed-not-li-vých prv-cích umís-
  []
 
 [27 <./pictures/modelTrid.pdf>] [28]
-<pictures/detektor-arch.pdf, id=572, 539.01375pt x 208.78pt>
+<pictures/detektor-arch.pdf, id=571, 539.01375pt x 208.78pt>
 File: pictures/detektor-arch.pdf Graphic file (type pdf)
 
 <use pictures/detektor-arch.pdf>
@@ -1158,15 +1158,20 @@ Package pdftex.def Info: pictures/detektor-arch.pdf used on input line 124.
 pdfTeX warning: /usr/bin/pdflatex (file ./pictures/detektor-arch.pdf): PDF incl
 usion: invalid other resource which is no dict (key 'ProcSets', type <array>); 
 ignored.
->] [30] [31] <pictures/config-file-frame.pdf, id=610, 665.48625pt x 64.24pt>
-File: pictures/config-file-frame.pdf Graphic file (type pdf)
+>] [30] [31]
+<pictures/config-file-frame-mod.pdf, id=609, 559.08875pt x 48.18pt>
+File: pictures/config-file-frame-mod.pdf Graphic file (type pdf)
 
-<use pictures/config-file-frame.pdf>
-Package pdftex.def Info: pictures/config-file-frame.pdf used on input line 265.
+<use pictures/config-file-frame-mod.pdf>
+Package pdftex.def Info: pictures/config-file-frame-mod.pdf used on input line 
+265.
+(pdftex.def)             Requested size: 335.45583pt x 28.9082pt.
+ [32 <./pictures/config-file-frame-mod.pdf
 
-(pdftex.def)             Requested size: 332.74231pt x 32.11992pt.
- [32 <./pictures/config-file-frame.pdf>]
-[33] [34] [35] [36]) [37] [38
+pdfTeX warning: /usr/bin/pdflatex (file ./pictures/config-file-frame-mod.pdf): 
+PDF inclusion: invalid other resource which is no dict (key 'ProcSets', type <a
+rray>); ignored.
+>] [33] [34] [35] [36]) [37] [38
 
 ] (./realizace.tex
 Overfull \hbox (1.62814pt too wide) in paragraph at lines 3--15
@@ -1206,7 +1211,7 @@ LaTeX Warning: Command \r invalid in math mode on input line 152.
 LaTeX Warning: Command \v invalid in math mode on input line 152.
 
 [42] [43]) [44] (./testy.tex
-<pictures/deploy-option1.pdf, id=685, 521.95pt x 262.9825pt>
+<pictures/deploy-option1.pdf, id=689, 521.95pt x 262.9825pt>
 File: pictures/deploy-option1.pdf Graphic file (type pdf)
 
 <use pictures/deploy-option1.pdf>
@@ -1215,7 +1220,7 @@ Package pdftex.def Info: pictures/deploy-option1.pdf used on input line 29.
  [45
 
 ]
-<pictures/deploy-option2.pdf, id=692, 662.475pt x 251.94125pt>
+<pictures/deploy-option2.pdf, id=696, 662.475pt x 251.94125pt>
 File: pictures/deploy-option2.pdf Graphic file (type pdf)
 
 <use pictures/deploy-option2.pdf>
@@ -1223,7 +1228,7 @@ Package pdftex.def Info: pictures/deploy-option2.pdf used on input line 46.
 (pdftex.def)             Requested size: 331.2367pt x 125.9703pt.
  [46 <./pictures/deploy-option1.pdf> <./pictures/deploy-option2.pdf>] [47] [48]
  [49]
-<pictures/moving_median_progress.pdf, id=726, 505.89pt x 289.08pt>
+<pictures/moving_median_progress.pdf, id=730, 505.89pt x 289.08pt>
 File: pictures/moving_median_progress.pdf Graphic file (type pdf)
 
 <use pictures/moving_median_progress.pdf>
@@ -1231,7 +1236,7 @@ Package pdftex.def Info: pictures/moving_median_progress.pdf used on input line
  236.
 (pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
 
-<pictures/moving_standard_deviation_progress.pdf, id=727, 505.89pt x 289.08pt>
+<pictures/moving_standard_deviation_progress.pdf, id=731, 505.89pt x 289.08pt>
 File: pictures/moving_standard_deviation_progress.pdf Graphic file (type pdf)
 
 <use pictures/moving_standard_deviation_progress.pdf>
@@ -1239,7 +1244,7 @@ Package pdftex.def Info: pictures/moving_standard_deviation_progress.pdf used o
 n input line 244.
 (pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
 
-<pictures/moving_average_progress.pdf, id=728, 505.89pt x 289.08pt>
+<pictures/moving_average_progress.pdf, id=732, 505.89pt x 289.08pt>
 File: pictures/moving_average_progress.pdf Graphic file (type pdf)
 
 <use pictures/moving_average_progress.pdf>
@@ -1247,7 +1252,7 @@ Package pdftex.def Info: pictures/moving_average_progress.pdf used on input lin
 e 252.
 (pdftex.def)             Requested size: 354.12057pt x 202.35461pt.
 
-<pictures/average_progress.pdf, id=729, 505.89pt x 289.08pt>
+<pictures/average_progress.pdf, id=733, 505.89pt x 289.08pt>
 File: pictures/average_progress.pdf Graphic file (type pdf)
 
 <use pictures/average_progress.pdf>
@@ -1268,7 +1273,7 @@ nclusion: multiple pdfs with page group included in a single page
 
 ] (./DP_Soukup_Dominik_2018.bbl [54]
 bibitemlist
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 13.
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 14.
 (/usr/share/texmf/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -1344,11 +1349,11 @@ n -[] IDS -[] or -[] IPS -[]
 \tf@lot=\write7
 \openout7 = `DP_Soukup_Dominik_2018.lot'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 536.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 536.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 557.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 557.
  (./DP_Soukup_Dominik_2018.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 536.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 536.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 557.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 557.
 Package rerunfilecheck Info: File `DP_Soukup_Dominik_2018.out' has not changed.
 
 (rerunfilecheck)             Checksum: 253468E0A1D91CCC486843B874780395;5508.
@@ -1356,12 +1361,12 @@ Package rerunfilecheck Info: File `DP_Soukup_Dominik_2018.out' has not changed.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 536.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 557.
  ) 
 Here is how much of TeX's memory you used:
  13851 strings out of 493029
- 190571 string characters out of 6136234
- 325528 words of memory out of 5000000
+ 190591 string characters out of 6136234
+ 327177 words of memory out of 5000000
  17022 multiletter control sequences out of 15000+600000
  65990 words of font info for 44 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1377,10 +1382,10 @@ b></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type
 1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmssbx10.pfb></u
 sr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmtt10.pfb>
-Output written on DP_Soukup_Dominik_2018.pdf (87 pages, 916878 bytes).
+Output written on DP_Soukup_Dominik_2018.pdf (87 pages, 904046 bytes).
 PDF statistics:
- 1012 PDF objects out of 1200 (max. 8388607)
- 862 compressed objects within 9 object streams
+ 1016 PDF objects out of 1200 (max. 8388607)
+ 864 compressed objects within 9 object streams
  206 named destinations out of 1000 (max. 500000)
  391 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -33,21 +33,42 @@
 Dále děkuji sdružení CESNET, z.s.p.o za možnost práce na tomto projektu a poskytnutým
 prostředkům pro vývoj vytvořeného nástroje.}
 \abstractCS{
-Hlavním cílem diplomové práce je analýza aktuálního stavu IoT sítí a identifikace
-bezpečnostních slabin
-bezdrátových senzorových protokolů, které jsou detekovány vytvořeným nástrojem. V analytické
-části je čtenář seznámen s principem fog computingu a nově vzniklým modelem komunikace. Zároveň
+Tato diplomová práce se zabývá problematikou bezpečnosti v~prostředí Internet of Things (IoT).
+Prvním cílem je analýza aktuálního stavu IoT sítí a~identifikace bezpečnostních slabin
+bezdrátových senzorových protokolů. Druhým cílem je vytvoření nástroje, který 
+v~probíhající komunikaci detekuje nalezené incidenty.
+V~analytické
+části je čtenář seznámen s~principem fog computingu a~nově vzniklým modelem komunikace. Zároveň
 jsou důkladně rozebrány aktuálně
-používané protokoly včetně jejich bezpečnostních slabin. Dále je navržena architektura detekčního 
-systému tak, aby bylo možné jeho budoucí rozšiřování a nasazení i na IoT branách s omezenými
-prostředky. 
+používané protokoly včetně jejich bezpečnostních slabin. 
+Součástí práce je návrh architektury, který je připraven na budoucí rozšiřování, což je nezbytné
+pro rychle se rozvíjející a širokou oblast IoT.
+ Při návrhu byl kladen důraz na nízké hardwarové nároky tak, aby bylo možné provozovat
+výsledné řešení i na IoT branách s~omezenými prostředky. 
 
-Výstupem této práce je modulární systém, který je možné konfigurovat a přizpůsobit pro konkrétní
-topologii. Výsledný nástroj je implementovaný v jazyce C++ a rozšiřuje již existující IoT bránu
-BeeeOn \cite{beeeon} o možnost detekce anomálií v bezdrátových senzorových protokolech.
+První část výstupu této práce tvoří rešerše aktuálního stavu IoT, která je obsažena v~textu této práce.
+Druhou částí
+je modulární systém, který lze konfigurovat a~přizpůsobit pro konkrétní
+topologii. Výsledný nástroj je implementovaný v~jazyce C++ a~rozšiřuje již existující IoT bránu
+BeeeOn o~možnost detekce anomálií v~bezdrátových senzorových protokolech. Výsledkem je nová
+verze této brány s~mechanismem pro detekci útoků.
+
 }
 \abstractEN{
-The aim of this work is ...
+This work covers security concerns and issues of the Internet of Things (IoT) networks. The first aim
+is to analyse the actual situation of IoT and to identify vulnerabilities of wireless sensor network
+protocols. The second aim is to develop a tool that is able to detect incidents in communication traffic.
+The analytical part familiarizes the reader with fog computing concept and new communication architecture.
+%(model). 
+Simultaneously there are thoroughly explored current IoT protocols including their vulnerabilities. This
+is followed by the tool design that is ready for the future extension, which is necessary for the rapidly
+growing area like IoT. During designing was emphasised low hardware requirements so that it would be
+possible to deploy the created solution on IoT gateways with restricted resources.
+
+The first part of this work output is research of current IoT state, which is contained in the text of
+this work. The second part is a modular system that is implemented in C++ language and extends already
+existing IoT gateway BeeeOn by anomaly-based detection of wireless sensor network protocols. The result
+is the new version of the BeeeOn gateway with the mechanism for attacks detection.
 }
 
 \placeForDeclarationOfAuthenticity{V~Praze}
@@ -61,26 +82,26 @@ The aim of this work is ...
 
 
 \begin{introduction}
-Koncept internetu existuje již několik desítek let a pro spoustu lidí se stal 
+Koncept internetu existuje již několik desítek let a~pro spoustu lidí se stal 
 nedílnou součástí pracovního i osobního života. V~poslední době je možné sledovat
 stále rostoucí počet zařízení, která jsou do něj zapojena. Tento trend by měl
-pokračovat i do budoucnosti, a dokonce v~ještě větším měřítku. Odhadem je 
+pokračovat i do budoucnosti, a~dokonce v~ještě větším měřítku. Odhadem je 
 přes 30 miliard připojených zařízení do roku 2020 \cite{iotDevices}.
 Důvodem zrychleného
-růstu je expanze síťového připojení na veškeré elektronické zařízení a senzory, 
-které umožní vzdálené ovládání a monitorování. Pro označení tohoto trendu se používá
+růstu je expanze síťového připojení na veškeré elektronické zařízení a~senzory, 
+které umožní vzdálené ovládání a~monitorování. Pro označení tohoto trendu se používá
 termín Internet věcí (Internet of Things, IoT).
 
-Cílem IoT je usnadnit, zlepšit a ušetřit lidskou činnost napříč všemi odvětvími. 
+Cílem IoT je usnadnit, zlepšit a~ušetřit lidskou činnost napříč všemi odvětvími. 
 Uplatnění se nachází zejména ve výrobních podnicích, dopravě nebo běžných domácnostech.
 Příklad konkrétního nasazení popisuje článek \cite{sleeping}, jehož cílem je měření 
-kvality spánku a odhalení případných poruch. Monitorovací systém lze dále 
+kvality spánku a~odhalení případných poruch. Monitorovací systém lze dále 
 propojit například s~ovládáním místnosti, které bude reagovat na aktuální úroveň spánku
 úpravou světel, oken nebo vzduchu.
 
 Dále je upraven model komunikace, který již nevyžaduje zasílání zpráv centrálnímu 
 serveru (north-south), ale podporuje přímou komunikaci mezi připojenými uzly (east-west).
-Oblast IoT nezahrnuje jen malá a nevýkonná zařízení, ale jeho součástí jsou i 
+Oblast IoT nezahrnuje jen malá a~nevýkonná zařízení, ale jeho součástí jsou i 
 výkonná datová centra a pokročilé algoritmy, které vyhodnocují získané informace.
 
 Hlavní hrozbou Internetu věcí je zejména bezpečnost a ochrana soukromí. Dochází zde k~přenosu
@@ -147,63 +168,63 @@ detektoru. V~záměru je provedeno měření chování jednotlivých položek z~
 Cílem diplomové práce bylo analyzovat aktuální stav IoT sítí a identifikovat bezpečnostní 
 slabiny. Na základě získaných znalostí byl navržen,
 implementován a otestován nástroj
-pro monitorování a automatickou detekci anomálního provozu. Výsledný nástroj se skládá z několika
+pro monitorování a automatickou detekci anomálního provozu. Výsledný nástroj se skládá z~několika
 komponent, které komunikují pomocí systému NEMEA a rozšiřují funkcionalitu IoT brány BeeeOn
-o možnost detekce. 
+o~možnost detekce. 
 
-V první části této práce byl představen koncept fog computingu, který mění 
-způsob zpracování dat v IoT sítích. Dále byly popsány jednotlivé komunikační vrstvy a detailně rozebrány
+V~první části této práce byl představen koncept fog computingu, který mění 
+způsob zpracování dat v~IoT sítích. Dále byly popsány jednotlivé komunikační vrstvy a detailně rozebrány
 aktuálně používané protokoly včetně jejich bezpečnostních slabin. Následně byla věnována 
-pozornost možných způsobům detekce útoků a také byly hledány již existující nástroje 
+pozornost možným způsobům detekce útoků a také byly hledány již existující nástroje 
 pro řešení této 
-problematiky, které v současnosti nedostatečné pokrývají možné hrozby. Nejméně pokrytá byla 
+problematiky, které v~současnosti nedostatečné pokrývají možné hrozby. Nejméně pokrytá byla 
 senzorová vrstva, kde jsou nejzranitelnější bezdrátové komunikační protokoly, které jsou zároveň 
 pro svou mobilitu velmi často používané.
-V závěru jsou uvedeny
+V~závěru jsou uvedeny
 požadavky na výsledný program a vhodné technologie pro vývoj.
 
 Při návrhu byly splněny všechny kladené nároky a výsledné řešení bylo navrženo tak, aby jej 
-bylo možné nasadit i na IoT branách s omezenými prostředky nebo v decentralizovaném prostředí. 
-Dále byly popsány scénáře útoků, které se mohou objevit při reálném provozu v senzorové vrstvě.
-V rámci scénářů byla sestavena množina informací, které je potřeba měřit k získání přehledu
-o stavu sítě. 
+bylo možné nasadit i na IoT branách s~omezenými prostředky nebo v~decentralizovaném prostředí. 
+Dále byly popsány scénáře útoků, které se mohou objevit při reálném provozu v~senzorové vrstvě.
+V~rámci scénářů byla sestavena množina informací, které je potřeba měřit k~získání přehledu
+o~stavu sítě. 
 
-Vzhledem k pečlivě provedenému návrhu nebylo nutné během implementace řešit žádné problémy. Naopak
+Vzhledem k~pečlivě provedenému návrhu nebylo nutné během implementace řešit žádné problémy. Naopak
 díky použitému frameworku NEMEA bylo spoustu věcí usnadněno. Při 
 realizaci byly splněny všechny funkční i nefunkční požadavky, které dokonce přesahují nároky 
-specifikované v zadaní práce.
+specifikované v~zadaní práce.
 
 Velký důraz byl kladen na testování, které odhalilo řadu implementačních chyb, ale všechny byly
-opraveny. V rámci testů byly ověřeno úspěšné detekování navržených scénářů útoků. Dále byly
-otestovány i způsoby nasazení a také bylo provedeno měření chování položek profilu sítě.
+opraveny. V~rámci testů bylo ověřeno úspěšné detekování navržených scénářů útoků, byly
+otestovány způsoby nasazení a~také bylo provedeno měření chování položek profilu sítě.
 
 Zpracování této diplomové práce mělo pro mě velký přínos. Dozvěděl jsem se mnoho nových znalostí 
-z oblasti IoT, které jsem si navíc prakticky vyzkoušel. Tato oblast se navíc bude v dalších
-letech rozšiřovat, a proto se získané zkušenosti budou velmi hodit v dalších projektech.
+z~oblasti IoT, které jsem si navíc prakticky vyzkoušel. Tato oblast se bude v~dalších
+letech rozšiřovat, a proto se získané zkušenosti budou velmi hodit v~dalších projektech.
 
 \section{Budoucí práce}
-V následujících letech je očekáváno velké rozšíření IoT sítí, které jsou řízeny člověkem a 
-konfigurovány strojem. Z tohoto důvodu má tato práce velký potenciál, protože tuto oblast pokrývá
+V~následujících letech je očekáváno velké rozšíření IoT sítí, které jsou řízeny člověkem a 
+konfigurovány strojem. Z~tohoto důvodu má tato práce velký potenciál, protože tuto oblast pokrývá
 teoretickým i praktickým směrem a může být využita jako základ pro budoucí práce. 
 
 Jedním ze způsobů
 rozšíření je použití dalších detekčních metod, které budou využívat externí sondy pro získávání
-podrobnějších informací o daném protokolu. Tyto sondy zároveň mohou sloužit jako honeypoty.
+podrobnějších informací o~daném protokolu. Tyto sondy zároveň mohou sloužit jako honeypoty.
 
-Dalším rozšířením může být externí nástroj, který se bude starat o generování konfigurace pro 
+Dalším rozšířením může být externí nástroj, který se bude starat o~generování konfigurace pro 
 vytvořený detektor. Generátor nastavení bude velmi vhodný pro koncové uživatele, protože si budou
 moci přehledně vybrat své parametry bez znalosti všech závislostí, které textová varianta ani 
 modul pro zpracování nehlídá. 
 
 Vytvořený program zároveň umožňuje pravidelně 
-získávat informace o profilu sítě, které mohou být využity k sestavení datového modelu. 
+získávat informace o~profilu sítě, které mohou být využity k~sestavení datového modelu. 
 Následně při použití
 analytických metod lze provádět pokročilé způsoby detekce.
 
 Důležité bude také pokrytích další komunikačních protokolů, které zahrnují i protokoly síťové 
 vrstvy. Pro síťové protokoly může být vhodné využít principů nástroje \textit{Joy} \cite{joy}, 
 který se zaměřuje 
-na vyhodnocování incidentů v šifrovaném provozu.
+na vyhodnocování incidentů v~šifrovaném provozu.
 \end{conclusion}
 
 \bibliographystyle{csn690}
@@ -250,14 +271,14 @@ na vyhodnocování incidentů v šifrovaném provozu.
 \end{description}
 
 \chapter{Instalační příručka}
-Realizovaný detekční systém pro svůj běh využívá framework NEMEA a projekt BeeeOn. V následujících
+Realizovaný detekční systém pro svůj běh využívá framework NEMEA a projekt BeeeOn. V~následujících
 krocích je popsána instalace těchto dvou nástrojů, způsob nasazení kolektoru a
 spuštění detekčních modulů.
 
 \begin{enumerate}
  \item \textbf{Instalace projektu BeeeOn}
  
- Zdrojové kódy tohoto projektu se nachází v repozitáři služby Github. Pro jeho sestavení je nutné
+ Zdrojové kódy tohoto projektu se nachází v~repozitáři služby Github. Pro jeho sestavení je nutné
  vykonat následující příkazy: 
 \begin{verbatim}
 git clone https://github.com/BeeeOn/gateway.git --recursive
@@ -268,7 +289,7 @@ make -C build
 \end{verbatim}
  \item \textbf{Instalace NEMEA frameworku}
  
-Kompletní zdrojové kódy systému NEMEA jsou také udržovany v repozitářích služby Github. Pro
+Kompletní zdrojové kódy systému NEMEA jsou také udržovány v~repozitářích služby Github. Pro
 vytvořený nástroj je potřeba nasadit část \textit{NEMEA-Framework}.
 \begin{verbatim}
 git clone https://github.com/CESNET/Nemea-Framework.git
@@ -280,8 +301,8 @@ sudo make install
 \end{verbatim}
 
 Pro spouštění vytvořených testů nebo pro úpravu příchozích a odchozích dat ve formátu UniRec se
-mohou hodit moduly \textit{Logger}, \textit{Logreplay} a \textit{Merger}, které se nacházejí
-v částí \textit{NEMEA-Modules}. V tomto 
+mohou hodit moduly \textit{Logger}, \textit{Logreplay} a~\textit{Merger}, které se nacházejí
+v~částí \textit{NEMEA-Modules}. V~tomto 
 repozitáři se zároveň nachází vytvořené moduly \textit{Mux} a \textit{Demux}.
 \begin{verbatim}
 git clone https://github.com/CESNET/Nemea-Modules.git
@@ -294,8 +315,8 @@ sudo make install
 
 \item \textbf{Nasazení kolektoru}
 
-V rámci tohoto kroku je potřeba zdrojové kódy vytvořeného kolektoru přesunout do BeeeOn brány
-a upravit konfigurační soubory. Postup je popsán v následujících sekcích.
+V~rámci tohoto kroku je potřeba zdrojové kódy vytvořeného kolektoru přesunout do BeeeOn brány
+a upravit konfigurační soubory. Postup je popsán v~následujících sekcích.
 \begin{itemize}
  \item \textbf{Přesun zdrojových souborů}
 \begin{verbatim}
@@ -306,7 +327,7 @@ a upravit konfigurační soubory. Postup je popsán v následujících sekcích.
 \begin{verbatim}
    vim <adresářBeeeOn>/src/CMakeLists.txt
 \end{verbatim}
-Do příslušných částí v souboru je potřeba vložit tyto položky: 
+Do příslušných částí v~souboru je potřeba vložit tyto položky: 
 \begin{verbatim}
    find_library (LIBTRAP trap)
    find_library (UNIREC unirec)
@@ -319,7 +340,7 @@ Do příslušných částí v souboru je potřeba vložit tyto položky:
    ${UNIREC}
    ${LIBTRAP}
 \end{verbatim}
-Podobné změny je nutné provést v adresářit \textit{test}
+Podobné změny je nutné provést v adresáři \textit{test}
 \begin{verbatim}
   vim <adresářBeeeOn>/test/CMakeLists.txt
     find_library (LIBTRAP trap)
@@ -379,13 +400,13 @@ g++ DataDetector.cpp fields.cpp ConfigParser.cpp \
 Analyzer.cpp -o prg -ltrap -lpcap -lunirec --std=c++11 \
 -Wno-write-strings -pthread 
 \end{verbatim}
-
+\newpage
 \item \textbf{Spuštění detekčního systému}
 
 Posledním krokem je spuštění celého detekčního systému. Pro účely demonstrace je
-v ukázce použit oddělený model nasazení \ref{externalMode}, který zahrnuje více komponent. Při reálném 
-použití stačí spustit pouze kolektor a jednu instanci detektoru pro každý typ události. V uvedené
-ukázce každá z kompent používá standartní výstup, proto je nutné každý přípaz spustit v samostatném
+v~ukázce použit oddělený model nasazení \ref{externalMode}, který zahrnuje více komponent. Při reálném 
+použití stačí spustit pouze kolektor a jednu instanci detektoru pro každý typ události. V~uvedené
+ukázce každá z~komponent používá standardní výstup, proto je nutné každý příkaz spustit v~samostatném
 terminálovém okně.
 \begin{verbatim}
 <adresářBeeeOn>/build/src/beeeon-gateway \
@@ -402,14 +423,14 @@ logger -i "u:export-dropped0" -t
 
 
 \chapter{Nástroje pro testování}
-V následující kapitole přílohy se nachází popis způsobu použití nástrojů, které byly uplatněny 
-v rámci testování.
+V~následující kapitole přílohy se nachází popis způsobu použití nástrojů, které byly uplatněny 
+v~rámci testování.
 
 \begin{itemize}
  \item \textbf{Logger}
 
- Tento NEMEA modul slouží k ukládání přijatých UniRec zpráv. Při spuštění je nutné zadat 
- přepínač \textit{-i} s popisem vstupního komunikačního rozhraní. Dále je dobré použít přepínač
+ Tento NEMEA modul slouží k~ukládání přijatých UniRec zpráv. Při spuštění je nutné zadat 
+ přepínač \textit{-i} s~popisem vstupního komunikačního rozhraní. Dále je dobré použít přepínač
  \textit{-w <názevSouboru>} pro ukládání přijatých dat do souboru, \textit{-t} pro uložení datové
  hlavičky příchozích
  dat a \textit{-T}, který ukládá i časové značky.
@@ -431,11 +452,11 @@ v rámci testování.
  
  \item \textbf{Merger}
  
- Poslední uvedený NEMEA modul se používá pro slučování několika různcýh vstupních UniRec
- záznamů do jednoho společného, který je odesílán výstupním rozhraním. Očekávánými parametry jsou
- \textit{-i} s popisem komunikačního rozhraní a \textit{-n} určující počet vstupních rozhraní,
+ Poslední uvedený NEMEA modul se používá pro slučování několika různých vstupních UniRec
+ záznamů do jednoho společného, který je odesílán výstupním rozhraním. Očekávanými parametry jsou
+ \textit{-i} s~popisem komunikačního rozhraní a \textit{-n} určující počet vstupních rozhraní,
  který odpovídá
- zadanému popisu. Název výstupu je vždy uveden jako poslední položka v rámci přepínače \textit{-i}.
+ zadanému popisu. Název výstupu je vždy uveden jako poslední položka v~rámci přepínače \textit{-i}.
  
  Možné zavedení: \textit{merger u:DriverStasts,u:NodeStats,u:merged -n 2}
  
@@ -444,8 +465,8 @@ v rámci testování.
 
 
 \chapter{Popis množiny senzorových informací} \label{sensorData}
-Tato část přílohy obsahuje kompletní popis množiny informací, kterou lze v současné době získat o 
-provozu senzorových protokolů v rámci BeeeOn brány. Při popisu byla množina informací rozdělena
+Tato část přílohy obsahuje kompletní popis množiny informací, kterou lze v~současné době získat
+o~provozu senzorových protokolů v~rámci BeeeOn brány. Při popisu byla množina informací rozdělena
 do příslušných událostí, které
 jsou reprezentovány samostatnou sekcí.
 
@@ -453,7 +474,7 @@ jsou reprezentovány samostatnou sekcí.
 \begin{description}
  \item \textbf{SOAFCount}: počet přijatých Start Of Frame bytů
  \item \textbf{ACKWaiting}: počet nevyžádaných zpráv při čekání na potvrzení
- \item \textbf{readAborts}: počet nedokončených operacích čtení z důvodu překročení časového limitu
+ \item \textbf{readAborts}: počet nedokončených operacích čtení z~důvodu překročení časového limitu
  \item \textbf{badChecksum}: počet zpráv se špatných kontrolním součtem
  \item \textbf{readCount}: počet úspěšně přijatých zpráv
  \item \textbf{writeCount}: počet úspěšně odeslaných zpráv
@@ -465,8 +486,8 @@ jsou reprezentovány samostatnou sekcí.
  \item \textbf{retries}: počet znovu odeslaných zpráv
  \item \textbf{callbacks}: počet neočekávaných callbacků
  \item \textbf{badroutes} počet neodeslaných zpráv kvůli směrování
- \item \textbf{noACK}: počet neobržených potvrzení
- \item \textbf{netBusy}: počet zpráv s chybovým stavem
+ \item \textbf{noACK}: počet neobdržených potvrzení
+ \item \textbf{netBusy}: počet zpráv s~chybovým stavem
  \item \textbf{notIdle}: počet zpráv se stavem not idle
  \item \textbf{nonDelivery}:počet nedoručených zpráv
  \item \textbf{routedBusy}:  počet přijatých zpráv se stavem routed busy
@@ -483,8 +504,8 @@ jsou reprezentovány samostatnou sekcí.
  \item \textbf{receivedUnsoliced}: počet přijatých nevyžádaných zpráv
  \item \textbf{lastRequestRTT}: RTT poslední odeslané zprávy
  \item \textbf{lastResponseRTT}: RTT poslední přijaté odpovědi
- \item \textbf{averageRequestRTT}: průměr z lastRequestRTT
- \item \textbf{averageResponseRTT}: průměr z lastResponseRTT
+ \item \textbf{averageRequestRTT}: průměr z~lastRequestRTT
+ \item \textbf{averageResponseRTT}: průměr z~lastResponseRTT
  \item \textbf{quality}: kvalita připojení
  \item \textbf{nodeID}: identifikátor senzoru
 \end{description}
@@ -511,7 +532,7 @@ jsou reprezentovány samostatnou sekcí.
 \section{onExport}
 \begin{description}
  \item \textbf{value}: senzorová hodnota
- \item  \textbf{deviceID}: intentifikátor senzoru
+ \item  \textbf{deviceID}: identifikátor senzoru
 \end{description}
 
 \chapter{Obsah přiloženého CD}
@@ -523,9 +544,9 @@ jsou reprezentovány samostatnou sekcí.
 		.2 impl\DTcomment{zdrojové kódy implementace}.
 		.3 collector\DTcomment{zdrojové kódy kolektoru}.
 		.3 detector\DTcomment{zdrojové kódy detektoru}.
-		.3 mux\DTcomment{zdrojové kódy multiplexotu}.
+		.3 mux\DTcomment{zdrojové kódy multiplexoru}.
 		.3 demux\DTcomment{zdrojové kódy demultiplexoru}.
-		.3 test\DTcomment{Sobory pro testování}.
+		.3 test\DTcomment{soubory pro testování}.
 		.2 thesis\DTcomment{zdrojová forma práce ve formátu \LaTeX{}}.
 		.1 text\DTcomment{text práce}.
 		.2 DP\_Soukup\_Dominik.pdf\DTcomment{text práce ve formátu PDF}.

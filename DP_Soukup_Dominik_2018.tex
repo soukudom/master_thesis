@@ -33,21 +33,42 @@
 Dále děkuji sdružení CESNET, z.s.p.o za možnost práce na tomto projektu a poskytnutým
 prostředkům pro vývoj vytvořeného nástroje.}
 \abstractCS{
-Hlavním cílem diplomové práce je analýza aktuálního stavu IoT sítí a~identifikace
-bezpečnostních slabin
-bezdrátových senzorových protokolů, které jsou detekovány vytvořeným nástrojem. V~analytické
+Tato diplomová práce se zabývá problematikou bezpečnosti v~prostředí Internet of Things (IoT).
+Prvním cílem je analýza aktuálního stavu IoT sítí a~identifikace bezpečnostních slabin
+bezdrátových senzorových protokolů. Druhým cílem je vytvoření nástroje, který 
+v~probíhající komunikaci detekuje nalezené incidenty.
+V~analytické
 části je čtenář seznámen s~principem fog computingu a~nově vzniklým modelem komunikace. Zároveň
 jsou důkladně rozebrány aktuálně
-používané protokoly včetně jejich bezpečnostních slabin. Dále je navržena architektura detekčního 
-systému tak, aby bylo možné jeho budoucí rozšiřování a~nasazení i na IoT branách s~omezenými
-prostředky. 
+používané protokoly včetně jejich bezpečnostních slabin. 
+Součástí práce je návrh architektury, který je připraven na budoucí rozšiřování, což je nezbytné
+pro rychle se rozvíjející a širokou oblast IoT.
+ Při návrhu byl kladen důraz na nízké hardwarové nároky tak, aby bylo možné provozovat
+výsledné řešení i na IoT branách s~omezenými prostředky. 
 
-Výstupem této práce je modulární systém, který je možné konfigurovat a~přizpůsobit pro konkrétní
+První část výstupu této práce tvoří rešerše aktuálního stavu IoT, která je obsažena v~textu této práce.
+Druhou částí
+je modulární systém, který lze konfigurovat a~přizpůsobit pro konkrétní
 topologii. Výsledný nástroj je implementovaný v~jazyce C++ a~rozšiřuje již existující IoT bránu
-BeeeOn \cite{beeeon} o~možnost detekce anomálií v~bezdrátových senzorových protokolech.
+BeeeOn o~možnost detekce anomálií v~bezdrátových senzorových protokolech. Výsledkem je nová
+verze této brány s~mechanismem pro detekci útoků.
+
 }
 \abstractEN{
-The aim of this work is ...
+This work covers security concerns and issues of the Internet of Things (IoT) networks. The first aim
+is to analyse the actual situation of IoT and to identify vulnerabilities of wireless sensor network
+protocols. The second aim is to develop a tool that is able to detect incidents in communication traffic.
+The analytical part familiarizes the reader with fog computing concept and new communication architecture.
+%(model). 
+Simultaneously there are thoroughly explored current IoT protocols including their vulnerabilities. This
+is followed by the tool design that is ready for the future extension, which is necessary for the rapidly
+growing area like IoT. During designing was emphasised low hardware requirements so that it would be
+possible to deploy the created solution on IoT gateways with restricted resources.
+
+The first part of this work output is research of current IoT state, which is contained in the text of
+this work. The second part is a modular system that is implemented in C++ language and extends already
+existing IoT gateway BeeeOn by anomaly-based detection of wireless sensor network protocols. The result
+is the new version of the BeeeOn gateway with the mechanism for attacks detection.
 }
 
 \placeForDeclarationOfAuthenticity{V~Praze}
@@ -154,7 +175,7 @@ o~možnost detekce.
 V~první části této práce byl představen koncept fog computingu, který mění 
 způsob zpracování dat v~IoT sítích. Dále byly popsány jednotlivé komunikační vrstvy a detailně rozebrány
 aktuálně používané protokoly včetně jejich bezpečnostních slabin. Následně byla věnována 
-pozornost možných způsobům detekce útoků a také byly hledány již existující nástroje 
+pozornost možným způsobům detekce útoků a také byly hledány již existující nástroje 
 pro řešení této 
 problematiky, které v~současnosti nedostatečné pokrývají možné hrozby. Nejméně pokrytá byla 
 senzorová vrstva, kde jsou nejzranitelnější bezdrátové komunikační protokoly, které jsou zároveň 
@@ -174,11 +195,11 @@ realizaci byly splněny všechny funkční i nefunkční požadavky, které doko
 specifikované v~zadaní práce.
 
 Velký důraz byl kladen na testování, které odhalilo řadu implementačních chyb, ale všechny byly
-opraveny. V~rámci testů byly ověřeno úspěšné detekování navržených scénářů útoků. Dále byly
-otestovány i způsoby nasazení a~také bylo provedeno měření chování položek profilu sítě.
+opraveny. V~rámci testů bylo ověřeno úspěšné detekování navržených scénářů útoků, byly
+otestovány způsoby nasazení a~také bylo provedeno měření chování položek profilu sítě.
 
 Zpracování této diplomové práce mělo pro mě velký přínos. Dozvěděl jsem se mnoho nových znalostí 
-z~oblasti IoT, které jsem si navíc prakticky vyzkoušel. Tato oblast se navíc bude v~dalších
+z~oblasti IoT, které jsem si navíc prakticky vyzkoušel. Tato oblast se bude v~dalších
 letech rozšiřovat, a proto se získané zkušenosti budou velmi hodit v~dalších projektech.
 
 \section{Budoucí práce}
