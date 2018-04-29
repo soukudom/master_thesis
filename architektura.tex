@@ -7,7 +7,7 @@
   Dalším problémem je často velmi omezený výkon připojených prvků, který je nezbytný pro 
   použití bezpečnostních funkcí umožňujících kompletně zabezpečenou komunikaci. 
   
-  Řešení těchto problémů je do probíhající komunikace přidat několik podvrstev, 
+  Řešením těchto problémů je do probíhající komunikace přidat několik podvrstev, 
   které umožní přesunout výpočetní výkon blíže ke koncovým zařízením, a tím celý
   proces zpracování dat provést efektivněji.
   
@@ -15,7 +15,7 @@
   IoT sítě.
  \subsection{Fog computing} 
  Fog computing je rozšíření cloud computingu, které spočívá v~přesunutí výpočetního
- výkonu blíže k~okraji sítě. Rozšíření je umožněno pomocí přidání síťových zařízení,
+ výkonu blíže k~okraji sítě. Rozšíření je umožněno přidáním síťových zařízení,
  které kromě běžných funkcionalit poskytují i výpočetní výkon pro běh externích programů. Programy 
  je často možné nasadit pomocí kontejnerů nebo samostatných virtuálních strojů, což 
  velmi usnadňuje jejich vývoj a distribuci \cite{fog}.
@@ -23,7 +23,7 @@
  Porovnání klasické a fog architektury z~hlediska zpracování dat se nachází
  na Obrázku \ref{obr.fog}. V~reálném nasazení může
  být použito i více fog vrstev, kde každá provádí určitý stupeň předzpracování a řízení
- dat. Naopak u klasického modelu tato možnost není a vše zajišťuje až datové centrum.
+ dat. Naopak u~klasického modelu tato možnost není a vše zajišťuje až datové centrum.
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[scale=0.45]{pictures/fog-arch}
@@ -122,7 +122,7 @@
  výměnu zpráv. Příkladem může být: MQTT (Message Queuing Telemetry Transport),
  CoAP (Constrained Application Protocol) nebo
  AMQP (Advanced Message Queuing Protocol). Tyto protokoly jsou podrobněji popsány
-v~sekci \ref{protokoly}.
+v~Sekci \ref{protokoly}.
  
  Bezpečnostní hrozby síťové vrstvy jsou stejné jako v~klasických sítích. Je potřeba
  dodržet principy důvěry, integrity a dostupnosti. Tímto přístupem je možné
@@ -140,7 +140,7 @@ v~sekci \ref{protokoly}.
  Aplikační vrstva se stará o~ukládání dlouhodobých dat a jejich finální zpracování. 
  Zároveň zobrazuje uživateli zpracované informace a umožňuje provádět konfiguraci
  celé sítě. Z~důvodu její možné rozsáhlosti je kritické, aby správa
- topologie podporovala automatizaci. \cite{secFramework}.
+ topologie podporovala automatizaci \cite{secFramework}.
  
  Tato vrstva je umístěna vetšinou v~datovém centru a umožňuje vzdálený přístup. 
  Její bezpečnostní problémy lze přirovnat k~problémům cloud computingu. Dle
@@ -172,7 +172,7 @@ segmentu.
    
    \newpage
   \section{Bezpečnostní slabiny}
-  Na základě provedené analýzy aktuálně používaných protokolů \ref{protokoly} budou v~této kapitole 
+  Na základě provedené analýzy aktuálně používaných protokolů v~Sekci \ref{protokoly} budou v~této kapitole 
   popsány jejich bezpečnostní slabiny, které budou později využity při návrhu 
   detekčních algoritmů. Jelikož je tato práce zaměřena na senzorové protokoly 
   nekomunikující přes IP, budou v~podkapitolách popsány slabiny protokolů 
@@ -197,16 +197,16 @@ segmentu.
  Velkou hrozbou jsou zařízení s~verzí 4.1 nebo nižší, protože nepodporují žádnou ochranu před 
  odposloucháváním a MITM útokům v~době párování. Od verze 4.2 je již pro výměnu klíčů použit ECDH 
  algoritmus, který zabraňuje možnému odposlouchávání, ale v~případě použití párovací metody, které
- nepodporuje autentizaci není zajištěna ochrana před MITM útoky.  \cite{cesnet-survey}
+ nepodporuje autentizaci není zajištěna ochrana před MITM útoky \cite{cesnet-survey}.
  
  Dalším problémem jsou samotní výrobci, kteří často nevyužívají bezpečnostní funkce protokolu  \cite{ble-locks} nebo
  implementují vlastní způsoby zabezpečení na aplikační úrovni. Tímto dochází k~nezabezpečení fáze 
  párování a často se vyskytují i implementační chyby, které přinášení další zranitelnosti \cite{ble-attack} 
- a~umožňují útočníkovi získat kontrolu nad celým provozem.  \cite{cesnet-survey}
+ a~umožňují útočníkovi získat kontrolu nad celým provozem  \cite{cesnet-survey}.
  
  Nevýhodou je velmi dlouhá a komplikovaná specifikace protokolu, která vede k~implementačním 
  chybám samotného BLE \cite{blueborne}. Tím vzniká nebezpečí, že i u~výrobce, který využívá
- všech bezpečnostní funkcionalit
+ všech bezpečnostních funkcionalit
  se mohou vyskytovat zranitelnosti díky chybné implementaci komunikačních vrstev protokolu~\cite{cesnet-survey}.
  
  \newpage
@@ -259,7 +259,7 @@ segmentu.
   
     Tato metoda spočívá ve vytvoření specializovaného prostředí, ve kterém se nachází pouze testované 
     a měřící zařízení. Cílem je ověřit, že nově připojovaný senzor splňuje veškeré bezpečnostní 
-    požadavky a neobsahuje žádné známe zranitelnosti. Měřící prvky reprezentují nástroje, které 
+    požadavky a neobsahuje žádné známé zranitelnosti. Měřící prvky reprezentují nástroje, které 
     jsou schopné odposlouchávat komunikaci a využívají se také například při automatizovaných
     penetračních testech.   
   \item \textbf{Externí sonda}
@@ -279,8 +279,13 @@ segmentu.
   že získávání aktuálních dat o~provozu je poměrně nenáročné.
  \end{itemize}
  
- Každá z~předchozích metod používá jiný styl sběru dat. Při reálném použití je dobré vyhodnotit 
- bezpečnostní rizika a hrozby, podle kterých lze jednotlivé metody vhodně kombinovat.
+ Každá z~předchozích metod používá jiný styl sběru dat. Z~tohoto důvodu je výhodné při
+ detekci možných útoků jejich kombinované nasazení. Například provozní statististiky jsou vhodné
+ k~vyhodnocení chování parametrů provozu, ale pro některé konkrétní útoky jako MITM může být vhodnější
+ externí sonda, která má podrobnější přehled o~probíhající komunikaci. Naopak metoda testbedu je
+ užitečnější
+ pro technologické společnosti, které mohou konkrétní zařízení otestovat ve specializovaném prostředí
+ a vydávat pro ně doporučení určená koncovým uživatelům.
 
  \newpage
  \section{Existující řešení}
@@ -307,12 +312,12 @@ V~následující kapitole budou popsány nároky na vznikají detekční nástro
  zadání této práce a provedené analýzy.
  
   \subsection{Funkční požadavky}
-  Kapitola popisuje funkční požadavky, které jsou od detekčního nástroje očekávány.
+  Tato sekce popisuje funkční požadavky, které jsou od detekčního nástroje očekávány.
   \begin{itemize}
    \item \textbf{Sběr informací o~provozu}
    
    Program bude umožňovat sběr dat na IoT bráně o~aktuálním provozu z~dostupných komunikačních
-   rozhraní. Zároveň bude možné získané informace přeposílat k další analýze.
+   rozhraní. Zároveň bude možné získané informace přeposílat k~další analýze.
    
    \item \textbf{Detekce anomálií}
    
@@ -332,7 +337,7 @@ V~následující kapitole budou popsány nároky na vznikají detekční nástro
   \end{itemize}
 
   \subsection{Nefunkční požadavky}
-  Kapitola obsahuje nefunkční požadavky, které jsou kladené na výsledný nástroj.
+  V~této sekci jsou obsaženy nefunkční požadavky, které jsou kladeny na výsledný nástroj.
   \begin{itemize}
    \item \textbf{Rozšiřitelnost}
    
@@ -348,7 +353,7 @@ V~následující kapitole budou popsány nároky na vznikají detekční nástro
    
    \item \textbf{Kompatibilita a vývoj}
    
-   Pro zachování kompatibility a snadného vývoje bude použit framework NEMEA
+   Pro zachování kompatibility a usnadnění vývoje bude použit framework NEMEA
     \cite{nemea} (Network Measurements Analysis), který umožní snadné propojení 
     jednotlivých detekčních modulů.
    
@@ -357,7 +362,7 @@ V~následující kapitole budou popsány nároky na vznikají detekční nástro
    Výsledné řešení bude implementováno a otestováno na operačním systému Ubuntu 16.04, na kterém 
    bude nasazena IoT brána BeeeOn a framework NEMEA. Zároveň
    budou při návrhu a implementaci vybírány takové technologie, aby bylo možné vytvořený program
-   spustit pod distribuci OpenWrt, které je velmi rozšířena mezi síťovými prvky.   
+   spustit pod distribucí OpenWrt, která je velmi rozšířena mezi síťovými prvky.   
    
   \end{itemize}
 
@@ -382,7 +387,7 @@ V~následující kapitole budou popsány nároky na vznikají detekční nástro
  
  Vyhodnocování dat bude probíhat metodou detekce anomálií, která je vhodná pro statistickou povahu dat,
  má menší nároky na množství dostupných prostředků a umožňuje rozpoznat i neznámé útoky. Metoda 
- bude realizovaná pomocí časových řad jejichž parametry bude možné upravit dle potřeby.
+ bude realizovaná pomocí časových řad, jejichž parametry bude možné upravit dle potřeby.
  
  Jako programovací jazyk bude použit C++, protože podporuje objektový přístup a
  úspornou implementaci na paměť i procesorový čas. Zároveň tento jazyk je použit i v~bráně

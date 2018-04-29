@@ -82,7 +82,7 @@
   zařízení jsou po jednotnou správou a je možné automatizovat distribuci 
   klientských certifikátů.
   
-  Dále je na straně brokeru možné definovat pravidla pro autorizaci. Tyto pravidla 
+  Dále je na straně brokeru možné definovat pravidla pro autorizaci. Tato pravidla 
   přiřazují klientů oprávnění pro provedení operací publish a subscribe
   nad příslušnými tématy \cite{mqtt_sec}.
   
@@ -190,7 +190,7 @@
   prvky jsou certifikovány aliancí Z-Wave, která zároveň poskytuje technickou dokumentaci a
   licence pro vývoj. V~současné době existují certifikace Z-Wave a Z-Wave Plus. 
   Z-Wave Plus zařízení obsahují nový chipset, který vylepšuje komunikační parametry
-  sítě a zároveň je zpětně kompatibilní se staršími modely. \cite{z-plus}
+  sítě a zároveň je zpětně kompatibilní se staršími modely \cite{z-plus}.
   Otevřená implementace celého protokolu se nazývá OpenZWave \cite{openzwave}, která
   je vyvíjena komunitou \cite{cesnet-survey}.
  
@@ -208,9 +208,9 @@
  svou definici tříd funkcionalit (\textit{Command Class}), které obsahují dostupné příkazy a formát odpovědi. Tyto definice
  jsou předány kontroleru během procesu párování. Příkladem může být třída \textit{Binary Switch}, která obsahuje příkazy:
  \begin{itemize}
- \item \textit{SET} - odesílá kontroler pro nastavení hodnoty 
- \item \textit{GET} - odesílá kontroler pro získání hodnoty  
- \item \textit{REPORT} - odesílá senzor jako odpověď na dotaz \textit{GET} 
+ \item \textit{SET} -- odesílá kontroler pro nastavení hodnoty 
+ \item \textit{GET} -- odesílá kontroler pro získání hodnoty  
+ \item \textit{REPORT} -- odesílá senzor jako odpověď na dotaz \textit{GET} 
  \end{itemize} 
  
  Při posílání zpráv je vždy vyžadováno potvrzení. V~případě neobdržení potvrzení se vysílání opakuje. 
@@ -228,12 +228,12 @@
  
  S2 framework umožňuje zařízení rozdělit do následujících skupin s~rozdílnými šifrovacími klíči:
  \begin{itemize}
-  \item \textbf{Access Control} - 
+  \item \textbf{Access Control} -- 
    nejdůvěryhodnější třída, která obsahuje bezpečnostní prvky jako jsou například zámky,
    které zároveň podporují autentizaci
-  \item \textbf{Authenticated} - 
+  \item \textbf{Authenticated} -- 
   skupina určená pro běžné senzory, které podporují autentizaci 
-  \item \textbf{Unauthenticated} - 
+  \item \textbf{Unauthenticated} -- 
   třída pro ostatní prvky, které nepodporují autentizaci.
  \end{itemize}
  Autentizace probíhá pomocí PIN (Personal Identification Number) nebo QR (Quick Response) kódu.
@@ -248,7 +248,7 @@
   V~současné době je nejnovější verzí Bluetooth 5 \cite{cesnet-survey}.
   
   \subsubsection{Způsob komunikace}
-  BLE vysílá v~bezlicenčním ISM pásmu na frekvencích od 2.4 GHz do 2.4835 GHz. Specifikace
+  BLE vysílá v~bezlicenčním ISM pásmu na frekvencích od 2.4\,GHz až do hodnoty 2.4835\,GHz. Specifikace
   protokolu vychází z~Bluetooth, ale zejména díky změnám parametrů v~rádiové vrstvě 
   jsou navzájem nekompatibilní. Do verze 4 umožňuje navázat pro koncová zařízení pouze jedno spojení,
   a proto 

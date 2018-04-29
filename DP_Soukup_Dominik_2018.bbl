@@ -48,11 +48,11 @@ OASIS: MQTT Version 3.1.1 Plus Errata 01. OASIS. [online], 2015 [cit.
 \urlprefix\biburl{http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/errata01/os/mqtt-v3.1.1-errata01-os-complete.html}
 
 \bibitem{mqtt_intro}
-dc~square: MQTT Essentials Wrap-Up. HiveMQ. [online], 2018 [cit. 2018-03-08].
+DC-square: MQTT Essentials Wrap-Up. HiveMQ. [online], 2018 [cit. 2018-03-08].
 \urlprefix\biburl{https://www.hivemq.com/blog/mqtt-essentials-wrap-up}
 
 \bibitem{mqtt_sec}
-dc~square: MQTT Security Fundamentals. HiveMQ. [online], 2018 [cit.
+DC-square: MQTT Security Fundamentals. HiveMQ. [online], 2018 [cit.
   2018-03-08].
 \urlprefix\biburl{https://www.hivemq.com/mqtt-security-fundamentals/}
 
@@ -62,8 +62,8 @@ Shelby, Z.; Hartke, K.; Bormann, C.: The Constrained Application Protocol
 \urlprefix\biburl{https://tools.ietf.org/html/rfc7252}
 
 \bibitem{z-plus}
-Alliance, Z.-W.: Z-Wave Plus Certification. Z-Wave Alliance. [online], 2018
-  [cit. 2018-03-17].
+\relax Z-Wave~Alliance: Z-Wave Plus Certification. Z-Wave Alliance. [online],
+  2018 [cit. 2018-03-17].
 \urlprefix\biburl{https://z-wavealliance.org/z-wave_plus_certification/}
 
 \bibitem{openzwave}

@@ -1,6 +1,6 @@
  \section{Architektura}
  Cílem této práce je vytvoření programu, který bude schopen detekovat anomální provoz v~IoT sítích. 
- Vzhledem k~hardwarovým omezením, které můžou na IoT branách nastat, je architektura navržena tak, aby
+ Vzhledem k~hardwarovým omezením, která mohou na IoT branách nastat, je architektura navržena tak, aby
  měla co nejmenší nároky na dostupné prostředky. Schéma nasazení detekčního systému se nachází
  na Obrázku \ref{obr.deploy-arch}
  
@@ -14,17 +14,17 @@
  
  Implementace BeeeOn brány obsahuje pro zpracování senzorových dat následující komponenty:
  \begin{itemize}
-  \item \textbf{DeviceManager}:
+  \item \textbf{DeviceManager} --
     komponenta definovaná pro každý senzorový protokol, která implementuje veškerou komunikaci
     a zpracování dat
     
-  \item \textbf{Distributor}:  
+  \item \textbf{Distributor} --  
   přijímá data od \textit{DeviceManageru}, která následně předává příslušnému \textit{Exporteru}
   
-  \item \textbf{Exporter}:
+  \item \textbf{Exporter} --
   implementuje protokol, kterým jsou data odesílány z~brány
   
-  \item \textbf{CommandDispatcher}:  
+  \item \textbf{CommandDispatcher} --  
   přijímá uživatelské příkazy a distribuuje je cílovým komponentám
   
  \end{itemize}
@@ -32,7 +32,7 @@
  Každá z~komponent v~BeeeOn bráně navíc využívá návrhový vzor \textit{Observer}, pomocí kterého jsou
  definovány události poskytující informace o~každé komponentě. 
  Tímto způsobem bude vytvořený kolektor získávat data o~provozu, která
- převede do formátu UniRec (Unified Record) a pomocí systému NEMEA je odešle k~analýze.
+ převede do formátu UniRec (Unified Record) a pomocí systému NEMEA je zpracuje a nebo odešle k~analýze.
  
  Exportované informace o~provozu bude přijímat detektor, který následně provede jejich zpracování a 
  vyhodnocení stavu. Všechny vytvořené komponenty určené pro detekci budou používat rozhraní 
@@ -63,7 +63,7 @@ o~provozu budou sbírány z~jednotlivých komponent BeeeOn brány, které jsou z
  
  \begin{figure}[ht]
    \begin{center}
-   \includegraphics[scale=0.5]{pictures/modelTrid}
+   \includegraphics[scale=0.485]{pictures/modelTrid}
    \caption{Návrh kolektoru provozních dat}
    \label{obr.modelTrid}
    \end{center}
@@ -73,22 +73,22 @@ o~provozu budou sbírány z~jednotlivých komponent BeeeOn brány, které jsou z
  typy událostí.
  V~současné době jsou k~dispozici následující události:
  \begin{itemize}
-  \item \textbf{onExport}:
+  \item \textbf{onExport} --
    reprezentuje hodnoty dat přicházejících ze senzorů, která jsou odeslána vždy po jejich příjmu
    
   \item \textbf{onDriverStats}:
-   v~pravidelných intervalech generuje statistiky o~Z-Wave sítí dostupné na komunikačním 
+   v~pravidelných intervalech generuje statistiky o~Z-Wave síti, které jsou dostupné na komunikačním 
    rozhraní
    
-  \item \textbf{onNodeStats}:
+  \item \textbf{onNodeStats} --
    periodicky získává informace o~jednotlivých prvcích umístěných uvnitř jedné Z-Wave sítě, které jsou dostupné pomocí
-   knihovny OpenZWave
+   knihov\-ny OpenZWave
    
-  \item \textbf{onHciStats}:
+  \item \textbf{onHciStats} --
    v~definovaných intervalech získává z~komunikačního rozhraní pro BLE statistiky o~provozu
    sítě
   
-  \item \textbf{onDispatch}:
+  \item \textbf{onDispatch} --
   umožňuje získávat zadané uživatelské příkazy
  \end{itemize}
 
@@ -144,7 +144,7 @@ v~konfiguračním souboru BeeeOn brány. Po nastavení počátečních parametr�
   
   Bude obsahovat členské funkce, které se budou starat o~připravení profilu sítě. 
   Vytvořený profil bude složen z: průměru, klouzavého průměru, klouzavého
-  rozptylu a klouzavého mediánu \ref{profileDef}.
+  rozptylu a klouzavého mediánu. Vysvětlení jejich významu se nachází v~Sekci \ref{profileDef}.
   Tyto hodnoty budou následně použity při porovnávání s~aktuálním provozem v~rámci detekčních
   metod. V~případě potřeby bude možné profil rozšířit o~další hodnoty.
   
@@ -162,8 +162,9 @@ o~nalezené hrozbě, pro kterou se používá jedno společné rozhraní, nebo p
   
   Bude sdružovat všechny členské funkce určené pro detekci anomálií v~získaných datech. 
   Každá členská funkce bude reprezentovat jedno kritérium a bude možné budoucí rozšíření o~další
-  potřebné metody. V rámci vytvořeného řešení budou dostupná kritéria pro detekci: neočekávaného
-  růstu, překročení vymezených hodnot a porušení periodicity \ref{detectMethods}.
+  potřebné metody. V~rámci vytvořeného řešení budou dostupná kritéria pro detekci: neočekávaného
+  růstu, překročení vymezených hodnot a porušení periodicity. Popis jednotlivých metod se 
+  nachází v~Sekci \ref{detectMethods}.
   
  \end{itemize}
 
@@ -217,7 +218,8 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
   Zápis této skupiny bude identifikovaný klíčovým slovem \textit{profile}, který má uvnitř kulatých závorek 
   vyjmenované jednotlivé položky, které budou součástí vytvořeného profilu. Ve vytvořeném řešení 
   budou k~dispozici následující volby: \textit{average} (průměr), \textit{moving\_variance} (klouzavý rozptyl), 
-  \textit{moving\_median} (klouzavý medián) a \textit{moving\_average} (klouzavý průměr) \ref{profileDef}.
+  \textit{moving\_median} (klouzavý medián) a \textit{moving\_average} (klouzavý průměr).
+  Popis významu jednotlivých částí je umístěn v~Sekci \ref{profileDef}.
   Součástí profilu bude vždy alespoň
   jedna položka. Použité části a jejich počet bude vždy záviset na uživateli.
   
@@ -225,9 +227,11 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
   
   Pro každou položku definovanou v~rámci profilu musí být uveden seznam jejich detekčních parametrů.
   Zápis bude probíhat pomocí klíčového slova z~profilu, které bude mít jednotlivé hodnoty 
-  specifikované uvnitř kulatých závorek. Zde bude možné určit minimální nebo maximální soft a~hard
-  limity, kterých daná položka aktuálního profilu může dosahovat. Pro soft limit bude dále možné 
-  určit povolenou délku, po kterou může být nastavená hranice překročena (grace period). 
+  specifikované uvnitř kulatých závorek. Zde bude možné určit minimální nebo maximální 
+  \textit{soft} a~\textit{hard}
+  limity, kterých daná položka aktuálního profilu může dosahovat. Pro \textit{soft} 
+  limit bude dále možné 
+  určit povolenou délku, po kterou může být nastavená hranice překročena (\textit{grace period}). 
   
   Dalšími parametry budou číselné hodnoty určující meze pro minimální a maximální velikost 
   změny sledované položky ve srovnání s~vzorovým profilem. Všechny ostatní argumenty nebudou mít
@@ -237,7 +241,7 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
   Zadání veškerých hodnot nebude nutné a tudíž bude záležet na uživateli, které způsoby detekce 
   bude chtít využít. V~případě nedefinování některého parametru bude zapsán znak \textit{-}.
   Na základě nastavených hodnot se budou volat příslušné detekční metody.
-  
+  \newpage
   \item \textbf{Export}
   
   Poslední nastavitelnou možností bude export vybraných dat z~profilu. Zápis bude probíhat pomocí 
@@ -262,7 +266,7 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
  
    \begin{figure}[ht]
    \begin{center}
-   \includegraphics[scale=0.6]{pictures/config-file-frame-mod}
+   \includegraphics[scale=0.6]{pictures/config-file-frame}
    \caption{Popis konfiguračních parametrů pro jeden záznam}
    \label{obr.config}
    \end{center}
@@ -281,7 +285,8 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
    odlišující senzory skryté pod stejným klíčem.
    Třetí úroveň bude vždy obsahovat stejnou 
    sekvenci podklíčů, které budou určovat typ uchovávaných dat. Bude se jednat o~jednotlivé 
-   skupiny z~konfiguračního souboru \ref{config_file}, které budou označeny stejnojmennými
+   skupiny z~konfiguračního souboru popsané v~Sekci \ref{config_file}), které budou
+   označeny stejnojmennými
    identifikátory. Hodnotou těchto skupin budou specifikované parametry detekce dle zapsané
    konfigurace. Dále zde budou podklíče s~názvem \textit{metaProfile} a \textit{metaData},
    které budou mít
@@ -315,7 +320,10 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
  \subsection{Způsob analýzy}
  Veškerá analýza dat bude prováděna pomocí časových řad, které jsou vhodné pro statistický typ 
  dat a metodu detekce anomálií. Zároveň parametry řad budou nastavitelné, aby bylo možné se přizpůsobit
- pro danou datovou položku, ale i cílovou bránu, na které může být spuštěný detektor. Způsob 
+ pro danou datovou položku, ale i cílovou bránu, na které může být spuštěný detektor. Jednotlivé
+ fáze zpracování dat jsou na Obrázku \ref{obr.stateDiag} a jejich popis se nachází v~následujících sekcích:
+ 
+ Způsob 
  zpracování dat lze rozdělit do následujících fází:
   \begin{itemize}
    \item \textbf{Inicializace}
@@ -332,12 +340,12 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
    bude prováděn výpočet všech částí profilu, které budou určeny konfiguračním souborem.
    Pokud bude délka učící fáze delší než velikost 
    časové řady, tak budou všechny prvky posunuty, a tím nejstarší z~nich uvolní místo pro nový.
-    \newpage
+    
    \item \textbf{Detekce}
    
    Jakmile bude stanoven vzorový profil sítě, tak se zahájí analýza provozu pro určení anomálií.
    S~každým nový příchozím prvkem bude z~příslušné časové řady vypočítáván aktuální profil sítě,
-   který budou používat detekční metody. Dostupné metody jsou popsány v~\ref{detectMethods}.
+   který budou používat detekční metody. Dostupné metody jsou popsány v~Sekci \ref{detectMethods}.
    
   
    \item \textbf{Vyhodnocení}
@@ -345,8 +353,16 @@ s~identifikátorem odesílaným z~kolektoru. Důsledkem toho bude možnost detek
    Výsledky detekčních metod budou sloužit k~určení stavu provozu. Pokud budou data vyhodnocena jako
    bezpečná, tak nebude provedena žádná akce a přejde se k~obsluze další přijaté hodnoty z~kolektoru.
    V~případě nalezení anomálie se vytvoří zpráva s~informacemi popisující událost, která bude 
-   odeslána výstupním rozhraním určeném pro detekované hrozby.   
+   odeslána výstupním komunikačním rozhraním určeném pro detekované hrozby.   
   \end{itemize}
+  
+  \begin{figure}[ht]
+   \begin{center}
+   \includegraphics[scale=0.6]{pictures/state-diagram}
+   \caption{Diagram analýzy dat}
+   \label{obr.stateDiag}
+   \end{center}
+   \end{figure}
   
   \newpage
  \section{Multiplexor a demultiplexor}
@@ -370,20 +386,34 @@ v~záhlaví. Díky stejnému formátu zprávy bude možné veškerá data zasíl
  provede příslušnou akci. V~případě typu \textit{hello} se upraví nový formát pro specifikované 
  komunikační rozhraní. V~druhém případě se jen přepošlou přijatá data příslušným výstupem.
  
+ Způsob komunikace mezi moduly je zachycen na Obrázku \ref{obr.muxDemuxDiag}. Vstupem do modulu
+  \textit{Mux} jsou tři různé UniRec šablony, které jsou postupně zapouzdřeny do společného formátu
+  a odeslány
+  společným komunikačním rozhraním.
+  Následně modul \textit{Demux} provede zpětné rozbalení zpráv na odpovídající komunikační rozhraní.
+ 
+ \begin{figure}[ht]
+   \begin{center}
+   \includegraphics[scale=0.8]{pictures/mux&demux}
+   \caption{Diagram komunikace modulů \textit{Mux} a \textit{Demux}}
+   \label{obr.muxDemuxDiag}
+   \end{center}
+   \end{figure}
+ 
  \newpage
  \section{Scénáře útoků} \label{utoky}
- Na základě vypracované analýzy a provedených experimentů s~protokoly Z-Wave a BLE byly navrženy
- následující scénáře, které mohou v~reálném provozování IoT sítě nastat a identifikovat zneužití
- zranitelnosti díky vzniku anomálního provozu. V~popsaných scénářích se bude vyskytovat jen nezbytně
+  Na základě vypracované analýzy a provedených experimentů s~komunikačními protokoly Z-Wave a BLE,
+  byly navrženy možné scénáře útoků, které se mohou objevit na senzorové vrstvě. V~popsaných
+  scénářích se bude vyskytovat jen nezbytně
  nutná množina informací, kterou bude nutné sledovat. Popis všech dostupných dat se nachází
  v~příloze \ref{sensorData}.
  
-   \begin{enumerate}
+   \begin{enumerate} [label=\textbf{S.\arabic*}]
     \item \textbf{Periodicita dat}
     
-    Velké množství koncových prvků v~senzorové vrstvě se chová periodicky. Kvůli úspoře napájecí
+    Velké množství koncových prvků v~senzorové vrstvě se chová periodicky. Kvůli úspoře
     energie jsou senzory často v~režimu spánku a jen v~určitých časových okamžicích se probudí, 
-    aby odeslaly potřebné údaje. Dále lze využít pravidelnosti BeeeOn brány, která statistiky
+    aby odeslaly potřebné údaje. Pravidelně pracuje i BeeeOn brána, která statistiky
     o~jednotlivých komunikačních protokolech exportuje ve stálých časových intervalech. 
     
     Tento scénář se bude soustředit na analýzu času příchozích dat, aby určil případné
@@ -415,8 +445,9 @@ k~nepravidelnému odesílání informací o~provozu. V~případě, že bude pou�
     
     BLE nabízí pouze celkové informace, kterých navíc není tolik. V~rámci této detekce bude vhodné 
     použít položky \textit{rxBytes} a \textit{txBytes}, které odpovídají počtu přijatých
-    a odeslaných bytů.
+    a odeslaných bajtů.
     
+    \newpage
     \item \textbf{Limity senzorových hodnot}
     
     Tento případ užití se zaměřuje přímo na získávané hodnoty z~čidel. Pro tyto hodnoty se většinou
@@ -449,7 +480,7 @@ k~nepravidelnému odesílání informací o~provozu. V~případě, že bude pou�
     Analýza může probíhat na základě parametrů specifikovaných v~předchozím scénáři. Nebo lze 
     ztrátu konektivity se senzorem identifikovat tím, že se provozní statistiky nezměnily vůbec nebo
     menším způsobem než bylo obvyklé. Pro tento typ detekce mohou být využity stejné položky
-    jako ve druhém případu užití \ref{dos}.
+    jako v~případu užití \ref{dos}.
     
    \end{enumerate}
 

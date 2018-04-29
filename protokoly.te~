@@ -1,11 +1,11 @@
 \subsection{MQTT}
-  MQTT je otevřený síťový komunikační protokol typu publish/subcribe, který byl navržen
+  MQTT je otevřený síťový komunikační protokol typu publish/subscribe, který byl navržen
   v~roce 1999. Již od návrhu byl zaměřen na nízkou náročnost komunikace a jednoduchost
   implementace. Díky těmto vlastnostem je velmi vhodný pro IoT a M2M systémy \cite{mqtt}.
   \subsubsection{Způsob komunikace}
   
   Protokol MQTT je postaven nad transportní vrstvou TCP (Transmission Control Protocol)
-  a využívá model publish/subcribe, který vychází z~tradičního způsobu zasílání zpráv
+  a využívá model publish/subscribe, který vychází z~tradičního způsobu zasílání zpráv
   typu klient-server. Roli serveru zde plní speciální uzel, který se nazývá broker.
   Broker je známý všem ostatním klientům, kteří mohou zasílat zprávy pomocí operace
   \textit{publish} nebo se přihlásit o~příjem zpráv díky operaci \textit{subscribe}.
@@ -16,7 +16,7 @@
   jednoduchým UTF-8 řetězcem s~hierarchickou strukturou, ve které jsou jednotlivé
   vrstvy odděleny lomítkem a každá z~nich musí obsahovat minimálně jeden
   znak (např. domov/přízemí/světloŠatna). V~předmětu
-  zprávy mohou být některé vrstvy nahrazeny zástupnými symboly + a \#. Symbol + dokáže
+  zprávy mohou být některé vrstvy nahrazeny zástupnými symboly + a \#. Symbol +~dokáže
   nahradit pouze jednu úroveň předmětu libovolným řetězcem a symbol \# umožňuje
   zastoupit více úrovní. Díky těmto symbolům mohou klienti odeslat nebo přijímat
   zprávy z~více témat. Schéma topologie a ukázka využití předmětů zpráv se nachází na 
@@ -65,7 +65,7 @@
     
   \item \textbf{Transportní vrstva}
   
-  Na této úrovni se využívá šifrování provozu pomocí protokolu TLS (Transport
+  Na této úrovni se využívá šifrování provozu pomocí protokolu TLS (Tra\-nsport
   Layer Security). Omezením této metody jsou požadavky na výkon, které mohou být
   poměrně vysoké pokud nastává časté navazování spojení \cite{mqtt_sec}.
   
@@ -82,7 +82,7 @@
   zařízení jsou po jednotnou správou a je možné automatizovat distribuci 
   klientských certifikátů.
   
-  Dále je na straně brokeru možné definovat pravidla pro autorizaci. Tyto pravidla 
+  Dále je na straně brokeru možné definovat pravidla pro autorizaci. Tato pravidla 
   přiřazují klientů oprávnění pro provedení operací publish a subscribe
   nad příslušnými tématy \cite{mqtt_sec}.
   
@@ -92,7 +92,7 @@
   CoAP je otevřený přenosový protokol určený pro
   komunikaci síťových zařízení s~velmi omezeným výkonem. Návrh vychází z~RESTful
   (Representational State Transfer) principů, tudíž jeho použití je velmi vhodné
-  v~prostředích s~již existujícím webových rozhraním, do kterého se snadno integruje. \cite{coap}
+  v~prostředích s~již existujícím webovým rozhraním, do kterého se snadno integruje. \cite{coap}
   
    \subsubsection{Způsob komunikace}
    Komunikace je postavena nad protokolem UDP (User Datagram Protocol) a vychází
@@ -102,7 +102,6 @@
    zda se má zasílat potvrzení či nikoli. Protože veškerá komunikace probíhá nad
    protokolem UDP, tak přenášené zprávy obsahují položku Message ID, která dokáže
    ošetřit duplikaci přijatých dat.
-   %pokud to bude krátků můžu přidat option políčka pro udělání akce po splnění podmíky
    
    Pro zajištění integrace s~běžnými webovými službami a zachování nízkých nároků
    se v~CoAP topologii velmi často vyskytují proxy servery. Tyto servery mohou plnit
@@ -191,7 +190,7 @@
   prvky jsou certifikovány aliancí Z-Wave, která zároveň poskytuje technickou dokumentaci a
   licence pro vývoj. V~současné době existují certifikace Z-Wave a Z-Wave Plus. 
   Z-Wave Plus zařízení obsahují nový chipset, který vylepšuje komunikační parametry
-  sítě a zároveň je zpětně kompatibilní se staršími modely. \cite{z-plus}
+  sítě a zároveň je zpětně kompatibilní se staršími modely \cite{z-plus}.
   Otevřená implementace celého protokolu se nazývá OpenZWave \cite{openzwave}, která
   je vyvíjena komunitou \cite{cesnet-survey}.
  
@@ -209,9 +208,9 @@
  svou definici tříd funkcionalit (\textit{Command Class}), které obsahují dostupné příkazy a formát odpovědi. Tyto definice
  jsou předány kontroleru během procesu párování. Příkladem může být třída \textit{Binary Switch}, která obsahuje příkazy:
  \begin{itemize}
- \item \textit{SET} - odesílá kontroler pro nastavení hodnoty 
- \item \textit{GET} - odesílá kontroler pro získání hodnoty  
- \item \textit{REPORT} - odesílá senzor jako odpověď na dotaz \textit{GET} 
+ \item \textit{SET} -- odesílá kontroler pro nastavení hodnoty 
+ \item \textit{GET} -- odesílá kontroler pro získání hodnoty  
+ \item \textit{REPORT} -- odesílá senzor jako odpověď na dotaz \textit{GET} 
  \end{itemize} 
  
  Při posílání zpráv je vždy vyžadováno potvrzení. V~případě neobdržení potvrzení se vysílání opakuje. 
@@ -229,12 +228,12 @@
  
  S2 framework umožňuje zařízení rozdělit do následujících skupin s~rozdílnými šifrovacími klíči:
  \begin{itemize}
-  \item \textbf{Access Control} - 
+  \item \textbf{Access Control} -- 
    nejdůvěryhodnější třída, která obsahuje bezpečnostní prvky jako jsou například zámky,
    které zároveň podporují autentizaci
-  \item \textbf{Authenticated} - 
+  \item \textbf{Authenticated} -- 
   skupina určená pro běžné senzory, které podporují autentizaci 
-  \item \textbf{Unauthenticated} - 
+  \item \textbf{Unauthenticated} -- 
   třída pro ostatní prvky, které nepodporují autentizaci.
  \end{itemize}
  Autentizace probíhá pomocí PIN (Personal Identification Number) nebo QR (Quick Response) kódu.
@@ -249,7 +248,7 @@
   V~současné době je nejnovější verzí Bluetooth 5 \cite{cesnet-survey}.
   
   \subsubsection{Způsob komunikace}
-  BLE vysílá v~bezlicenčním ISM pásmu na frekvencích od 2.4 GHz do 2.4835 GHz. Specifikace
+  BLE vysílá v~bezlicenčním ISM pásmu na frekvencích od 2.4\,GHz až do hodnoty 2.4835\,GHz. Specifikace
   protokolu vychází z~Bluetooth, ale zejména díky změnám parametrů v~rádiové vrstvě 
   jsou navzájem nekompatibilní. Do verze 4 umožňuje navázat pro koncová zařízení pouze jedno spojení,
   a proto 
@@ -300,7 +299,7 @@
      
      Tato metoda vylepšuje \textit{Just Works} o~autentizaci, která spočívá v~uživatelském zadání 
      šestimístného kódu. Pro ochranu před odposlouchávání musí být použit algoritmus ECDH,
-     který je dostupný až od verze 4.2 \cite{cesnet-survey}.
+     který je dostupný až od verze 4.2~\cite{cesnet-survey}.
      
      \item \textbf{Numeric Comparison}
      
