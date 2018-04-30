@@ -111,9 +111,9 @@ Velmi důležitou částí bylo otestování definovaných anomálií, které mo
     případů byl velmi podobný a lišil se jen typ události a způsob generování dat. Chování 
     jednotlivých položek profilu velmi ovlivňovala délka časové řady, která určovala 
     paměťové okno. Nejcitlivější položkou na změnu byl rozptyl, který výrazně zvyšoval
-    svou hodnotu při vložení vyššího čísla. K~častým výchylkám docházelo i v~případě průměru. 
+    svou hodnotu při vložení vyššího čísla. K~častým výchylkám docházelo i v~případě klouzavého průměru. 
     Méně frekventované změny nastávaly u~mediánu, který nejvíce využíval délky časové řady. 
-    Nejmenších odlišností dosahoval klouzavý průměr, protože ve své hodnotě obsahuje i data
+    Nejmenších odlišností dosahoval celkový průměr, protože ve své hodnotě obsahuje i data
     mimo aktuální časové okno.
 
     \item \textbf{Limity senzorových hodnot}
@@ -184,61 +184,92 @@ Sada testů ověřila, že vypočítané části profilu lze spolehlivě exporto
 pozitivní.
 
 \section{Měření položek profilu}
-Již v~Sekci \ref{testAttack} bylo možné sledovat odlišné chování 
-jednotlivých částí profilu. V~této sekci je provedeno vyhodnocení každé z~nich. Veškeré 
+Již v~Sekci \ref{testAttack} bylo možné při ověřování scénářů sledovat odlišné chování 
+jednotlivých částí profilu. V~rámci této sekce je provedeno vyhodnocení každé z~nich. Veškeré 
 měření probíhalo nad stejným provozem, kde byly zprávy generovány každé tři sekundy a~pravidelné
 události chodily každých pět sekund. Útoky byly reprezentovány nárůstem sledovaného provozu.
-První útok byl zahájen 3 minuty po zahájení komunikace a trval 90 vteřin. Druhý útok nastal 210
-vteřin po prvním a trval 30 vteřin. Tyto hodnoty byly zvoleny tak, aby se projevily vlastnosti
-jednotlivých částí profilu.
+První útok byl proveden 3 minuty po zahájení komunikace a trval 90 vteřin. Druhý útok nastal 210
+vteřin po prvním a trval 30 vteřin. Tyto hodnoty byly zvoleny tak, aby se projevilo co nejvíce
+vlastností jednotlivých částí profilu. 
 
-Tabulka \ref{tab.tab1} zobrazuje pro každou položku profilu počet detekovaných anomálií 
-s~rostoucí velikostí časové řady. Její rostoucí délka nejvíce stabilizovala klouzavý medián,
-protože jeho počty
-incidentů klesly se zvyšující se délkou. Zároveň z~jeho grafu \ref{obr.progressMedian} lze vidět,
-že začátek anomálií odhalil vždy jako poslední a jejich doba trvání byla nejkratší. 
+Tabulka \ref{tab.tab1} zobrazuje pro každou položku profilu míru pokrytí očekávaných detekcí obou
+vygenerovaných útoků v~závislosti na 
+rostoucí velikosti časové řady. Naopak Tabulka \ref{tab.tab2} obsahuje množství falešných
+poplachů pro každou detekci. 
 
-S~větší časovou řadou bylo možné uchovat i více hodnot, a 
-tím se detekovalo více událostí v~rámci klouzavého průměru a rozptylu. Začátky i konce rozpoznání incidentů
-byly u~obou položek velmi podobné. Jediným rozdílem u~klouzavého rozptylu bylo, že při stabilním 
-nárůstu sledované položky může jeho hodnota po uplynutí časového okna opět klesnout do bezpečného pásma. 
-Graf průběhu \ref{obr.progressStandardDeviation} pro větší přehlednost nezobrazuje klouzavý rozptyl, ale 
-klouzavou směrodatnou odchylku. 
+Délka časové řady nejvíce ovlivnila klouzavý medián, protože
+s~rostoucí délkou se zpožďovalo rozpoznání útoku. Navíc při řadě delší než 14 prvků už nebyl rozpoznán
+druhý útok, protože byl příliš krátký. Toto chování potvrzuje graf jeho průběhu
+na Obrázku \ref{obr.progressMedian}, v~rámci kterého se mění měřené hodnoty skokově.
 
-Průměr jako jediný nebyl závislý na časovém okně. Ovšem s~rostoucí délkou řady 
-byla delší i doba učení, při které byla vždy stanovena lehce odlišná hodnota vzorového
-profilu a mezních limitů. Při provedeném měření se vždy s~delším paměťovým oknem vzorové hodnoty mírně 
-zvýšily.
-Na základě těchto předpokladů lze v~jeho grafu \ref{obr.progressCumAverage}
-vidět pomalé klesání, díky kterým byly incidenty detekovány nejdelší dobu. Zároveň dle očekávání velikost 
-časového okna nemá vliv na počet detekovaných anomálií.
+S~větší časovou řadou bylo možné uchovat i více položek, a 
+tím se zvyšoval počet falešných poplachů klouzavého průměru a rozptylu, protože
+v~paměťovém okně přijaté hodnoty vydržely déle. Klouzavý rozptyl byl velmi citlivý
+na přijetí vyššího čísla, a proto jako jediný rozpoznal provedené útoky již od začátku. Nevýhodou
+ovšem je, že při stabilním nárůstu sledované položky může jeho hodnota po uplynutí časového okna
+opět klesnout do bezpečného pásma. Graf jeho průběhu na Obrázku \ref{obr.progressStandardDeviation}
+zobrazuje pro větší přehlednost klouzavou směrodatnou odchylku. Klouzavý průměr během testu 
+také dosahoval dobrých výsledků. Jen jeho citlivost nebyla tak výrazná, a proto při delší časové
+řadě měl pomalejší reakci. Na rozdíl od klouzavého rozptylu je schopný detekovat i delší stabilní
+útoky, což lze vidět na Obrázku \ref{obr.progressAverage}.
 
-
+Průměr jako jediný nebyl závislý na časovém okně. Na základě tohoto předpokladu jsou v~jeho grafu
+na Obrázku \ref{obr.progressCumAverage} vidět velmi pomalé a plynulé změny, které byly 
+téměř konstantní při 
+všech testovaných délkách. Jediným rozdílem byla delší doba učení, která stanovila vždy mírně
+odlišnou hodnotu vzorového profilu.
 
 \begin{table}[ht]
   \begin{center}
+   \caption[Závislost korektně detekovaných anomálií na délce časového okna]{Tabulka obsahuje množství obdržených zpráv informujících o~detekované anomálii pro každou část profilu v~závislosti na rostoucí délce časového okna}
   \begin{tabular}{|C{1.7cm}|C{1.7cm}|C{1.7cm}|C{1.7cm}|C{1.7cm}|}
     \hline 
-   \thead{velikost\\ časového\\ okna} & \thead{klouzavý\\ medián} & \thead{klouzavý\\ rozptyl} & \thead{klouzavý\\ průměr} & \thead{průměr}\\
+   \thead{velikost\\ časového\\ okna} & \thead{klouzavý\\ medián \\ {[\%]}} & \thead{klouzavý\\ rozptyl\\ {[\%]}} & \thead{klouzavý\\ průměr\\ {[\%]}} & \thead{průměr\\ {[\%]}}\\
    \hline 
    \hline 
-    1 & 26 & 0 & 26 & 26\\
+    1 & 100 & 0 & 100 & 100\\
     \hline
-    3 & 26 & 30 & 30 & 90\\
+    3 & 92.31 & 100 & 100 & 96.15\\
     \hline
-    5 & 26 & 34 & 32 & 89\\
+    5 & 84.62 & 100 & 100 & 92.31\\
     \hline
-    10 &  26 & 44 & 40 & 89\\
+    10 &  69.23 & 100 & 96.15 & 92.31\\
     \hline
-    15 & 19 & 54 & 48 & 89\\
+    15 & 46.15 & 100 & 92.31 & 92.31\\
     \hline
-    20 & 19 & 62 & 56 & 89\\
+    20 & 38.46 & 100 & 88.46 & 92.31\\
     \hline
    \end{tabular}
-   \caption[Závislost detekovaných anomálií na délce časového okna]{Tabulka obsahuje počty detekovaných anomálií pro každou část profilu v~závislosti na rostoucí délce časového okna} 
    \label{tab.tab1}
   \end{center}   
     \end{table}
+    
+    
+    \begin{table}[ht]
+  \begin{center}
+   \caption[Závislost přijatých falešných poplachů na délce časového okna]{Tabulka obsahuje množství přijatých falešných poplachů pro každou část profilu v~závislosti na rostoucí délce časového okna}
+  \begin{tabular}{|C{1.7cm}|C{1.7cm}|C{1.7cm}|C{1.7cm}|C{1.7cm}|}
+    \hline 
+   \thead{velikost\\ časového\\ okna} & \thead{klouzavý\\ medián \\ {[\%]}} & \thead{klouzavý\\ rozptyl\\ {[\%]}} & \thead{klouzavý\\ průměr\\ {[\%]}} & \thead{průměr\\ {[\%]}}\\
+   \hline 
+   \hline 
+    1 & 0 & 100 & 0 & 0\\
+    \hline
+    3 & 7.69 & 13.33 & 13.33 & 72.22\\
+    \hline
+    5 & 15.38 & 23.53 & 20 & 73.03\\
+    \hline
+    10 &  30.77 & 40.91 & 37.50 & 73.03\\
+    \hline
+    15 & 36.84 & 48.15 & 50 & 73.03\\
+    \hline
+    20 & 47.37 & 58.06 & 58.93 & 73.03\\
+    \hline
+   \end{tabular}
+   \label{tab.tab2}
+  \end{center}   
+    \end{table}
+
 
     \begin{figure}[ht]
    \begin{center}

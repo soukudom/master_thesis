@@ -15,6 +15,7 @@
 \usepackage{dirtree} %directory tree visualisation
 \usepackage{makecell}
 \usepackage{enumitem}
+\usepackage{multirow}
 
 \renewcommand\theadalign{cb}
 \renewcommand\theadfont{\bfseries}
@@ -29,7 +30,7 @@
 \authorFN{Soukup} 
 \authorWithDegrees{Bc. Dominik Soukup} 
 \author{Dominik Soukup} 
-\supervisor{Ing. Tomáš Čejka}
+\supervisor{Ing. Tomáš Čejka\\ Tato práce je určena pro soutěž SVOČ}
 \acknowledgements{Rád bych poděkoval vedoucímu diplomové práce Ing. Tomáši Čejkovi za odborné vedení, cenné rady a čas věnovaný konzultacím. 
 Dále děkuji sdružení CESNET, z.s.p.o. za možnost práce na tomto projektu a poskytnutým
 prostředkům pro vývoj vytvořeného nástroje.}
@@ -55,18 +56,17 @@ BeeeOn o~možnost detekce anomálií v~bezdrátových senzorových protokolech. 
 verze této brány s~mechanismem pro detekci útoků.
 
 }
-\abstractEN{This work covers security concerns and issues of the Internet of Things (IoT). The first aim
+\abstractEN{This work is focused on security concerns and issues of the Internet of Things (IoT). The first aim
 is to analyse the actual situation of IoT and to identify vulnerabilities of the wireless sensor network
 protocols. The second aim is to develop a tool that is able to detect security incidents in communication traffic.
-The analytical part familiarizes the reader with the fog computing concept and new communication architecture.
-%(model). 
+The analytical part describes the fog computing concept and new communication architecture.
 Simultaneously, there are thoroughly explored current IoT protocols including their vulnerabilities. This
-is followed by the tool design that is ready for the future extension, which is necessary for the rapidly
-growing area like IoT. During designing, low hardware requirements was emphasised so that it would be
+is followed by the tool design that is ready for the future extension, which is necessary for this rapidly
+growing area like IoT. During designing, low hardware requirements were emphasised so that it would be
 possible to deploy the created solution event on IoT gateways with restricted resources.
 
-The first part of this work output is research of the current IoT state, which is contained in the text of
-this work. The second part is a modular system that is possible to configure and customize for
+The first result of this work is research of the current IoT state, which is contained in the text of
+this work. The second result is a modular system that is configurable and customizable for
 target topology. The created tool is
 implemented in C++ language and extends the already
 existing IoT gateway BeeeOn by anomaly detection of the wireless sensor network protocols. The result
@@ -166,7 +166,7 @@ detektoru. V~závěru je provedeno měření chování jednotlivých položek z~
 
 \begin{conclusion}
 
-Cílem diplomové práce bylo analyzovat aktuální stav v oblasti IoT sítí a identifikovat bezpečnostní 
+Cílem diplomové práce bylo analyzovat aktuální stav v~oblasti IoT sítí a identifikovat bezpečnostní 
 slabiny. Na základě získaných znalostí byl navržen,
 implementován a otestován nástroj
 pro monitorování a automatickou detekci anomálního provozu. Výsledný nástroj se skládá z~několika
@@ -288,6 +288,7 @@ cd  gateway
 mkdir build
 (cd build && cmake ..)
 make -C build
+BEEEON=$(pwd)
 \end{verbatim}
  \item \textbf{Instalace NEMEA frameworku}
  
@@ -322,12 +323,12 @@ a upravit konfigurační soubory. Postup je popsán v~následujících sekcích.
 \begin{itemize}
  \item \textbf{Přesun zdrojových souborů}
 \begin{verbatim}
-   cp NemeaCollector.* <adresářBeeeOn>/src/core
-   cp fields.* <adresářBeeeOn>/src/core
+   cp NemeaCollector.* "$BEEEON"/src/core
+   cp fields.* "$BEEEON"/src/core
 \end{verbatim}
 \item \textbf{Úprava souborů pro kompilaci}
 \begin{verbatim}
-   vim <adresářBeeeOn>/src/CMakeLists.txt
+   vim "$BEEEON"/src/CMakeLists.txt
 \end{verbatim}
 Do příslušných částí v~souboru je potřeba vložit tyto položky: 
 \begin{verbatim}
@@ -344,7 +345,7 @@ Do příslušných částí v~souboru je potřeba vložit tyto položky:
 \end{verbatim}
 Podobné změny je nutné provést v adresáři \textit{test}
 \begin{verbatim}
-  vim <adresářBeeeOn>/test/CMakeLists.txt
+  vim "$BEEEON"/test/CMakeLists.txt
     find_library (LIBTRAP trap)
     find_library (UNIREC unirec)
     find_library (PCAP pcap)
@@ -355,7 +356,7 @@ Podobné změny je nutné provést v adresáři \textit{test}
 \end{verbatim}
  \item \textbf{Úprava sestavovací konfigurace brány}
 \begin{verbatim}
-   vim <adresářBeeeOn>/conf/config.d/factory.xml 
+   vim "$BEEEON"/conf/config.d/factory.xml 
 \end{verbatim}
 V otevřeném souboru je nutné do odpovídajících elementů vložit tyto parametry:
 \begin{verbatim}
@@ -388,7 +389,7 @@ V otevřeném souboru je nutné do odpovídajících elementů vložit tyto para
 \end{verbatim} 
 \item \textbf{Rekompilace brány}
 \begin{verbatim}
-   cd <adresářBeeeOn>
+   cd "$BEEEON"
    (cd build && cmake ..)
    make -C build
 \end{verbatim}
@@ -400,25 +401,26 @@ Kompilace komponenty detektoru se provede následujícím příkazem:
 \begin{verbatim}
 g++ DataDetector.cpp fields.cpp ConfigParser.cpp \
 Analyzer.cpp -o prg -ltrap -lpcap -lunirec --std=c++11 \
--Wno-write-strings -pthread 
+-Wno-write-strings -pthread
+DETECTOR=$(pwd)
 \end{verbatim}
 \newpage
 \item \textbf{Spuštění detekčního systému}
 
 Posledním krokem je spuštění celého detekčního systému. Pro účely demonstrace je
-v~ukázce použit oddělený model nasazení popsaný v Sekci \ref{externalMode}, který zahrnuje více komponent. Při reálném 
+v~ukázce použit oddělený model nasazení popsaný v~Sekci \ref{externalMode}, který zahrnuje více komponent. Při reálném 
 použití stačí spustit pouze kolektor a jednu instanci detektoru pro každý typ události. V~uvedené
 ukázce každá z~komponent používá standardní výstup, proto je nutné každý příkaz spustit v~samostatném
 terminálovém okně.
 \begin{verbatim}
-cd <adresářBeeeOn> 
+cd "$BEEEON" 
 build/src/beeeon-gateway -c conf/gateway-testing.ini \
    -Dtesting.center.enable=yes 
 mux "u:event-onDriverStats,u:event-onNodeStasts,u:output" \
    -n 2
 demux -i "u:output,u:onDriverStats,u:onNodeStats" -n 2
 merger -i "u:onDriverStats,u:onNodeStats,u:merged" -n 2
-cd <adresářDetector> 
+cd "$DETECTOR" 
 ./prg -i "u:merged,u:alert" -v
 logger -i "u:alert" -t
 logger -i "u:export-dropped0" -t

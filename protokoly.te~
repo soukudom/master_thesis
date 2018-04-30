@@ -205,8 +205,8 @@
  proces \cite{cesnet-survey}.
  
  V~rámci specifikace Z-Wave \cite{zwave-spec} je definován mechanismus pro určení dostupných příkazů. Každý senzor obsahuje
- svou definici tříd funkcionalit (\textit{Command Class}), které obsahují dostupné příkazy a formát odpovědi. Tyto definice
- jsou předány kontroleru během procesu párování. Příkladem může být třída \textit{Binary Switch}, která obsahuje příkazy:
+ svou definici tříd funkcionalit (\textit{Command Class}), které udržují dostupné příkazy a formát odpovědi. Tyto definice
+ jsou předány kontroleru během procesu párování. Příkladem může být třída \textit{Binary Switch}, která má k dispozici příkazy:
  \begin{itemize}
  \item \textit{SET} -- odesílá kontroler pro nastavení hodnoty 
  \item \textit{GET} -- odesílá kontroler pro získání hodnoty  
@@ -270,7 +270,7 @@
    
    \item \textbf{Inicializace připojení} 
    
-   Během této fáze se obě strany domlouvají na parametrech komunikace \cite{ble-attack}.
+   Během této fáze se obě strany vzájemně domlouvají na parametrech komunikace \cite{ble-attack}.
    \item \textbf{Komunikace}
    
    Po úspěšném navázání spojení je možné na základě dostupných služeb provádět zasílání zpráv \cite{ble-attack}.
