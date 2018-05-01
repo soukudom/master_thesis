@@ -208,9 +208,12 @@ v~paměťovém okně přijaté hodnoty vydržely déle. Klouzavý rozptyl byl ve
 na přijetí vyššího čísla, a proto jako jediný rozpoznal provedené útoky již od začátku. Nevýhodou
 ovšem je, že při stabilním nárůstu sledované položky může jeho hodnota po uplynutí časového okna
 opět klesnout do bezpečného pásma. Graf jeho průběhu na Obrázku \ref{obr.progressStandardDeviation}
-zobrazuje pro větší přehlednost klouzavou směrodatnou odchylku. Klouzavý průměr během testu 
-také dosahoval dobrých výsledků. Jen jeho citlivost nebyla tak výrazná, a proto při delší časové
-řadě měl pomalejší reakci. Na rozdíl od klouzavého rozptylu je schopný detekovat i delší stabilní
+zobrazuje pro větší přehlednost klouzavou směrodatnou odchylku. Tuto položku nemá význam používat
+s časovým oknem o délce jedna, protože je v tomto případě vždy rovna hodnotě 0.
+
+Klouzavý průměr během testu 
+také dosahoval dobrých výsledků. Jen jeho citlivost nebyla tak výrazná, a proto měl při delší časové
+řadě pomalejší reakci. Na rozdíl od klouzavého rozptylu je schopný detekovat i delší stabilní
 útoky, což lze vidět na Obrázku \ref{obr.progressAverage}.
 
 Průměr jako jediný nebyl závislý na časovém okně. Na základě tohoto předpokladu jsou v~jeho grafu
@@ -221,7 +224,7 @@ odlišnou hodnotu vzorového profilu.
 
 \begin{table}[ht]
   \begin{center}
-   \caption[Závislost korektně detekovaných anomálií na délce časového okna]{Tabulka obsahuje množství obdržených zpráv informujících o~detekované anomálii pro každou část profilu v~závislosti na rostoucí délce časového okna}
+   \caption[Závislost korektně detekovaných anomálií na délce časového okna]{Množství odeslaných zpráv informujících o~detekované anomálii z~očekávané počtu detekcí. Hodnoty jsou určeny pro každou část profilu v~závislosti na rostoucí délce časového okna.}
   \begin{tabular}{|C{1.7cm}|C{1.7cm}|C{1.7cm}|C{1.7cm}|C{1.7cm}|}
     \hline 
    \thead{velikost\\ časového\\ okna} & \thead{klouzavý\\ medián \\ {[\%]}} & \thead{klouzavý\\ rozptyl\\ {[\%]}} & \thead{klouzavý\\ průměr\\ {[\%]}} & \thead{průměr\\ {[\%]}}\\
@@ -247,13 +250,13 @@ odlišnou hodnotu vzorového profilu.
     
     \begin{table}[ht]
   \begin{center}
-   \caption[Závislost přijatých falešných poplachů na délce časového okna]{Tabulka obsahuje množství přijatých falešných poplachů pro každou část profilu v~závislosti na rostoucí délce časového okna}
+   \caption[Závislost přijatých falešných poplachů na délce časového okna]{Množství odeslaných falešných poplachů z~celkového počtu detekovaných incidenů. Hodnoty jsou určeny pro každou část profilu v~závislosti na rostoucí délce časového okna.}
   \begin{tabular}{|C{1.7cm}|C{1.7cm}|C{1.7cm}|C{1.7cm}|C{1.7cm}|}
     \hline 
    \thead{velikost\\ časového\\ okna} & \thead{klouzavý\\ medián \\ {[\%]}} & \thead{klouzavý\\ rozptyl\\ {[\%]}} & \thead{klouzavý\\ průměr\\ {[\%]}} & \thead{průměr\\ {[\%]}}\\
    \hline 
    \hline 
-    1 & 0 & 100 & 0 & 0\\
+    1 & 0 & 0 & 0 & 0\\
     \hline
     3 & 7.69 & 13.33 & 13.33 & 72.22\\
     \hline

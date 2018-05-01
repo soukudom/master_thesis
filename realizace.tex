@@ -11,7 +11,7 @@
      umožňuje přijímání definovaných událostí v~rámci návrhového vzoru \textit{Observer}.
      Samotná komponenta \textit{collector}
      obsahuje ve svém popisu seznam jmen událostí, kterým přiřazuje pojmenování výstupního \textit{libtrap}
-     rozhraní. Formát názvu výstupu je vždy \textit{event-<názevUdálosti>}. 
+     rozhraní. Formát názvu výstupu je vždy ve tvaru \textit{event-<názevUdálosti>}. 
      
      Vytvořené názvy událostí jsou při spouštění programu pomocí C++ reflexe předány třídě kolektoru
      \textit{NemeaCollector}. Tato třída používá již vytvořené makro \textit{BEEEON\_OBJECT\_TEXT},
@@ -62,14 +62,6 @@ konstruktoru přijímá název konfiguračního souboru. Následně je možné v
 \textit{parseFile()}, která zpracovává jednotlivé konfigurační řádky a plní připravené struktury.
 Zároveň jsou inicializovány pole pro uchovávání vypočtených profilů.
 Jejich délka je specifikována preprocesorovou direktivou \textit{\#define DYNAMIC}.
-
-Načtení konfiguračního souboru má na starosti třída \textit{ConfigParser}, která neprovádí 
-žádnou kontrolu vstupních dat, protože se již od návrhu předpokládá, že konfigurace bude 
-generována odlišným programem, který zajistí správnost zadaných údajů. Jediný konstruktor třídy
- \textit{ConfigParser} očekává jako vstupní parametr řetězec s~cestou k~cílovému souboru. Během vytváření
- objektu jsou postupně zpracovány jednotlivé řádky zadaného souboru. Zároveň jsou inicializovány
- pole pro uchovávání vypočtených profilů. Jejich délka je specifikována preprocesorovou direktivou
- \textit{\#define DYNAMIC}.
  
 Pokud byly zadány parametry pro pravidelný export dat, tak se při inicializaci potřebných struktur
 zavolá funkce s~názvem \textit{initExportInterfaces()}, která vytvoří příslušná výstupní komunikační 
